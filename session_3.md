@@ -109,7 +109,7 @@ Ce travail de modélisation **conceptuelle** servira de base au passage vers le 
 
 ## 5. Code Mermaid pour le MCD client commande
 
-```mermaid
+```
 graph TD
     CLIENT["CLIENT
     id
