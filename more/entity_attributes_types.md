@@ -1,3 +1,4 @@
+# Les types d'attributs
 
 Choisir le type de données correct pour chaque attribut est fondamental pour:
 

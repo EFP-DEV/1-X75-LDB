@@ -1,4 +1,4 @@
-#Premiere forme normale: atomicité des données
+# 1NF - Premiere forme normale: atomicité des données
 
 Cette question examine le principe fondamental d'atomicité des données, un concept clé en modélisation de bases de données:
 

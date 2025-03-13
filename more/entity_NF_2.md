@@ -1,4 +1,4 @@
-La Deuxième Forme Normale (2NF) est une étape importante dans le processus de normalisation des bases de données qui s'appuie sur la Première Forme Normale (1NF).
+# 2NF - Deuxième forme normale: dépendances fonctionnelles
 
 **Définition de la 2NF:**
 Une table est en 2NF si et seulement si:
