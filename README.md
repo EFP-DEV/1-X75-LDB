@@ -29,7 +29,10 @@ Le module est structuré en **10 séances de 4 heures**, alternant entre théori
 ### **Séance 1 : Introduction et positionnement**
 - Présentation des objectifs et du rôle des bases de données.
 - Historique des bases de données et panorama des SGBD.
-- Introduction au modèle relationnel : entités, attributs, relations.
+- Définitions claires des concepts de base (tables, schémas, relations)
+- Explication progressive des éléments structurels (lignes, colonnes)
+- Présentation des différents types de relations (1:1, 1:M, M:N)
+- Exercices pratiques qui couvrent différents domaines d'application
 
 **Supports** : [Théorie](session_1.md) | [Exercices](session_1_exo.md)
 
