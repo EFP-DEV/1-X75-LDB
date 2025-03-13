@@ -52,40 +52,8 @@ Le **Modèle Conceptuel des Données (MCD)** est une représentation graphique e
 Voici un **exemple simplifié** de MCD pour illustrer la méthode MERISE.  
 Il s’agit d’un **système de commande** avec trois entités : **Client**, **Commande** et **Produit**.  
 
-```plaintext
-          ┌────────────┐
-          │   Client   │
-          ├────────────┤
-          │ id         │
-          │ nom        │
-          │ prenom     │
-          │ email      │
-          └────────────┘
-               │ 1,N
-               │
-               │ passe
-               │
-               │ 1,N
-          ┌────────────┐
-          │  Commande  │
-          ├────────────┤
-          │ id         │
-          │ creation   │
-          │ livraison  │
-          └────────────┘
-               │ 1,N
-               │
-               │ comporte
-               │
-               │ 1,1
-          ┌────────────┐
-          │  Produit   │
-          ├────────────┤
-          │ id         │
-          │ libelle    │
-          │ prix       │
-          └────────────┘
-```
+
+<img src="more/session_3_fig_mcd_ecom.svg" alt="drawing" width="400"/>
 
 ###  Interprétation
 
@@ -103,15 +71,20 @@ Il s’agit d’un **système de commande** avec trois entités : **Client**, **
 
 ### Associations et cardinalités
 
-- **Client** ⟶ **Commande**  
-  - **1,N** (Un client peut passer plusieurs commandes, et chaque commande est passée par un seul client).  
-  - Association nommée **« passe »**.  
+* **PASSE** : Relation entre CLIENT et COMMANDE
+   * Cardinalité (1,1) côté CLIENT : Un client passe au minimum 1 et au maximum 1 commande à la fois
+   * Cardinalité (0,N) côté COMMANDE : Une commande est passée par exactement un client, et un client peut avoir 0 ou plusieurs commandes
 
-- **Commande** ⟶ **Produit**  
-  - **1,N** côté commande et **1,1** côté produit (ici, simplifié pour l’exemple :  
-    - Supposons qu’une commande comporte **un produit** *dans cette représentation minimale*.  
-    - Dans la réalité, on introduirait généralement une entité **LigneCommande** pour gérer les commandes multi-produits).  
-  - Association nommée **« comporte »**.  
+* **COMPORTE** : Relation entre COMMANDE et PRODUIT
+   * Cardinalité (0,N) côté COMMANDE : Une commande peut contenir plusieurs produits
+   * Cardinalité (1,N) côté PRODUIT : Un produit peut appartenir à plusieurs commandes, et une commande contient au moins un produit
+
+## Points clés à comprendre
+* La cardinalité (1,1) pour CLIENT-PASSE indique qu'un client doit obligatoirement passer une commande
+* L'association COMPORTE permet d'implémenter une relation plusieurs-à-plusieurs entre commandes et produits
+* Les attributs dans chaque entité définissent les propriétés stockées (identifiants, dates, prix, etc.)
+
+Ce MCD représente un système simple de gestion de commandes en ligne.
 
 Cet exemple illustre comment on **décrit les entités et leurs attributs** et comment on **définit les cardinalités** des relations.  
 Il s’agit d’une base pour comprendre la **démarche MERISE** et préparer la suite (création du Modèle Logique, puis Modèle Physique).
@@ -132,4 +105,35 @@ Voici quelques exemples supplémentaires de MCD pour différents domaines :
 - L’**étude de cas** permet de mettre en pratique ces principes : n’oubliez pas de valider votre MCD avec les **interlocuteurs métier** pour vous assurer de sa pertinence.
 
 Ce travail de modélisation **conceptuelle** servira de base au passage vers le **modèle logique** (MLD), puis **physique** (création des tables SQL).  
+
+
+## 5. Code Mermaid pour le MCD client commande
+
+```mermaid
+graph TD
+    CLIENT["CLIENT
+    id
+    nom
+    prenom
+    email"]
+    
+    COMMANDE["COMMANDE
+    id
+    date_cmd
+    creation
+    livraison"]
+    
+    PRODUIT["PRODUIT
+    id
+    libelle
+    prix"]
+    
+    PASSE["PASSE"]
+    COMPORTE["COMPORTE"]
+    
+    CLIENT --- |"1,1"| PASSE
+    PASSE --- |"0,N"| COMMANDE
+    
+    COMMANDE --- |"0,N"| COMPORTE
+    COMPORTE --- |"1,N"| PRODUIT
 ```
