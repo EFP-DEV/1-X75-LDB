@@ -1,6 +1,6 @@
 # Title: MCD gestion de consultations médicales
 
-```mermaid
+```
 graph TD
     PATIENT[PATIENT
         id
