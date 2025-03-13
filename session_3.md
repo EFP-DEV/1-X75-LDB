@@ -9,6 +9,8 @@ Elle propose plusieurs niveaux de modélisation (conceptuel, logique, physique) 
 - **Niveau logique** : on décrit la **structure** de la base de données, en restant indépendant du SGBD.
 - **Niveau physique** : on définit la **mise en œuvre technique** de la base de données (tables, index, etc.).
 
+[would you like to know more?](more/MERISE.md)
+
 L’étape clé de cette séance est la construction du **Modèle Conceptuel des Données (MCD)**, qui permet de représenter **entités**, **associations** et **attributs** avant toute implémentation.
 
 ---

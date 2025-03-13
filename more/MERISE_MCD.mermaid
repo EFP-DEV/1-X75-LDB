@@ -1,0 +1,78 @@
+
+```mermaid
+erDiagram
+    APPRENANT ||--o{ STAGE : "effectue (1,N)"
+    APPRENANT ||--o{ CANDIDATURE : "soumet (1,N)"
+    ENTREPRISE ||--o{ OFFRE_STAGE : "propose (1,N)" 
+    OFFRE_STAGE ||--o{ CANDIDATURE : "reçoit (1,N)"
+    STAGE }|--|| OFFRE_STAGE : "correspond à (1,1)"
+    TUTEUR_PEDAGOGIQUE ||--o{ STAGE : "supervise (1,N)"
+    TUTEUR_ENTREPRISE ||--o{ STAGE : "encadre (1,N)"
+    FORMATION ||--o{ APPRENANT : "comprend (1,N)"
+    
+    APPRENANT {
+        string id
+        string nom
+        string prenom
+        string email
+        string telephone
+    }
+    
+    ENTREPRISE {
+        string id
+        string nom
+        string adresse
+        string secteur
+        string contact_email
+    }
+    
+    OFFRE_STAGE {
+        string id
+        string titre
+        string description
+        date date_debut
+        date date_fin
+        string competences_requises
+        float remuneration
+    }
+    
+    CANDIDATURE {
+        string id
+        date date_soumission
+        string statut
+        string lettre_motivation
+    }
+    
+    STAGE {
+        string id
+        date date_debut
+        date date_fin
+        string evaluation_entreprise
+        string evaluation_apprenant
+        string rapport_url
+    }
+    
+    TUTEUR_PEDAGOGIQUE {
+        string id
+        string nom
+        string prenom
+        string email
+        string specialite
+    }
+    
+    TUTEUR_ENTREPRISE {
+        string id
+        string nom
+        string prenom
+        string email
+        string fonction
+    }
+    
+    FORMATION {
+        string id
+        string nom
+        string niveau
+        string specialite
+        int duree_mois
+    }
+```

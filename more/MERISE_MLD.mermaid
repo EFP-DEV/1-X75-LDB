@@ -1,0 +1,89 @@
+
+```mermaid
+
+erDiagram
+    apprenants ||--o{ stages : "1,N"
+    apprenants ||--o{ candidatures : "1,N"
+    entreprises ||--o{ offres_stage : "1,N"
+    offres_stage ||--o{ candidatures : "1,N"
+    stages }|--|| offres_stage : "1,1"
+    tuteurs_pedagogiques ||--o{ stages : "1,N"
+    tuteurs_entreprise ||--o{ stages : "1,N"
+    formations ||--o{ apprenants : "1,N"
+    
+    apprenants {
+        VARCHAR apprenant_id PK
+        VARCHAR nom
+        VARCHAR prenom
+        VARCHAR email
+        VARCHAR telephone
+        VARCHAR formation_id FK
+    }
+    
+    entreprises {
+        VARCHAR entreprise_id PK
+        VARCHAR nom
+        VARCHAR adresse
+        VARCHAR secteur
+        VARCHAR contact_email
+    }
+    
+    offres_stage {
+        VARCHAR offre_id PK
+        VARCHAR titre
+        TEXT description
+        DATE date_debut
+        DATE date_fin
+        TEXT competences_requises
+        DECIMAL remuneration
+        VARCHAR entreprise_id FK
+    }
+    
+    candidatures {
+        VARCHAR candidature_id PK
+        DATE date_soumission
+        VARCHAR statut
+        TEXT lettre_motivation
+        VARCHAR apprenant_id FK
+        VARCHAR offre_id FK
+    }
+    
+    stages {
+        VARCHAR stage_id PK
+        DATE date_debut
+        DATE date_fin
+        TEXT evaluation_entreprise
+        TEXT evaluation_apprenant
+        VARCHAR rapport_url
+        VARCHAR apprenant_id FK
+        VARCHAR offre_id FK
+        VARCHAR tuteur_pedagogique_id FK
+        VARCHAR tuteur_entreprise_id FK
+    }
+    
+    tuteurs_pedagogiques {
+        VARCHAR tuteur_pedagogique_id PK
+        VARCHAR nom
+        VARCHAR prenom
+        VARCHAR email
+        VARCHAR specialite
+    }
+    
+    tuteurs_entreprise {
+        VARCHAR tuteur_entreprise_id PK
+        VARCHAR nom
+        VARCHAR prenom
+        VARCHAR email
+        VARCHAR fonction
+        VARCHAR entreprise_id FK
+    }
+    
+    formations {
+        VARCHAR formation_id PK
+        VARCHAR nom
+        VARCHAR niveau
+        VARCHAR specialite
+        INTEGER duree_mois
+    }
+
+```
