@@ -1,4 +1,4 @@
-# **LDB – Exercices de modélisation des tables simples**
+# **Exercices de modélisation des tables simples**
 
 ## **Objectif de l'exercice**
 L'objectif de cet exercice est de se familiariser avec la modélisation de bases de données en identifiant les **entités**, leurs **champs** et leurs **relations**. Cet exercice vous permettra de développer une approche méthodique dans la définition des structures de données.
