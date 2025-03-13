@@ -1,89 +1,99 @@
-
-```mermaid
-
-erDiagram
-    apprenants ||--o{ stages : "1,N"
-    apprenants ||--o{ candidatures : "1,N"
-    entreprises ||--o{ offres_stage : "1,N"
-    offres_stage ||--o{ candidatures : "1,N"
-    stages }|--|| offres_stage : "1,1"
-    tuteurs_pedagogiques ||--o{ stages : "1,N"
-    tuteurs_entreprise ||--o{ stages : "1,N"
-    formations ||--o{ apprenants : "1,N"
-    
-    apprenants {
-        VARCHAR apprenant_id PK
-        VARCHAR nom
-        VARCHAR prenom
-        VARCHAR email
-        VARCHAR telephone
-        VARCHAR formation_id FK
+---
+config:
+  layout: elk
+  look: neo
+  theme: mc
+---
+classDiagram
+direction TB
+    class FORMATION {
+	    nom: Chaîne
+	    niveau: Chaîne
+	    specialite: Chaîne
+	    duree_mois: Numérique
+	    id: Numérique(PK)
     }
-    
-    entreprises {
-        VARCHAR entreprise_id PK
-        VARCHAR nom
-        VARCHAR adresse
-        VARCHAR secteur
-        VARCHAR contact_email
+    class APPRENANT {
+	    nom: Chaîne
+	    prenom: Chaîne
+	    email: Chaîne
+	    telephone: Chaîne
+	    id: Numérique(PK)
     }
-    
-    offres_stage {
-        VARCHAR offre_id PK
-        VARCHAR titre
-        TEXT description
-        DATE date_debut
-        DATE date_fin
-        TEXT competences_requises
-        DECIMAL remuneration
-        VARCHAR entreprise_id FK
+    class ENTREPRISE {
+	    nom: Chaîne
+	    adresse: Chaîne
+	    secteur: Chaîne
+	    contact_email: Chaîne
+	    id: Numérique(PK)
     }
-    
-    candidatures {
-        VARCHAR candidature_id PK
-        DATE date_soumission
-        VARCHAR statut
-        TEXT lettre_motivation
-        VARCHAR apprenant_id FK
-        VARCHAR offre_id FK
+    class TUTEUR_PEDAGOGIQUE {
+	    nom: Chaîne
+	    prenom: Chaîne
+	    email: Chaîne
+	    specialite: Chaîne
+	    id: Numérique(PK)
     }
-    
-    stages {
-        VARCHAR stage_id PK
-        DATE date_debut
-        DATE date_fin
-        TEXT evaluation_entreprise
-        TEXT evaluation_apprenant
-        VARCHAR rapport_url
-        VARCHAR apprenant_id FK
-        VARCHAR offre_id FK
-        VARCHAR tuteur_pedagogique_id FK
-        VARCHAR tuteur_entreprise_id FK
+    class TUTEUR_ENTREPRISE {
+	    nom: Chaîne
+	    prenom: Chaîne
+	    email: Chaîne
+	    fonction: Chaîne
+	    id: Numérique(PK)
+	    entreprise_id: Numérique(FK)
     }
-    
-    tuteurs_pedagogiques {
-        VARCHAR tuteur_pedagogique_id PK
-        VARCHAR nom
-        VARCHAR prenom
-        VARCHAR email
-        VARCHAR specialite
+    class OFFRE_STAGE {
+	    titre: Chaîne
+	    description: Texte
+	    date_debut: Date
+	    date_fin: Date
+	    competences_requises: Texte
+	    remuneration: Numérique
+	    id: Numérique(PK)
+	    entreprise_id: Numérique(FK)
     }
-    
-    tuteurs_entreprise {
-        VARCHAR tuteur_entreprise_id PK
-        VARCHAR nom
-        VARCHAR prenom
-        VARCHAR email
-        VARCHAR fonction
-        VARCHAR entreprise_id FK
+    class CANDIDATURE {
+	    date_soumission: Date
+	    statut: Chaîne
+	    lettre_motivation: Texte
+	    id: Numérique(PK)
+	    apprenant_id: Numérique(FK)
+	    offre_stage_id: Numérique(FK)
     }
-    
-    formations {
-        VARCHAR formation_id PK
-        VARCHAR nom
-        VARCHAR niveau
-        VARCHAR specialite
-        INTEGER duree_mois
+    class STAGE {
+	    date_debut: Date
+	    date_fin: Date
+	    evaluation_entreprise: Texte
+	    evaluation_apprenant: Texte
+	    rapport_url: Chaîne
+	    id: Numérique(PK)
+	    apprenant_id: Numérique(FK)
+	    offre_stage_id: Numérique(FK)
     }
-
-```
+    class SUPERVISION {
+	    id: Numérique(PK)
+	    stage_id: Numérique(FK)
+	    tuteur_pedagogique_id: Numérique(FK)
+    }
+    class ENCADREMENT {
+	    id: Numérique(PK)
+	    stage_id: Numérique(FK)
+	    tuteur_entreprise_id: Numérique(FK)
+    }
+    class APPARTENANCE {
+	    id: Numérique(PK)
+	    apprenant_id: Numérique(FK)
+	    formation_id: Numérique(FK)
+    }
+    ENTREPRISE "1" -- "0..N" TUTEUR_ENTREPRISE : emploie
+    ENTREPRISE "1" -- "0..N" OFFRE_STAGE : propose
+    APPRENANT "1" -- "0..N" CANDIDATURE : soumet
+    OFFRE_STAGE "1" -- "0..N" CANDIDATURE : reçoit
+    APPRENANT "1" -- "0..1" STAGE : effectue
+    OFFRE_STAGE "1" -- "0..1" STAGE : correspond_à
+    STAGE "0..N" -- "1..N" SUPERVISION : possède
+    TUTEUR_PEDAGOGIQUE "1" -- "0..N" SUPERVISION : participe
+    STAGE "0..N" -- "1..N" ENCADREMENT : possède
+    TUTEUR_ENTREPRISE "1" -- "0..N" ENCADREMENT : participe
+    APPRENANT "0..N" -- "1..N" APPARTENANCE : possède
+    FORMATION "1" -- "0..N" APPARTENANCE : inclut

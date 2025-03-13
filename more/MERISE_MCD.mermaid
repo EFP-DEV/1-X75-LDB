@@ -1,78 +1,95 @@
-
-```mermaid
-erDiagram
-    APPRENANT ||--o{ STAGE : "effectue (1,N)"
-    APPRENANT ||--o{ CANDIDATURE : "soumet (1,N)"
-    ENTREPRISE ||--o{ OFFRE_STAGE : "propose (1,N)" 
-    OFFRE_STAGE ||--o{ CANDIDATURE : "reçoit (1,N)"
-    STAGE }|--|| OFFRE_STAGE : "correspond à (1,1)"
-    TUTEUR_PEDAGOGIQUE ||--o{ STAGE : "supervise (1,N)"
-    TUTEUR_ENTREPRISE ||--o{ STAGE : "encadre (1,N)"
-    FORMATION ||--o{ APPRENANT : "comprend (1,N)"
+graph TD
+    APPRENANT["APPRENANT
+    id
+    nom
+    prenom
+    email
+    telephone"]
     
-    APPRENANT {
-        string id
-        string nom
-        string prenom
-        string email
-        string telephone
-    }
+    ENTREPRISE["ENTREPRISE
+    id
+    nom
+    adresse
+    secteur
+    contact_email"]
     
-    ENTREPRISE {
-        string id
-        string nom
-        string adresse
-        string secteur
-        string contact_email
-    }
+    OFFRE_STAGE["OFFRE_STAGE
+    id
+    titre
+    description
+    date_debut
+    date_fin
+    competences_requises
+    remuneration"]
     
-    OFFRE_STAGE {
-        string id
-        string titre
-        string description
-        date date_debut
-        date date_fin
-        string competences_requises
-        float remuneration
-    }
+    CANDIDATURE["CANDIDATURE
+    id
+    date_soumission
+    statut
+    lettre_motivation"]
     
-    CANDIDATURE {
-        string id
-        date date_soumission
-        string statut
-        string lettre_motivation
-    }
+    STAGE["STAGE
+    id
+    date_debut
+    date_fin
+    evaluation_entreprise
+    evaluation_apprenant
+    rapport_url"]
     
-    STAGE {
-        string id
-        date date_debut
-        date date_fin
-        string evaluation_entreprise
-        string evaluation_apprenant
-        string rapport_url
-    }
+    TUTEUR_PEDAGOGIQUE["TUTEUR_PEDAGOGIQUE
+    id
+    nom
+    prenom
+    email
+    specialite"]
     
-    TUTEUR_PEDAGOGIQUE {
-        string id
-        string nom
-        string prenom
-        string email
-        string specialite
-    }
+    TUTEUR_ENTREPRISE["TUTEUR_ENTREPRISE
+    id
+    nom
+    prenom
+    email
+    fonction"]
     
-    TUTEUR_ENTREPRISE {
-        string id
-        string nom
-        string prenom
-        string email
-        string fonction
-    }
+    FORMATION["FORMATION
+    id
+    nom
+    niveau
+    specialite
+    duree_mois"]
     
-    FORMATION {
-        string id
-        string nom
-        string niveau
-        string specialite
-        int duree_mois
-    }
-```
+    EFFECTUE(("EFFECTUE"))
+    SOUMET(("SOUMET"))
+    PROPOSE(("PROPOSE"))
+    RECOIT(("RECOIT"))
+    CORRESPOND_A(("CORRESPOND A"))
+    SUPERVISE(("SUPERVISE"))
+    ENCADRE(("ENCADRE"))
+    COMPREND(("COMPREND"))
+    EMPLOIE(("EMPLOIE"))
+    
+    APPRENANT --- |"1,N"| EFFECTUE
+    EFFECTUE --- |"0,1"| STAGE
+    
+    APPRENANT --- |"1,N"| SOUMET
+    SOUMET --- |"0,N"| CANDIDATURE
+    
+    ENTREPRISE --- |"1,N"| PROPOSE
+    PROPOSE --- |"0,N"| OFFRE_STAGE
+    
+    OFFRE_STAGE --- |"1,N"| RECOIT
+    RECOIT --- |"0,N"| CANDIDATURE
+    
+    STAGE --- |"1,1"| CORRESPOND_A
+    CORRESPOND_A --- |"0,1"| OFFRE_STAGE
+    
+    TUTEUR_PEDAGOGIQUE --- |"1,N"| SUPERVISE
+    SUPERVISE --- |"0,N"| STAGE
+    
+    TUTEUR_ENTREPRISE --- |"1,N"| ENCADRE
+    ENCADRE --- |"0,N"| STAGE
+    
+    FORMATION --- |"1,N"| COMPREND
+    COMPREND --- |"0,N"| APPRENANT
+    
+    ENTREPRISE --- |"1,N"| EMPLOIE
+    EMPLOIE --- |"0,N"| TUTEUR_ENTREPRISE
