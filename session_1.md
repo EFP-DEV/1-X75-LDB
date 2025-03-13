@@ -1,4 +1,4 @@
-# **Introduction aux Concepts de Bases de Données**
+# Séance 1 :  **Introduction aux Concepts de Bases de Données**
 
 ## **1. Qu'est-ce qu'une Base de Données ?**
 Une **base de données** est une collection organisée de données stockées et gérées électroniquement. Les bases de données permettent aux utilisateurs de stocker, récupérer et manipuler des données de manière efficace en utilisant un logiciel spécialisé appelé **Système de Gestion de Base de Données (SGBD).**
