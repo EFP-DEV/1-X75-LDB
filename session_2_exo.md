@@ -89,7 +89,7 @@ VALUES
     - Madonna, Virgin Airlines CEO, dans le département Health and Safety.
 
 11. **Modifier le nom de famille d’un employé :**  
-    Quelle requête SQL permet de mettre à jour le nom de famille de 'Doe' en 'Smith' pour tous les employés nommés 'John' ?
+    Quelle requête SQL permet de changer le nom de famille en 'Smith' pour tous les employés nommés 'John' ?
 
 12. **Ajouter le salaire :**  
     Quelle requête SQL permet d’ajouter une colonne *salary*, obligatoire et, par défaut, représentant 10.000 ZNB ?  
