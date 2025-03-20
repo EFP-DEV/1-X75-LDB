@@ -6,515 +6,329 @@
 * Minimiser les anomalies - Prévenir les incohérences lors des opérations INSERT, UPDATE et DELETE
 * Optimiser les performances - Réduire l'espace de stockage et améliorer la vitesse des requêtes
 * Améliorer l'intégrité des données - Assurer la cohérence des données
+# Exemple progressif de normalisation d'une base de données
 
-## Exemple de données non normalisées
+## Table initiale non normalisée
 
-Voici les données pour la table non normalisée Films_Sessions_Ventes
+Considérons une table `Ventes` pour un magasin qui vend des produits informatiques :
 
+| ID_Vente | Date_Vente | ID_Client | Nom_Client | Email_Client | Téléphone_Client | Produits_Achetés | Noms_Produits | Catégories_Produits | Prix_Unitaires | Quantités | ID_Vendeur | Nom_Vendeur | Département_Vendeur |
+|----------|------------|-----------|------------|--------------|------------------|------------------|---------------|---------------------|----------------|-----------|------------|-------------|---------------------|
+| 1 | 10/03/2025 | C001 | Dupont Martin | dupont@email.com | 0123456789 | P001, P002 | Ordinateur portable, Souris sans fil | Informatique, Périphériques | 500€, 50€ | 1, 2 | V001 | Lefebvre Alice | Informatique |
+| 2 | 11/03/2025 | C002 | Durand Sophie | durand@email.com | 0234567890 | P002, P003, P004 | Souris sans fil, Casque audio, Clé USB | Périphériques, Audio, Stockage | 50€, 750€, 25€ | 1, 1, 3 | V002 | Moreau Jean | Audio |
+| 3 | 11/03/2025 | C001 | Dupont Martin | dupont@email.com | 0123456789 | P001, P005 | Ordinateur portable, PC de bureau | Informatique, Informatique | 500€, 1200€ | 1, 1 | V001 | Lefebvre Alice | Informatique |
 
-| id_film | titre_film       | genre_film      | réalisateur_film                         | année_sortie | id_salle | nom_salle      | capacité_salle | adresse_salle                              | id_session | date_heure           | tarif_normal | nom_client     | email_client              | nombre_billets | prix_total |
-|---------|------------------|-----------------|------------------------------------------|--------------|----------|----------------|----------------|-------------------------------------------|------------|----------------------|--------------|----------------|---------------------------|----------------|------------|
-| F001    | Interstellar     | Science-Fiction | Christopher Nolan                        | 2014         | S01      | Grand Rex      | 500            | 1 Boulevard Poissonnière, 75002 Paris     | SESS0101   | 2023-05-15 20:00:00  | 12.50        | Martin Dupont  | martin.dupont@email.com   | 2              | 25.00      |
-| F001    | Interstellar     | Science-Fiction | Christopher Nolan                        | 2014         | S01      | Grand Rex      | 500            | 1 Boulevard Poissonnière, 75002 Paris     | SESS0101   | 2023-05-15 20:00:00  | 12.50        | Sophie Durand  | sophie.durand@email.com   | 3              | 37.50      |
-| F002    | Le Parrain       | Drame          | Francis Ford Coppola                     | 1972         | S01      | Grand Rex      | 500            | 1 Boulevard Poissonnière, 75002 Paris     | SESS0103   | 2023-05-17 18:45:00  | 12.50        | Paul Lefebvre  | paul.lefebvre@email.com   | 2              | 25.00      |
-| F003    | Pulp Fiction     | Thriller       | Quentin Tarantino                        | 1994         | S02      | Cinéma Lumière | 300            | 20 Rue du Cinéma, 69002 Lyon              | SESS0202   | 2023-05-19 21:15:00  | 11.00        | Thomas Bernard | thomas.bernard@email.com  | 2              | 22.00      |
-| F004    | Matrix           | Science-Fiction | Lana Wachowski, Lilly Wachowski         | 1999         | S03      | Ciné Palace    | 200            | 5 Avenue des Arts, 13001 Marseille        | SESS0303   | 2023-05-21 16:45:00  | 9.50         | Julie Robert   | julie.robert@email.com    | 2              | 19.00      |
-| F005    | Cloud Atlas      | Science-Fiction | Tom Tykwer, Lana Wachowski, Lilly Wachowski | 2012      | S02      | Cinéma Lumière | 300            | 20 Rue du Cinéma, 69002 Lyon              | SESS0204   | 2023-05-22 18:30:00  | 11.00        | Marc Leblanc   | marc.leblanc@email.com    | 1              | 11.00      |
-| F005    | Cloud Atlas      | Science-Fiction | Tom Tykwer, Lana Wachowski, Lilly Wachowski | 2012      | S01      | Grand Rex      | 500            | 1 Boulevard Poissonnière, 75002 Paris     | SESS0105   | 2023-05-23 20:15:00  | 12.50        | Céline Petit   | celine.petit@email.com    | 3              | 37.50      |
-| F006    | Toy Story        | Animation      | John Lasseter                            | 1995         | S03      | Ciné Palace    | 200            | 5 Avenue des Arts, 13001 Marseille        | SESS0304   | 2023-05-24 14:00:00  | 9.50         | David Martin   | david.martin@email.com    | 4              | 38.00      |
-| F007    | Good Omens       | Comédie, Fantastique | Douglas Mackinnon                  | 2019         | S01      | Grand Rex      | 500            | 1 Boulevard Poissonnière, 75002 Paris     | SESS0106   | 2023-05-25 19:30:00  | 12.50        | Marie Dumont   | marie.dumont@email.com    | 2              | 25.00      |
+Cette table présente plusieurs problèmes :
+- Valeurs multiples dans des colonnes (Produits_Achetés, Prix_Unitaires, Quantités)
+- Redondance d'informations (informations client et vendeur répétées)
+- Dépendances transitives (ID_Vendeur détermine Nom_Vendeur et Département_Vendeur)
 
+## Première Forme Normale (1NF)
 
-## Infractions à la première forme normale (1NF)
+La 1NF exige l'atomicité des données (pas de valeurs multiples dans une colonne).
 
-La table Films_Sessions_Ventes présente plusieurs infractions à la première forme normale (1NF):
+### Table Ventes (1NF)
 
-1. Valeurs multiples dans une cellule:
-   - La colonne "genre_film" contient des valeurs multiples séparées par des virgules (ex: "Comédie, Fantastique" pour "Good Omens").
-   - La colonne "réalisateur_film" contient parfois plusieurs réalisateurs (ex: "Tom Tykwer, Lana Wachowski, Lilly Wachowski").
+| ID_Vente | Date_Vente | ID_Client | Nom_Client | Email_Client | Téléphone_Client | ID_Produit | Nom_Produit | Catégorie_Produit | Prix_Unitaire | Quantité | ID_Vendeur | Nom_Vendeur | Département_Vendeur |
+|----------|------------|-----------|------------|--------------|------------------|------------|-------------|-------------------|---------------|----------|------------|-------------|---------------------|
+| 1 | 10/03/2025 | C001 | Dupont Martin | dupont@email.com | 0123456789 | P001 | Ordinateur portable | Informatique | 500€ | 1 | V001 | Lefebvre Alice | Informatique |
+| 1 | 10/03/2025 | C001 | Dupont Martin | dupont@email.com | 0123456789 | P002 | Souris sans fil | Périphériques | 50€ | 2 | V001 | Lefebvre Alice | Informatique |
+| 2 | 11/03/2025 | C002 | Durand Sophie | durand@email.com | 0234567890 | P002 | Souris sans fil | Périphériques | 50€ | 1 | V002 | Moreau Jean | Audio |
+| 2 | 11/03/2025 | C002 | Durand Sophie | durand@email.com | 0234567890 | P003 | Casque audio | Audio | 750€ | 1 | V002 | Moreau Jean | Audio |
+| 2 | 11/03/2025 | C002 | Durand Sophie | durand@email.com | 0234567890 | P004 | Clé USB | Stockage | 25€ | 3 | V002 | Moreau Jean | Audio |
+| 3 | 11/03/2025 | C001 | Dupont Martin | dupont@email.com | 0123456789 | P001 | Ordinateur portable | Informatique | 500€ | 1 | V001 | Lefebvre Alice | Informatique |
+| 3 | 11/03/2025 | C001 | Dupont Martin | dupont@email.com | 0123456789 | P005 | PC de bureau | Informatique | 1200€ | 1 | V001 | Lefebvre Alice | Informatique |
 
-2. Données répétitives:
-   - Les informations sur les films (titre, genre, réalisateur, année) sont répétées plusieurs fois.
-   - Les informations sur les salles (nom, capacité, adresse) sont répétées.
-   - Les informations sur les sessions (date_heure, tarif) sont répétées.
+Nous avons éliminé les valeurs multiples, mais il reste des redondances. La clé primaire est maintenant composée : (ID_Vente, ID_Produit).
 
-3. Dépendances partielles:
-   - Les informations sur les films dépendent uniquement de id_film.
-   - Les informations sur les salles dépendent uniquement de id_salle.
-   - Les informations sur les sessions dépendent de id_session.
+**Note sur la clé primaire :**
+---
+ID_Client n'est pas inclus dans la clé primaire pour plusieurs raisons techniques et conceptuelles:
 
-4. Les adresses ne sont pas atomiques
+* Dépendance fonctionnelle - ID_Client est déterminé par ID_Vente. Pour chaque ID_Vente, il n'y a qu'un seul ID_Client possible. Cette dépendance fonctionnelle (ID_Vente → ID_Client) signifie que ID_Client est un attribut déterminé par une partie de la clé primaire.
+* Minimalité de la clé - Une bonne clé primaire doit être minimale. Si (ID_Vente, ID_Produit) suffit déjà à identifier de façon unique chaque ligne, ajouter ID_Client serait redondant et violerait le principe de minimalité.
+* Cohérence des données - Un même ID_Vente ne peut être associé qu'à un seul client. Si on incluait ID_Client dans la clé, cela pourrait théoriquement permettre qu'une même vente soit associée à plusieurs clients, ce qui n'a pas de sens dans le modèle métier.
+* Conception logique - La clé primaire (ID_Vente, ID_Produit) reflète correctement que chaque ligne représente un produit spécifique dans une vente spécifique, et non pas un produit spécifique acheté par un client spécifique dans une vente spécifique.
 
+En résumé, ID_Client est un attribut descriptif de la vente et non un identifiant de ligne dans le contexte de la 1NF.
 
-## Solutions 1NF# Résolution des infractions à la 1NF
+## Deuxième Forme Normale (2NF)
 
-Pour résoudre les infractions à la première forme normale (1NF), je vais décomposer la table `Films_Sessions_Ventes` en plusieurs tables avec des données atomiques.
+La 2NF exige l'élimination des dépendances partielles dans les tables avec des clés primaires composées.
 
-## Procédure de normalisation
+Dans notre cas, plusieurs attributs dépendent uniquement d'une partie de la clé composée (ID_Vente, ID_Produit) :
+- Les informations client (Nom_Client, Email_Client, Téléphone_Client) dépendent uniquement de ID_Client
+- Les informations vente (Date_Vente, ID_Client, ID_Vendeur) dépendent uniquement de ID_Vente
+- Les informations produit (Nom_Produit, Catégorie_Produit, Prix_Unitaire) dépendent uniquement de ID_Produit
 
-1. **Division de la table d'origine** en tables distinctes:
-   - Table Films
-   - Table Genres (pour gérer les valeurs multiples de genre)
-   - Table Réalisateurs (pour gérer les valeurs multiples de réalisateurs)
-   - Table Salles
-   - Table Sessions
-   - Table Ventes
+### Table Clients (2NF)
 
-2. **Décomposition des adresses** en composants atomiques
+| ID_Client | Nom_Client | Email_Client | Téléphone_Client |
+|-----------|------------|--------------|------------------|
+| C001 | Dupont Martin | dupont@email.com | 0123456789 |
+| C002 | Durand Sophie | durand@email.com | 0234567890 |
 
-3. **Création de tables de liaison** pour gérer les relations many-to-many:
-   - Table Film_Genre
-   - Table Film_Réalisateur
+### Table Ventes (2NF)
 
-## Tables résultantes
+| ID_Vente | Date_Vente | ID_Client | ID_Vendeur |
+|----------|------------|-----------|------------|
+| 1 | 10/03/2025 | C001 | V001 |
+| 2 | 11/03/2025 | C002 | V002 |
+| 3 | 11/03/2025 | C001 | V001 |
 
-### Table Films
-```markdown
-| id_film | titre_film       | année_sortie |
-|---------|------------------|--------------|
-| F001    | Interstellar     | 2014         |
-| F002    | Le Parrain       | 1972         |
-| F003    | Pulp Fiction     | 1994         |
-| F004    | Matrix           | 1999         |
-| F005    | Cloud Atlas      | 2012         |
-| F006    | Toy Story        | 1995         |
-| F007    | Good Omens       | 2019         |
-```
+### Table Produits (2NF)
 
-### Table Genres
-```markdown
-| id_genre | nom_genre      |
-|----------|----------------|
-| G01      | Science-Fiction|
-| G02      | Drame          |
-| G03      | Thriller       |
-| G04      | Animation      |
-| G05      | Comédie        |
-| G06      | Fantastique    |
-```
+| ID_Produit | Nom_Produit | Catégorie_Produit | Prix_Unitaire |
+|------------|-------------|-------------------|---------------|
+| P001 | Ordinateur portable | Informatique | 500€ |
+| P002 | Souris sans fil | Périphériques | 50€ |
+| P003 | Casque audio | Audio | 750€ |
+| P004 | Clé USB | Stockage | 25€ |
+| P005 | PC de bureau | Informatique | 1200€ |
 
-### Table Film_Genre (relation many-to-many)
-```markdown
-| id_film | id_genre |
-|---------|----------|
-| F001    | G01      |
-| F002    | G02      |
-| F003    | G03      |
-| F004    | G01      |
-| F005    | G01      |
-| F006    | G04      |
-| F007    | G05      |
-| F007    | G06      |
-```
+### Table Détails_Ventes (2NF)
 
-### Table Réalisateurs
-```markdown
-| id_realisateur | nom_realisateur    |
-|----------------|--------------------|
-| R01            | Christopher Nolan  |
-| R02            | Francis Ford Coppola|
-| R03            | Quentin Tarantino  |
-| R04            | Lana Wachowski     |
-| R05            | Lilly Wachowski    |
-| R06            | Tom Tykwer         |
-| R07            | John Lasseter      |
-| R08            | Douglas Mackinnon  |
-```
+| ID_Vente | ID_Produit | Quantité |
+|----------|------------|----------|
+| 1 | P001 | 1 |
+| 1 | P002 | 2 |
+| 2 | P002 | 1 |
+| 2 | P003 | 1 |
+| 2 | P004 | 3 |
+| 3 | P001 | 1 |
+| 3 | P005 | 1 |
 
-### Table Film_Réalisateur (relation many-to-many)
-```markdown
-| id_film | id_realisateur |
-|---------|----------------|
-| F001    | R01            |
-| F002    | R02            |
-| F003    | R03            |
-| F004    | R04            |
-| F004    | R05            |
-| F005    | R04            |
-| F005    | R05            |
-| F005    | R06            |
-| F006    | R07            |
-| F007    | R08            |
-```
+### Table Vendeurs (2NF)
 
-### Table Salles
-```markdown
-| id_salle | nom_salle      | capacité_salle | rue                   | numero | ville    | code_postal |
-|----------|----------------|----------------|----------------------|--------|----------|------------|
-| S01      | Grand Rex      | 500            | Boulevard Poissonnière| 1      | Paris    | 75002      |
-| S02      | Cinéma Lumière | 300            | Rue du Cinéma        | 20     | Lyon     | 69002      |
-| S03      | Ciné Palace    | 200            | Avenue des Arts      | 5      | Marseille| 13001      |
-```
+| ID_Vendeur | Nom_Vendeur | Département_Vendeur |
+|------------|-------------|---------------------|
+| V001 | Lefebvre Alice | Informatique |
+| V002 | Moreau Jean | Audio |
 
-### Table Sessions
-```markdown
-| id_session | id_film | id_salle | date_heure           | tarif_normal |
-|------------|---------|----------|----------------------|--------------|
-| SESS0101   | F001    | S01      | 2023-05-15 20:00:00  | 12.50        |
-| SESS0103   | F002    | S01      | 2023-05-17 18:45:00  | 12.50        |
-| SESS0202   | F003    | S02      | 2023-05-19 21:15:00  | 11.00        |
-| SESS0303   | F004    | S03      | 2023-05-21 16:45:00  | 9.50         |
-| SESS0204   | F005    | S02      | 2023-05-22 18:30:00  | 11.00        |
-| SESS0105   | F005    | S01      | 2023-05-23 20:15:00  | 12.50        |
-| SESS0304   | F006    | S03      | 2023-05-24 14:00:00  | 9.50         |
-| SESS0106   | F007    | S01      | 2023-05-25 19:30:00  | 12.50        |
-```
+Nous avons éliminé les dépendances partielles. Notez que les informations sur les produits (y compris le prix) ont été extraites dans leur propre table à cette étape, car elles dépendent uniquement de ID_Produit.
 
-### Table Ventes
-```markdown
-| id_vente | id_session | nom_client     | email_client              | nombre_billets | prix_total |
-|----------|------------|----------------|---------------------------|----------------|------------|
-| V001     | SESS0101   | Martin Dupont  | martin.dupont@email.com   | 2              | 25.00      |
-| V002     | SESS0101   | Sophie Durand  | sophie.durand@email.com   | 3              | 37.50      |
-| V003     | SESS0103   | Paul Lefebvre  | paul.lefebvre@email.com   | 2              | 25.00      |
-| V004     | SESS0202   | Thomas Bernard | thomas.bernard@email.com  | 2              | 22.00      |
-| V005     | SESS0303   | Julie Robert   | julie.robert@email.com    | 2              | 19.00      |
-| V006     | SESS0204   | Marc Leblanc   | marc.leblanc@email.com    | 1              | 11.00      |
-| V007     | SESS0105   | Céline Petit   | celine.petit@email.com    | 3              | 37.50      |
-| V008     | SESS0304   | David Martin   | david.martin@email.com    | 4              | 38.00      |
-| V009     | SESS0106   | Marie Dumont   | marie.dumont@email.com    | 2              | 25.00      |
-```
+## Troisième Forme Normale (3NF)
 
-Ces modifications résolvent toutes les infractions à la 1NF:
-- Chaque cellule contient maintenant une valeur atomique
-- Les valeurs multiples sont gérées par des tables de liaison
-- Les données répétitives sont éliminées
-- Les adresses sont décomposées en éléments atomiques
-- Chaque table a une clé primaire appropriée
+La 3NF exige l'élimination des dépendances transitives. 
 
+Dans notre schéma 2NF, nous avons déjà placé les informations produit dans une table séparée, donc une grande partie du travail de la 3NF est déjà accomplie. Cependant, nous devons encore examiner d'autres dépendances transitives potentielles.
 
-## Infractions 2NF
+Il existe une dépendance transitive dans la table Vendeurs : Département_Vendeur pourrait dépendre du département auquel appartient un vendeur, plutôt que directement de l'ID_Vendeur. Pour une normalisation plus poussée, nous pourrions extraire cette information dans une table Départements.
 
-Pour analyser les infractions à la deuxième forme normale (2NF), je dois d'abord identifier les clés primaires de chaque table, puis vérifier si des attributs non-clés dépendent seulement d'une partie de la clé primaire (dépendance partielle).
+### Table Départements (3NF)
 
-Voici l'analyse des infractions 2NF dans les tables restructurées:
+| ID_Département | Nom_Département |
+|----------------|-----------------|
+| D001 | Informatique |
+| D002 | Audio |
 
-1. **Table Films**: Clé primaire = id_film
-   - Pas d'infraction 2NF (tous les attributs dépendent de la clé complète)
+### Table Vendeurs (3NF) - Modifiée
 
-2. **Table Genres**: Clé primaire = id_genre
-   - Pas d'infraction 2NF (tous les attributs dépendent de la clé complète)
+| ID_Vendeur | Nom_Vendeur | ID_Département |
+|------------|-------------|----------------|
+| V001 | Lefebvre Alice | D001 |
+| V002 | Moreau Jean | D002 |
 
-3. **Table Films_Genres**: Clé primaire composite = (id_film, id_genre)
-   - Pas d'attributs non-clés, donc pas d'infraction 2NF
+### Table Produits (déjà en 3NF)
 
-4. **Table Réalisateurs**: Clé primaire = id_realisateur
-   - Pas d'infraction 2NF (tous les attributs dépendent de la clé complète)
+| ID_Produit | Nom_Produit | Catégorie_Produit | Prix_Unitaire |
+|------------|-------------|-------------------|---------------|
+| P001 | Ordinateur portable | Informatique | 500€ |
+| P002 | Souris sans fil | Périphériques | 50€ |
+| P003 | Casque audio | Audio | 750€ |
+| P004 | Clé USB | Stockage | 25€ |
+| P005 | PC de bureau | Informatique | 1200€ |
 
-5. **Table Films_Réalisateurs**: Clé primaire composite = (id_film, id_realisateur)
-   - Pas d'attributs non-clés, donc pas d'infraction 2NF
+### Table Détails_Ventes (déjà en 3NF)
 
-6. **Table Salles**: Clé primaire = id_salle
-   - Pas d'infraction 2NF (tous les attributs dépendent de la clé complète)
+| ID_Vente | ID_Produit | Quantité |
+|----------|------------|----------|
+| 1 | P001 | 1 |
+| 1 | P002 | 2 |
+| 2 | P002 | 1 |
+| 2 | P003 | 1 |
+| 2 | P004 | 3 |
+| 3 | P001 | 1 |
+| 3 | P005 | 1 |
 
-7. **Table Sessions**: Clé primaire = id_session
-   - **Infraction 2NF détectée**: tarif_normal dépend seulement de id_salle et non de la clé primaire complète id_session. Le tarif est probablement une caractéristique de la salle de cinéma, pas de la session spécifique.
+De même, on pourrait normaliser davantage les catégories de produits si nécessaire.
 
-8. **Table Clients**: Clé primaire = id_client
-   - Pas d'infraction 2NF (tous les attributs dépendent de la clé complète)
+## Résumé des transformations
 
-9. **Table Ventes**: Clé primaire = id_vente
-   - **Infraction 2NF potentielle**: prix_total est calculé à partir de nombre_billets et du tarif_normal (qui lui-même provient de la table Sessions). Si on considère que la clé primaire est composite, le prix_total pourrait ne pas dépendre uniquement de id_vente mais être dérivé d'autres attributs.
+1. **Non normalisée → 1NF** : Élimination des valeurs multiples dans les colonnes
+   - Chaque cellule contient une seule valeur atomique
+   - Expansion des listes de valeurs en plusieurs lignes
 
-Infractions 2NF identifiées:
-1. Dans la table Sessions: tarif_normal dépend de id_salle et non de id_session
-2. Dans la table Ventes: prix_total est calculé à partir d'autres attributs et pourrait être considéré comme une dépendance partielle si on utilise une clé composite
+2. **1NF → 2NF** : Élimination des dépendances partielles
+   - Création de tables distinctes pour les clients, ventes, produits et vendeurs
+   - Séparation des données qui dépendent uniquement d'une partie de la clé composée
+   - Extraction des informations produit (Nom_Produit, Catégorie_Produit, Prix_Unitaire) dans une table dédiée
 
-## Corrections 2NF
-Voici les corrections pour résoudre les infractions à la 2NF identifiées:
+3. **2NF → 3NF** : Élimination des dépendances transitives
+   - Séparation des données qui dépendent d'attributs non-clés
+   - Extraction des informations sur les départements dans une table dédiée
+   - Possibilité d'extraire d'autres entités comme les catégories de produits
 
-**1. Correction pour tarif_normal dans Sessions**
+## Avantages progressifs obtenus
 
-Déplacer tarif_normal de la table Sessions vers la table Salles, puisque le tarif dépend de la salle et non de la session spécifique.
+À chaque étape de normalisation, nous obtenons des améliorations:
 
-**2. Correction pour prix_total dans Ventes**
+1. **1NF**: Facilite les recherches et les calculs en rendant les données atomiques
 
-Supprimer prix_total de la table Ventes car il s'agit d'une donnée calculée qui peut être dérivée à partir du nombre de billets et du tarif normal de la salle:
+2. **2NF**: 
+   - Réduit la redondance (les noms de produits ne sont plus répétés pour chaque vente)
+   - Facilite les mises à jour (changer le prix d'un produit se fait en un seul endroit)
+   - Structure les données selon leur nature logique
 
-Le prix_total pourra être calculé dynamiquement avec une requête SQL:
+3. **3NF**:
+   - Élimine les dépendances transitives restantes
+   - Maximise la cohérence des données
+   - Optimise le stockage
+   - Minimise les risques d'anomalies lors des opérations d'insertion, mise à jour et suppression
+
+Chaque forme normale résout un type spécifique de problème de redondance et améliore l'intégrité des données.
+
+---
+Voici les requêtes SQL adaptées pour obtenir l'historique des achats du client C001 pour chaque version de notre schéma, avec leurs résultats respectifs :
+
+## Version Non Normalisée
 
 ```sql
-SELECT v.id_vente, v.id_session, v.id_client, v.nombre_billets, 
-       (v.nombre_billets * s.tarif_normal) AS prix_total
-FROM Ventes v
-JOIN Sessions sess ON v.id_session = sess.id_session
-JOIN Salles s ON sess.id_salle = s.id_salle
+SELECT ID_Vente, Date_Vente, Produits_Achetés, Noms_Produits, Catégories_Produits, 
+       Prix_Unitaires, Quantités, Nom_Vendeur
+FROM Ventes
+WHERE ID_Client = 'C001';
 ```
 
+**Résultat :**
+```
+| ID_Vente | Date_Vente | Produits_Achetés | Noms_Produits                      | Catégories_Produits           | Prix_Unitaires | Quantités | Nom_Vendeur    |
+|----------|------------|------------------|------------------------------------|---------------------------------|----------------|-----------|----------------|
+| 1        | 10/03/2025 | P001, P002       | Ordinateur portable, Souris sans fil | Informatique, Périphériques    | 500€, 50€      | 1, 2      | Lefebvre Alice |
+| 3        | 11/03/2025 | P001, P005       | Ordinateur portable, PC de bureau   | Informatique, Informatique     | 500€, 1200€    | 1, 1      | Lefebvre Alice |
+```
 
-**Table Salles (corrigée)**
-| id_salle | nom_salle      | capacité_salle | rue                  | numero | ville    | code_postal | tarif_normal |
-|----------|----------------|----------------|----------------------|--------|----------|------------|--------------|
-| S01      | Grand Rex      | 500            | Boulevard Poissonnière| 1      | Paris    | 75002      | 12.50        |
-| S02      | Cinéma Lumière | 300            | Rue du Cinéma        | 20     | Lyon     | 69002      | 11.00        |
-| S03      | Ciné Palace    | 200            | Avenue des Arts      | 5      | Marseille| 13001      | 9.50         |
+## Version 1NF
 
-**Table Sessions (corrigée)**
-| id_session | id_film | id_salle | date_heure           |
-|------------|---------|----------|----------------------|
-| SESS0101   | F001    | S01      | 2023-05-15 20:00:00  |
-| SESS0103   | F002    | S01      | 2023-05-17 18:45:00  |
-| SESS0202   | F003    | S02      | 2023-05-19 21:15:00  |
-| SESS0303   | F004    | S03      | 2023-05-21 16:45:00  |
-| SESS0204   | F005    | S02      | 2023-05-22 18:30:00  |
-| SESS0105   | F005    | S01      | 2023-05-23 20:15:00  |
-| SESS0304   | F006    | S03      | 2023-05-24 14:00:00  |
-| SESS0106   | F007    | S01      | 2023-05-25 19:30:00  |
+```sql
+SELECT ID_Vente, Date_Vente, ID_Produit, Nom_Produit, Catégorie_Produit, Prix_Unitaire, Quantité, Nom_Vendeur 
+FROM Ventes 
+WHERE ID_Client = 'C001';
+```
 
+**Résultat :**
+```
+| ID_Vente | Date_Vente | ID_Produit | Nom_Produit         | Catégorie_Produit | Prix_Unitaire | Quantité | Nom_Vendeur    |
+|----------|------------|------------|---------------------|-------------------|---------------|----------|----------------|
+| 1        | 10/03/2025 | P001       | Ordinateur portable | Informatique      | 500€          | 1        | Lefebvre Alice |
+| 1        | 10/03/2025 | P002       | Souris sans fil     | Périphériques     | 50€           | 2        | Lefebvre Alice |
+| 3        | 11/03/2025 | P001       | Ordinateur portable | Informatique      | 500€          | 1        | Lefebvre Alice |
+| 3        | 11/03/2025 | P005       | PC de bureau        | Informatique      | 1200€         | 1        | Lefebvre Alice |
+```
 
-Ces modifications corrigent les infractions à la 2NF en:
-1. Déplaçant l'attribut tarif_normal vers la table Salles où il dépend pleinement de la clé primaire
-2. Supprimant l'attribut prix_total qui est une donnée calculée et qui pourrait introduire des incohérences dans la base de données
+## Version 2NF
 
-Toutes les tables respectent maintenant à la fois la 1NF et la 2NF.
+```sql
+SELECT v.ID_Vente, v.Date_Vente, dv.ID_Produit, p.Nom_Produit, p.Catégorie_Produit, 
+       p.Prix_Unitaire, dv.Quantité, vend.Nom_Vendeur
+FROM Ventes v
+JOIN Détails_Ventes dv ON v.ID_Vente = dv.ID_Vente
+JOIN Produits p ON dv.ID_Produit = p.ID_Produit
+JOIN Vendeurs vend ON v.ID_Vendeur = vend.ID_Vendeur
+WHERE v.ID_Client = 'C001';
+```
+
+**Résultat :**
+```
+| ID_Vente | Date_Vente | ID_Produit | Nom_Produit         | Catégorie_Produit | Prix_Unitaire | Quantité | Nom_Vendeur    |
+|----------|------------|------------|---------------------|-------------------|---------------|----------|----------------|
+| 1        | 10/03/2025 | P001       | Ordinateur portable | Informatique      | 500€          | 1        | Lefebvre Alice |
+| 1        | 10/03/2025 | P002       | Souris sans fil     | Périphériques     | 50€           | 2        | Lefebvre Alice |
+| 3        | 11/03/2025 | P001       | Ordinateur portable | Informatique      | 500€          | 1        | Lefebvre Alice |
+| 3        | 11/03/2025 | P005       | PC de bureau        | Informatique      | 1200€         | 1        | Lefebvre Alice |
+```
+
+## Version 3NF
+
+```sql
+SELECT v.ID_Vente, v.Date_Vente, dv.ID_Produit, p.Nom_Produit, p.Catégorie_Produit, 
+       p.Prix_Unitaire, dv.Quantité, vend.Nom_Vendeur, dept.Nom_Département
+FROM Ventes v
+JOIN Détails_Ventes dv ON v.ID_Vente = dv.ID_Vente
+JOIN Produits p ON dv.ID_Produit = p.ID_Produit
+JOIN Vendeurs vend ON v.ID_Vendeur = vend.ID_Vendeur
+JOIN Départements dept ON vend.ID_Département = dept.ID_Département
+WHERE v.ID_Client = 'C001';
+```
+
+**Résultat :**
+```
+| ID_Vente | Date_Vente | ID_Produit | Nom_Produit         | Catégorie_Produit | Prix_Unitaire | Quantité | Nom_Vendeur    | Nom_Département |
+|----------|------------|------------|---------------------|-------------------|---------------|----------|----------------|-----------------|
+| 1        | 10/03/2025 | P001       | Ordinateur portable | Informatique      | 500€          | 1        | Lefebvre Alice | Informatique    |
+| 1        | 10/03/2025 | P002       | Souris sans fil     | Périphériques     | 50€           | 2        | Lefebvre Alice | Informatique    |
+| 3        | 11/03/2025 | P001       | Ordinateur portable | Informatique      | 500€          | 1        | Lefebvre Alice | Informatique    |
+| 3        | 11/03/2025 | P005       | PC de bureau        | Informatique      | 1200€         | 1        | Lefebvre Alice | Informatique    |
+```
+
+**Observations importantes :**
+
+1. Les résultats finaux sont identiques visuellement pour les versions 1NF, 2NF et 3NF, mais la structure interne des tables est fondamentalement différente.
+
+2. La complexité des requêtes augmente avec le niveau de normalisation (plus de jointures) mais offre des avantages en termes de:
+   - Intégrité des données
+   - Réduction de la redondance
+   - Facilité de maintenance
+   - Cohérence des informations
+
+3. La version non normalisée est la seule qui présente un résultat vraiment différent, avec les données regroupées dans des chaînes de caractères.
+
+4. Dans la version 3NF, nous avons ajouté une information supplémentaire (Nom_Département) qui n'était pas disponible directement dans les versions précédentes.
+
+Ces requêtes montrent comment accéder aux mêmes informations malgré des structures de données de plus en plus normalisées.
 
 ---
 
-# Résolution des infractions à la 3NF
+## Version 3NF, sous forme non normalisée
 
-Pour identifier les infractions à la troisième forme normale (3NF), je dois analyser si nos tables normalisées en 2NF contiennent des dépendances transitives (où un attribut non-clé dépend d'un autre attribut non-clé).
-
-## Infractions à la 3NF identifiées
-
-Dans notre modèle normalisé en 2NF, les tables suivantes présentent des infractions à la 3NF:
-
-1. **Table Ventes**: 
-   - Les attributs `nom_client` et `email_client` dépendent l'un de l'autre et devraient être dans une table clients séparée
-   
-2. **Table Salles**:
-   - L'adresse (composée de `rue`, `numero`, `ville`, `code_postal`) pourrait bénéficier d'une normalisation supplémentaire, car `code_postal` détermine partiellement `ville`
-
-## Procédure de normalisation 3NF
-
-1. **Création d'une table Clients**:
-   - Extraire les informations de clients dans une table séparée
-   - Ajouter une clé étrangère dans la table Ventes
-
-2. **Normalisation des adresses**:
-   - Créer une table Villes pour éliminer la dépendance transitive entre code postal et ville
-   - Référencer la table Villes depuis la table Salles
-
-## Tables résultantes après normalisation 3NF
-
-### Table Films (inchangée)
-```markdown
-| id_film | titre_film       | année_sortie |
-|---------|------------------|--------------|
-| F001    | Interstellar     | 2014         |
-| F002    | Le Parrain       | 1972         |
-| F003    | Pulp Fiction     | 1994         |
-| F004    | Matrix           | 1999         |
-| F005    | Cloud Atlas      | 2012         |
-| F006    | Toy Story        | 1995         |
-| F007    | Good Omens       | 2019         |
-```
-
-### Table Genres (inchangée)
-```markdown
-| id_genre | nom_genre      |
-|----------|----------------|
-| G01      | Science-Fiction|
-| G02      | Drame          |
-| G03      | Thriller       |
-| G04      | Animation      |
-| G05      | Comédie        |
-| G06      | Fantastique    |
-```
-
-### Table Film_Genre (inchangée)
-```markdown
-| id_film | id_genre |
-|---------|----------|
-| F001    | G01      |
-| F002    | G02      |
-| F003    | G03      |
-| F004    | G01      |
-| F005    | G01      |
-| F006    | G04      |
-| F007    | G05      |
-| F007    | G06      |
-```
-
-### Table Réalisateurs (inchangée)
-```markdown
-| id_realisateur | nom_realisateur    |
-|----------------|--------------------|
-| R01            | Christopher Nolan  |
-| R02            | Francis Ford Coppola|
-| R03            | Quentin Tarantino  |
-| R04            | Lana Wachowski     |
-| R05            | Lilly Wachowski    |
-| R06            | Tom Tykwer         |
-| R07            | John Lasseter      |
-| R08            | Douglas Mackinnon  |
-```
-
-### Table Film_Réalisateur (inchangée)
-```markdown
-| id_film | id_realisateur |
-|---------|----------------|
-| F001    | R01            |
-| F002    | R02            |
-| F003    | R03            |
-| F004    | R04            |
-| F004    | R05            |
-| F005    | R04            |
-| F005    | R05            |
-| F005    | R06            |
-| F006    | R07            |
-| F007    | R08            |
-```
-
-### Table Villes (nouvelle table)
-```markdown
-| id_ville | code_postal | nom_ville |
-|----------|-------------|-----------|
-| V01      | 75002       | Paris     |
-| V02      | 69002       | Lyon      |
-| V03      | 13001       | Marseille |
-```
-
-### Table Salles (modifiée)
-```markdown
-| id_salle | nom_salle      | capacité_salle | rue                  | numero | id_ville | tarif_normal |
-|----------|----------------|----------------|----------------------|--------|----------|--------------|
-| S01      | Grand Rex      | 500            | Boulevard Poissonnière| 1      | V01      | 12.50        |
-| S02      | Cinéma Lumière | 300            | Rue du Cinéma        | 20     | V02      | 11.00        |
-| S03      | Ciné Palace    | 200            | Avenue des Arts      | 5      | V03      | 9.50         |
-```
-
-### Table Sessions (inchangée)
-```markdown
-| id_session | id_film | id_salle | date_heure           |
-|------------|---------|----------|----------------------|
-| SESS0101   | F001    | S01      | 2023-05-15 20:00:00  |
-| SESS0103   | F002    | S01      | 2023-05-17 18:45:00  |
-| SESS0202   | F003    | S02      | 2023-05-19 21:15:00  |
-| SESS0303   | F004    | S03      | 2023-05-21 16:45:00  |
-| SESS0204   | F005    | S02      | 2023-05-22 18:30:00  |
-| SESS0105   | F005    | S01      | 2023-05-23 20:15:00  |
-| SESS0304   | F006    | S03      | 2023-05-24 14:00:00  |
-| SESS0106   | F007    | S01      | 2023-05-25 19:30:00  |
-```
-
-### Table Clients (nouvelle table)
-```markdown
-| id_client | nom_client     | email_client              |
-|-----------|----------------|---------------------------|
-| C01       | Martin Dupont  | martin.dupont@email.com   |
-| C02       | Sophie Durand  | sophie.durand@email.com   |
-| C03       | Paul Lefebvre  | paul.lefebvre@email.com   |
-| C04       | Thomas Bernard | thomas.bernard@email.com  |
-| C05       | Julie Robert   | julie.robert@email.com    |
-| C06       | Marc Leblanc   | marc.leblanc@email.com    |
-| C07       | Céline Petit   | celine.petit@email.com    |
-| C08       | David Martin   | david.martin@email.com    |
-| C09       | Marie Dumont   | marie.dumont@email.com    |
-```
-
-### Table Ventes (modifiée)
-```markdown
-| id_vente | id_session | id_client | nombre_billets |
-|----------|------------|-----------|----------------|
-| V001     | SESS0101   | C01       | 2              |
-| V002     | SESS0101   | C02       | 3              |
-| V003     | SESS0103   | C03       | 2              |
-| V004     | SESS0202   | C04       | 2              |
-| V005     | SESS0303   | C05       | 2              |
-| V006     | SESS0204   | C06       | 1              |
-| V007     | SESS0105   | C07       | 3              |
-| V008     | SESS0304   | C08       | 4              |
-| V009     | SESS0106   | C09       | 2              |
-```
-
-Ces modifications résolvent les infractions à la 3NF en:
-1. Éliminant les dépendances transitives entre attributs non-clés
-2. Séparant les informations des clients dans une table dédiée
-3. Normalisant les informations géographiques (villes et codes postaux)
-4. Supprimant les attributs calculés comme le prix_total
-
-Le modèle est maintenant conforme à la 3NF, avec chaque attribut dépendant directement de la clé et uniquement de la clé.
-
-
----
-
-
-# Requêtes pour retrouver les ventes d'un client dans chaque forme normale
-
-Je vais présenter les requêtes SQL pour retrouver toutes les ventes d'un client spécifique (par exemple "Sophie Durand") dans chacune des formes normales.
-
-## Requête sur la table non normalisée (avant 1NF)
+Voici la requête SQL pour la version 3NF qui produit un résultat similaire à la version non normalisée (avec les valeurs regroupées en listes) :
 
 ```sql
-SELECT *
-FROM Films_Sessions_Ventes
-WHERE nom_client = 'Sophie Durand';
-```
-
-## Requête sur la structure en 1NF
-
-```sql
-SELECT v.id_vente, s.id_session, f.titre_film, sa.nom_salle, 
-       s.date_heure, v.nom_client, v.email_client, 
-       v.nombre_billets, v.prix_total
+SELECT 
+    MIN(v.ID_Vente) AS ID_Vente,
+    MIN(v.Date_Vente) AS Date_Vente,
+    GROUP_CONCAT(dv.ID_Produit ORDER BY dv.ID_Produit SEPARATOR ', ') AS Produits_Achetés,
+    GROUP_CONCAT(p.Nom_Produit ORDER BY dv.ID_Produit SEPARATOR ', ') AS Noms_Produits,
+    GROUP_CONCAT(p.Catégorie_Produit ORDER BY dv.ID_Produit SEPARATOR ', ') AS Catégories_Produits,
+    GROUP_CONCAT(p.Prix_Unitaire ORDER BY dv.ID_Produit SEPARATOR ', ') AS Prix_Unitaires,
+    GROUP_CONCAT(dv.Quantité ORDER BY dv.ID_Produit SEPARATOR ', ') AS Quantités,
+    MIN(vend.Nom_Vendeur) AS Nom_Vendeur
 FROM Ventes v
-JOIN Sessions s ON v.id_session = s.id_session
-JOIN Films f ON s.id_film = f.id_film
-JOIN Salles sa ON s.id_salle = sa.id_salle
-WHERE v.nom_client = 'Sophie Durand';
+JOIN Détails_Ventes dv ON v.ID_Vente = dv.ID_Vente
+JOIN Produits p ON dv.ID_Produit = p.ID_Produit
+JOIN Vendeurs vend ON v.ID_Vendeur = vend.ID_Vendeur
+JOIN Départements dept ON vend.ID_Département = dept.ID_Département
+WHERE v.ID_Client = 'C001'
+GROUP BY v.ID_Vente;
 ```
 
-## Requête sur la structure en 2NF 
-
-```sql
-SELECT v.id_vente, s.id_session, f.titre_film, sa.nom_salle, 
-       s.date_heure, v.nom_client, v.email_client, 
-       v.nombre_billets, (v.nombre_billets * sa.tarif_normal) AS prix_total
-FROM Ventes v
-JOIN Sessions s ON v.id_session = s.id_session
-JOIN Films f ON s.id_film = f.id_film
-JOIN Salles sa ON s.id_salle = sa.id_salle
-WHERE v.nom_client = 'Sophie Durand';
+**Résultat :**
+```
+| ID_Vente | Date_Vente | Produits_Achetés | Noms_Produits                      | Catégories_Produits         | Prix_Unitaires | Quantités | Nom_Vendeur    |
+|----------|------------|------------------|------------------------------------|-----------------------------|----------------|-----------|----------------|
+| 1        | 10/03/2025 | P001, P002       | Ordinateur portable, Souris sans fil | Informatique, Périphériques  | 500€, 50€      | 1, 2      | Lefebvre Alice |
+| 3        | 11/03/2025 | P001, P005       | Ordinateur portable, PC de bureau   | Informatique, Informatique   | 500€, 1200€    | 1, 1      | Lefebvre Alice |
 ```
 
-## Requête sur la structure en 3NF
+**Explications :**
 
-```sql
-SELECT v.id_vente, s.id_session, f.titre_film, sa.nom_salle, 
-       s.date_heure, c.nom_client, c.email_client, 
-       v.nombre_billets, (v.nombre_billets * sa.tarif_normal) AS prix_total,
-       vi.nom_ville, vi.code_postal
-FROM Ventes v
-JOIN Sessions s ON v.id_session = s.id_session
-JOIN Films f ON s.id_film = f.id_film
-JOIN Salles sa ON s.id_salle = sa.id_salle
-JOIN Clients c ON v.id_client = c.id_client
-JOIN Villes vi ON sa.id_ville = vi.id_ville
-WHERE c.nom_client = 'Sophie Durand';
-```
+1. La fonction `GROUP_CONCAT()` (disponible dans MySQL, MariaDB et SQLite) est utilisée pour concaténer plusieurs valeurs en une seule chaîne de caractères séparées par des virgules
 
-## Comparaison des approches
+2. `GROUP BY v.ID_Vente` regroupe les résultats par vente
 
-1. **Table non normalisée**: 
-   - Requête simple mais inefficace
-   - Récupère des données dupliquées
-   - Problèmes avec les valeurs multiples (genres, réalisateurs)
+3. Pour les champs comme ID_Vente, Date_Vente et Nom_Vendeur qui ont la même valeur pour tous les produits d'une vente, j'utilise les fonctions d'agrégation MIN() ou MAX() - les deux donneraient le même résultat dans ce cas. 
+(Lorsqu'on utilise une clause GROUP BY dans une requête SQL, toutes les colonnes sélectionnées doivent soit etre incluses dans la clause GROUP BY, soit etre agrégées par une fonction comme SUM(), COUNT(), AVG(), MIN(), MAX(), etc.)
 
-2. **Structure 1NF**:
-   - Requête plus complexe avec plusieurs jointures
-   - Élimine les problèmes de valeurs multiples
-   - Prix total stocké directement
+4. `ORDER BY dv.ID_Produit` dans les GROUP_CONCAT assure que les produits sont toujours listés dans le même ordre
 
-3. **Structure 2NF**:
-   - Structure similaire à 1NF
-   - Le prix total est calculé à partir du tarif de la salle
-   - Meilleure cohérence des données
-
-4. **Structure 3NF**:
-   - Requête plus complexe avec plus de jointures
-   - Architecture de données plus robuste et flexible
-   - Meilleure intégrité des données
-   - Évite les anomalies de mise à jour
-   - Support plus facile pour l'évolution des fonctionnalités
-
-La structure 3NF offre la meilleure intégrité des données et évite les anomalies de mise à jour, mais nécessite des requêtes plus complexes avec davantage de jointures.
+Cette requête démontre qu'une base de données normalisée peut toujours produire des résultats dans n'importe quel format souhaité, tout en conservant les avantages de structure d'une base normalisée.
