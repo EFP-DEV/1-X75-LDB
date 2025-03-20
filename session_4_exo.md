@@ -26,14 +26,14 @@ Voici un extrait des données d'une librairie stockées dans une seule table:
 ### Données Brutes
 Voici un extrait des données d'une université stockées dans une seule table:
 
-| ID_Cours | Nom_Cours | ID_Professeur | Nom_Professeur | Département_Prof | ID_Étudiant | Nom_Étudiant | Programme_Étudiant | Note |
-|----------|-----------|---------------|----------------|------------------|-------------|--------------|---------------------|------|
-| CS101 | Introduction à l'informatique | P001 | Dr. Lefevre | Informatique | E001 | Moreau Paul | Génie Informatique | 18/20 |
-| CS101 | Introduction à l'informatique | P001 | Dr. Lefevre | Informatique | E002 | Garcia Ana | Sciences des Données | 16/20 |
-| CS101 | Introduction à l'informatique | P001 | Dr. Lefevre | Informatique | E003 | Laurent Thomas | Génie Informatique | 14/20 |
-| MATH201 | Algèbre linéaire | P002 | Dr. Rousseau | Mathématiques | E001 | Moreau Paul | Génie Informatique | 15/20 |
-| MATH201 | Algèbre linéaire | P002 | Dr. Rousseau | Mathématiques | E002 | Garcia Ana | Sciences des Données | 19/20 |
-| PHY101 | Mécanique classique | P003 | Dr. Petit | Physique | E004 | Blanc Julie | Physique | 17/20 |
+   | ID_Cours | Nom_Cours | ID_Professeur | Nom_Professeur | Département_Prof | ID_Étudiant | Nom_Étudiant | Programme_Étudiant | Note |
+   |----------|-----------|---------------|----------------|------------------|-------------|--------------|---------------------|------|
+   | CS101 | Introduction à l'informatique | P001 | Dr. Lefevre | Informatique | E001 | Moreau Paul | Génie Informatique | 18/20 |
+   | CS101 | Introduction à l'informatique | P001 | Dr. Lefevre | Informatique | E002 | Garcia Ana | Sciences des Données | 16/20 |
+   | CS101 | Introduction à l'informatique | P001 | Dr. Lefevre | Informatique | E003 | Laurent Thomas | Génie Informatique | 14/20 |
+   | MATH201 | Algèbre linéaire | P002 | Dr. Rousseau | Mathématiques | E001 | Moreau Paul | Génie Informatique | 15/20 |
+   | MATH201 | Algèbre linéaire | P002 | Dr. Rousseau | Mathématiques | E002 | Garcia Ana | Sciences des Données | 19/20 |
+   | PHY101 | Mécanique classique | P003 | Dr. Petit | Physique | E004 | Blanc Julie | Physique | 17/20 |
 
 **Instructions:**
 1. Convertir ces données en 1NF

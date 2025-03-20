@@ -1,8 +1,5 @@
 # Exercice de Modélisation Conceptuelle des Données (MCD)
 
-
-
-
 ## Consignes
 1. **Analyse du besoin** :  
    - Identifiez les entités principales nécessaires
@@ -16,7 +13,7 @@
    - Vérifiez la cohérence globale du modèle
 
 3. **Génération avec IA** :
-   - Utilisez une intelligence artificielle pour générer le schéma MCD avec la syntaxe Mermaid
+   - Utilisez une intelligence artificielle pour générer le schéma MCD avec la syntaxe Mermaid (graph TD)
    - Vérifiez que le schéma généré correspond bien à votre modélisation
    - Apportez les ajustements nécessaires pour améliorer la lisibilité
 
