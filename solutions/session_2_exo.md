@@ -234,35 +234,8 @@ Quelle requête SQL permet d'ajouter une colonne 'modus' à la table 'employee' 
 L'exercice impose une réflexion sur le choix du type et des contraintes (NULL/NOT NULL) afin d'optimiser la structure tout en préservant la flexibilité. 
 
 En l'absence d'informations précises, l'analyse des options devient essentielle:
-- Choisir le type adéquat économise l'espace et améliore les performances
+- Choisir le [type](more/entity_attribute_types.md) adéquat économise l'espace et améliore les performances
 - Définir correctement la nullabilité évite les erreurs d'insertion et contraintes inutiles
-
-### Évaluation des types pour la colonne 'modus'
-
-#### Types textuels
-
-| Type | Avantages | Inconvénients |
-|------|-----------|---------------|
-| `CHAR(n)` | - Stockage à taille fixe, plus rapide pour les comparaisons  - Performant pour les chaînes de longueur constante | - Gaspillage d'espace si les valeurs sont souvent plus courtes  - Limité à 255 caractères |
-| `VARCHAR(n)` | - Stockage variable, économise de l'espace  - Bon équilibre flexibilité/performance | - Légèrement moins performant que CHAR pour les recherches  - 1 octet supplémentaire pour stocker la longueur |
-| `TEXT` | - Pour de très grandes chaînes (jusqu'à 65535 caractères)  - Pas besoin de spécifier une longueur maximale | - Plus lent pour les recherches et indexations  - Ne peut pas être inclus dans une clé d'index complète |
-
-#### Types numériques
-
-| Type | Avantages | Inconvénients |
-|------|-----------|---------------|
-| `INT` | - Efficient pour les opérations mathématiques  - Idéal pour les identifiants numériques | - Inutilisable pour du texte  - Inapproprié si 'modus' contient des valeurs non-numériques |
-| `DECIMAL` | - Précision exacte pour les valeurs monétaires ou quantitatives | - Consomme plus d'espace que les flottants  - Inutile si 'modus' est qualitatif |
-
-#### Types pour des valeurs spécifiques
-
-| Type | Avantages | Inconvénients |
-|------|-----------|---------------|
-| `ENUM` | - Très efficace en espace (1-2 octets)  - Validation des valeurs intégrée | - Rigide : nécessite de connaître toutes les valeurs possibles à l'avance  - Modification du schéma nécessaire pour ajouter de nouvelles valeurs |
-| `SET` | - Permet de stocker plusieurs valeurs prédéfinies  - Économe en espace | - Même rigidité que ENUM  - Complexe à interroger |
-| `JSON` | - Flexibilité maximale pour des structures variables  - Fonctions de requête JSON intégrées | - Moins performant pour les recherches simples  - Support variable selon les versions MySQL/MariaDB |
-
-#### Conclusion
 
 Dans un contexte où l'on doit ajouter un champ sans connaître sa finalité précise `VARCHAR(255)` reste un choix sûr et flexible
 
