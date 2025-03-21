@@ -1,35 +1,46 @@
-# Normalisation de Bases de Données: 1NF, 2NF, 3NF
+# Normalisation 1NF, 2NF, 3NF
 
 ## Pourquoi normaliser?
 
 * Éliminer la redondance des données - Éviter de stocker les mêmes informations à plusieurs endroits
-* Minimiser les anomalies - Prévenir les incohérences lors des opérations INSERT, UPDATE et DELETE
+* Minimiser les anomalies - Prévenir les incohérences lors des opérations `INSERT`, `UPDATE` et `DELETE`
 * Optimiser les performances - Réduire l'espace de stockage et améliorer la vitesse des requêtes
-* Améliorer l'intégrité des données - Assurer la cohérence des données
-# Exemple progressif de normalisation d'une base de données
+* Améliorer l'intégrité des données et assurer la cohérence des données
 
-## Table initiale non normalisée
+## Comment normaliser?
 
-Considérons une table `Ventes` pour un magasin qui vend des produits informatiques :
+Nous allons suivre un algorithme de normalisation en trois étapes, en appliquant les formes normales 1NF, 2NF et 3NF. Chaque étape vise à résoudre des problèmes spécifiques de redondance et d'intégrité des données.
 
-| ID_Vente | Date_Vente | ID_Client | Nom_Client | Email_Client | Téléphone_Client | Produits_Achetés | Noms_Produits | Catégories_Produits | Prix_Unitaires | Quantités | ID_Vendeur | Nom_Vendeur | Département_Vendeur |
+Nous allons aborder cette notion fondamentale par le biais d'un exemple pratique: imaginons que nous avons reçu un **fichier CSV** extrait du systeme de comptabilite que vous aller remplacer par votre solution. 
+
+Ce fichier contient des informations sur les ventes d'un magasin de produits informatiques. 
+
+Le but du jeu: eviter la repetition d'informations
+
+
+## Données de départ
+
+
+| sale_ID | sale_date | customer_ID | customer_name | customer_email | customer_phone | products | products_names | products_categories | unit_prices | quantities | seller_ID | seller_name | seller_department |
 |----------|------------|-----------|------------|--------------|------------------|------------------|---------------|---------------------|----------------|-----------|------------|-------------|---------------------|
 | 1 | 10/03/2025 | C001 | Dupont Martin | dupont@email.com | 0123456789 | P001, P002 | Ordinateur portable, Souris sans fil | Informatique, Périphériques | 500€, 50€ | 1, 2 | V001 | Lefebvre Alice | Informatique |
 | 2 | 11/03/2025 | C002 | Durand Sophie | durand@email.com | 0234567890 | P002, P003, P004 | Souris sans fil, Casque audio, Clé USB | Périphériques, Audio, Stockage | 50€, 750€, 25€ | 1, 1, 3 | V002 | Moreau Jean | Audio |
 | 3 | 11/03/2025 | C001 | Dupont Martin | dupont@email.com | 0123456789 | P001, P005 | Ordinateur portable, PC de bureau | Informatique, Informatique | 500€, 1200€ | 1, 1 | V001 | Lefebvre Alice | Informatique |
 
 Cette table présente plusieurs problèmes :
-- Valeurs multiples dans des colonnes (Produits_Achetés, Prix_Unitaires, Quantités)
-- Redondance d'informations (informations client et vendeur répétées)
-- Dépendances transitives (ID_Vendeur détermine Nom_Vendeur et Département_Vendeur)
+- **Valeurs multiples** dans des colonnes (products, unit_prices, quantities)
+- **Redondance** d'informations (informations client et vendeur répétées)
+- **Dépendances transitives** (seller_ID détermine seller_name et seller_department)
+
+---
 
 ## Première Forme Normale (1NF)
 
-La 1NF exige l'atomicité des données (pas de valeurs multiples dans une colonne).
+La 1NF exige l'**atomicité des données** (pas de valeurs multiples dans une colonne).
 
-### Table Ventes (1NF)
+### Table sale (1NF)
 
-| ID_Vente | Date_Vente | ID_Client | Nom_Client | Email_Client | Téléphone_Client | ID_Produit | Nom_Produit | Catégorie_Produit | Prix_Unitaire | Quantité | ID_Vendeur | Nom_Vendeur | Département_Vendeur |
+| sale_ID | sale_date | customer_ID | customer_name | customer_email | customer_phone | product_ID | product_name | product_category | unit_price | quantity | seller_ID | seller_name | seller_department |
 |----------|------------|-----------|------------|--------------|------------------|------------|-------------|-------------------|---------------|----------|------------|-------------|---------------------|
 | 1 | 10/03/2025 | C001 | Dupont Martin | dupont@email.com | 0123456789 | P001 | Ordinateur portable | Informatique | 500€ | 1 | V001 | Lefebvre Alice | Informatique |
 | 1 | 10/03/2025 | C001 | Dupont Martin | dupont@email.com | 0123456789 | P002 | Souris sans fil | Périphériques | 50€ | 2 | V001 | Lefebvre Alice | Informatique |
@@ -39,46 +50,51 @@ La 1NF exige l'atomicité des données (pas de valeurs multiples dans une colonn
 | 3 | 11/03/2025 | C001 | Dupont Martin | dupont@email.com | 0123456789 | P001 | Ordinateur portable | Informatique | 500€ | 1 | V001 | Lefebvre Alice | Informatique |
 | 3 | 11/03/2025 | C001 | Dupont Martin | dupont@email.com | 0123456789 | P005 | PC de bureau | Informatique | 1200€ | 1 | V001 | Lefebvre Alice | Informatique |
 
-Nous avons éliminé les valeurs multiples, mais il reste des redondances. La clé primaire est maintenant composée : (ID_Vente, ID_Produit).
+Nous avons éliminé les valeurs multiples, il y a maintenant **une ligne** par **produit vendu**, la clé primaire est donc maintenant **composée** : `(sale_ID, product_ID)`.
+
+Les informations sur le client et le vendeur sont toujours redondantes.
+
 
 **Note sur la clé primaire :**
 ---
-ID_Client n'est pas inclus dans la clé primaire pour plusieurs raisons techniques et conceptuelles:
+customer_ID n'est pas inclus dans la clé primaire pour plusieurs raisons techniques et conceptuelles:
 
-* Dépendance fonctionnelle - ID_Client est déterminé par ID_Vente. Pour chaque ID_Vente, il n'y a qu'un seul ID_Client possible. Cette dépendance fonctionnelle (ID_Vente → ID_Client) signifie que ID_Client est un attribut déterminé par une partie de la clé primaire.
-* Minimalité de la clé - Une bonne clé primaire doit être minimale. Si (ID_Vente, ID_Produit) suffit déjà à identifier de façon unique chaque ligne, ajouter ID_Client serait redondant et violerait le principe de minimalité.
-* Cohérence des données - Un même ID_Vente ne peut être associé qu'à un seul client. Si on incluait ID_Client dans la clé, cela pourrait théoriquement permettre qu'une même vente soit associée à plusieurs clients, ce qui n'a pas de sens dans le modèle métier.
-* Conception logique - La clé primaire (ID_Vente, ID_Produit) reflète correctement que chaque ligne représente un produit spécifique dans une vente spécifique, et non pas un produit spécifique acheté par un client spécifique dans une vente spécifique.
+* Dépendance fonctionnelle - customer_ID est déterminé par sale_ID. Pour chaque sale_ID, il n'y a qu'un seul customer_ID possible. Cette dépendance fonctionnelle (sale_ID → customer_ID) signifie que customer_ID est un attribut déterminé par une partie de la clé primaire.
+* Minimalité de la clé - Une bonne clé primaire doit être minimale. Si (sale_ID, product_ID) suffit déjà à identifier de façon unique chaque ligne, ajouter customer_ID serait redondant et violerait le principe de minimalité.
+* Cohérence des données - Un même sale_ID ne peut être associé qu'à un seul client. Si on incluait customer_ID dans la clé, cela pourrait théoriquement permettre qu'une même vente soit associée à plusieurs clients, ce qui n'a pas de sens dans le modèle métier.
+* Conception logique - La clé primaire (sale_ID, product_ID) reflète correctement que chaque ligne représente un produit spécifique dans une vente spécifique, et non pas un produit spécifique acheté par un client spécifique dans une vente spécifique.
 
-En résumé, ID_Client est un attribut descriptif de la vente et non un identifiant de ligne dans le contexte de la 1NF.
+En résumé, customer_ID est un attribut descriptif de la vente et non un identifiant de ligne dans le contexte de la 1NF.
+
+---
 
 ## Deuxième Forme Normale (2NF)
 
 La 2NF exige l'élimination des dépendances partielles dans les tables avec des clés primaires composées.
 
-Dans notre cas, plusieurs attributs dépendent uniquement d'une partie de la clé composée (ID_Vente, ID_Produit) :
-- Les informations client (Nom_Client, Email_Client, Téléphone_Client) dépendent uniquement de ID_Client
-- Les informations vente (Date_Vente, ID_Client, ID_Vendeur) dépendent uniquement de ID_Vente
-- Les informations produit (Nom_Produit, Catégorie_Produit, Prix_Unitaire) dépendent uniquement de ID_Produit
+Dans notre cas, plusieurs attributs dépendent uniquement d'une partie de la clé composée `(sale_ID, product_ID)` :
+- Les informations client (`customer_name`, `customer_email`, `customer_phone`) dépendent uniquement de `customer_ID`
+- Les informations vente (`sale_date`, `customer_ID`, `seller_ID`) dépendent uniquement de sale_ID
+- Les informations produit (`product_name`, `product_category`, `unit_price`) dépendent uniquement de `product_ID`
 
 ### Table Clients (2NF)
 
-| ID_Client | Nom_Client | Email_Client | Téléphone_Client |
+| customer_ID | customer_name | customer_email | customer_phone |
 |-----------|------------|--------------|------------------|
 | C001 | Dupont Martin | dupont@email.com | 0123456789 |
 | C002 | Durand Sophie | durand@email.com | 0234567890 |
 
-### Table Ventes (2NF)
+### Table sale (2NF)
 
-| ID_Vente | Date_Vente | ID_Client | ID_Vendeur |
+| sale_ID | sale_date | customer_ID | seller_ID |
 |----------|------------|-----------|------------|
 | 1 | 10/03/2025 | C001 | V001 |
 | 2 | 11/03/2025 | C002 | V002 |
 | 3 | 11/03/2025 | C001 | V001 |
 
-### Table Produits (2NF)
+### Table product (2NF)
 
-| ID_Produit | Nom_Produit | Catégorie_Produit | Prix_Unitaire |
+| product_ID | product_name | product_category | unit_price |
 |------------|-------------|-------------------|---------------|
 | P001 | Ordinateur portable | Informatique | 500€ |
 | P002 | Souris sans fil | Périphériques | 50€ |
@@ -86,9 +102,9 @@ Dans notre cas, plusieurs attributs dépendent uniquement d'une partie de la cl�
 | P004 | Clé USB | Stockage | 25€ |
 | P005 | PC de bureau | Informatique | 1200€ |
 
-### Table Détails_Ventes (2NF)
+### Table sale_detail (2NF)
 
-| ID_Vente | ID_Produit | Quantité |
+| sale_ID | product_ID | quantity |
 |----------|------------|----------|
 | 1 | P001 | 1 |
 | 1 | P002 | 2 |
@@ -98,14 +114,14 @@ Dans notre cas, plusieurs attributs dépendent uniquement d'une partie de la cl�
 | 3 | P001 | 1 |
 | 3 | P005 | 1 |
 
-### Table Vendeurs (2NF)
+### Table seller (2NF)
 
-| ID_Vendeur | Nom_Vendeur | Département_Vendeur |
+| seller_ID | seller_name | seller_department |
 |------------|-------------|---------------------|
 | V001 | Lefebvre Alice | Informatique |
 | V002 | Moreau Jean | Audio |
 
-Nous avons éliminé les dépendances partielles. Notez que les informations sur les produits (y compris le prix) ont été extraites dans leur propre table à cette étape, car elles dépendent uniquement de ID_Produit.
+Nous avons éliminé les dépendances partielles. Notez que les informations sur les produits (y compris le prix) ont été extraites dans leur propre table à cette étape, car elles dépendent uniquement de product_ID.
 
 ## Troisième Forme Normale (3NF)
 
@@ -113,45 +129,44 @@ La 3NF exige l'élimination des dépendances transitives.
 
 Dans notre schéma 2NF, nous avons déjà placé les informations produit dans une table séparée, donc une grande partie du travail de la 3NF est déjà accomplie. Cependant, nous devons encore examiner d'autres dépendances transitives potentielles.
 
-Il existe une dépendance transitive dans la table Vendeurs : Département_Vendeur pourrait dépendre du département auquel appartient un vendeur, plutôt que directement de l'ID_Vendeur. Pour une normalisation plus poussée, nous pourrions extraire cette information dans une table Départements.
+Il existe une dépendance transitive dans la table seller : seller_department pourrait dépendre du département auquel appartient un vendeur, plutôt que directement de l'seller_ID. Pour une normalisation plus poussée, nous pourrions extraire cette information dans une table `department`.
 
-### Table Départements (3NF)
+### Table department (3NF)
 
-| ID_Département | Nom_Département |
+| department_ID | Nom_Département |
 |----------------|-----------------|
 | D001 | Informatique |
 | D002 | Audio |
 
-### Table Vendeurs (3NF) - Modifiée
+### Table seller (3NF) - Modifiée
 
-| ID_Vendeur | Nom_Vendeur | ID_Département |
+| seller_ID | seller_name | department_ID |
 |------------|-------------|----------------|
 | V001 | Lefebvre Alice | D001 |
 | V002 | Moreau Jean | D002 |
 
-### Table Produits (déjà en 3NF)
 
-| ID_Produit | Nom_Produit | Catégorie_Produit | Prix_Unitaire |
-|------------|-------------|-------------------|---------------|
-| P001 | Ordinateur portable | Informatique | 500€ |
-| P002 | Souris sans fil | Périphériques | 50€ |
-| P003 | Casque audio | Audio | 750€ |
-| P004 | Clé USB | Stockage | 25€ |
-| P005 | PC de bureau | Informatique | 1200€ |
+De même, on retrouve une autre dépendance transitive dans la table product, où le product_category pourrait être séparé en une table distincte pour éviter la redondance.
 
-### Table Détails_Ventes (déjà en 3NF)
+On pourrait normaliser davantage les catégories de produits: 
 
-| ID_Vente | ID_Produit | Quantité |
-|----------|------------|----------|
-| 1 | P001 | 1 |
-| 1 | P002 | 2 |
-| 2 | P002 | 1 |
-| 2 | P003 | 1 |
-| 2 | P004 | 3 |
-| 3 | P001 | 1 |
-| 3 | P005 | 1 |
+### Table category (3NF)
+| category_ID | category_name |
+|----------------|----------------|
+| C001 | Informatique |
+| C002 | Périphériques |
+| C003 | Audio |
+| C004 | Stockage |
 
-De même, on pourrait normaliser davantage les catégories de produits si nécessaire.
+### Table product (3NF) - Modifiée
+| product_ID | product_name | category_ID | unit_price |
+|------------|-------------|---------------|---------------|
+| P001 | Ordinateur portable | C001 | 500€ |
+| P002 | Souris sans fil | C002 | 50€ |
+| P003 | Casque audio | C003 | 750€ |
+| P004 | Clé USB | C004 | 25€ |
+| P005 | PC de bureau | C001 | 1200€ |
+
 
 ## Résumé des transformations
 
@@ -162,12 +177,13 @@ De même, on pourrait normaliser davantage les catégories de produits si néces
 2. **1NF → 2NF** : Élimination des dépendances partielles
    - Création de tables distinctes pour les clients, ventes, produits et vendeurs
    - Séparation des données qui dépendent uniquement d'une partie de la clé composée
-   - Extraction des informations produit (Nom_Produit, Catégorie_Produit, Prix_Unitaire) dans une table dédiée
+   - Extraction des informations produit (product_name, product_category, unit_price) dans une table dédiée
 
 3. **2NF → 3NF** : Élimination des dépendances transitives
    - Séparation des données qui dépendent d'attributs non-clés
    - Extraction des informations sur les départements dans une table dédiée
-   - Possibilité d'extraire d'autres entités comme les catégories de produits
+   - Création d'une table pour les catégories de produits
+   - Élimination des dépendances transitives restantes
 
 ## Avantages progressifs obtenus
 
@@ -186,94 +202,94 @@ De même, on pourrait normaliser davantage les catégories de produits si néces
    - Optimise le stockage
    - Minimise les risques d'anomalies lors des opérations d'insertion, mise à jour et suppression
 
+   - Facilite l'ajout de nouvelles catégories et de nouveaux départements sans affecter les autres tables
+
 Chaque forme normale résout un type spécifique de problème de redondance et améliore l'intégrité des données.
 
 ---
+
+
+## Consequences de la normalisation sur les requêtes SQL
+
 Voici les requêtes SQL adaptées pour obtenir l'historique des achats du client C001 pour chaque version de notre schéma, avec leurs résultats respectifs :
 
-## Version Non Normalisée
+### Version Non Normalisée
 
 ```sql
-SELECT ID_Vente, Date_Vente, Produits_Achetés, Noms_Produits, Catégories_Produits, 
-       Prix_Unitaires, Quantités, Nom_Vendeur
-FROM Ventes
-WHERE ID_Client = 'C001';
+SELECT sale_ID, sale_date, products, products_names, products_categories, 
+       unit_prices, quantities, seller_name
+FROM sale
+WHERE customer_ID = 'C001';
 ```
 
 **Résultat :**
-```
-| ID_Vente | Date_Vente | Produits_Achetés | Noms_Produits                      | Catégories_Produits           | Prix_Unitaires | Quantités | Nom_Vendeur    |
+| sale_ID | sale_date | products | products_names                      | products_categories           | unit_prices | quantities | seller_name    |
 |----------|------------|------------------|------------------------------------|---------------------------------|----------------|-----------|----------------|
 | 1        | 10/03/2025 | P001, P002       | Ordinateur portable, Souris sans fil | Informatique, Périphériques    | 500€, 50€      | 1, 2      | Lefebvre Alice |
 | 3        | 11/03/2025 | P001, P005       | Ordinateur portable, PC de bureau   | Informatique, Informatique     | 500€, 1200€    | 1, 1      | Lefebvre Alice |
-```
 
-## Version 1NF
+### Version 1NF
 
 ```sql
-SELECT ID_Vente, Date_Vente, ID_Produit, Nom_Produit, Catégorie_Produit, Prix_Unitaire, Quantité, Nom_Vendeur 
-FROM Ventes 
-WHERE ID_Client = 'C001';
+SELECT sale_ID, sale_date, product_ID, product_name, product_category, unit_price, quantity, seller_name 
+FROM sale 
+WHERE customer_ID = 'C001';
 ```
 
 **Résultat :**
-```
-| ID_Vente | Date_Vente | ID_Produit | Nom_Produit         | Catégorie_Produit | Prix_Unitaire | Quantité | Nom_Vendeur    |
+| sale_ID | sale_date | product_ID | product_name         | product_category | unit_price | quantity | seller_name    |
 |----------|------------|------------|---------------------|-------------------|---------------|----------|----------------|
 | 1        | 10/03/2025 | P001       | Ordinateur portable | Informatique      | 500€          | 1        | Lefebvre Alice |
 | 1        | 10/03/2025 | P002       | Souris sans fil     | Périphériques     | 50€           | 2        | Lefebvre Alice |
 | 3        | 11/03/2025 | P001       | Ordinateur portable | Informatique      | 500€          | 1        | Lefebvre Alice |
 | 3        | 11/03/2025 | P005       | PC de bureau        | Informatique      | 1200€         | 1        | Lefebvre Alice |
-```
 
-## Version 2NF
+### Version 2NF
 
 ```sql
-SELECT v.ID_Vente, v.Date_Vente, dv.ID_Produit, p.Nom_Produit, p.Catégorie_Produit, 
-       p.Prix_Unitaire, dv.Quantité, vend.Nom_Vendeur
-FROM Ventes v
-JOIN Détails_Ventes dv ON v.ID_Vente = dv.ID_Vente
-JOIN Produits p ON dv.ID_Produit = p.ID_Produit
-JOIN Vendeurs vend ON v.ID_Vendeur = vend.ID_Vendeur
-WHERE v.ID_Client = 'C001';
+SELECT s.sale_ID, s.sale_date, dv.product_ID, p.product_name, p.product_category, 
+       p.unit_price, dv.quantity, vend.seller_name
+FROM sale s
+JOIN sale_detail dv ON s.sale_ID = dv.sale_ID
+JOIN product p ON dv.product_ID = p.product_ID
+JOIN seller vend ON s.seller_ID = vend.seller_ID
+WHERE s.customer_ID = 'C001';
 ```
 
 **Résultat :**
-```
-| ID_Vente | Date_Vente | ID_Produit | Nom_Produit         | Catégorie_Produit | Prix_Unitaire | Quantité | Nom_Vendeur    |
+| sale_ID | sale_date | product_ID | product_name         | product_category | unit_price | quantity | seller_name    |
 |----------|------------|------------|---------------------|-------------------|---------------|----------|----------------|
 | 1        | 10/03/2025 | P001       | Ordinateur portable | Informatique      | 500€          | 1        | Lefebvre Alice |
 | 1        | 10/03/2025 | P002       | Souris sans fil     | Périphériques     | 50€           | 2        | Lefebvre Alice |
 | 3        | 11/03/2025 | P001       | Ordinateur portable | Informatique      | 500€          | 1        | Lefebvre Alice |
 | 3        | 11/03/2025 | P005       | PC de bureau        | Informatique      | 1200€         | 1        | Lefebvre Alice |
-```
 
-## Version 3NF
+### Version 3NF
 
 ```sql
-SELECT v.ID_Vente, v.Date_Vente, dv.ID_Produit, p.Nom_Produit, p.Catégorie_Produit, 
-       p.Prix_Unitaire, dv.Quantité, vend.Nom_Vendeur, dept.Nom_Département
-FROM Ventes v
-JOIN Détails_Ventes dv ON v.ID_Vente = dv.ID_Vente
-JOIN Produits p ON dv.ID_Produit = p.ID_Produit
-JOIN Vendeurs vend ON v.ID_Vendeur = vend.ID_Vendeur
-JOIN Départements dept ON vend.ID_Département = dept.ID_Département
-WHERE v.ID_Client = 'C001';
+SELECT s.sale_ID, s.sale_date, dv.product_ID, p.product_name, c.category_name, 
+       p.unit_price, dv.quantity, vend.seller_name, dept.department_name
+FROM sale s
+JOIN sale_detail dv ON s.sale_ID = dv.sale_ID
+JOIN product p ON dv.product_ID = p.product_ID
+JOIN seller vend ON s.seller_ID = vend.seller_ID
+JOIN department dept ON vend.department_ID = dept.department_ID
+JOIN category c ON p.category_ID = c.category_ID
+WHERE s.customer_ID = 'C001';
 ```
 
 **Résultat :**
-```
-| ID_Vente | Date_Vente | ID_Produit | Nom_Produit         | Catégorie_Produit | Prix_Unitaire | Quantité | Nom_Vendeur    | Nom_Département |
+| sale_ID | sale_date | product_ID | product_name         | category_name | unit_price | quantity | seller_name    | Nom_Département |
 |----------|------------|------------|---------------------|-------------------|---------------|----------|----------------|-----------------|
 | 1        | 10/03/2025 | P001       | Ordinateur portable | Informatique      | 500€          | 1        | Lefebvre Alice | Informatique    |
 | 1        | 10/03/2025 | P002       | Souris sans fil     | Périphériques     | 50€           | 2        | Lefebvre Alice | Informatique    |
 | 3        | 11/03/2025 | P001       | Ordinateur portable | Informatique      | 500€          | 1        | Lefebvre Alice | Informatique    |
 | 3        | 11/03/2025 | P005       | PC de bureau        | Informatique      | 1200€         | 1        | Lefebvre Alice | Informatique    |
-```
 
-**Observations importantes :**
+---
+### Observations
 
-1. Les résultats finaux sont identiques visuellement pour les versions 1NF, 2NF et 3NF, mais la structure interne des tables est fondamentalement différente.
+1. Les **résultats finaux sont identiques visuellement** pour les versions 1NF, 2NF et 3NF, mais la **structure interne est fondamentalement différente**.
 
 2. La complexité des requêtes augmente avec le niveau de normalisation (plus de jointures) mais offre des avantages en termes de:
    - Intégrité des données
@@ -283,52 +299,48 @@ WHERE v.ID_Client = 'C001';
 
 3. La version non normalisée est la seule qui présente un résultat vraiment différent, avec les données regroupées dans des chaînes de caractères.
 
-4. Dans la version 3NF, nous avons ajouté une information supplémentaire (Nom_Département) qui n'était pas disponible directement dans les versions précédentes.
-
 Ces requêtes montrent comment accéder aux mêmes informations malgré des structures de données de plus en plus normalisées.
 
----
+### Version 3NF, resultat initial
 
-## Version 3NF, sous forme non normalisée
 
-Voici la requête SQL pour la version 3NF qui produit un résultat similaire à la version non normalisée (avec les valeurs regroupées en listes) :
+Cette requête SQL pour la version 3NF produit un résultat similaire à la version non normalisée (avec les valeurs regroupées en listes) :
 
 ```sql
 SELECT 
-    MIN(v.ID_Vente) AS ID_Vente,
-    MIN(v.Date_Vente) AS Date_Vente,
-    GROUP_CONCAT(dv.ID_Produit ORDER BY dv.ID_Produit SEPARATOR ', ') AS Produits_Achetés,
-    GROUP_CONCAT(p.Nom_Produit ORDER BY dv.ID_Produit SEPARATOR ', ') AS Noms_Produits,
-    GROUP_CONCAT(p.Catégorie_Produit ORDER BY dv.ID_Produit SEPARATOR ', ') AS Catégories_Produits,
-    GROUP_CONCAT(p.Prix_Unitaire ORDER BY dv.ID_Produit SEPARATOR ', ') AS Prix_Unitaires,
-    GROUP_CONCAT(dv.Quantité ORDER BY dv.ID_Produit SEPARATOR ', ') AS Quantités,
-    MIN(vend.Nom_Vendeur) AS Nom_Vendeur
-FROM Ventes v
-JOIN Détails_Ventes dv ON v.ID_Vente = dv.ID_Vente
-JOIN Produits p ON dv.ID_Produit = p.ID_Produit
-JOIN Vendeurs vend ON v.ID_Vendeur = vend.ID_Vendeur
-JOIN Départements dept ON vend.ID_Département = dept.ID_Département
-WHERE v.ID_Client = 'C001'
-GROUP BY v.ID_Vente;
+    s.sale_ID,
+    s.sale_date,
+    GROUP_CONCAT(dv.product_ID ORDER BY dv.product_ID SEPARATOR ', ') AS products,
+    GROUP_CONCAT(p.product_name ORDER BY dv.product_ID SEPARATOR ', ') AS products_names,
+    GROUP_CONCAT(c.category_name ORDER BY dv.product_ID SEPARATOR ', ') AS products_categories,
+    GROUP_CONCAT(CONCAT(p.unit_price, '€') ORDER BY dv.product_ID SEPARATOR ', ') AS unit_prices,
+    GROUP_CONCAT(dv.quantity ORDER BY dv.product_ID SEPARATOR ', ') AS quantities,
+    vend.seller_name
+FROM sale s
+JOIN sale_detail dv ON s.sale_ID = dv.sale_ID
+JOIN product p ON dv.product_ID = p.product_ID
+JOIN category c ON p.category_ID = c.category_ID
+JOIN seller vend ON s.seller_ID = vend.seller_ID
+WHERE s.customer_ID = 'C001'
+GROUP BY s.sale_ID, s.sale_date, vend.seller_name;
 ```
 
 **Résultat :**
-```
-| ID_Vente | Date_Vente | Produits_Achetés | Noms_Produits                      | Catégories_Produits         | Prix_Unitaires | Quantités | Nom_Vendeur    |
+| sale_ID | sale_date | products | products_names                      | products_categories         | unit_prices | quantities | seller_name    |
 |----------|------------|------------------|------------------------------------|-----------------------------|----------------|-----------|----------------|
 | 1        | 10/03/2025 | P001, P002       | Ordinateur portable, Souris sans fil | Informatique, Périphériques  | 500€, 50€      | 1, 2      | Lefebvre Alice |
 | 3        | 11/03/2025 | P001, P005       | Ordinateur portable, PC de bureau   | Informatique, Informatique   | 500€, 1200€    | 1, 1      | Lefebvre Alice |
-```
-
-**Explications :**
-
-1. La fonction `GROUP_CONCAT()` (disponible dans MySQL, MariaDB et SQLite) est utilisée pour concaténer plusieurs valeurs en une seule chaîne de caractères séparées par des virgules
-
-2. `GROUP BY v.ID_Vente` regroupe les résultats par vente
-
-3. Pour les champs comme ID_Vente, Date_Vente et Nom_Vendeur qui ont la même valeur pour tous les produits d'une vente, j'utilise les fonctions d'agrégation MIN() ou MAX() - les deux donneraient le même résultat dans ce cas. 
-(Lorsqu'on utilise une clause GROUP BY dans une requête SQL, toutes les colonnes sélectionnées doivent soit etre incluses dans la clause GROUP BY, soit etre agrégées par une fonction comme SUM(), COUNT(), AVG(), MIN(), MAX(), etc.)
-
-4. `ORDER BY dv.ID_Produit` dans les GROUP_CONCAT assure que les produits sont toujours listés dans le même ordre
 
 Cette requête démontre qu'une base de données normalisée peut toujours produire des résultats dans n'importe quel format souhaité, tout en conservant les avantages de structure d'une base normalisée.
+
+
+---
+
+## Fichier SQL
+
+Voici le [code SQL complet](more/session_4.sql) pour créer la base de données, les tables et insérer les données, en tenant compte de la normalisation jusqu'à la 3NF.
+
+Ce code est loin d'être pret pour la production, il ne couvre pas tous les aspects de la création de tables dans une base de données relationnelle. Il est simplifié pour des raisons pédagogiques et pour faciliter la compréhension des concepts abordés dans cette séance.
+---
+
+Il est cependant suffisant pour illustrer les concepts de normalisation et de création de tables. Il peut être utilisé comme point de départ pour des exercices plus complexes.
