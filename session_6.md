@@ -20,8 +20,7 @@
   - [Sous-requêtes](#sous-requêtes)
   - [Relations entre Cardinalités et Jointures](#relations-entre-cardinalités-et-jointures)
   - [Optimisation des Performances](#optimisation-des-performances)
-- [5. Exercices Pratiques](#5-exercices-pratiques)
-- [6. Bonnes Pratiques](#6-bonnes-pratiques)
+- [5. Bonnes Pratiques](#6-bonnes-pratiques)
 
 ## 1. Fondamentaux (Niveau Débutant)
 
