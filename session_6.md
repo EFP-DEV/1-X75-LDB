@@ -37,7 +37,7 @@ Pour sélectionner toutes les colonnes, utilisez l'astérisque:
 
 ```sql
 SELECT * -- Sélectionne toutes les colonnes
-FROM utilisateurs;
+FROM utilisateur;
 ```
 
 **Pourquoi l'utiliser:** Permet d'extraire et de visualiser les données stockées dans vos tables.
@@ -48,7 +48,7 @@ La clause WHERE permet de filtrer les résultats en fonction de conditions:
 
 ```sql
 SELECT nom, prenom        -- Colonnes à afficher
-FROM utilisateurs         -- Table source
+FROM utilisateur         -- Table source
 WHERE age > 18;           -- Condition de filtrage
 ```
 
@@ -69,11 +69,11 @@ Exemple avec plusieurs conditions:
 
 ```sql
 SELECT nom, prenom
-FROM utilisateurs
+FROM utilisateur
 WHERE age >= 18 AND pays = 'France';
 ```
 
-**Question métier résolue:** "Quels sont les utilisateurs majeurs résidant en France?"
+**Question métier résolue:** "Quels sont les utilisateur majeurs résidant en France?"
 
 ### Tri avec ORDER BY
 
@@ -81,7 +81,7 @@ La clause ORDER BY trie les résultats selon une ou plusieurs colonnes:
 
 ```sql
 SELECT nom, prenom
-FROM utilisateurs
+FROM utilisateur
 ORDER BY nom ASC,  -- Tri croissant sur le nom
          prenom DESC; -- Tri décroissant sur le prénom
 ```
@@ -89,7 +89,7 @@ ORDER BY nom ASC,  -- Tri croissant sur le nom
 - `ASC` = ordre croissant (par défaut)
 - `DESC` = ordre décroissant
 
-**Question métier résolue:** "Comment obtenir la liste des utilisateurs triée alphabétiquement par nom puis par prénom inversé?"
+**Question métier résolue:** "Comment obtenir la liste des utilisateur triée alphabétiquement par nom puis par prénom inversé?"
 
 ### Limitation des Résultats
 
@@ -97,7 +97,7 @@ La clause LIMIT restreint le nombre de résultats retournés:
 
 ```sql
 SELECT *
-FROM produits
+FROM produit
 ORDER BY prix           -- Tri par prix
 LIMIT 10;               -- Seulement les 10 premiers résultats
 ```
@@ -106,7 +106,7 @@ Avec décalage (pagination):
 
 ```sql
 SELECT *
-FROM produits
+FROM produit
 ORDER BY prix
 LIMIT 10 OFFSET 20;    -- 10 produits à partir du 21ème
 ```
@@ -122,7 +122,7 @@ La clause GROUP BY regroupe les lignes qui ont les mêmes valeurs:
 ```sql
 SELECT departement,                 -- Colonne de regroupement
        COUNT(*) AS nombre_employes  -- Fonction d'agrégation
-FROM employes
+FROM employe
 GROUP BY departement;               -- Regroupement
 ```
 
@@ -142,7 +142,7 @@ La clause HAVING filtre les résultats après regroupement:
 ```sql
 SELECT departement,
        AVG(salaire) AS salaire_moyen  -- Calcul de la moyenne
-FROM employes
+FROM employe
 GROUP BY departement                  -- Regroupement par département
 HAVING AVG(salaire) > 3000;           -- Filtre sur le résultat agrégé
 ```
@@ -174,27 +174,27 @@ Définition des tables:
 
 ```sql
 -- Structure des tables
-CREATE TABLE clients (
+CREATE TABLE client (
     id INT PRIMARY KEY,
     nom VARCHAR(100),
     email VARCHAR(100)
 );
 
-CREATE TABLE commandes (
+CREATE TABLE commande (
     id INT PRIMARY KEY,
     client_id INT,
     date_commande DATE,
     montant DECIMAL(10,2),
-    FOREIGN KEY (client_id) REFERENCES clients(id)
+    FOREIGN KEY (client_id) REFERENCES client(id)
 );
 
 -- Données exemple
-INSERT INTO clients VALUES 
+INSERT INTO client VALUES 
     (1, 'Dupont', 'dupont@email.com'),
     (2, 'Martin', 'martin@email.com'),
     (3, 'Durand', 'durand@email.com');
 
-INSERT INTO commandes VALUES 
+INSERT INTO commande VALUES 
     (101, 1, '2023-01-15', 150.50),
     (102, 1, '2023-02-20', 75.25),
     (103, 2, '2023-01-25', 220.00),
@@ -206,12 +206,12 @@ INSERT INTO commandes VALUES
 L'INNER JOIN retourne uniquement les lignes qui ont une correspondance dans les deux tables:
 
 ```sql
-SELECT c.nom,                  -- Colonne de la table clients
-       co.id AS commande_id,   -- Colonne de la table commandes
-       co.date_commande,       -- Colonne de la table commandes
-       co.montant              -- Colonne de la table commandes
-FROM clients c                 -- Table principale avec alias 'c'
-INNER JOIN commandes co        -- Table jointe avec alias 'co'
+SELECT c.nom,                  -- Colonne de la table client
+       co.id AS commande_id,   -- Colonne de la table commande
+       co.date_commande,       -- Colonne de la table commande
+       co.montant              -- Colonne de la table commande
+FROM client c                 -- Table principale avec alias 'c'
+INNER JOIN commande co        -- Table jointe avec alias 'co'
     ON c.id = co.client_id;    -- Condition de jointure
 ```
 
@@ -237,8 +237,8 @@ SELECT c.nom,
        co.id AS commande_id,
        co.date_commande,
        co.montant
-FROM clients c                 -- Table de gauche (conservée entièrement)
-LEFT JOIN commandes co         -- Table de droite (correspondances uniquement)
+FROM client c                 -- Table de gauche (conservée entièrement)
+LEFT JOIN commande co         -- Table de droite (correspondances uniquement)
     ON c.id = co.client_id;
 ```
 
@@ -265,8 +265,8 @@ SELECT c.nom,
        co.id AS commande_id,
        co.date_commande,
        co.montant
-FROM clients c                 -- Table de gauche (correspondances uniquement)
-RIGHT JOIN commandes co        -- Table de droite (conservée entièrement)
+FROM client c                 -- Table de gauche (correspondances uniquement)
+RIGHT JOIN commande co        -- Table de droite (conservée entièrement)
     ON c.id = co.client_id;
 ```
 
@@ -293,8 +293,8 @@ SELECT c.nom,
        co.id AS commande_id,
        co.date_commande,
        co.montant
-FROM clients c
-FULL OUTER JOIN commandes co
+FROM client c
+FULL OUTER JOIN commande co
     ON c.id = co.client_id;
 ```
 
@@ -311,7 +311,7 @@ NULL    | 104         | 2023-03-10    | 45.99
 
 **Remarque:** Affiche à la fois le client sans commande (Durand) et la commande sans client (104).
 
-**Question métier résolue:** "Quelles sont toutes nos données de clients et commandes, même lorsqu'il n'y a pas de correspondance?"
+**Question métier résolue:** "Quelles sont toutes nos données de client et commande, même lorsqu'il n'y a pas de correspondance?"
 
 ### SELF JOIN
 
@@ -319,15 +319,15 @@ Le SELF JOIN permet de joindre une table avec elle-même:
 
 ```sql
 -- Structure de la table
-CREATE TABLE employes_hierarchie (
+CREATE TABLE employe_hierarchie (
     id INT PRIMARY KEY,
     nom VARCHAR(100),
     manager_id INT,              -- Référence à un autre employé
-    FOREIGN KEY (manager_id) REFERENCES employes_hierarchie(id)
+    FOREIGN KEY (manager_id) REFERENCES employe_hierarchie(id)
 );
 
 -- Données exemple
-INSERT INTO employes_hierarchie VALUES 
+INSERT INTO employe_hierarchie VALUES 
     (1, 'Jean Dupont', NULL),    -- CEO (sans manager)
     (2, 'Marie Martin', 1),      -- Rapporte au CEO
     (3, 'Pierre Dubois', 1),     -- Rapporte au CEO
@@ -339,8 +339,8 @@ Requête pour obtenir chaque employé avec son manager:
 ```sql
 SELECT e1.nom AS employe,        -- Nom de l'employé
        e2.nom AS manager         -- Nom du manager
-FROM employes_hierarchie e1      -- Table des employés
-LEFT JOIN employes_hierarchie e2 -- Même table pour les managers
+FROM employe_hierarchie e1      -- Table des employés
+LEFT JOIN employe_hierarchie e2 -- Même table pour les managers
     ON e1.manager_id = e2.id;    -- Relation hiérarchique
 ```
 
@@ -365,10 +365,10 @@ Les sous-requêtes sont des requêtes imbriquées dans une autre requête:
 ```sql
 -- Trouver les clients qui ont effectué des commandes supérieures à 100€
 SELECT nom
-FROM clients
+FROM client
 WHERE id IN (                     -- Sous-requête pour filtrer les IDs
     SELECT client_id              -- Retourne une liste d'IDs
-    FROM commandes 
+    FROM commande 
     WHERE montant > 100
 );
 ```
@@ -400,7 +400,7 @@ La cardinalité définit le nombre d'occurrences d'une entité qui peuvent être
 ## 5. Bonnes Pratiques
 
 1. **Nommage et lisibilité**
-   - Utilisez des alias courts mais significatifs (`c` pour clients, `co` pour commandes)
+   - Utilisez des alias courts mais significatifs (`c` pour client, `co` pour commande)
    - Indentez votre code SQL pour une meilleure lisibilité
    - Placez chaque clause principale sur une nouvelle ligne
 
