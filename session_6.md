@@ -1,4 +1,4 @@
-# Cours sur les Requêtes SQL SELECT
+# SELECT
 
 ## Table des Matières
 - [1. Fondamentaux (Niveau Débutant)](#1-fondamentaux-niveau-débutant)
