@@ -2,9 +2,9 @@
 
 ## Table des Matières
 - [1. Fondamentaux (Niveau Débutant)](#1-fondamentaux-niveau-débutant)
-  - [Syntaxe de Base](#syntaxe-de-base)
-  - [Filtrage avec WHERE](#filtrage-avec-where)
-  - [Tri avec ORDER BY](#tri-avec-order-by)
+  - [Clauses de base](#syntaxe-de-base)
+  - [Filtrage avec `WHERE`](#filtrage-avec-where)
+  - [Tri avec `ORDER BY`](#tri-avec-order-by)
   - [Limitation des Résultats](#limitation-des-résultats)
 - [2. Fonctions et Groupement (Niveau Intermédiaire)](#2-fonctions-et-groupement-niveau-intermédiaire)
   - [Regroupement avec GROUP BY](#regroupement-avec-group-by)
@@ -24,7 +24,7 @@
 
 ## 1. Fondamentaux (Niveau Débutant)
 
-### Syntaxe de Base
+### Clauses de base: `SELECT` ... `FROM`
 
 La requête SELECT est utilisée pour extraire des données d'une base de données. Sa structure minimale est:
 
@@ -42,7 +42,7 @@ FROM utilisateur;
 
 **Pourquoi l'utiliser:** Permet d'extraire et de visualiser les données stockées dans vos tables.
 
-### Filtrage avec WHERE
+### Clause de filtrage: `WHERE`
 
 La clause WHERE permet de filtrer les résultats en fonction de conditions:
 
@@ -75,7 +75,7 @@ WHERE age >= 18 AND pays = 'France';
 
 **Question métier résolue:** "Quels sont les utilisateur majeurs résidant en France?"
 
-### Tri avec ORDER BY
+### Clause de tri: `ORDER BY`
 
 La clause ORDER BY trie les résultats selon une ou plusieurs colonnes:
 
@@ -91,7 +91,7 @@ ORDER BY nom ASC,  -- Tri croissant sur le nom
 
 **Question métier résolue:** "Comment obtenir la liste des utilisateur triée alphabétiquement par nom puis par prénom inversé?"
 
-### Limitation des Résultats
+### Clause de limitation des résultats: `LIMIT` et `OFFSET`
 
 La clause LIMIT restreint le nombre de résultats retournés:
 
@@ -102,7 +102,7 @@ ORDER BY prix           -- Tri par prix
 LIMIT 10;               -- Seulement les 10 premiers résultats
 ```
 
-Avec décalage (pagination):
+Avec décalage (optionel, 0 par defaut):
 
 ```sql
 SELECT *
@@ -113,7 +113,7 @@ LIMIT 10 OFFSET 20;    -- 10 produits à partir du 21ème
 
 **Question métier résolue:** "Comment afficher la deuxième page de résultats avec 10 produits par page?"
 
-## 2. Fonctions et Groupement (Niveau Intermédiaire)
+## 2. Clause de regroupement et fonctions d'agrégation: `GROUP BY`
 
 ### Regroupement avec GROUP BY
 
