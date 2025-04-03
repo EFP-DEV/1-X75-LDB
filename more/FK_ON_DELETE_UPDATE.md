@@ -1,6 +1,8 @@
-# Introduction aux contraintes des foreign keys en SQL
+# Intégrité référentielle dans une base de données relationnelle
 
-Les foreign keys (clés étrangères) sont essentielles pour maintenir l'intégrité référentielle dans une base de données relationnelle. Elles définissent comment les relations entre tables sont gérées lors de la modification ou suppression des données. Ce document présente les différentes stratégies disponibles pour les clauses `ON DELETE` et `ON UPDATE`, illustrées par des exemples concrets.
+Les foreign keys (clés étrangères) sont essentielles pour maintenir l'intégrité référentielle dans une base de données relationnelle. Elles définissent comment les relations entre tables sont gérées lors de la modification ou suppression des données. 
+
+Ce document présente les différentes stratégies disponibles pour les clauses `ON DELETE` et `ON UPDATE`, illustrées par des exemples concrets.
 
 ## Types de contraintes
 
