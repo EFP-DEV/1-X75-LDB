@@ -16,7 +16,7 @@ Les clés étrangères empêchent l'existence d'enregistrements orphelins. Sans 
 
 ```sql
 CREATE TABLE commandes (
-    id INT PRIMARY KEY,
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     client_id INT,
     FOREIGN KEY (client_id) REFERENCES clients(id)
     -- Sans cette FK, rien n'empêche des valeurs client_id invalides
@@ -61,12 +61,12 @@ Une relation où un enregistrement dans la table A correspond à exactement un e
 ```sql
 -- Exemple: Un utilisateur a un profil unique
 CREATE TABLE utilisateur (
-    id INT PRIMARY KEY,
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE profil_utilisateur (
-    id INT PRIMARY KEY,
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     utilisateur_id INT UNIQUE,
     bio TEXT,
     FOREIGN KEY (utilisateur_id) REFERENCES utilisateur(id)
@@ -79,17 +79,29 @@ Une relation où un enregistrement dans la table A peut être lié à plusieurs 
 ```sql
 -- Exemple: Un opérateur peut créer plusieurs items
 CREATE TABLE operator (
-    id INT PRIMARY KEY,
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50)
 );
 
 CREATE TABLE item (
-    id INT PRIMARY KEY,
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(100),
     operator_id INT,
     FOREIGN KEY (operator_id) REFERENCES operator(id)
 );
 ```
+---
+> **Remarque :**  
+> Dans une relation 1–1 et une relation 1–n, la définition technique de la clé étrangère reste la même :  
+> ```sql
+> FOREIGN KEY (colonne_fille) REFERENCES table_parent(id)
+> ```
+> La différence réside plutôt dans la **contrainte** appliquée à la colonne qui porte cette clé étrangère :
+>
+> - **1–1** : la colonne est souvent déclarée comme **UNIQUE** (ou peut même servir de clé primaire). Cela empêche qu’un même enregistrement parent soit référencé plusieurs fois, imposant ainsi la correspondance un-à-un.
+> - **1–n** : la colonne **n’est pas** unique. Plusieurs lignes de la table enfant peuvent alors faire référence à un même enregistrement parent, permettant la relation un-à-plusieurs.(ou peut même servir de clé primaire). Cela empêche qu’un même enregistrement parent soit référencé plusieurs fois, imposant ainsi la correspondance un-à-un.
+
+---
 
 #### Relation Plusieurs-à-Plusieurs (N:M)
 Une relation où plusieurs enregistrements dans la table A peuvent être liés à plusieurs enregistrements dans la table B, nécessitant une table de jonction.
@@ -97,12 +109,12 @@ Une relation où plusieurs enregistrements dans la table A peuvent être liés �
 ```sql
 -- Exemple: Des items peuvent avoir plusieurs tags et vice versa
 CREATE TABLE item (
-    id INT PRIMARY KEY,
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(100)
 );
 
 CREATE TABLE tag (
-    id INT PRIMARY KEY,
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50)
 );
 
@@ -114,10 +126,18 @@ CREATE TABLE item_tag (
     FOREIGN KEY (tag_id) REFERENCES tag(id)
 );
 ```
-
 ---
 ## 2. ON DELETE et ON UPDATE
 Les actions à effectuer lors de la suppression ou de la mise à jour d'un enregistrement référencé.
 
 [Voir le cours sur ON DELETE et ON UPDATE](more/FK_ON_DELETE_UPDATE.md)
 
+
+
+## 3. UNSIGNED ?
+
+> Définir une clé primaire auto-incrémentée (`AUTO_INCREMENT`) comme **UNSIGNED** (sous MySQL/MariaDB) permet de pratiquement **doubler la plage de valeurs** disponibles pour l’identifiant. Par exemple :
+> - Un `INT` signé standard (32 bits) va de –2,147,483,648 à 2,147,483,647.
+> - Un `INT UNSIGNED` (32 bits) va de 0 à 4,294,967,295.
+>
+> Puisqu’un identifiant n’a pas besoin de valeurs négatives, passer la colonne en `UNSIGNED` prolonge la durée de vie de l’auto-incrément avant d’atteindre la valeur maximale.
