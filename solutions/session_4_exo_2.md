@@ -4,31 +4,23 @@ Pour l'exercice 2 (Gestion d'Université), la procédure de conversion en 1NF es
 
 ## 1. Analyse des données actuelles
 
-Rappel des données brutes:
-| ID_Cours | Nom_Cours | ID_Professeur | Nom_Professeur | Département_Prof | ID_Étudiant | Nom_Étudiant | Programme_Étudiant | Note |
-|----------|-----------|---------------|----------------|------------------|-------------|--------------|---------------------|------|
-| CS101 | Introduction à l'informatique | P001 | Dr. Lefevre | Informatique | E001 | Moreau Paul | Génie Informatique | 18/20 |
-| CS101 | Introduction à l'informatique | P001 | Dr. Lefevre | Informatique | E002 | Garcia Ana | Sciences des Données | 16/20 |
-| ...autres lignes... |
+   | ID_Cours | Nom_Cours | ID_Professeur | Nom_Professeur | Département_Prof | ID_Étudiant | Nom_Étudiant | Programme_Étudiant | Note |
+   |----------|-----------|---------------|----------------|------------------|-------------|--------------|---------------------|------|
+   | CS101 | Introduction à l'informatique | P001 | Dr. Lefevre | Informatique | E001 | Moreau Paul | Génie Informatique | 18/20 |
+   | CS101 | Introduction à l'informatique | P001 | Dr. Lefevre | Informatique | E002 | Garcia Ana | Sciences des Données | 16/20 |
+   | CS101 | Introduction à l'informatique | P001 | Dr. Lefevre | Informatique | E003 | Laurent Thomas | Génie Informatique | 14/20 |
+   | MATH201 | Algèbre linéaire | P002 | Dr. Rousseau | Mathématiques | E001 | Moreau Paul | Génie Informatique | 15/20 |
+   | MATH201 | Algèbre linéaire | P002 | Dr. Rousseau | Mathématiques | E002 | Garcia Ana | Sciences des Données | 19/20 |
+   | PHY101 | Mécanique classique | P003 | Dr. Petit | Physique | E004 | Blanc Julie | Physique | 17/20 |
 
 ## 2. Vérification des conditions de 1NF
-
-Pour être en 1NF, une relation doit satisfaire:
-- Chaque colonne contient des valeurs atomiques (indivisibles)
-- Chaque colonne contient des valeurs du même type
-- Chaque colonne a un nom unique
-- L'ordre des colonnes n'a pas d'importance
-- L'ordre des lignes n'a pas d'importance
-- Chaque ligne est unique (il existe une clé primaire)
-
-## 3. Identification des problèmes
 
 En examinant les données:
 - Tous les attributs semblent déjà atomiques (pas de valeurs multiples dans une cellule)
 - Pas de répétition de groupes d'attributs
 - La table a besoin d'une clé primaire clairement définie
 
-## 4. Résolution
+## 3. Résolution
 
 La relation est déjà en 1NF car elle ne contient pas d'attributs multivalués.
 
@@ -38,7 +30,7 @@ La clé primaire devrait être la combinaison de:
 
 Cette clé composite garantit l'unicité de chaque ligne puisqu'un étudiant ne peut être inscrit qu'une seule fois à un cours spécifique.
 
-## 5. Relation finale en 1NF
+## 4. Table finale en 1NF
 
 | ID_Cours (PK) | ID_Étudiant (PK) | Nom_Cours | ID_Professeur | Nom_Professeur | Département_Prof | Nom_Étudiant | Programme_Étudiant | Note |
 |---------------|------------------|-----------|---------------|----------------|------------------|--------------|---------------------|------|

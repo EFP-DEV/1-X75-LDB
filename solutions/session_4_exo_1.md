@@ -84,12 +84,14 @@ Les violations 2NF identifiées sont:
 
 Pour résoudre ces violations, nous décomposons la table en plusieurs tables en utilisant les clés naturelles existantes, sans introduire d'identifiants artificiels.
 
+# Tables normalisées en 2NF
+
 ### Table Commandes
-| ID_Commande (PK) | Date_Commande |
-|------------------|---------------|
-| C001 | 15/03/2025 |
-| C002 | 18/03/2025 |
-| C003 | 20/03/2025 |
+| ID_Commande (PK) | Date_Commande | Client_Email (FK) |
+|------------------|---------------|-------------------|
+| C001 | 15/03/2025 | dupont@email.com |
+| C002 | 18/03/2025 | smartin@email.com |
+| C003 | 20/03/2025 | mdubois@email.com |
 
 ### Table Clients
 | Client_Email (PK) | Client_Nom |
@@ -99,8 +101,8 @@ Pour résoudre ces violations, nous décomposons la table en plusieurs tables en
 | mdubois@email.com | Dubois Marie |
 
 ### Table Téléphones_Clients
-| Client_Email (PK, FK) | Client_Telephone (PK) |
-|-----------------------|----------------------|
+| Client_Email (FK) | Client_Telephone |
+|-------------------|-----------------|
 | dupont@email.com | 0612345678 |
 | dupont@email.com | 0156789012 |
 | smartin@email.com | 0723456789 |
@@ -118,14 +120,21 @@ Pour résoudre ces violations, nous décomposons la table en plusieurs tables en
 | 978-2-266-23336-1 | Dune | 13.40 |
 
 ### Table Lignes_Commande
-| ID_Commande (PK, FK) | Client_Email (PK, FK) | Livre_ISBN (PK, FK) |
-|----------------------|---------------------|-------------------|
-| C001 | dupont@email.com | 978-2-07-040850-4 |
-| C001 | dupont@email.com | 978-2-07-036002-4 |
-| C002 | smartin@email.com | 978-2-07-036822-8 |
-| C003 | mdubois@email.com | 978-2-07-054090-1 |
-| C003 | mdubois@email.com | 978-2-266-28536-9 |
-| C003 | mdubois@email.com | 978-2-266-23336-1 |
+| ID_Commande (FK) | Livre_ISBN (FK) |
+|------------------|----------------|
+| C001 | 978-2-07-040850-4 |
+| C001 | 978-2-07-036002-4 |
+| C002 | 978-2-07-036822-8 |
+| C003 | 978-2-07-054090-1 |
+| C003 | 978-2-266-28536-9 |
+| C003 | 978-2-266-23336-1 |
+
+
+## Remarques
+1. La clé primaire de la table Téléphones_Clients est la combinaison (Client_Email, Client_Telephone)
+2. La clé primaire de la table Lignes_Commande est la combinaison (ID_Commande, Livre_ISBN)
+3. Client_Email a été correctement déplacé vers la table Commandes pour éviter la violation 3NF précédemment identifiée
+4. Toutes les dépendances partielles ont été éliminées, rendant les tables conformes à la 2NF
 
 --- 
 
