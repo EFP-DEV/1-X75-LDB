@@ -33,7 +33,7 @@ Here's the updated table with the X75A column added:
 | **1**  | 25/02/2025 | 30/01/2025 | **Introduction et positionnement**                | [Théorie](session_1.md) \| [Exercices](session_1_exo.md) |
 | **2**  | 27/02/2025 | 27/02/2025 | **Modélisation de base de données**               | [Théorie](session_2.md) \| [Exercices](session_2_exo.md) |
 | **3**  | 11/03/2025 | 13/03/2025 | **Modélisation conceptuelle (MCD - Modèle Entité-Association)** | [Théorie](session_3.md) \| [Exercices](session_3_exo.md) |
-| **4**  | 13/03/2025 | 20/03/2025 | **Normlisation et MLD**                           | [Théorie](session_4.md) \| [Exercices](session_4_exo.md) |
+| **4**  | 13/03/2025 | 20/03/2025 | **Normalisation et MLD**                           | [Théorie](session_4.md) \| [Exercices](session_4_exo.md) |
 | **5**  | 18/03/2025 | 27/03/2025 | **Analyse du cahier des charges de l'atelier**    | [Théorie](session_5.md) |
 | **6**  | 20/03/2025 | 03/04/2025 | **Les clauses du SELECT**                         | [Théorie](session_6.md) \| [Exercices](session_6_exo.md) |
 | **7**  | 25/03/2025 | 10/04/2025 | **Modélisation des Relations en SQL**             | [Théorie](session_7.md) \| [Exercices](session_7_exo.md) |
