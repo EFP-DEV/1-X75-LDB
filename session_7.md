@@ -8,6 +8,34 @@ Dans la conception de bases de données relationnelles, une question revient fr�
 
 Les clés étrangères constituent un mécanisme fondamental des systèmes de gestion de bases de données relationnelles (SGBDR), offrant bien plus qu'une simple relation entre tables. Elles représentent un contrat d'intégrité que le moteur de base de données s'engage à faire respecter, assurant ainsi la cohérence des données indépendamment des applications qui y accèdent.
 
+```sql
+-- Exemple d'un schéma sans contrainte de clé étrangère
+CREATE TABLE utilisateur (
+    id INT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE article (
+    id INT PRIMARY KEY,
+    titre VARCHAR(100) NOT NULL,
+    contenu TEXT,
+    utilisateur_id INT    -- Pas de FOREIGN KEY ici
+);
+
+-- On insère quelques utilisateurs "valides"
+INSERT INTO utilisateur (id, username) VALUES
+    (1, 'Alice'),
+    (2, 'Bob');
+
+-- On insère des articles qui se réfèrent à n’importe quel id utilisateur
+INSERT INTO article (id, titre, contenu, utilisateur_id) VALUES
+    (100, 'Article Fantôme', 'Contenu…', 999),   -- 999 n’existe pas
+    (101, 'Article Inexistant', 'Autre contenu…', 3),  -- 3 n’existe pas
+    (102, 'Article de Personne', 'Encore…', -1); -- -1 n’existe pas non plus (voir point 3. UNSIGNED)
+```
+
+---
+
 ## Raisons essentielles pour définir des clés étrangères
 
 ### 1. Garantie de l'intégrité référentielle
