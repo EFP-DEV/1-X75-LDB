@@ -1,6 +1,39 @@
 # Exercice 7
 # Démonstration de l'intégrité des données avec les clés étrangères
 
+Here's a Table of Contents in Markdown with anchor links for the document:
+
+
+- [Exercice 7: Data Integrity with Foreign Keys](#exercice-7-data-integrity-with-foreign-keys)
+  - [Part 1: Database Without Foreign Keys](#part-1-database-without-foreign-keys)
+    - [Basic Table Creation](#basic-table-creation)
+    - [Data Insertion](#data-insertion)
+    - [Exercises Part 1](#exercises-part-1)
+  - [Part 2: Database With Standard Foreign Keys](#part-2-database-with-standard-foreign-keys)
+    - [Tables With Standard Constraints](#tables-with-standard-constraints)
+    - [Valid Data Insertion](#valid-data-insertion)
+    - [Exercises Part 2](#exercises-part-2)
+  - [Part 3: ON DELETE CASCADE and ON UPDATE CASCADE](#part-3-on-delete-cascade-and-on-update-cascade)
+    - [Tables With CASCADE Options](#tables-with-cascade-options)
+    - [Data for CASCADE Demonstration](#data-for-cascade-demonstration)
+    - [Exercises Part 3](#exercises-part-3)
+  - [Part 4: ON DELETE SET NULL and ON UPDATE SET NULL](#part-4-on-delete-set-null-and-on-update-set-null)
+    - [Tables With SET NULL Options](#tables-with-set-null-options)
+    - [Data for SET NULL Demonstration](#data-for-set-null-demonstration)
+    - [Exercises Part 4](#exercises-part-4)
+  - [Part 5: ON DELETE SET DEFAULT and ON UPDATE SET DEFAULT](#part-5-on-delete-set-default-and-on-update-set-default)
+    - [Default Client and Product Creation](#default-client-and-product-creation)
+    - [Tables With SET DEFAULT Options](#tables-with-set-default-options)
+    - [Data for SET DEFAULT Demonstration](#data-for-set-default-demonstration)
+    - [Exercises Part 5](#exercises-part-5)
+  - [Comparison Exercise](#comparison-exercise)
+  - [Final Exercise: Practical E-commerce Application](#final-exercise-practical-e-commerce-application)
+  - [Expected Results and Key Points](#expected-results-and-key-points)
+    - [ON DELETE Options - Key Differences](#on-delete-options---key-differences)
+    - [ON UPDATE Options](#on-update-options)
+    - [Business Implications](#business-implications)
+
+
 ## Scénario : Système e-commerce avec clients, commandes et produits
 
 <img src="../more/session_7_mcd.svg" alt="MCD" height="800" />
@@ -77,8 +110,7 @@ CREATE TABLE order_standard_fk (
     customer_id INT NOT NULL,
     order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     total_amount DECIMAL(10, 2) NOT NULL,
-    FOREIGN KEY (customer_id) REFERENCES customer(id)
-    -- Comportement par défaut : ON DELETE/UPDATE NO ACTION (ou RESTRICT dans certains SGBD)
+   
 );
 
 CREATE TABLE order_item_standard_fk (
@@ -87,9 +119,37 @@ CREATE TABLE order_item_standard_fk (
     product_id INT NOT NULL,
     quantity INT NOT NULL,
     price DECIMAL(10, 2) NOT NULL,
-    FOREIGN KEY (order_id) REFERENCES order_standard_fk(id),
-    FOREIGN KEY (product_id) REFERENCES product(id)
 );
+
+
+CREATE TABLE order_standard_fk (
+    id INT PRIMARY KEY,
+    customer_id INT NOT NULL,
+    order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    total_amount DECIMAL(10, 2) NOT NULL
+);
+
+CREATE TABLE order_item_standard_fk (
+    id INT PRIMARY KEY,
+    order_id INT NOT NULL,
+    product_id INT NOT NULL,
+    quantity INT NOT NULL,
+    price DECIMAL(10, 2) NOT NULL
+);
+```
+
+```sql
+ALTER TABLE order_standard_fk
+ADD CONSTRAINT fk_order_customer
+FOREIGN KEY (customer_id) REFERENCES customer(id);  -- Comportement par défaut : ON DELETE/UPDATE NO ACTION (ou RESTRICT dans certains SGBD)
+
+ALTER TABLE order_item_standard_fk
+ADD CONSTRAINT fk_order_item_order
+FOREIGN KEY (order_id) REFERENCES order_standard_fk(id);  -- Comportement par défaut : ON DELETE/UPDATE NO ACTION (ou RESTRICT dans certains SGBD)
+
+ALTER TABLE order_item_standard_fk
+ADD CONSTRAINT fk_order_item_product
+FOREIGN KEY (product_id) REFERENCES product(id);  -- Comportement par défaut : ON DELETE/UPDATE NO ACTION (ou RESTRICT dans certains SGBD)
 ```
 
 ### Insertion de données valides
@@ -119,10 +179,7 @@ CREATE TABLE order_cascade (
     id INT PRIMARY KEY,
     customer_id INT NOT NULL,
     order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    total_amount DECIMAL(10, 2) NOT NULL,
-    FOREIGN KEY (customer_id) REFERENCES customer(id) 
-        ON DELETE CASCADE  -- Quand un client est supprimé, supprime toutes ses commandes
-        ON UPDATE CASCADE  -- Quand customer_id est mis à jour, met à jour les références automatiquement
+    total_amount DECIMAL(10, 2) NOT NULL
 );
 
 CREATE TABLE order_item_cascade (
@@ -130,14 +187,27 @@ CREATE TABLE order_item_cascade (
     order_id INT NOT NULL,
     product_id INT NOT NULL,
     quantity INT NOT NULL,
-    price DECIMAL(10, 2) NOT NULL,
-    FOREIGN KEY (order_id) REFERENCES order_cascade(id)
-        ON DELETE CASCADE  -- Quand une commande est supprimée, supprime tous ses éléments
-        ON UPDATE CASCADE, -- Quand order_id est mis à jour, met à jour les références automatiquement
-    FOREIGN KEY (product_id) REFERENCES product(id)
-        ON DELETE RESTRICT -- Empêche la suppression des produits dans les commandes
-        ON UPDATE CASCADE  -- Quand product_id est mis à jour, met à jour les références automatiquement
+    price DECIMAL(10, 2) NOT NULL
 );
+```
+```sql
+ALTER TABLE order_cascade
+ADD CONSTRAINT fk_order_cascade_customer
+FOREIGN KEY (customer_id) REFERENCES customer(id)
+ON DELETE CASCADE
+ON UPDATE CASCADE;
+
+ALTER TABLE order_item_cascade
+ADD CONSTRAINT fk_order_item_cascade_order
+FOREIGN KEY (order_id) REFERENCES order_cascade(id)
+ON DELETE CASCADE
+ON UPDATE CASCADE;
+
+ALTER TABLE order_item_cascade
+ADD CONSTRAINT fk_order_item_cascade_product
+FOREIGN KEY (product_id) REFERENCES product(id)
+ON DELETE RESTRICT
+ON UPDATE CASCADE;
 ```
 
 ### Insertion de données pour la démonstration CASCADE
@@ -165,27 +235,37 @@ Vérifiez ce qui est arrivé aux enregistrements de commande associés. Pourquoi
 ```sql
 CREATE TABLE order_set_null (
     id INT PRIMARY KEY,
-    customer_id INT,  -- Doit être nullable pour que SET NULL fonctionne
+    customer_id INT,
     order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    total_amount DECIMAL(10, 2) NOT NULL,
-    FOREIGN KEY (customer_id) REFERENCES customer(id) 
-        ON DELETE SET NULL  -- Quand un client est supprimé, met customer_id à NULL
-        ON UPDATE SET NULL  -- Quand customer_id est mis à jour, met les références à NULL
+    total_amount DECIMAL(10, 2) NOT NULL
 );
 
 CREATE TABLE order_item_set_null (
     id INT PRIMARY KEY,
-    order_id INT,      -- Doit être nullable pour que SET NULL fonctionne
-    product_id INT,    -- Doit être nullable pour que SET NULL fonctionne
+    order_id INT,
+    product_id INT,
     quantity INT NOT NULL,
-    price DECIMAL(10, 2) NOT NULL,
-    FOREIGN KEY (order_id) REFERENCES order_set_null(id)
-        ON DELETE SET NULL  -- Quand une commande est supprimée, met order_id à NULL
-        ON UPDATE SET NULL, -- Quand order_id est mis à jour, met les références à NULL
-    FOREIGN KEY (product_id) REFERENCES product(id)
-        ON DELETE SET NULL  -- Quand un produit est supprimé, met product_id à NULL
-        ON UPDATE SET NULL  -- Quand product_id est mis à jour, met les références à NULL
+    price DECIMAL(10, 2) NOT NULL
 );
+```
+```sql
+ALTER TABLE order_set_null
+ADD CONSTRAINT fk_order_set_null_customer
+FOREIGN KEY (customer_id) REFERENCES customer(id)
+ON DELETE SET NULL
+ON UPDATE SET NULL;
+
+ALTER TABLE order_item_set_null
+ADD CONSTRAINT fk_order_item_set_null_order
+FOREIGN KEY (order_id) REFERENCES order_set_null(id)
+ON DELETE SET NULL
+ON UPDATE SET NULL;
+
+ALTER TABLE order_item_set_null
+ADD CONSTRAINT fk_order_item_set_null_product
+FOREIGN KEY (product_id) REFERENCES product(id)
+ON DELETE SET NULL
+ON UPDATE SET NULL;
 ```
 
 ### Insertion de données pour la démonstration SET NULL
@@ -217,27 +297,37 @@ INSERT INTO product VALUES (999, 'Produit Inconnu', 0.00, 0);
 ```sql
 CREATE TABLE order_set_default (
     id INT PRIMARY KEY,
-    customer_id INT DEFAULT 999,  -- Valeur par défaut pour SET DEFAULT
+    customer_id INT DEFAULT 999,
     order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    total_amount DECIMAL(10, 2) NOT NULL,
-    FOREIGN KEY (customer_id) REFERENCES customer(id) 
-        ON DELETE SET DEFAULT  -- Quand un client est supprimé, met à la valeur par défaut
-        ON UPDATE SET DEFAULT  -- Quand customer_id est mis à jour, met à la valeur par défaut
+    total_amount DECIMAL(10, 2) NOT NULL
 );
 
 CREATE TABLE order_item_set_default (
     id INT PRIMARY KEY,
-    order_id INT DEFAULT NULL,  -- Valeur par défaut pour SET DEFAULT
-    product_id INT DEFAULT 999, -- Par défaut au "Produit Inconnu"
+    order_id INT DEFAULT NULL,
+    product_id INT DEFAULT 999,
     quantity INT NOT NULL,
-    price DECIMAL(10, 2) NOT NULL,
-    FOREIGN KEY (order_id) REFERENCES order_set_default(id)
-        ON DELETE SET DEFAULT
-        ON UPDATE SET DEFAULT,
-    FOREIGN KEY (product_id) REFERENCES product(id)
-        ON DELETE SET DEFAULT
-        ON UPDATE SET DEFAULT
+    price DECIMAL(10, 2) NOT NULL
 );
+```
+```sql
+ALTER TABLE order_set_default
+ADD CONSTRAINT fk_order_set_default_customer
+FOREIGN KEY (customer_id) REFERENCES customer(id)
+ON DELETE SET DEFAULT
+ON UPDATE SET DEFAULT;
+
+ALTER TABLE order_item_set_default
+ADD CONSTRAINT fk_order_item_set_default_order
+FOREIGN KEY (order_id) REFERENCES order_set_default(id)
+ON DELETE SET DEFAULT
+ON UPDATE SET DEFAULT;
+
+ALTER TABLE order_item_set_default
+ADD CONSTRAINT fk_order_item_set_default_product
+FOREIGN KEY (product_id) REFERENCES product(id)
+ON DELETE SET DEFAULT
+ON UPDATE SET DEFAULT;
 ```
 
 ### Insertion de données pour la démonstration SET DEFAULT
@@ -323,6 +413,8 @@ N'oubliez pas que différentes relations peuvent nécessiter différentes option
    - Bon pour maintenir l'intégrité des données tout en supprimant une relation spécifique
    - Nécessite que des enregistrements par défaut appropriés existent
    - Utile pour les enregistrements historiques où la référence originale est supprimée
+
+---
 
 ### Les options ON UPDATE fonctionnent de manière similaire mais s'appliquent lorsque les clés primaires sont mises à jour.
 Cela est moins courant dans les bases de données bien conçues car les clés primaires sont généralement
