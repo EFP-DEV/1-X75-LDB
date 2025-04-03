@@ -344,3 +344,6 @@ Ce code est loin d'être pret pour la production, il ne couvre pas tous les aspe
 ---
 
 Il est cependant suffisant pour illustrer les concepts de normalisation et de création de tables. Il peut être utilisé comme point de départ pour des exercices plus complexes.
+
+---
+> Ce cours est distribué sous **licence Creative Commons**. Toute reproduction ou distribution à but commercial est interdite sans l’accord préalable de l’auteur.

@@ -444,3 +444,8 @@ FROM daily_messages
 ORDER BY message_date DESC;
 ```
 </details>
+
+
+
+---
+> Ce cours est distribué sous **licence Creative Commons**. Toute reproduction ou distribution à but commercial est interdite sans l’accord préalable de l’auteur.

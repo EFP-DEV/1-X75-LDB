@@ -46,3 +46,5 @@
 - Rédaction du script SQL pour la création des tables
 
 
+---
+> Ce cours est distribué sous **licence Creative Commons**. Toute reproduction ou distribution à but commercial est interdite sans l’accord préalable de l’auteur.

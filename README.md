@@ -26,7 +26,7 @@ Ce module vise à fournir une compréhension approfondie des bases de données r
 ## **Plan du cours**
 Le module est structuré en **10 séances de 4 heures**, alternant entre théorie et pratique.
 
-### **Séance 1 : Introduction et positionnement**
+### **Séance 1 : [Introduction et positionnement](session_1.md)**
 - Présentation des objectifs et du rôle des bases de données.
 - Historique des bases de données et panorama des SGBD.
 - Définitions claires des concepts de base (tables, schémas, relations)
@@ -38,7 +38,7 @@ Le module est structuré en **10 séances de 4 heures**, alternant entre théori
 
 ---
 
-### **Séance 2 : CRUD – Premières manipulations en SQL**
+### **Séance 2 : Modélisation de base de données**
 - Installation de **MySQL + PHPMyAdmin**.
 - Création d’un utilisateur et d’une base de données.
 - Manipulation des données : `INSERT`, `SELECT`, `UPDATE`, `DELETE`.
@@ -57,7 +57,7 @@ Le module est structuré en **10 séances de 4 heures**, alternant entre théori
 
 ---
 
-### **Séance 4 : Passage du MCD au modèle relationnel et normalisation**
+### **Séance 4 : Normlisation et MLD**
 - Conversion d’un **MCD en schéma relationnel**.
 - Explication et application des **trois premières formes normales**.
 - Correction et optimisation d’un modèle.
@@ -66,7 +66,7 @@ Le module est structuré en **10 séances de 4 heures**, alternant entre théori
 
 ---
 
-### **Séance 5 : Clés, relations et intégrité référentielle**
+### **Séance 5 : Analyse du cahier des charges de l'atelier**
 - Clés primaires, étrangères et index.
 - Contraintes d’intégrité (`FOREIGN KEY`, `ON DELETE CASCADE`).
 - Mise en relation des entités et cohérence des données.
@@ -75,7 +75,7 @@ Le module est structuré en **10 séances de 4 heures**, alternant entre théori
 
 ---
 
-### **Séance 6 : Jointures et manipulation avancée des données**
+### **Séance 6 : Les clauses du SELECT**
 - Utilisation des jointures (`INNER JOIN`, `LEFT JOIN`, `RIGHT JOIN`).
 - Regroupements et filtrage (`GROUP BY`, `HAVING`).
 - Optimisation des requêtes et indexation (`EXPLAIN`).
@@ -84,7 +84,7 @@ Le module est structuré en **10 séances de 4 heures**, alternant entre théori
 
 ---
 
-### **Séance 7 : Projet pratique – Conception et implémentation**
+### **Séance 7 : Modélisation des Relations en SQL**
 - Analyse d’un **cahier des charges** et conception d’une base relationnelle.
 - Travail en groupe : **MCD, MLD et requêtes SQL**.
 - Corrections et échanges collectifs.
@@ -93,34 +93,28 @@ Le module est structuré en **10 séances de 4 heures**, alternant entre théori
 
 ---
 
-### **Séance 8 : Suite du projet**
+### **Séance 8 - 9 : Mise en oeuvre complete du projet ATE**
 - Approfondissement du projet de base de données.
 - Intégration des notions avancées (relations complexes, optimisation).
 - Présentation des avancées et retours d’amélioration.
-
----
-
-### **Séance 9 : Sécurité et bonnes pratiques en bases de données**
-- Prévention des attaques **SQL Injection** et sécurisation des requêtes.
-- Introduction à **PDO** (Connexion, Requêtes préparées).
 - Sauvegarde et restauration d’une base (`mysqldump`).
 
-**Supports** : [Théorie](session_9.md) | [Exercices](session_9_exo.md)
+
+**Supports** : [Théorie](session_8.md)
 
 ---
 
 ### **Séance 10 : Examen final et validation des acquis**
-- Évaluation écrite et pratique sur la **modélisation et SQL**.
-- Présentation des projets réalisés.
+- Présentation du projet réalisé.
+- Évaluation orale sur la **modélisation et SQL**.
 - Discussion finale sur les bonnes pratiques et retours d’expérience.
 
-**Supports** : [Théorie](session_10.md) | [Exercices](session_10_exo.md)
 
 ---
 
 ## **Évaluation et méthodologie**
 - **Méthode pédagogique** : alternance entre **cours théorique**, **exercices pratiques** et **études de cas**.
-- **Évaluation continue** : exercices pratiques à chaque séance.
+- **Évaluation continue** : exercices pratiques regulier.
 - **Examen final** : test écrit + projet pratique.
 
 ---
@@ -128,7 +122,7 @@ Le module est structuré en **10 séances de 4 heures**, alternant entre théori
 ## **Pré-requis et matériel nécessaire**
 ### **Pré-requis**
 - Connaissances de base en informatique (systèmes et fichiers).
-- Familiarité avec les concepts de programmation (PHP recommandé mais non obligatoire).
+- Familiarité avec les concepts de programmation
 
 ### **Matériel requis**
 - Un ordinateur avec **MySQL** et **PHPMyAdmin / HeidiSQL** installés.
@@ -142,10 +136,7 @@ Le module est structuré en **10 séances de 4 heures**, alternant entre théori
 1. **Concevoir et structurer** une base de données relationnelle en respectant les bonnes pratiques.
 2. **Créer et manipuler** des données via **SQL**.
 3. **Garantir l’intégrité et la sécurité** d’une base relationnelle.
-4. **Intégrer une base de données** dans une application web en utilisant **PHP & PDO**.
-5. **Optimiser** les requêtes SQL et assurer la maintenance d’une base de données.
+4. **Optimiser** les requêtes SQL et assurer la maintenance d’une base de données.
 
 ---
-
-## **Licence et droits d’usage**
-Ce cours est distribué sous **licence Creative Commons**. Toute reproduction ou distribution à but commercial est interdite sans l’accord préalable de l’auteur.
+> Ce cours est distribué sous **licence Creative Commons**. Toute reproduction ou distribution à but commercial est interdite sans l’accord préalable de l’auteur.

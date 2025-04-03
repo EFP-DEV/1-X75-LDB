@@ -79,3 +79,4 @@ Vous êtes chargé(e) de concevoir le système d'information d'un cinéma multip
 - Tous les identifiants doivent être nommés "id"
 
 ---
+> Ce cours est distribué sous **licence Creative Commons**. Toute reproduction ou distribution à but commercial est interdite sans l’accord préalable de l’auteur.

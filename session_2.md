@@ -50,3 +50,7 @@ Le test de votre modèle avec des données et des scénarios réels est crucial 
 - Votre conception peut-elle gérer des scénarios réels?
 - Si vous changiez quelque chose à un endroit, auriez-vous besoin de le mettre à jour ailleurs aussi?
 - Le stockage de vos données actuelles s'adapte-t-il à ce modèle?
+
+
+---
+> Ce cours est distribué sous **licence Creative Commons**. Toute reproduction ou distribution à but commercial est interdite sans l’accord préalable de l’auteur.

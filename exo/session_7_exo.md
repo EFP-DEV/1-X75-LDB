@@ -357,3 +357,8 @@ Moins courant car les PK sont généralement stables.
 - **CASCADE** : Suppression automatique de toutes les données d'un client lors de la fermeture de compte
 - **SET NULL** : Conservation de l'historique des commandes pour produits discontinués
 - **SET DEFAULT** : Transfert des commandes vers un compte générique lors d'une fusion de clients
+
+
+
+---
+> Ce cours est distribué sous **licence Creative Commons**. Toute reproduction ou distribution à but commercial est interdite sans l’accord préalable de l’auteur.

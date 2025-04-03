@@ -86,3 +86,7 @@ Pour chaque exercice, une solution complète comprendra:
    - Décomposition finale en tables sans dépendances transitives
 
 Les solutions montreront clairement la structure des tables résultantes avec leurs clés primaires et étrangères.
+
+
+---
+> Ce cours est distribué sous **licence Creative Commons**. Toute reproduction ou distribution à but commercial est interdite sans l’accord préalable de l’auteur.

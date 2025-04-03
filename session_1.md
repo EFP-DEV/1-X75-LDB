@@ -86,3 +86,8 @@ CREATE INDEX idx_student_name ON student(name);
 - Les **relations** entre les tables aident à maintenir l'intégrité des données.
 - Les **clés primaires** identifient de manière unique les enregistrements, tandis que les **clés étrangères** établissent des relations.
 - Les **index** améliorent les performances des requêtes.
+
+
+
+---
+> Ce cours est distribué sous **licence Creative Commons**. Toute reproduction ou distribution à but commercial est interdite sans l’accord préalable de l’auteur.

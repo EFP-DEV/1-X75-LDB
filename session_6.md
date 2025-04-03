@@ -417,3 +417,7 @@ La cardinalité définit le nombre d'occurrences d'une entité qui peuvent être
    - Commentez les requêtes complexes
    - Documentez la structure de la base de données
    - Créez des vues pour les requêtes fréquemment utilisées
+
+
+---
+> Ce cours est distribué sous **licence Creative Commons**. Toute reproduction ou distribution à but commercial est interdite sans l’accord préalable de l’auteur.

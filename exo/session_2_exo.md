@@ -124,3 +124,6 @@ Quelle requête SQL permet de mettre à jour les employés en 'Remote Work' ?
 - **Read** : L’utilisation de requêtes optimisées et l’indexation appropriée des colonnes peuvent considérablement améliorer les performances de lecture.
 - **Update** : Lors de la modification des données, assurez-vous que les changements respectent les contraintes de la table et ne créent pas de données incohérentes.
 - **Delete** : La suppression de données est une opération délicate. La technique de **soft delete** consiste à marquer les données comme supprimées sans les effacer physiquement. Pour cela, vous pouvez ajouter une colonne _deleted_at_ et y inscrire la date de suppression.
+
+---
+> Ce cours est distribué sous **licence Creative Commons**. Toute reproduction ou distribution à but commercial est interdite sans l’accord préalable de l’auteur.

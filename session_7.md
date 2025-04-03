@@ -161,7 +161,6 @@ Les actions à effectuer lors de la suppression ou de la mise à jour d'un enreg
 [Voir le cours sur ON DELETE et ON UPDATE](more/FK_ON_DELETE_UPDATE.md)
 
 
-
 ## 3. UNSIGNED ?
 
 > Définir une clé primaire auto-incrémentée (`AUTO_INCREMENT`) comme **UNSIGNED** (sous MySQL/MariaDB) permet de pratiquement **doubler la plage de valeurs** disponibles pour l’identifiant. Par exemple :
@@ -169,3 +168,7 @@ Les actions à effectuer lors de la suppression ou de la mise à jour d'un enreg
 > - Un `INT UNSIGNED` (32 bits) va de 0 à 4,294,967,295.
 >
 > Puisqu’un identifiant n’a pas besoin de valeurs négatives, passer la colonne en `UNSIGNED` prolonge la durée de vie de l’auto-incrément avant d’atteindre la valeur maximale.
+
+
+---
+> Ce cours est distribué sous **licence Creative Commons**. Toute reproduction ou distribution à but commercial est interdite sans l’accord préalable de l’auteur.

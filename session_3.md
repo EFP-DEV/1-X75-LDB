@@ -137,3 +137,6 @@ graph TD
     COMMANDE --- |"0,N"| COMPORTE
     COMPORTE --- |"1,N"| PRODUIT
 ```
+
+---
+> Ce cours est distribué sous **licence Creative Commons**. Toute reproduction ou distribution à but commercial est interdite sans l’accord préalable de l’auteur.

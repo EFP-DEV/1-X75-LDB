@@ -135,4 +135,4 @@ Pour chaque exercice, votre modélisation sera évaluée sur:
 - L'anticipation des besoins réels d'utilisation
 
 ---
-
+> Ce cours est distribué sous **licence Creative Commons**. Toute reproduction ou distribution à but commercial est interdite sans l’accord préalable de l’auteur.
