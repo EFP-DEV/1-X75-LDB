@@ -1,7 +1,7 @@
 # **Cours : Bases de Données Relationnelles (LBB)**
 
 ## **Introduction**
-Ce module vise à fournir une compréhension approfondie des bases de données relationnelles et de leur utilisation dans le cadre du développement web. Il s’aligne sur les objectifs du référentiel de formation, notamment :
+Ce module vise à fournir une compréhension approfondie des bases de données relationnelles et de leur utilisation dans le cadre du développement web. Il s'aligne sur les objectifs du référentiel de formation, notamment :
 
 - **Connaître et comprendre le fonctionnement des bases de données relationnelles** :
   - Différences entre les modèles de bases de données.
@@ -24,100 +24,28 @@ Ce module vise à fournir une compréhension approfondie des bases de données r
   - Interaction sécurisée avec une base de données.
 
 ## **Plan du cours**
-Le module est structuré en **10 séances de 4 heures**, alternant entre théorie et pratique.
+Le module est structuré en **12 séances de 4 heures**, alternant entre théorie et pratique.
 
-### **Séance 1 : [Introduction et positionnement](session_1.md)**
-- Présentation des objectifs et du rôle des bases de données.
-- Historique des bases de données et panorama des SGBD.
-- Définitions claires des concepts de base (tables, schémas, relations)
-- Explication progressive des éléments structurels (lignes, colonnes)
-- Présentation des différents types de relations (1:1, 1:M, M:N)
-- Exercices pratiques qui couvrent différents domaines d'application
-
-**Supports** : [Théorie](session_1.md) | [Exercices](session_1_exo.md)
-
----
-
-### **Séance 2 : Modélisation de base de données**
-- Installation de **MySQL + PHPMyAdmin**.
-- Création d’un utilisateur et d’une base de données.
-- Manipulation des données : `INSERT`, `SELECT`, `UPDATE`, `DELETE`.
-- Filtres (`WHERE`, `ORDER BY`) et fonctions d’agrégation (`COUNT`, `SUM`, `AVG`).
-
-**Supports** : [Théorie](session_2.md) | [Exercices](session_2_exo.md)
-
----
-
-### **Séance 3 : Modélisation conceptuelle (MCD - Modèle Entité-Association)**
-- Introduction à la méthode **MERISE**.
-- Construction d’un **Modèle Conceptuel des Données (MCD)**.
-- Étude de cas et exercices de modélisation.
-
-**Supports** : [Théorie](session_3.md) | [Exercices](session_3_exo.md)
-
----
-
-### **Séance 4 : Normlisation et MLD**
-- Conversion d’un **MCD en schéma relationnel**.
-- Explication et application des **trois premières formes normales**.
-- Correction et optimisation d’un modèle.
-
-**Supports** : [Théorie](session_4.md) | [Exercices](session_4_exo.md)
-
----
-
-### **Séance 5 : Analyse du cahier des charges de l'atelier**
-- Clés primaires, étrangères et index.
-- Contraintes d’intégrité (`FOREIGN KEY`, `ON DELETE CASCADE`).
-- Mise en relation des entités et cohérence des données.
-
-**Supports** : [Théorie](session_5.md) | [Exercices](session_5_exo.md)
-
----
-
-### **Séance 6 : Les clauses du SELECT**
-- Utilisation des jointures (`INNER JOIN`, `LEFT JOIN`, `RIGHT JOIN`).
-- Regroupements et filtrage (`GROUP BY`, `HAVING`).
-- Optimisation des requêtes et indexation (`EXPLAIN`).
-
-**Supports** : [Théorie](session_6.md) | [Exercices](session_6_exo.md)
-
----
-
-### **Séance 7 : Modélisation des Relations en SQL**
-- Analyse d’un **cahier des charges** et conception d’une base relationnelle.
-- Travail en groupe : **MCD, MLD et requêtes SQL**.
-- Corrections et échanges collectifs.
-
-**Supports** : [Théorie](session_7.md) | [Exercices](session_7_exo.md)
-
----
-
-### **Séance 8 - 9 : Mise en oeuvre complete du projet ATE**
-- Approfondissement du projet de base de données.
-- Intégration des notions avancées (relations complexes, optimisation).
-- Présentation des avancées et retours d’amélioration.
-- Sauvegarde et restauration d’une base (`mysqldump`).
-
-
-**Supports** : [Théorie](session_8.md)
-
----
-
-### **Séance 10 : Examen final et validation des acquis**
-- Présentation du projet réalisé.
-- Évaluation orale sur la **modélisation et SQL**.
-- Discussion finale sur les bonnes pratiques et retours d’expérience.
-
-
----
+| Séance | Date       | Titre                                              | Supports                                           |
+|--------|------------|----------------------------------------------------|----------------------------------------------------|
+| **1**  | 25/02/2025 | **Introduction et positionnement**                | [Théorie](session_1.md) \| [Exercices](session_1_exo.md) |
+| **2**  | 27/02/2025 | **Modélisation de base de données**               | [Théorie](session_2.md) \| [Exercices](session_2_exo.md) |
+| **3**  | 11/03/2025 | **Modélisation conceptuelle (MCD - Modèle Entité-Association)** | [Théorie](session_3.md) \| [Exercices](session_3_exo.md) |
+| **4**  | 13/03/2025 | **Normlisation et MLD**                           | [Théorie](session_4.md) \| [Exercices](session_4_exo.md) |
+| **5**  | 18/03/2025 | **Analyse du cahier des charges de l'atelier**    | [Théorie](session_5.md) |
+| **6**  | 20/03/2025 | **Les clauses du SELECT**                         | [Théorie](session_6.md) \| [Exercices](session_6_exo.md) |
+| **7**  | 25/03/2025 | **Modélisation des Relations en SQL**             | [Théorie](session_7.md) \| [Exercices](session_7_exo.md) |
+| **8**  | 27/03/2025 | **Index et performance**      | [Théorie](session_8.md) |
+| **9**  | 01/04/2025 | **Exercice de correction**      | [Théorie](session_9.md) |
+| **10** | 03/04/2025 | **Mise en oeuvre du projet ATE - Partie 1**                  | [Théorie](session_10.md) \| [Exercices](session_10_exo.md) |
+| **11** | 08/04/2025 | **Mise en oeuvre du projet ATE - Partie 2** | [Théorie](session_11.md) \| [Exercices](session_11_exo.md) |
+| **12** | 10/04/2025 | **Examen final et validation des acquis**         | |
 
 ## **Évaluation et méthodologie**
 - **Méthode pédagogique** : alternance entre **cours théorique**, **exercices pratiques** et **études de cas**.
-- **Évaluation continue** : exercices pratiques regulier.
+- **Évaluation continue** : exercices pratiques reguliers.
 - **Examen final** : test écrit + projet pratique.
 
----
 
 ## **Pré-requis et matériel nécessaire**
 ### **Pré-requis**
@@ -125,18 +53,17 @@ Le module est structuré en **10 séances de 4 heures**, alternant entre théori
 - Familiarité avec les concepts de programmation
 
 ### **Matériel requis**
-- Un ordinateur avec **MySQL** et **PHPMyAdmin / HeidiSQL** installés.
+- Un ordinateur avec **MySQL** ou **MariaDB** et **PHPMyAdmin** installés.
 - Un éditeur de texte (VS Code, Sublime Text ou autre).
 - Un navigateur web.
 
----
 
 ## **Objectifs finaux du module**
-À l’issue du cours, l’apprenant sera capable de :
+À l'issue du cours, l'apprenant sera capable de :
 1. **Concevoir et structurer** une base de données relationnelle en respectant les bonnes pratiques.
 2. **Créer et manipuler** des données via **SQL**.
-3. **Garantir l’intégrité et la sécurité** d’une base relationnelle.
-4. **Optimiser** les requêtes SQL et assurer la maintenance d’une base de données.
+3. **Garantir l'intégrité et la sécurité** d'une base relationnelle.
+4. **Optimiser** les requêtes SQL et assurer la maintenance d'une base de données.
 
 ---
-> Ce cours est distribué sous **licence Creative Commons**. Toute reproduction ou distribution à but commercial est interdite sans l’accord préalable de l’auteur.
+> Ce cours est distribué sous **licence Creative Commons**. Toute reproduction ou distribution à but commercial est interdite sans l'accord préalable de l'auteur.
