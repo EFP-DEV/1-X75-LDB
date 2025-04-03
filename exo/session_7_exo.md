@@ -1,37 +1,34 @@
 # Exercice 7
 # Démonstration de l'intégrité des données avec les clés étrangères
 
-Here's a Table of Contents in Markdown with anchor links for the document:
+- [1. Base de données sans clés étrangères](#partie-1--base-de-donnees-sans-cles-etrangeres)
+  - Création de tables de base
+  - Insertion de données
+  - Exercices Partie 1
+- [2. Base de données avec clés étrangères standard](#partie-2--base-de-donnees-avec-cles-etrangeres-standard-no-actionrestrict)
+  - Tables avec contraintes standard
+  - Insertion de données valides
+  - Exercices Partie 2
+- [3. ON DELETE CASCADE et ON UPDATE CASCADE](#partie-3--on-delete-cascade-et-on-update-cascade)
+  - Tables avec options CASCADE
+  - Données pour démonstration CASCADE
+  - Exercices Partie 3
+- [4. ON DELETE SET NULL et ON UPDATE SET NULL](#partie-4--on-delete-set-null-et-on-update-set-null)
+  - Tables avec options SET NULL
+  - Données pour démonstration SET NULL
+  - Exercices Partie 4
+- [5. ON DELETE SET DEFAULT et ON UPDATE SET DEFAULT](#partie-5--on-delete-set-default-et-on-update-set-default)
+  - Création du client et du produit par défaut
+  - Tables avec options SET DEFAULT
+  - Données pour démonstration SET DEFAULT
+  - Exercices Partie 5
+- [6. Exercice final : Application pratique à l'e-commerce](#exercice-final--application-pratique-a-le-commerce)
+- [7. Résultats attendus et points clés](#resultats-attendus-et-points-cles)
+  - Options ON DELETE - Principales différences
+  - Options ON UPDATE
+  - Implications commerciales
 
-
-- [Exercice 7: Data Integrity with Foreign Keys](#exercice-7-data-integrity-with-foreign-keys)
-  - [Part 1: Database Without Foreign Keys](#part-1-database-without-foreign-keys)
-    - [Basic Table Creation](#basic-table-creation)
-    - [Data Insertion](#data-insertion)
-    - [Exercises Part 1](#exercises-part-1)
-  - [Part 2: Database With Standard Foreign Keys](#part-2-database-with-standard-foreign-keys)
-    - [Tables With Standard Constraints](#tables-with-standard-constraints)
-    - [Valid Data Insertion](#valid-data-insertion)
-    - [Exercises Part 2](#exercises-part-2)
-  - [Part 3: ON DELETE CASCADE and ON UPDATE CASCADE](#part-3-on-delete-cascade-and-on-update-cascade)
-    - [Tables With CASCADE Options](#tables-with-cascade-options)
-    - [Data for CASCADE Demonstration](#data-for-cascade-demonstration)
-    - [Exercises Part 3](#exercises-part-3)
-  - [Part 4: ON DELETE SET NULL and ON UPDATE SET NULL](#part-4-on-delete-set-null-and-on-update-set-null)
-    - [Tables With SET NULL Options](#tables-with-set-null-options)
-    - [Data for SET NULL Demonstration](#data-for-set-null-demonstration)
-    - [Exercises Part 4](#exercises-part-4)
-  - [Part 5: ON DELETE SET DEFAULT and ON UPDATE SET DEFAULT](#part-5-on-delete-set-default-and-on-update-set-default)
-    - [Default Client and Product Creation](#default-client-and-product-creation)
-    - [Tables With SET DEFAULT Options](#tables-with-set-default-options)
-    - [Data for SET DEFAULT Demonstration](#data-for-set-default-demonstration)
-    - [Exercises Part 5](#exercises-part-5)
-  - [Comparison Exercise](#comparison-exercise)
-  - [Final Exercise: Practical E-commerce Application](#final-exercise-practical-e-commerce-application)
-  - [Expected Results and Key Points](#expected-results-and-key-points)
-    - [ON DELETE Options - Key Differences](#on-delete-options---key-differences)
-    - [ON UPDATE Options](#on-update-options)
-    - [Business Implications](#business-implications)
+---
 
 
 ## Scénario : Système e-commerce avec clients, commandes et produits
@@ -101,7 +98,7 @@ Qu'observez-vous ? Pourquoi est-ce problématique ?
 
 ---
 
-## PARTIE 2 : BASE DE DONNÉES AVEC CLÉS ÉTRANGÈRES STANDARD (NO ACTION/RESTRICT)
+## PARTIE 2 : BASE DE DONNÉES AVEC CLÉS ÉTRANGÈRES STANDARD
 
 ### Création des tables de commande AVEC contraintes de clés étrangères standard
 ```sql
@@ -171,7 +168,7 @@ Que se passe-t-il ?
 
 ---
 
-## PARTIE 3 : ON DELETE CASCADE ET ON UPDATE CASCADE
+## PARTIE 3 : BASE DE DONNÉES AVEC CLAUSE `ON DELETE CASCADE` ET `ON UPDATE CASCADE`
 
 ### Création des tables avec options CASCADE
 ```sql
@@ -229,7 +226,7 @@ Vérifiez ce qui est arrivé aux enregistrements de commande associés. Pourquoi
 
 --- 
 
-## PARTIE 4 : ON DELETE SET NULL ET ON UPDATE SET NULL
+## PARTIE 4 : BASE DE DONNÉES AVEC CLAUSE `ON DELETE SET NULL` ET `ON UPDATE SET NULL`
 
 ### Création des tables avec options SET NULL
 ```sql
@@ -285,8 +282,8 @@ Pourquoi cette approche pourrait-elle être utile dans certains scénarios comme
 Puis vérifiez ce qui est arrivé aux éléments de commande. Quel scénario commercial cette approche pourrait-elle soutenir ?
 
 ---
+## PARTIE 5 : BASE DE DONNÉES AVEC CLAUSE `ON DELETE SET DEFAULT` ET `ON UPDATE SET DEFAULT`
 
-## PARTIE 5 : ON DELETE SET DEFAULT ET ON UPDATE SET DEFAULT
 ### Création d'un client et d'un produit par défaut pour la démonstration SET DEFAULT
 ```sql
 INSERT INTO customer VALUES (999, 'Client Inconnu', 'unknown@example.com');
@@ -348,41 +345,25 @@ Vérifiez ce qui est arrivé au `product_id` dans les éléments de commande.
 Quelles sont les implications commerciales de cette approche ?
 
 ---
-## EXERCICE DE COMPARAISON
-
-**Exercice 6.1** : Créez un tableau de décision comparant toutes les options ON DELETE
-(NO ACTION/RESTRICT, CASCADE, SET NULL, SET DEFAULT).
-Pour chaque option, décrivez :
-- Ce qui se passe lorsque vous supprimez un enregistrement parent
-- Quand vous utiliseriez cette option
-- Avantages et inconvénients
-
-**Exercice 6.2** : Créez un tableau de décision similaire pour les options ON UPDATE.
-Pour chaque option, décrivez :
-- Ce qui se passe lorsque vous mettez à jour une clé primaire dans une table parent
-- Quand vous utiliseriez cette option
-- Avantages et inconvénients
-
----
 
 ## EXERCICE FINAL : APPLICATION PRATIQUE À L'E-COMMERCE
 
-**Exercice 7** : Sur la base de votre compréhension des différentes options ON DELETE et ON UPDATE,
+**Exercice 6** : Sur la base de votre compréhension des différentes options ON DELETE et ON UPDATE,
 lesquelles recommanderiez-vous pour les relations suivantes dans un système e-commerce, et pourquoi ?
 
-**7.1** : Pour la relation entre `customer` et `order` :
+**6.1** : Pour la relation entre `customer` et `order` :
 - Quelle option ON DELETE choisiriez-vous ? Pourquoi ?
 - Quelle option ON UPDATE choisiriez-vous ? Pourquoi ?
 
-**7.2** : Pour la relation entre `order` et `order_item` :
+**6.2** : Pour la relation entre `order` et `order_item` :
 - Quelle option ON DELETE choisiriez-vous ? Pourquoi ?
 - Quelle option ON UPDATE choisiriez-vous ? Pourquoi ?
 
-**7.3** : Pour la relation entre `product` et `order_item` :
+**6.3** : Pour la relation entre `product` et `order_item` :
 - Quelle option ON DELETE choisiriez-vous ? Pourquoi ?
 - Quelle option ON UPDATE choisiriez-vous ? Pourquoi ?
 
-**7.4** : Pour la relation entre `shipping_address` et `order` :
+**6.4** : Pour la relation entre `shipping_address` et `order` :
 - Quelle option ON DELETE choisiriez-vous ? Pourquoi ?
 - Quelle option ON UPDATE choisiriez-vous ? Pourquoi ?
 
