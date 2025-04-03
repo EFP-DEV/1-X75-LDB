@@ -86,7 +86,6 @@ CREATE TABLE order_standard_fk (
     customer_id INT NOT NULL,
     order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     total_amount DECIMAL(10, 2) NOT NULL
-   
 );
 
 CREATE TABLE order_item_standard_fk (
