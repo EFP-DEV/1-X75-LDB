@@ -13,7 +13,6 @@
 ## Plan détaillé
 
 ### Analyse collaborative du cahier des charges
-- Lecture guidée du cahier des charges section 3 et 4.2  
 - Identification des entités principales
 - Établissement de la liste des attributs pour chaque entité  
 
