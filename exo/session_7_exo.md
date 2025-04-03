@@ -118,21 +118,6 @@ CREATE TABLE order_item_standard_fk (
     price DECIMAL(10, 2) NOT NULL,
 );
 
-
-CREATE TABLE order_standard_fk (
-    id INT PRIMARY KEY,
-    customer_id INT NOT NULL,
-    order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    total_amount DECIMAL(10, 2) NOT NULL
-);
-
-CREATE TABLE order_item_standard_fk (
-    id INT PRIMARY KEY,
-    order_id INT NOT NULL,
-    product_id INT NOT NULL,
-    quantity INT NOT NULL,
-    price DECIMAL(10, 2) NOT NULL
-);
 ```
 
 ```sql
