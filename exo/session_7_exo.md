@@ -22,7 +22,7 @@
 # Exercices de Requêtes SQL
 
 ## 1. Jeu de données
-Utiliser IA pour generer un jeu de donnees de test pertinent
+Importer les scripts [structure.sql](https://github.com/EFP-DEV/1-X75-Atelier/blob/main/assets/atelier_cms.sql) et [data.sql](https://github.com/EFP-DEV/1-X75-Atelier/blob/main/assets/atelier_cms_data.sql)
 
 ----
 
