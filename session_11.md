@@ -140,14 +140,15 @@ En revanche, vous avez le droit **d’ajouter des tables supplémentaires** si e
 
 ---
 
-## Checklist des livrables à déposer dans le dépôt Git
+## Checklist des livrables
 
-- [ ]  MCD complet, clair, avec toutes les entités du cahier des charges + tables supplémentaires si besoin
-- [ ]  MPD fidèle au MCD, avec toutes les contraintes correctement définies
-- [ ]  Fichier `.sql` contenant uniquement la structure des tables
-- [ ]  Jeu de données de test inséré dans phpMyAdmin
-- [ ]  Protocole de test appliqué, avec retours notés
-- [ ]  Fichier `tests.sql` contenant toutes les requêtes utilisées pour les tests
-- [ ]  Fichier `queries.sql` ou `requêtes.md` complet, organisé et commenté
-- [ ]  Export `.sql` complet de la base (structure + données)
-- [ ]  Tous les fichiers sont présents dans votre **dépôt Git personnel**, avec commits clairs
+- **`MCD_atelier.svg`**  
+  MCD complet et clair, incluant toutes les entités du cahier des charges, ainsi que d’éventuelles tables supplémentaires si nécessaire.  
+- **`structure.sql`**  
+  MPD fidèle au MCD, avec toutes les contraintes correctement définies.  
+- **`tests.sql`**  
+  Jeu de données de test (CRUD) à insérer dans phpMyAdmin.  
+- **`queries.sql`**  
+  Requêtes préparées pour l’atelier, organisées par fonctionnalité et commentées.  
+- **Dépôt Git personnel**  
+  Tous les fichiers doivent être présents dans votre **dépôt Git personnel et prive**, avec des commits clairs. Ajouter HexMakina comme collaborateur et copier le lien dans le devoir du cours sur Teams.
