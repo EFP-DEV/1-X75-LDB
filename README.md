@@ -26,22 +26,43 @@ Ce module vise à fournir une compréhension approfondie des bases de données r
 ## **Plan du cours**
 Le module est structuré en **12 séances de 4 heures**, alternant entre théorie et pratique.
 
-Here's the updated table with the X75A column added:
+Voici la version formatée en Markdown :
 
-| Séance | X75B       | X75A       | Titre                                              | Supports                                           |
-|--------|------------|------------|----------------------------------------------------|----------------------------------------------------| 
-| **1**  | 25/02/2025 | 30/01/2025 | **Introduction et positionnement**                | [Théorie](session_1.md) \| [Exercices](session_1_exo.md) |
-| **2**  | 27/02/2025 | 27/02/2025 | **Modélisation de base de données**               | [Théorie](session_2.md) \| [Exercices](session_2_exo.md) |
-| **3**  | 11/03/2025 | 13/03/2025 | **Modélisation conceptuelle (MCD - Modèle Entité-Association)** | [Théorie](session_3.md) \| [Exercices](session_3_exo.md) |
-| **4**  | 13/03/2025 | 20/03/2025 | **Normalisation et MLD**                           | [Théorie](session_4.md) \| [Exercices](session_4_exo.md) |
-| **5**  | 18/03/2025 | 27/03/2025 | **Analyse du cahier des charges de l'atelier**    | [Théorie](session_5.md) |
-| **6**  | 20/03/2025 | 03/04/2025 | **Les clauses du SELECT**                         | [Théorie](session_6.md) \| [Exercices](session_6_exo.md) |
-| **7**  | 25/03/2025 | 10/04/2025 | **Exercice et correction**             | [Théorie](session_7.md) \| [Exercices](session_7_exo.md) |
-| **8**  | 27/03/2025 | 17/04/2025 | **Exercice et correction**      |  |
-| **9**  | 01/04/2025 | 24/04/2025 | **Exercice et correction**      |  |
-| **10** | 03/04/2025 | 08/05/2025 | **Modélisation des Relations en SQL**                  | [Théorie](session_10.md) \| [Exercices](session_10_exo.md) |
-| **11** | 10/04/2025 | 15/05/2025 | **Mise en oeuvre du projet ATE** | [Théorie](session_11.md) \| [Exercices](session_11_exo.md) |
-| **12** | 17/04/2025 | 22/05/2025 | **Examen final et validation des acquis**         | |
+### Tableau des séances
+
+| Séance | Titre                                              | Supports                                           |
+|--------|----------------------------------------------------|----------------------------------------------------|
+| **1**  | Introduction et positionnement                     | [Théorie](session_1.md) \| [Exercices](session_1_exo.md) |
+| **2**  | Modélisation de base de données                    | [Théorie](session_2.md) \| [Exercices](session_2_exo.md) |
+| **3**  | Modélisation conceptuelle (MCD - Modèle Entité-Association) | [Théorie](session_3.md) \| [Exercices](session_3_exo.md) |
+| **4**  | Normalisation et MLD                               | [Théorie](session_4.md) \| [Exercices](session_4_exo.md) |
+| **5**  | Exercice et correction                               | *Aucun support fourni*    
+| **6**  | Analyse du cahier des charges de l'atelier         | [Théorie](session_6.md)                             |
+| **7**  | Les clauses du SELECT                              | [Théorie](session_7.md) \| [Exercices](session_7_exo.md) |
+| **8**  | Exercice et correction                             | *Aucun support fourni*                              |
+| **9** | Modélisation des Relations en SQL                  | [Théorie](session_9.md) \| [Exercices](session_9_exo.md) |
+| **10**  | Exercice et correction                             | *Aucun support fourni*                              |
+| **11** | Mise en oeuvre du projet ATE                       | [Théorie](session_11.md) \| [Exercices](session_11_exo.md) |
+| **12** | Examen final et validation des acquis              | *Aucun support fourni*                              |
+
+### Tableau des dates
+
+| Séance | X75B       | X75A       |
+|--------|------------|------------|
+| **1**  | 25/02/2025 | 30/01/2025 |
+| **2**  | 27/02/2025 | 27/02/2025 |
+| **3**  | 11/03/2025 | 13/03/2025 |
+| **4**  | 13/03/2025 | 20/03/2025 |
+| **5**  | 18/03/2025 | 27/03/2025 |
+| **6**  | 20/03/2025 | 03/04/2025 |
+| **7**  | 25/03/2025 | 10/04/2025 |
+| **8**  | 27/03/2025 | 17/04/2025 |
+| **9**  | 01/04/2025 | 24/04/2025 |
+| **10** | 03/04/2025 | 08/05/2025 |
+| **11** | 10/04/2025 | 15/05/2025 |
+| **12** | 17/04/2025 | 22/05/2025 |
+
+
 
 ## **Évaluation et méthodologie**
 - **Méthode pédagogique** : alternance entre **cours théorique**, **exercices pratiques** et **études de cas**.

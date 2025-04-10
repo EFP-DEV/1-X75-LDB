@@ -1,362 +1,449 @@
-# Exercice 7
-# Démonstration de l'intégrité des données avec les clés étrangères
 
-- [1. Base sans clés étrangères](#1-base-sans-clés-étrangères)
-- [2. Base avec clés étrangères standard](#2-base-avec-clés-étrangères-standard)
-- [3. ON DELETE CASCADE et ON UPDATE CASCADE](#3-on-delete-cascade-et-on-update-cascade)
-- [4. ON DELETE SET NULL et ON UPDATE SET NULL](#4-on-delete-set-null-et-on-update-set-null)
-- [5. ON DELETE SET DEFAULT et ON UPDATE SET DEFAULT](#5-on-delete-set-default-et-on-update-set-default)
-- [6. Exercice final](#6-exercice-final)
-- [7. Résultats attendus](#7-résultats-attendus)
+# Séance 6 Exo: Implémentation et requêtes de base
 
----
+## Objectifs
+- Créer la base de données dans phpMyAdmin
+- Import du script SQL préparé précédemment  
+- Écrire les requêtes SQL de base pour les fonctionnalités CRUD  
 
-## Scénario : Système e-commerce avec clients, commandes et produits
 
-<img src="../more/session_7_mcd.svg" alt="MCD" height="800" />
+## Plan détaillé
 
----
+### Requêtes SQL pour les fonctionnalités CRUD 
+- `INSERT` pour l'ajout d'items et de tags  
+- `UPDATE` pour la modification d'items
+- `DELETE` pour la suppression d'items et gestion des contraintes d'intégrité  
+- `SELECT` pour l'affichage des items avec leurs tags 
 
-## 1. Base sans clés étrangères
-
-### Création des tables
-```sql
-CREATE TABLE customer (
-    id INT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    email VARCHAR(100) NOT NULL UNIQUE
-);
-
-CREATE TABLE product (
-    id INT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    price DECIMAL(10, 2) NOT NULL,
-    stock_quantity INT NOT NULL
-);
-
--- Tables de commande SANS contraintes de clés étrangères
-CREATE TABLE order_no_fk (
-    id INT PRIMARY KEY,
-    customer_id INT, -- Pas de contrainte FK
-    order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    total_amount DECIMAL(10, 2) NOT NULL
-);
-
-CREATE TABLE order_item_no_fk (
-    id INT PRIMARY KEY,
-    order_id INT, -- Pas de contrainte FK
-    product_id INT, -- Pas de contrainte FK
-    quantity INT NOT NULL,
-    price DECIMAL(10, 2) NOT NULL
-);
-```
-
-### Données d'exemple
-```sql
-INSERT INTO customer VALUES (1, 'Alice Johnson', 'alice@example.com');
-INSERT INTO customer VALUES (2, 'Bob Smith', 'bob@example.com');
-
-INSERT INTO product VALUES (101, 'Laptop', 899.99, 10);
-INSERT INTO product VALUES (102, 'Smartphone', 499.99, 20);
-
--- Insertions valides
-INSERT INTO order_no_fk VALUES (1001, 1, CURRENT_TIMESTAMP, 899.99);
-INSERT INTO order_item_no_fk VALUES (10001, 1001, 101, 1, 899.99);
-```
-
-### Exercices 1
-
-**1.1** : Écrivez un INSERT pour `order_no_fk` référençant un `customer_id` inexistant.
-Que se passe-t-il ? Pourquoi est-ce problématique ?
-
-**1.2** : Écrivez un INSERT pour `order_item_no_fk` référençant un `product_id` inexistant.
-Que se passe-t-il ? Quels problèmes cela pourrait-il causer ?
-
-**1.3** : Supprimez le client avec l'ID 1, puis vérifiez si des commandes y font toujours référence.
-Qu'observez-vous ? Pourquoi est-ce problématique ?
+### Travail pratique
+- Créer des jeux de données tests  (IA)
+- Écrire et tester les requêtes SQL pour chaque fonctionnalité 
+- Documenter les requêtes pour réutilisation dans le code PHP
+- Rediger les `SELECT` pour les fonctionnalités CRUD et les fonctionnalités spécifiques
 
 ---
 
-## 2. Base avec clés étrangères standard
+# Exercices de Requêtes SQL
 
-### Tables avec contraintes
+## 1. Jeu de données
+Utiliser IA pour generer un jeu de donnees de test pertinent
+
+----
+
+## 2. Requêtes pour les fonctionnalités spécifiques
+
+### Exercice A: Recherche par mots-clés dans les titres et descriptions
+Écrivez une requête pour rechercher tous les items contenant le mot-clé "sample" dans leur titre ou description.
+
+<details>
+  <summary>Solution</summary>
+  
 ```sql
-CREATE TABLE order_standard_fk (
-    id INT PRIMARY KEY,
-    customer_id INT NOT NULL,
-    order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    total_amount DECIMAL(10, 2) NOT NULL
+SELECT id, title, description 
+FROM item 
+WHERE title LIKE '%sample%' OR description LIKE '%sample%';
+```
+</details>
+
+### Exercice B: Filtrage par tag
+Écrivez une requête pour afficher tous les items associés au tag "Tag1".
+
+<details>
+  <summary>Solution</summary>
+  
+```sql
+SELECT i.id, i.title, i.description 
+FROM item i
+JOIN item_tag it ON i.id = it.item_id
+JOIN tag t ON it.tag_id = t.id
+WHERE t.name = 'Tag1';
+```
+</details>
+
+### Exercice C: Association et dissociation de tags aux items
+Écrivez les requêtes pour:
+1. Associer le tag "Tag3" à l'item avec l'id 1
+2. Dissocier le tag "Tag2" de l'item avec l'id 1
+
+<details>
+  <summary>Solution</summary>
+  
+```sql
+-- Associer un tag
+INSERT INTO item_tag (item_id, tag_id)
+SELECT 1, id FROM tag WHERE name = 'Tag3';
+
+-- Dissocier un tag
+DELETE FROM item_tag 
+WHERE item_id = 1 AND tag_id = (SELECT id FROM tag WHERE name = 'Tag2');
+```
+</details>
+
+--- 
+## 3. Bases
+
+### Exercice 1: Sélection Simple
+Écrivez une requête pour sélectionner tous les opérateurs (administrateurs) actifs.
+
+<details>
+  <summary>Solution</summary>
+  
+```sql
+SELECT * FROM operator WHERE is_active = TRUE;
+```
+</details>
+
+### Exercice 2: Projection de Colonnes
+Affichez uniquement les noms d'utilisateur et emails des opérateurs.
+
+<details>
+  <summary>Solution</summary>
+  
+```sql
+SELECT username, email FROM operator;
+```
+</details>
+
+### Exercice 3: Tri
+Récupérez tous les tags triés par ordre alphabétique de leur nom.
+
+<details>
+  <summary>Solution</summary>
+  
+```sql
+SELECT * FROM tag ORDER BY name ASC;
+```
+</details>
+
+### Exercice 4: Filtrage avec WHERE
+Récupérez tous les items dont le prix est supérieur à 15€.
+
+<details>
+  <summary>Solution</summary>
+  
+```sql
+SELECT * FROM item WHERE price > 15;
+```
+</details>
+
+### Exercice 5: Limitation de Résultats
+Affichez les 5 messages les plus récents.
+
+<details>
+  <summary>Solution</summary>
+  
+```sql
+SELECT * FROM message ORDER BY created_at DESC LIMIT 5;
+```
+</details>
+
+--- 
+## Niveau Intermédiaire
+
+### Exercice 6: Jointures Simples
+Récupérez tous les items avec le nom de leur opérateur (créateur).
+
+<details>
+  <summary>Solution</summary>
+  
+```sql
+SELECT i.title, i.description, o.username AS creator
+FROM item i
+INNER JOIN operator o ON i.operator_id = o.id;
+```
+</details>
+
+### Exercice 7: Agrégation
+Comptez le nombre d'items publiés par statut.
+
+<details>
+  <summary>Solution</summary>
+  
+```sql
+SELECT status, COUNT(*) AS item_count
+FROM item
+GROUP BY status;
+```
+</details>
+
+### Exercice 8: Jointures Multiples
+Récupérez tous les items qui possèdent le tag 'Tag1', avec le nom de leur créateur.
+
+<details>
+  <summary>Solution</summary>
+  
+```sql
+SELECT i.title, o.username
+FROM item i
+INNER JOIN operator o ON i.operator_id = o.id
+INNER JOIN item_tag it ON i.id = it.item_id
+INNER JOIN tag t ON it.tag_id = t.id
+WHERE t.name = 'Tag1';
+```
+</details>
+
+### Exercice 9: LEFT JOIN
+Affichez tous les visiteurs et leurs collections éventuelles.
+
+<details>
+  <summary>Solution</summary>
+  
+```sql
+SELECT v.visitor_token, c.name AS collection_name
+FROM visitor v
+LEFT JOIN collection c ON v.id = c.visitor_id;
+```
+</details>
+
+### Exercice 10: Sous-requêtes
+Trouvez les items qui n'ont aucun tag associé.
+
+<details>
+  <summary>Solution</summary>
+  
+```sql
+SELECT *
+FROM item i
+WHERE i.id NOT IN (
+    SELECT item_id
+    FROM item_tag
 );
-
-CREATE TABLE order_item_standard_fk (
-    id INT PRIMARY KEY,
-    order_id INT NOT NULL,
-    product_id INT NOT NULL,
-    quantity INT NOT NULL,
-    price DECIMAL(10, 2) NOT NULL
-);
 ```
+</details>
 
-```sql
-ALTER TABLE order_standard_fk
-ADD CONSTRAINT fk_order_customer
-FOREIGN KEY (customer_id) REFERENCES customer(id);  -- Par défaut : ON DELETE/UPDATE NO ACTION
-
-ALTER TABLE order_item_standard_fk
-ADD CONSTRAINT fk_order_item_order
-FOREIGN KEY (order_id) REFERENCES order_standard_fk(id);
-
-ALTER TABLE order_item_standard_fk
-ADD CONSTRAINT fk_order_item_product
-FOREIGN KEY (product_id) REFERENCES product(id);
-```
-
-### Données valides
-```sql
-INSERT INTO order_standard_fk VALUES (2001, 2, CURRENT_TIMESTAMP, 499.99);
-INSERT INTO order_item_standard_fk VALUES (20001, 2001, 102, 1, 499.99);
-```
-
-### Exercices 2
-
-**2.1** : Essayez d'insérer une commande référençant un client inexistant.
-Quel message d'erreur obtenez-vous ?
-
-**2.2** : Essayez de supprimer le client avec l'ID 2 qui a des commandes.
-Que se passe-t-il ? Pourquoi ?
-
-**2.3** : Essayez de modifier un `customer_id` référencé par des commandes.
-Que se passe-t-il ?
-
----
-
-## 3. ON DELETE CASCADE et ON UPDATE CASCADE
-
-### Tables avec CASCADE
-```sql
-CREATE TABLE order_cascade (
-    id INT PRIMARY KEY,
-    customer_id INT NOT NULL,
-    order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    total_amount DECIMAL(10, 2) NOT NULL
-);
-
-CREATE TABLE order_item_cascade (
-    id INT PRIMARY KEY,
-    order_id INT NOT NULL,
-    product_id INT NOT NULL,
-    quantity INT NOT NULL,
-    price DECIMAL(10, 2) NOT NULL
-);
-```
-```sql
-ALTER TABLE order_cascade
-ADD CONSTRAINT fk_order_cascade_customer
-FOREIGN KEY (customer_id) REFERENCES customer(id)
-ON DELETE CASCADE
-ON UPDATE CASCADE;
-
-ALTER TABLE order_item_cascade
-ADD CONSTRAINT fk_order_item_cascade_order
-FOREIGN KEY (order_id) REFERENCES order_cascade(id)
-ON DELETE CASCADE
-ON UPDATE CASCADE;
-
-ALTER TABLE order_item_cascade
-ADD CONSTRAINT fk_order_item_cascade_product
-FOREIGN KEY (product_id) REFERENCES product(id)
-ON DELETE RESTRICT
-ON UPDATE CASCADE;
-```
-
-### Données pour CASCADE
-```sql
-INSERT INTO customer VALUES (3, 'Charlie Davis', 'charlie@example.com');
-INSERT INTO order_cascade VALUES (3001, 3, CURRENT_TIMESTAMP, 499.99);
-INSERT INTO order_item_cascade VALUES (30001, 3001, 102, 1, 499.99);
-```
-
-### Exercices 3
-
-**3.1** : Supprimez le client avec l'ID 3, puis vérifiez si les commandes existent toujours.
-Que s'est-il passé et pourquoi ?
-
-**3.2** : Insérez un client ID 4 avec commande, puis modifiez l'ID du client de 4 à 44.
-Vérifiez les commandes associées. Pourquoi cela s'est-il produit ?
 
 --- 
 
-## 4. ON DELETE SET NULL et ON UPDATE SET NULL
+## Niveau Avancé
 
-### Tables avec SET NULL
+### Exercice 11: Jointure et Agrégation
+Trouvez le nombre d'items dans chaque collection, incluant les collections vides.
+
+<details>
+  <summary>Solution</summary>
+  
 ```sql
-CREATE TABLE order_set_null (
-    id INT PRIMARY KEY,
-    customer_id INT,
-    order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    total_amount DECIMAL(10, 2) NOT NULL
-);
-
-CREATE TABLE order_item_set_null (
-    id INT PRIMARY KEY,
-    order_id INT,
-    product_id INT,
-    quantity INT NOT NULL,
-    price DECIMAL(10, 2) NOT NULL
-);
+SELECT c.name AS collection_name, COUNT(ci.item_id) AS item_count
+FROM collection c
+LEFT JOIN collection_item ci ON c.id = ci.collection_id
+GROUP BY c.id, c.name;
 ```
+</details>
+
+### Exercice 12: Recherche de Texte
+Récupérez tous les items dont le titre ou la description contient le mot 'sample'.
+
+<details>
+  <summary>Solution</summary>
+  
 ```sql
-ALTER TABLE order_set_null
-ADD CONSTRAINT fk_order_set_null_customer
-FOREIGN KEY (customer_id) REFERENCES customer(id)
-ON DELETE SET NULL
-ON UPDATE SET NULL;
-
-ALTER TABLE order_item_set_null
-ADD CONSTRAINT fk_order_item_set_null_order
-FOREIGN KEY (order_id) REFERENCES order_set_null(id)
-ON DELETE SET NULL
-ON UPDATE SET NULL;
-
-ALTER TABLE order_item_set_null
-ADD CONSTRAINT fk_order_item_set_null_product
-FOREIGN KEY (product_id) REFERENCES product(id)
-ON DELETE SET NULL
-ON UPDATE SET NULL;
+SELECT *
+FROM item
+WHERE title LIKE '%sample%' OR description LIKE '%sample%';
 ```
+</details>
 
-### Données pour SET NULL
+### Exercice 13: UNION
+Affichez une liste combinée des noms des tags et des collections.
+
+<details>
+  <summary>Solution</summary>
+  
 ```sql
-INSERT INTO customer VALUES (5, 'Eve Williams', 'eve@example.com');
-INSERT INTO order_set_null VALUES (5001, 5, CURRENT_TIMESTAMP, 899.99);
-INSERT INTO order_item_set_null VALUES (50001, 5001, 101, 1, 899.99);
+SELECT name, 'tag' AS type FROM tag
+UNION
+SELECT name, 'collection' AS type FROM collection
+ORDER BY name;
 ```
+</details>
 
-### Exercices 4
+### Exercice 14: Requêtes avec HAVING
+Trouvez les tags qui sont associés à plus d'un item.
 
-**4.1** : Supprimez le client avec l'ID 5, puis vérifiez le `customer_id` dans les commandes.
-Pourquoi cette approche peut-elle être utile ?
-
-**4.2** : Supprimez la commande ID 5001, puis vérifiez les éléments de commande.
-Quel scénario commercial cette approche pourrait-elle soutenir ?
-
----
-## 5. ON DELETE SET DEFAULT et ON UPDATE SET DEFAULT
-
-### Client et produit par défaut
+<details>
+  <summary>Solution</summary>
+  
 ```sql
-INSERT INTO customer VALUES (999, 'Client Inconnu', 'unknown@example.com');
-INSERT INTO product VALUES (999, 'Produit Inconnu', 0.00, 0);
+SELECT t.name, COUNT(it.item_id) AS item_count
+FROM tag t
+JOIN item_tag it ON t.id = it.tag_id
+GROUP BY t.id, t.name
+HAVING COUNT(it.item_id) > 1;
 ```
+</details>
 
-### Tables avec SET DEFAULT
+### Exercice 15: Statistiques et Agrégation
+Calculez le prix moyen, minimum et maximum des items pour chaque statut.
+
+<details>
+  <summary>Solution</summary>
+  
 ```sql
-CREATE TABLE order_set_default (
-    id INT PRIMARY KEY,
-    customer_id INT DEFAULT 999,
-    order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    total_amount DECIMAL(10, 2) NOT NULL
-);
-
-CREATE TABLE order_item_set_default (
-    id INT PRIMARY KEY,
-    order_id INT DEFAULT NULL,
-    product_id INT DEFAULT 999,
-    quantity INT NOT NULL,
-    price DECIMAL(10, 2) NOT NULL
-);
+SELECT 
+    status, 
+    AVG(price) AS average_price,
+    MIN(price) AS min_price,
+    MAX(price) AS max_price
+FROM item
+WHERE price IS NOT NULL
+GROUP BY status;
 ```
-```sql
-ALTER TABLE order_set_default
-ADD CONSTRAINT fk_order_set_default_customer
-FOREIGN KEY (customer_id) REFERENCES customer(id)
-ON DELETE SET DEFAULT
-ON UPDATE SET DEFAULT;
-
-ALTER TABLE order_item_set_default
-ADD CONSTRAINT fk_order_item_set_default_order
-FOREIGN KEY (order_id) REFERENCES order_set_default(id)
-ON DELETE SET DEFAULT
-ON UPDATE SET DEFAULT;
-
-ALTER TABLE order_item_set_default
-ADD CONSTRAINT fk_order_item_set_default_product
-FOREIGN KEY (product_id) REFERENCES product(id)
-ON DELETE SET DEFAULT
-ON UPDATE SET DEFAULT;
-```
-
-### Données pour SET DEFAULT
-```sql
-INSERT INTO customer VALUES (6, 'Frank Miller', 'frank@example.com');
-INSERT INTO order_set_default VALUES (6001, 6, CURRENT_TIMESTAMP, 499.99);
-INSERT INTO order_item_set_default VALUES (60001, 6001, 102, 1, 499.99);
-```
-
-### Exercices 5
-
-**5.1** : Supprimez le client ID 6, puis vérifiez le `customer_id` dans les commandes.
-En quoi cela diffère-t-il de SET NULL ?
-
-**5.2** : Mettez à jour le `product_id` 102 à 222, puis vérifiez les éléments de commande.
-Quelles sont les implications commerciales ?
+</details>
 
 ---
 
-## 6. Exercice final
+## Niveau Expert
 
-Sur la base de votre compréhension des options ON DELETE et ON UPDATE, lesquelles recommanderiez-vous pour :
+### Exercice 16: Recherches Complexes
+Trouvez les visiteurs qui ont au moins une collection et au moins une recherche enregistrée.
 
-**6.1** : Relation entre `customer` et `order` :
-- Option ON DELETE ? Pourquoi ?
-- Option ON UPDATE ? Pourquoi ?
+<details>
+  <summary>Solution</summary>
+  
+```sql
+SELECT DISTINCT v.visitor_token
+FROM visitor v
+JOIN collection c ON v.id = c.visitor_id
+WHERE v.id IN (
+    SELECT visitor_id 
+    FROM search 
+    WHERE visitor_id IS NOT NULL
+);
+```
+</details>
 
-**6.2** : Relation entre `order` et `order_item` :
-- Option ON DELETE ? Pourquoi ?
-- Option ON UPDATE ? Pourquoi ?
+### Exercice 17: Analyse Temporelle
+Affichez le nombre d'items créés par mois en 2023.
 
-**6.3** : Relation entre `product` et `order_item` :
-- Option ON DELETE ? Pourquoi ?
-- Option ON UPDATE ? Pourquoi ?
+<details>
+  <summary>Solution</summary>
+  
+```sql
+SELECT 
+    YEAR(created_at) AS year,
+    MONTH(created_at) AS month,
+    COUNT(*) AS items_created
+FROM item
+WHERE YEAR(created_at) = 2023
+GROUP BY YEAR(created_at), MONTH(created_at)
+ORDER BY year, month;
+```
+</details>
 
-**6.4** : Relation entre `shipping_address` et `order` :
-- Option ON DELETE ? Pourquoi ?
-- Option ON UPDATE ? Pourquoi ?
 
-Justifiez vos choix avec des exigences commerciales et des préoccupations d'intégrité.
+### Exercice 18: Les Jointures Complexes
+Trouvez tous les items qui sont dans au moins deux collections différentes, avec le nombre de collections où ils apparaissent.
 
----
-## 7. Résultats attendus
+<details>
+  <summary>Solution</summary>
+  
+```sql
+SELECT 
+    i.title, 
+    COUNT(DISTINCT ci.collection_id) AS collection_count
+FROM item i
+JOIN collection_item ci ON i.id = ci.item_id
+GROUP BY i.id, i.title
+HAVING COUNT(DISTINCT ci.collection_id) >= 2
+ORDER BY collection_count DESC;
+```
+</details>
 
-### Options ON DELETE
-1. **NO ACTION/RESTRICT** : Empêche la suppression du parent si des enfants existent
-   - Option la plus sûre
-   - Force la gestion explicite des relations
+## Exemples expert, cas pratique
 
-2. **CASCADE** : Supprime automatiquement tous les enfants liés
-   - Maintient l'intégrité automatiquement
-   - Bon pour les relations de "propriété"
-   - Risque : Peut supprimer plus de données que prévu
+### Exemple 1: Recherche de Produits
+Écrivez une requête pour implémenter une fonction de recherche qui renvoie les items correspondant à un terme de recherche, trié par pertinence (présence dans le titre puis dans la description).
 
-3. **SET NULL** : Met la clé étrangère à NULL
-   - Préserve les enfants tout en supprimant la relation
-   - Bon pour les relations optionnelles
-   - Nécessite des colonnes FK nullables
-   - Risque : Perte de contexte
+<details>
+  <summary>Solution</summary>
+  
+```sql
+SELECT 
+    id, 
+    title, 
+    description,
+    price,
+    CASE 
+        WHEN title LIKE '%search_term%' THEN 2
+        WHEN description LIKE '%search_term%' THEN 1
+        ELSE 0
+    END AS relevance
+FROM item
+WHERE 
+    status = 'published' AND
+    (title LIKE '%search_term%' OR description LIKE '%search_term%')
+ORDER BY relevance DESC, created_at DESC;
+```
+</details>
 
-4. **SET DEFAULT** : Met la clé étrangère à une valeur par défaut
-   - Maintient une référence à un enregistrement par défaut
-   - Nécessite des enregistrements par défaut
-   - Utile pour les enregistrements historiques
+### Exemple 2: Analyse de Popularité
+Identifiez les 5 tags les plus populaires en fonction du nombre d'items associés.
 
-### Options ON UPDATE
-Fonctionnent de manière similaire mais s'appliquent lors de la modification des clés primaires.
-Moins courant car les PK sont généralement stables.
+<details>
+  <summary>Solution</summary>
+  
+```sql
+SELECT 
+    t.name AS tag_name,
+    COUNT(it.item_id) AS item_count
+FROM tag t
+LEFT JOIN item_tag it ON t.id = it.tag_id
+GROUP BY t.id, t.name
+ORDER BY item_count DESC
+LIMIT 5;
+```
+</details>
 
-### Implications commerciales
-- **CASCADE** : Suppression automatique de toutes les données d'un client lors de la fermeture de compte
-- **SET NULL** : Conservation de l'historique des commandes pour produits discontinués
-- **SET DEFAULT** : Transfert des commandes vers un compte générique lors d'une fusion de clients
+### Exemple 3: Détection d'Anomalies
+Trouvez les items dont le prix est significativement supérieur à la moyenne (plus de 2 écarts-types).
+
+<details>
+  <summary>Solution</summary>
+  
+```sql
+WITH price_stats AS (
+    SELECT 
+        AVG(price) AS avg_price,
+        STDDEV(price) AS stddev_price
+    FROM item
+    WHERE price IS NOT NULL
+)
+SELECT 
+    i.id,
+    i.title,
+    i.price
+FROM item i, price_stats ps
+WHERE 
+    i.price IS NOT NULL AND
+    i.price > ps.avg_price + (2 * ps.stddev_price)
+ORDER BY i.price DESC;
+```
+</details>
+
+### Exemple 4: Analyse des Messages Non Lus
+Créez une requête pour afficher les messages non lus, groupés par jour, avec le pourcentage qu'ils représentent du total des messages de ce jour.
+
+<details>
+  <summary>Solution</summary>
+  
+```sql
+WITH daily_messages AS (
+    SELECT 
+        DATE(created_at) AS message_date,
+        COUNT(*) AS total_messages,
+        SUM(CASE WHEN is_read = FALSE THEN 1 ELSE 0 END) AS unread_messages
+    FROM message
+    GROUP BY DATE(created_at)
+)
+SELECT 
+    message_date,
+    total_messages,
+    unread_messages,
+    (unread_messages / total_messages * 100) AS unread_percentage
+FROM daily_messages
+ORDER BY message_date DESC;
+```
+</details>
 
 
 

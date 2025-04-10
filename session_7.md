@@ -1,173 +1,422 @@
-# Modélisation des Relations en SQL
+# SELECT
 
-## Foreign Keys, Index Uniques et Vérification de Structure
+## Table des Matières
+- [1. Fondamentaux (Niveau Débutant)](#1-fondamentaux-niveau-débutant)
+  - [Clauses de base](#syntaxe-de-base)
+  - [Filtrage avec `WHERE`](#filtrage-avec-where)
+  - [Tri avec `ORDER BY`](#tri-avec-order-by)
+  - [Limitation des Résultats](#limitation-des-résultats)
+- [2. Fonctions et Groupement (Niveau Intermédiaire)](#2-fonctions-et-groupement-niveau-intermédiaire)
+  - [Regroupement avec GROUP BY](#regroupement-avec-group-by)
+  - [Filtrage après Regroupement avec HAVING](#filtrage-après-regroupement-avec-having)
+- [3. Jointures (Niveau Intermédiaire)](#3-jointures-niveau-intermédiaire)
+  - [Structure du Modèle de Données](#structure-du-modèle-de-données)
+  - [INNER JOIN](#inner-join)
+  - [LEFT JOIN](#left-join)
+  - [RIGHT JOIN](#right-join)
+  - [FULL OUTER JOIN](#full-outer-join)
+  - [SELF JOIN](#self-join)
+- [4. Concepts Avancés](#4-concepts-avancés)
+  - [Sous-requêtes](#sous-requêtes)
+  - [Relations entre Cardinalités et Jointures](#relations-entre-cardinalités-et-jointures)
+  - [Optimisation des Performances](#optimisation-des-performances)
+- [5. Bonnes Pratiques](#5-bonnes-pratiques)
 
-Après avoir maîtrisé les requêtes SELECT, il est essentiel de comprendre les aspects fondamentaux de la modélisation des données.
+## 1. Fondamentaux (Niveau Débutant)
 
-Dans la conception de bases de données relationnelles, une question revient fréquemment : pourquoi définir explicitement des contraintes de clé étrangère (FK) quand il semble suffisant de simplement stocker les identifiants de référence ? Cette interrogation légitime mérite d'être explorée à travers les fondements techniques qui justifient l'utilisation des clés étrangères au-delà du simple stockage de données relationnelles.
+### Clauses de base: `SELECT` ... `FROM`
 
-Les clés étrangères constituent un mécanisme fondamental des systèmes de gestion de bases de données relationnelles (SGBDR), offrant bien plus qu'une simple relation entre tables. Elles représentent un contrat d'intégrité que le moteur de base de données s'engage à faire respecter, assurant ainsi la cohérence des données indépendamment des applications qui y accèdent.
+La requête SELECT est utilisée pour extraire des données d'une base de données. Sa structure minimale est:
 
 ```sql
--- Exemple d'un schéma sans contrainte de clé étrangère
-CREATE TABLE utilisateur (
-    id INT PRIMARY KEY,
-    username VARCHAR(50) NOT NULL
-);
-
-CREATE TABLE article (
-    id INT PRIMARY KEY,
-    titre VARCHAR(100) NOT NULL,
-    contenu TEXT,
-    utilisateur_id INT    -- Pas de FOREIGN KEY ici
-);
-
--- On insère quelques utilisateurs "valides"
-INSERT INTO utilisateur (id, username) VALUES
-    (1, 'Alice'),
-    (2, 'Bob');
-
--- On insère des articles qui se réfèrent à n’importe quel id utilisateur
-INSERT INTO article (id, titre, contenu, utilisateur_id) VALUES
-    (100, 'Article Fantôme', 'Contenu…', 999),   -- 999 n’existe pas
-    (101, 'Article Inexistant', 'Autre contenu…', 3),  -- 3 n’existe pas
-    (102, 'Article de Personne', 'Encore…', -1); -- -1 n’existe pas non plus (voir point 3. UNSIGNED)
+SELECT colonne1, colonne2 -- Colonnes à récupérer
+FROM table;               -- Table source des données
 ```
 
----
-
-## Raisons essentielles pour définir des clés étrangères
-
-### 1. Garantie de l'intégrité référentielle
-
-Les clés étrangères empêchent l'existence d'enregistrements orphelins. Sans cette contrainte, il serait possible de supprimer un enregistrement parent alors que des enregistrements enfants y font toujours référence, créant ainsi des références invalides et compromettant l'intégrité des données.
+Pour sélectionner toutes les colonnes, utilisez l'astérisque:
 
 ```sql
-CREATE TABLE commandes (
-    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+SELECT * -- Sélectionne toutes les colonnes
+FROM utilisateur;
+```
+
+**Pourquoi l'utiliser:** Permet d'extraire et de visualiser les données stockées dans vos tables.
+
+### Clause de filtrage: `WHERE`
+
+La clause WHERE permet de filtrer les résultats en fonction de conditions:
+
+```sql
+SELECT nom, prenom        -- Colonnes à afficher
+FROM utilisateur         -- Table source
+WHERE age > 18;           -- Condition de filtrage
+```
+
+**Opérateurs de comparaison:**
+- `=` (égal à)
+- `<>` ou `!=` (différent de)
+- `<` (inférieur à)
+- `>` (supérieur à)
+- `<=` (inférieur ou égal à)
+- `>=` (supérieur ou égal à)
+
+**Opérateurs logiques:**
+- `AND` (et)
+- `OR` (ou)
+- `NOT` (négation)
+
+Exemple avec plusieurs conditions:
+
+```sql
+SELECT nom, prenom
+FROM utilisateur
+WHERE age >= 18 AND pays = 'France';
+```
+
+**Question métier résolue:** "Quels sont les utilisateur majeurs résidant en France?"
+
+### Clause de tri: `ORDER BY`
+
+La clause ORDER BY trie les résultats selon une ou plusieurs colonnes:
+
+```sql
+SELECT nom, prenom
+FROM utilisateur
+ORDER BY nom ASC,  -- Tri croissant sur le nom
+         prenom DESC; -- Tri décroissant sur le prénom
+```
+
+- `ASC` = ordre croissant (par défaut)
+- `DESC` = ordre décroissant
+
+**Question métier résolue:** "Comment obtenir la liste des utilisateur triée alphabétiquement par nom puis par prénom inversé?"
+
+### Clause de limitation des résultats: `LIMIT` et `OFFSET`
+
+La clause LIMIT restreint le nombre de résultats retournés:
+
+```sql
+SELECT *
+FROM produit
+ORDER BY prix           -- Tri par prix
+LIMIT 10;               -- Seulement les 10 premiers résultats
+```
+
+Avec décalage (optionel, 0 par defaut):
+
+```sql
+SELECT *
+FROM produit
+ORDER BY prix
+LIMIT 10 OFFSET 20;    -- 10 produits à partir du 21ème
+```
+
+**Question métier résolue:** "Comment afficher la deuxième page de résultats avec 10 produits par page?"
+
+## 2. Clause de regroupement et fonctions d'agrégation: `GROUP BY`
+
+### Regroupement avec GROUP BY
+
+La clause GROUP BY regroupe les lignes qui ont les mêmes valeurs:
+
+```sql
+SELECT departement,                 -- Colonne de regroupement
+       COUNT(*) AS nombre_employes  -- Fonction d'agrégation
+FROM employe
+GROUP BY departement;               -- Regroupement
+```
+
+Fonctions d'agrégation courantes:
+- `COUNT()` - nombre de lignes
+- `SUM()` - somme des valeurs
+- `AVG()` - moyenne des valeurs
+- `MAX()` - valeur maximale
+- `MIN()` - valeur minimale
+
+**Question métier résolue:** "Combien d'employés travaillent dans chaque département?"
+
+### Filtrage après Regroupement avec HAVING
+
+La clause HAVING filtre les résultats après regroupement:
+
+```sql
+SELECT departement,
+       AVG(salaire) AS salaire_moyen  -- Calcul de la moyenne
+FROM employe
+GROUP BY departement                  -- Regroupement par département
+HAVING AVG(salaire) > 3000;           -- Filtre sur le résultat agrégé
+```
+
+**Différence avec WHERE:**
+- `WHERE` filtre les lignes individuelles AVANT regroupement
+- `HAVING` filtre les groupes APRÈS regroupement
+
+**Question métier résolue:** "Quels départements ont un salaire moyen supérieur à 3000€?"
+
+## 3. Jointures (Niveau Intermédiaire)
+
+### Structure du Modèle de Données
+
+Pour les exemples suivants, nous utiliserons un modèle simplifié de gestion de boutique:
+
+```
+┌─────────────┐       ┌──────────────┐
+│   CLIENTS   │       │  COMMANDES   │
+├─────────────┤       ├──────────────┤
+│ id (PK)     │       │ id (PK)      │
+│ nom         │◄──────┤ client_id(FK)│
+│ email       │       │ date         │
+└─────────────┘       │ montant      │
+                      └──────────────┘
+```
+
+Définition des tables:
+
+```sql
+-- Structure des tables
+CREATE TABLE client (
+    id INT PRIMARY KEY,
+    nom VARCHAR(100),
+    email VARCHAR(100)
+);
+
+CREATE TABLE commande (
+    id INT PRIMARY KEY,
     client_id INT,
-    FOREIGN KEY (client_id) REFERENCES clients(id)
-    -- Sans cette FK, rien n'empêche des valeurs client_id invalides
+    date_commande DATE,
+    montant DECIMAL(10,2),
+    FOREIGN KEY (client_id) REFERENCES client(id)
 );
+
+-- Données exemple
+INSERT INTO client VALUES 
+    (1, 'Dupont', 'dupont@email.com'),
+    (2, 'Martin', 'martin@email.com'),
+    (3, 'Durand', 'durand@email.com');
+
+INSERT INTO commande VALUES 
+    (101, 1, '2023-01-15', 150.50),
+    (102, 1, '2023-02-20', 75.25),
+    (103, 2, '2023-01-25', 220.00),
+    (104, NULL, '2023-03-10', 45.99);  -- Commande sans client (orpheline)
 ```
 
-### 2. Validation automatique des contraintes
+### INNER JOIN
 
-Le moteur de base de données valide automatiquement les relations, rejetant les opérations qui violeraient les contraintes d'intégrité sans nécessiter de validation au niveau applicatif. Cette délégation au niveau du SGBD assure une application uniforme des règles métier.
-
-### 3. Optimisation des requêtes
-
-De nombreux moteurs de bases de données utilisent les relations de clé étrangère pour optimiser les requêtes, élaborer des stratégies de jointure efficaces et générer des plans d'exécution performants. Ces informations structurelles permettent à l'optimiseur de requêtes de prendre des décisions plus éclairées.
-
-### 4. Auto-documentation
-
-Les contraintes de clé étrangère documentent naturellement le modèle de données et les relations dans le schéma de la base de données. Elles rendent explicites les dépendances entre entités, facilitant ainsi la compréhension et la maintenance du système.
-
-### 5. Actions en cascade
-
-Les clés étrangères permettent des opérations automatiques en cascade (ON DELETE CASCADE, ON UPDATE CASCADE) qui maintiennent l'intégrité référentielle lors des modifications de données.
-
-## Conclusion
-
-Bien que l'implémentation de ces vérifications soit possible au niveau applicatif, transférer cette responsabilité à la base de données offre une couche d'application cohérente qui fonctionne indépendamment de l'application ou du processus qui accède aux données. Les contraintes de base de données opèrent à un niveau inférieur avec de meilleures performances et une fiabilité supérieure à la validation au niveau applicatif.
-
-En définitive, les clés étrangères ne sont pas une redondance mais un outil essentiel pour garantir la robustesse et la fiabilité d'un système de gestion de données relationnel.
-
-
-
----
-
-## 1. Clés Étrangères (Foreign Keys)
-
-Les clés étrangères définissent les relations entre les tables et garantissent l'intégrité référentielle de vos données.
-
-### Types de Relations
-
-#### Relation Un-à-Un (1:1)
-Une relation où un enregistrement dans la table A correspond à exactement un enregistrement dans la table B.
+L'INNER JOIN retourne uniquement les lignes qui ont une correspondance dans les deux tables:
 
 ```sql
--- Exemple: Un utilisateur a un profil unique
-CREATE TABLE utilisateur (
-    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) NOT NULL
-);
-
-CREATE TABLE profil_utilisateur (
-    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    utilisateur_id INT UNIQUE,
-    bio TEXT,
-    FOREIGN KEY (utilisateur_id) REFERENCES utilisateur(id)
-);
+SELECT c.nom,                  -- Colonne de la table client
+       co.id AS commande_id,   -- Colonne de la table commande
+       co.date_commande,       -- Colonne de la table commande
+       co.montant              -- Colonne de la table commande
+FROM client c                 -- Table principale avec alias 'c'
+INNER JOIN commande co        -- Table jointe avec alias 'co'
+    ON c.id = co.client_id;    -- Condition de jointure
 ```
 
-#### Relation Un-à-Plusieurs (1:N)
-Une relation où un enregistrement dans la table A peut être lié à plusieurs enregistrements dans la table B.
+Résultat:
+```
+nom     | commande_id | date_commande | montant
+--------|-------------|---------------|--------
+Dupont  | 101         | 2023-01-15    | 150.50
+Dupont  | 102         | 2023-02-20    | 75.25
+Martin  | 103         | 2023-01-25    | 220.00
+```
+
+**Remarque:** Le client 'Durand' n'apparaît pas car il n'a aucune commande associée.
+
+**Question métier résolue:** "Quels clients ont passé des commandes et quels sont les détails de ces commandes?"
+
+### LEFT JOIN
+
+Le LEFT JOIN retourne toutes les lignes de la table de gauche (première table) et les correspondances de la table de droite:
 
 ```sql
--- Exemple: Un opérateur peut créer plusieurs items
-CREATE TABLE operator (
-    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50)
-);
-
-CREATE TABLE item (
-    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(100),
-    operator_id INT,
-    FOREIGN KEY (operator_id) REFERENCES operator(id)
-);
+SELECT c.nom,
+       co.id AS commande_id,
+       co.date_commande,
+       co.montant
+FROM client c                 -- Table de gauche (conservée entièrement)
+LEFT JOIN commande co         -- Table de droite (correspondances uniquement)
+    ON c.id = co.client_id;
 ```
----
-> **Remarque :**  
-> Dans une relation 1–1 et une relation 1–n, la définition technique de la clé étrangère reste la même :  
-> ```sql
-> FOREIGN KEY (colonne_fille) REFERENCES table_parent(id)
-> ```
-> La différence réside plutôt dans la **contrainte** appliquée à la colonne qui porte cette clé étrangère :
->
-> - **1–1** : la colonne est souvent déclarée comme **UNIQUE** (ou peut même servir de clé primaire). Cela empêche qu’un même enregistrement parent soit référencé plusieurs fois, imposant ainsi la correspondance un-à-un.
-> - **1–n** : la colonne **n’est pas** unique. Plusieurs lignes de la table enfant peuvent alors faire référence à un même enregistrement parent, permettant la relation un-à-plusieurs.(ou peut même servir de clé primaire). Cela empêche qu’un même enregistrement parent soit référencé plusieurs fois, imposant ainsi la correspondance un-à-un.
 
----
+Résultat:
+```
+nom     | commande_id | date_commande | montant
+--------|-------------|---------------|--------
+Dupont  | 101         | 2023-01-15    | 150.50
+Dupont  | 102         | 2023-02-20    | 75.25
+Martin  | 103         | 2023-01-25    | 220.00
+Durand  | NULL        | NULL          | NULL
+```
 
-#### Relation Plusieurs-à-Plusieurs (N:M)
-Une relation où plusieurs enregistrements dans la table A peuvent être liés à plusieurs enregistrements dans la table B, nécessitant une table de jonction.
+**Remarque:** Le client 'Durand' apparaît cette fois avec des valeurs NULL pour les informations de commande.
+
+**Question métier résolue:** "Quels sont tous nos clients, qu'ils aient passé des commandes ou non?"
+
+### RIGHT JOIN
+
+Le RIGHT JOIN est l'inverse du LEFT JOIN: il retourne toutes les lignes de la table de droite et les correspondances de la table de gauche:
 
 ```sql
--- Exemple: Des items peuvent avoir plusieurs tags et vice versa
-CREATE TABLE item (
-    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(100)
+SELECT c.nom,
+       co.id AS commande_id,
+       co.date_commande,
+       co.montant
+FROM client c                 -- Table de gauche (correspondances uniquement)
+RIGHT JOIN commande co        -- Table de droite (conservée entièrement)
+    ON c.id = co.client_id;
+```
+
+Résultat:
+```
+nom     | commande_id | date_commande | montant
+--------|-------------|---------------|--------
+Dupont  | 101         | 2023-01-15    | 150.50
+Dupont  | 102         | 2023-02-20    | 75.25
+Martin  | 103         | 2023-01-25    | 220.00
+NULL    | 104         | 2023-03-10    | 45.99
+```
+
+**Remarque:** La commande 104 apparaît avec NULL pour le client car elle n'est associée à aucun client.
+
+**Question métier résolue:** "Quelles sont toutes nos commandes, y compris celles sans client associé?"
+
+### FULL OUTER JOIN
+
+Le FULL OUTER JOIN combine LEFT et RIGHT JOIN, retournant toutes les lignes des deux tables:
+
+```sql
+SELECT c.nom,
+       co.id AS commande_id,
+       co.date_commande,
+       co.montant
+FROM client c
+FULL OUTER JOIN commande co
+    ON c.id = co.client_id;
+```
+
+Résultat:
+```
+nom     | commande_id | date_commande | montant
+--------|-------------|---------------|--------
+Dupont  | 101         | 2023-01-15    | 150.50
+Dupont  | 102         | 2023-02-20    | 75.25
+Martin  | 103         | 2023-01-25    | 220.00
+Durand  | NULL        | NULL          | NULL
+NULL    | 104         | 2023-03-10    | 45.99
+```
+
+**Remarque:** Affiche à la fois le client sans commande (Durand) et la commande sans client (104).
+
+**Question métier résolue:** "Quelles sont toutes nos données de client et commande, même lorsqu'il n'y a pas de correspondance?"
+
+### SELF JOIN
+
+Le SELF JOIN permet de joindre une table avec elle-même:
+
+```sql
+-- Structure de la table
+CREATE TABLE employe_hierarchie (
+    id INT PRIMARY KEY,
+    nom VARCHAR(100),
+    manager_id INT,              -- Référence à un autre employé
+    FOREIGN KEY (manager_id) REFERENCES employe_hierarchie(id)
 );
 
-CREATE TABLE tag (
-    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(50)
-);
+-- Données exemple
+INSERT INTO employe_hierarchie VALUES 
+    (1, 'Jean Dupont', NULL),    -- CEO (sans manager)
+    (2, 'Marie Martin', 1),      -- Rapporte au CEO
+    (3, 'Pierre Dubois', 1),     -- Rapporte au CEO
+    (4, 'Sophie Laurent', 2);    -- Rapporte à Marie
+```
 
-CREATE TABLE item_tag (
-    item_id INT,
-    tag_id INT,
-    PRIMARY KEY (item_id, tag_id),
-    FOREIGN KEY (item_id) REFERENCES item(id),
-    FOREIGN KEY (tag_id) REFERENCES tag(id)
+Requête pour obtenir chaque employé avec son manager:
+
+```sql
+SELECT e1.nom AS employe,        -- Nom de l'employé
+       e2.nom AS manager         -- Nom du manager
+FROM employe_hierarchie e1      -- Table des employés
+LEFT JOIN employe_hierarchie e2 -- Même table pour les managers
+    ON e1.manager_id = e2.id;    -- Relation hiérarchique
+```
+
+Résultat:
+```
+employe         | manager
+----------------|-------------
+Jean Dupont     | NULL
+Marie Martin    | Jean Dupont
+Pierre Dubois   | Jean Dupont
+Sophie Laurent  | Marie Martin
+```
+
+**Question métier résolue:** "Quelle est la structure hiérarchique de l'entreprise?"
+
+## 4. Concepts Avancés
+
+### Sous-requêtes
+
+Les sous-requêtes sont des requêtes imbriquées dans une autre requête:
+
+```sql
+-- Trouver les clients qui ont effectué des commandes supérieures à 100€
+SELECT nom
+FROM client
+WHERE id IN (                     -- Sous-requête pour filtrer les IDs
+    SELECT client_id              -- Retourne une liste d'IDs
+    FROM commande 
+    WHERE montant > 100
 );
 ```
----
-## 2. ON DELETE et ON UPDATE
-Les actions à effectuer lors de la suppression ou de la mise à jour d'un enregistrement référencé.
 
-[Voir le cours sur ON DELETE et ON UPDATE](more/FK_ON_DELETE_UPDATE.md)
+Types de sous-requêtes:
+1. **Sous-requête scalaire**: retourne une seule valeur
+2. **Sous-requête ligne**: retourne une ligne de valeurs
+3. **Sous-requête table**: retourne plusieurs lignes et colonnes
+4. **Sous-requête corrélée**: fait référence à la requête externe
 
+**Question métier résolue:** "Quels clients ont passé des commandes d'un montant supérieur à 100€?"
 
-## 3. UNSIGNED ?
+### Relations entre Cardinalités et Jointures
 
-> Définir une clé primaire auto-incrémentée (`AUTO_INCREMENT`) comme **UNSIGNED** (sous MySQL/MariaDB) permet de pratiquement **doubler la plage de valeurs** disponibles pour l’identifiant. Par exemple :
-> - Un `INT` signé standard (32 bits) va de –2,147,483,648 à 2,147,483,647.
-> - Un `INT UNSIGNED` (32 bits) va de 0 à 4,294,967,295.
->
-> Puisqu’un identifiant n’a pas besoin de valeurs négatives, passer la colonne en `UNSIGNED` prolonge la durée de vie de l’auto-incrément avant d’atteindre la valeur maximale.
+La cardinalité définit le nombre d'occurrences d'une entité qui peuvent être associées à une autre entité:
+
+**1:1 (un-à-un)** - Un enregistrement de la table A correspond à exactement un enregistrement de la table B
+- Exemple: Un employé et son dossier administratif
+- Jointure recommandée: `INNER JOIN` si tous les enregistrements ont une correspondance
+
+**1:N (un-à-plusieurs)** - Un enregistrement de la table A correspond à plusieurs enregistrements de la table B
+- Exemple: Un client et ses commandes
+- Jointure recommandée: `LEFT JOIN` si vous voulez tous les enregistrements de la table "un"
+
+**N:M (plusieurs-à-plusieurs)** - Plusieurs enregistrements de la table A correspondent à plusieurs enregistrements de la table B
+- Exemple: Étudiants et cours (via une table de jonction)
+- Jointure recommandée: Deux `INNER JOIN` avec la table de jonction
+
+## 5. Bonnes Pratiques
+
+1. **Nommage et lisibilité**
+   - Utilisez des alias courts mais significatifs (`c` pour client, `co` pour commande)
+   - Indentez votre code SQL pour une meilleure lisibilité
+   - Placez chaque clause principale sur une nouvelle ligne
+
+2. **Optimisation**
+   - Sélectionnez uniquement les colonnes nécessaires (évitez `SELECT *` en production)
+   - Limitez le nombre de jointures dans une requête
+   - Utilisez des sous-requêtes avec parcimonie
+
+3. **Sécurité**
+   - Utilisez des requêtes paramétrées pour éviter les injections SQL
+   - Limitez les privilèges d'accès aux tables sensibles
+
+4. **Maintenance**
+   - Commentez les requêtes complexes
+   - Documentez la structure de la base de données
+   - Créez des vues pour les requêtes fréquemment utilisées
 
 
 ---
