@@ -1,22 +1,18 @@
 
-# Séance 6 Exo: Implémentation et requêtes de base
+# SELECT: Exercices
 
 ## Objectifs
-- Créer la base de données dans phpMyAdmin
-- Import du script SQL préparé précédemment  
+- Créer la base de données dans phpMyAdmin: [structure.sql](https://github.com/EFP-DEV/1-X75-Atelier/blob/main/assets/atelier_cms.sql)
+- Import du script SQL préparé précédemment: [data.sql](https://github.com/EFP-DEV/1-X75-Atelier/blob/main/assets/atelier_cms_data.sql)
 - Écrire les requêtes SQL de base pour les fonctionnalités CRUD  
 
 
 ## Plan détaillé
 
 ### Requêtes SQL pour les fonctionnalités CRUD 
-- `INSERT` pour l'ajout d'items et de tags  
-- `UPDATE` pour la modification d'items
-- `DELETE` pour la suppression d'items et gestion des contraintes d'intégrité  
 - `SELECT` pour l'affichage des items avec leurs tags 
 
 ### Travail pratique
-- Créer des jeux de données tests  (IA)
 - Écrire et tester les requêtes SQL pour chaque fonctionnalité 
 - Documenter les requêtes pour réutilisation dans le code PHP
 - Rediger les `SELECT` pour les fonctionnalités CRUD et les fonctionnalités spécifiques
