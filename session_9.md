@@ -1,4 +1,4 @@
-# Modélisation des Relations en SQL
+# Conception Relationnelle et Intégrité des Données en SQL
 
 ## Foreign Keys, Index Uniques et Vérification de Structure
 

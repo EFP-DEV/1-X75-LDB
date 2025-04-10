@@ -30,20 +30,24 @@ Voici la version formatée en Markdown :
 
 ### Tableau des séances
 
-| Séance | Titre                                              | Supports                                           |
-|--------|----------------------------------------------------|----------------------------------------------------|
-| **1**  | Introduction et positionnement                     | [Théorie](session_1.md) \| [Exercices](session_1_exo.md) |
-| **2**  | Modélisation de base de données                    | [Théorie](session_2.md) \| [Exercices](session_2_exo.md) |
-| **3**  | Modélisation conceptuelle (MCD - Modèle Entité-Association) | [Théorie](session_3.md) \| [Exercices](session_3_exo.md) |
-| **4**  | Normalisation et MLD                               | [Théorie](session_4.md) \| [Exercices](session_4_exo.md) |
-| **5**  | Exercice et correction                               | *Aucun support fourni*    
-| **6**  | Analyse du cahier des charges de l'atelier         | [Théorie](session_6.md)                             |
-| **7**  | Les clauses du SELECT                              | [Théorie](session_7.md) \| [Exercices](session_7_exo.md) |
-| **8**  | Exercice et correction                             | *Aucun support fourni*                              |
-| **9** | Modélisation des Relations en SQL                  | [Théorie](session_9.md) \| [Exercices](session_9_exo.md) |
-| **10**  | Exercice et correction                             | *Aucun support fourni*                              |
-| **11** | Mise en oeuvre du projet ATE                       | [Théorie](session_11.md) \| [Exercices](session_11_exo.md) |
-| **12** | Examen final et validation des acquis              | *Aucun support fourni*                              |
+Voici une version modifiée du tableau qui sépare les liens vers les supports en deux colonnes distinctes — l'une pour la théorie et l'autre pour les exercices :
+
+| Séance | Titre                                              | Théorie                                 | Exercices                                |
+|--------|----------------------------------------------------|-----------------------------------------|------------------------------------------|
+| **1**  | Introduction et positionnement                     | [Théorie](session_1.md)                 | [Exercices](session_1_exo.md)              |
+| **2**  | Modélisation de base de données                    | [Théorie](session_2.md)                 | [Exercices](session_2_exo.md)              |
+| **3**  | Modélisation conceptuelle | [Théorie](session_3.md)                 | [Exercices](session_3_exo.md)              |
+| **4**  | Normalisation et MPD                               | [Théorie](session_4.md)                 | [Exercices](session_4_exo.md)              |
+| **5**  | Suite exercice et correction                             | 
+| **6**  | Analyse du cahier des charges de l'atelier         | [Théorie](session_6.md)                 | *Aucun support fourni*                   |
+| **7**  | Les clauses du SELECT                              | [Théorie](session_7.md)                 | [Exercices](session_7_exo.md)              |
+| **8**  | Suite exercice et correction                             | *Aucun support fourni*                  | *Aucun support fourni*                   |
+| **9**  | Conception Relationnelle et Intégrité des Données en SQL | [Théorie](session_9.md)                 | [Exercices](session_9_exo.md)              |
+| **10** | Suite exercice et correction                             | *Aucun support fourni*                  | *Aucun support fourni*                   |
+| **11** | Mise en oeuvre du projet ATE                       | [Support](session_11.md)                | *Aucun support fourni*                   |
+| **12** | Examen final et validation des acquis              | *Aucun support fourni*                  | *Aucun support fourni*                   |
+
+Vous pouvez bien entendu adapter les intitulés ou les remarques (« Aucun support fourni ») en fonction de vos besoins.
 
 ### Tableau des dates
 
