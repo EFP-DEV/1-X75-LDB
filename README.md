@@ -36,11 +36,11 @@ Here's the updated table with the X75A column added:
 | **4**  | 13/03/2025 | 20/03/2025 | **Normalisation et MLD**                           | [Théorie](session_4.md) \| [Exercices](session_4_exo.md) |
 | **5**  | 18/03/2025 | 27/03/2025 | **Analyse du cahier des charges de l'atelier**    | [Théorie](session_5.md) |
 | **6**  | 20/03/2025 | 03/04/2025 | **Les clauses du SELECT**                         | [Théorie](session_6.md) \| [Exercices](session_6_exo.md) |
-| **7**  | 25/03/2025 | 10/04/2025 | **Modélisation des Relations en SQL**             | [Théorie](session_7.md) \| [Exercices](session_7_exo.md) |
-| **8**  | 27/03/2025 | 17/04/2025 | **Index et performance**      | [Théorie](session_8.md) |
-| **9**  | 01/04/2025 | 24/04/2025 | **Exercice de correction**      | [Théorie](session_9.md) |
-| **10** | 03/04/2025 | 08/05/2025 | **Mise en oeuvre du projet ATE - Partie 1**                  | [Théorie](session_10.md) \| [Exercices](session_10_exo.md) |
-| **11** | 10/04/2025 | 15/05/2025 | **Mise en oeuvre du projet ATE - Partie 2** | [Théorie](session_11.md) \| [Exercices](session_11_exo.md) |
+| **7**  | 25/03/2025 | 10/04/2025 | **Exercice et correction**             | [Théorie](session_7.md) \| [Exercices](session_7_exo.md) |
+| **8**  | 27/03/2025 | 17/04/2025 | **Exercice et correction**      |  |
+| **9**  | 01/04/2025 | 24/04/2025 | **Exercice et correction**      |  |
+| **10** | 03/04/2025 | 08/05/2025 | **Modélisation des Relations en SQL**                  | [Théorie](session_10.md) \| [Exercices](session_10_exo.md) |
+| **11** | 10/04/2025 | 15/05/2025 | **Mise en oeuvre du projet ATE** | [Théorie](session_11.md) \| [Exercices](session_11_exo.md) |
 | **12** | 17/04/2025 | 22/05/2025 | **Examen final et validation des acquis**         | |
 
 ## **Évaluation et méthodologie**
