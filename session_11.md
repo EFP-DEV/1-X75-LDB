@@ -85,7 +85,7 @@ En revanche, vous avez le droit **d’ajouter des tables supplémentaires** si e
 
 **Modifications sensibles**
 - Modifier un `id` de `tag` ou `item` utilisé ailleurs
-- Changer le `role` d’un `operator`
+- Changer le `role` d’un `operator`, pour un role inexistant (pas admin, user)
 - Modifier un `slug` ou un `email`
 
 **Cas métier à interpréter**
