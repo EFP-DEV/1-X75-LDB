@@ -42,7 +42,7 @@ WHERE title LIKE '%sample%' OR description LIKE '%sample%';
 </details>
 
 ### Exercice B: Filtrage par tag
-Écrivez une requête pour afficher tous les items associés au tag "Tag1".
+Écrivez une requête pour afficher tous les items associés au tag "Programming".
 
 <details>
   <summary>Solution</summary>
@@ -52,7 +52,7 @@ SELECT i.id, i.title, i.description
 FROM item i
 JOIN item_tag it ON i.id = it.item_id
 JOIN tag t ON it.tag_id = t.id
-WHERE t.name = 'Tag1';
+WHERE t.name = 'Programming';
 ```
 </details>
 
@@ -176,7 +176,7 @@ GROUP BY username;
 
 
 ### Exercice 8: Jointures Multiples
-Récupérez tous les items qui possèdent le tag 'Tag1', avec le nom de leur créateur.
+Récupérez tous les items qui possèdent le tag 'Programming', avec le nom de leur créateur.
 
 <details>
   <summary>Solution</summary>
@@ -187,7 +187,7 @@ FROM item i
 INNER JOIN operator o ON i.operator_id = o.id
 INNER JOIN item_tag it ON i.id = it.item_id
 INNER JOIN tag t ON it.tag_id = t.id
-WHERE t.name = 'Tag1';
+WHERE t.name = 'Programming';
 ```
 </details>
 
