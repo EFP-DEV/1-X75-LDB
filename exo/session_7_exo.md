@@ -137,13 +137,13 @@ SELECT * FROM message ORDER BY created_at DESC LIMIT 5;
 ## Niveau Intermédiaire
 
 ### Exercice 6: Jointures Simples
-Récupérez tous les items avec le nom de leur opérateur (créateur).
+Récupérez l'identifiant, le slug, le titre ainsi que les date de creation et mise a jour, ainsi que leur createur (operator) pour tous les items
 
 <details>
   <summary>Solution</summary>
   
 ```sql
-SELECT i.title, i.description, o.username AS creator
+SELECT i.id, i.slug, i.title, i.created_at, i.updated_at, o.username AS creator
 FROM item i
 INNER JOIN operator o ON i.operator_id = o.id;
 ```
