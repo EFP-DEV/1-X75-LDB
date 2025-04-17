@@ -140,7 +140,7 @@ SELECT * FROM message ORDER BY created_at DESC LIMIT 5;
 Récupérez l'identifiant, le slug, le titre ainsi que les date de creation et mise a jour, ainsi que leur createur (operator) pour tous les items
 
 <details>
-  <summary>Solution</summary>
+<summary>Solution</summary>
   
 ```sql
 SELECT i.id, i.slug, i.title, i.created_at, i.updated_at, o.username AS creator
@@ -150,7 +150,7 @@ INNER JOIN operator o ON i.operator_id = o.id;
 </details>
 
 ### Exercice 7: Agrégation
-Comptez le nombre d'items publiés par statut.
+1. Comptez le nombre d'items publiés par statut.
 
 <details>
   <summary>Solution</summary>
@@ -161,6 +161,19 @@ FROM item
 GROUP BY status;
 ```
 </details>
+
+2. Comptez le nombre d'items par operateur.
+<details>
+  <summary>Solution</summary>
+  
+```sql
+SELECT username, COUNT(*) AS item_count
+FROM item i
+INNER JOIN operator o ON i.operator_id = o.id
+GROUP BY username;
+```
+</details>
+
 
 ### Exercice 8: Jointures Multiples
 Récupérez tous les items qui possèdent le tag 'Tag1', avec le nom de leur créateur.
