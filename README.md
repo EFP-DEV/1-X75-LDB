@@ -1,4 +1,4 @@
-# **Cours : Bases de Données Relationnelles (LBB)**
+# **Cours : Bases de Données Relationnelles (LDB)**
 
 ## **Introduction**
 Ce module vise à fournir une compréhension approfondie des bases de données relationnelles et de leur utilisation dans le cadre du développement web. Il s'aligne sur les objectifs du référentiel de formation, notamment :
