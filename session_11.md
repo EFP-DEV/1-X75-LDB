@@ -1,4 +1,4 @@
-# Séance 11 – Modélisation, création et tests de la base de données Atelier
+# Session 11 – Modélisation, création et tests de la base de données Atelier
 
 ## Contexte
 

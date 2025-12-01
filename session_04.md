@@ -1,4 +1,4 @@
-# Séance 3 : Modélisation conceptuelle (MCD – Modèle Entité-Association)
+# Session 3 : Modélisation conceptuelle (MCD – Modèle Entité-Association)
 
 ## 1. Introduction à la méthode MERISE
 
@@ -11,7 +11,7 @@ Elle propose plusieurs niveaux de modélisation (conceptuel, logique, physique) 
 
 [would you like to know more?](more/MERISE.md)
 
-L’étape clé de cette séance est la construction du **Modèle Conceptuel des Données (MCD)**, qui permet de représenter **entités**, **associations** et **attributs** avant toute implémentation.
+L’étape clé de cette session est la construction du **Modèle Conceptuel des Données (MCD)**, qui permet de représenter **entités**, **associations** et **attributs** avant toute implémentation.
 
 ---
 
@@ -47,6 +47,7 @@ Le **Modèle Conceptuel des Données (MCD)** est une représentation graphique e
 5. **Valider le MCD** : Vérifier auprès des acteurs métier que le modèle reflète la réalité.  
 
 ---
+
 ## 3. Exemples de MCD
 
 Voici un **exemple simplifié** de MCD pour illustrer la méthode MERISE.  
@@ -131,11 +132,11 @@ graph TD
     PASSE["PASSE"]
     COMPORTE["COMPORTE"]
     
-    CLIENT --- |"1,1"| PASSE
-    PASSE --- |"0,N"| COMMANDE
+    CLIENT --- |"0,N"| PASSE
+    PASSE --- |"1,1"| COMMANDE
     
-    COMMANDE --- |"0,N"| COMPORTE
-    COMPORTE --- |"1,N"| PRODUIT
+    COMMANDE --- |"1,N"| COMPORTE
+    COMPORTE --- |"0,N"| PRODUIT
 ```
 
 ---

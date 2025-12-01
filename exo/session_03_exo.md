@@ -51,69 +51,67 @@ VALUES
 
 ---
 
-## Liste des requêtes SQL
-
-### Exercice 1 : Créer un nouvel employé
+## Exercice 1 : Créer un nouvel employé
 
 Quelle requête SQL permet d’ajouter un nouvel employé à la table _employee_ ?  
  Le nom du nouvel employé est John Doe, qui est un Ingénieur Logiciel dans le département IT.
 
-### Exercice 2 : Lire toutes les informations des employés
+## Exercice 2 : Lire toutes les informations des employés
 
 Quelle requête SQL permet de récupérer toutes les colonnes pour tous les employés de la table _employee_ ?
 
-### Exercice 3 : Lire les informations spécifiques d’un employé
+## Exercice 3 : Lire les informations spécifiques d’un employé
 
 Quelle requête SQL permet de sélectionner le _firstname_ et le _lastname_ de tous les employés qui travaillent dans le département 'HR' ?
 
-### Exercice 4 : Mettre à jour le rôle d’un employé
+## Exercice 4 : Mettre à jour le rôle d’un employé
 
 Quelle requête SQL permet de changer le rôle d’un employé ?  
 Supposez que vous souhaitez promouvoir Clarice Starling au poste de Cannibal Love Interest.
 
-### Exercice 5 : Supprimer un enregistrement d’employé
+## Exercice 5 : Supprimer un enregistrement d’employé
 
 Quelle requête SQL permet de supprimer un employé de la table _employee_, celui qui picole au boulot ?
 
-### Exercice 6 : Lire les employés ordonnés par nom de famille
+## Exercice 6 : Lire les employés ordonnés par nom de famille
 
 Quelle requête SQL permet de sélectionner toutes les informations des employés de la table *employee*, ordonnées par leur *lastname* dans l’ordre ascendant ?
 
-### Exercice 7 : Compter le nombre d’employés dans un département
+## Exercice 7 : Compter le nombre d’employés dans un département
 
 Quelle requête SQL permet de compter combien d’employés travaillent dans le département IT ?
 
-### Exercice 8 : Mettre à jour le département pour plusieurs employés
+## Exercice 8 : Mettre à jour le département pour plusieurs employés
 
 Quelle requête SQL permet de déplacer tous les employés du département 'Legal' au département 'Sales' ?
-### Exercice 9 : Trouver les employés sans département
+## Exercice 9 : Trouver les employés sans département
 Quelle requête SQL permet de sélectionner tous les employés qui n’ont pas de département assigné ?
-### Exercice 10 : Insérer plusieurs nouveaux employés
+## Exercice 10 : Insérer plusieurs nouveaux employés
 Quelle requête SQL permet d’ajouter trois nouveaux employés en même temps dans la table _employee_ ?
 Supposez que les employés sont :
 - Alice Bob, cryptographe dans le département Data Science.
 - Bono, un Chef de Produit dans le département Product.
 - Madonna, Virgin Airlines CEO, dans le département Health and Safety.
-### Exercice 11 : Modifier le nom de famille d’un employé
+## Exercice 11 : Modifier le nom de famille d’un employé
 Quelle requête SQL permet de mettre à jour le nom de famille de 'Doe' en 'Smith' pour tous les employés nommés 'John' ?
-### Exercice 12 : Ajouter le salaire
+## Exercice 12 : Ajouter le salaire
 Quelle requête SQL permet d’ajouter une colonne _salary_, obligatoire et, par défaut, représentant 10.000 ZNB ?
 Précisez la monnaie en commentaire.
-### Exercice 13 : Augmenter le salaire des employés d’un département
+## Exercice 13 : Augmenter le salaire des employés d’un département
 Quelle requête SQL permet d’augmenter de 10% le salaire de tous les employés du département 'Health and Wellness' ?
-### Exercice 14 : Supprimer les employés d’un département spécifique
+## Exercice 14 : Supprimer les employés d’un département spécifique
 Quelle requête SQL permet de supprimer tous les employés qui travaillent dans le département ressources humaines ?
-### Exercice 15 : Lire les employés par ordre alphabétique inverse
+## Exercice 15 : Lire les employés par ordre alphabétique inverse
 Quelle requête SQL permet de lister tous les employés par ordre alphabétique inverse de leur nom de famille ?
-### Exercice 16 : Sélectionner les employés sans nom de famille
+## Exercice 16 : Sélectionner les employés sans nom de famille
 Quelle requête SQL permet de sélectionner tous les employés qui n’ont pas de nom de famille enregistré (en supposant que _lastname_ peut être null) ?
-### Exercice 17 : Ajouter une colonne à la table
+## Exercice 17 : Ajouter une colonne à la table
 Quelle requête SQL permet d’ajouter une colonne 'modus' à la table _employee_ ?
-### Exercice 18 : Calculer le nombre total d’employés
+## Exercice 18 : Calculer le nombre total d’employés
 Quelle requête SQL permet de calculer le nombre total d’employés dans la table ?
-### Exercice 19 : Trouver l’employé avec le plus ancien ‘id’
+## Exercice 19 : Trouver l’employé avec le plus ancien ‘id’
 Quelle requête SQL permet de trouver l’employé qui a le plus ancien ‘id’ ?
-### Exercice 20 : Mettre à jour le mode opératoire de tous les employés
+## Exercice 20 : Mettre à jour le mode opératoire de tous les employés
 Quelle requête SQL permet de mettre à jour les employés en 'Remote Work' ?
 
 ---

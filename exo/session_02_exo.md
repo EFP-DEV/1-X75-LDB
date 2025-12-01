@@ -14,8 +14,8 @@ Pour **chaque exercice**, vous devez :
 2. **Lister les données à stocker** pour chaque entité.
 3. **Définir les champs de chaque table**, en précisant :
    - **Le nom du champ** (doit suivre une convention uniforme).
-   - **Le type de données** (`INT`, `VARCHAR`, `CHAR`, `TEXT`, `DATE`).
-   - **Sa longueur** (si applicable).
+   - **Le type de données** (numerique, textuel, temporel).
+   - **Sa longueur maximale** (si applicable).
    - **S’il est obligatoire** ou facultatif.
    - **Tout commentaire pertinent** (exemple : duree en minute, standard ISO, ..).
 
@@ -40,10 +40,10 @@ Utilisez ce tableau pour organiser vos réponses avant de rédiger les scripts S
 
 | Champs | Type | Longueur | Obligatoire | Commentaires |
 |-----|------|----------|-------------|--------------|
-| id | INT | - | Oui | PK auto-inc. |
- | label | VARCHAR | 255 | Oui | Titre original  |
-| released | INT | - | Oui | Année de sortie |
-| réalisateur | VARCHAR | 150 | Oui | Nom du réalisateur |
+| id | Numerique | - | Oui | PK auto-inc. |
+ | label | Textuel | 255 | Oui | Titre original  |
+| released | Numerique | - | Oui | Année de sortie |
+| réalisateur | Textuel | 150 | Oui | Nom du réalisateur |
 
 
 ---

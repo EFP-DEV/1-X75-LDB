@@ -65,16 +65,16 @@ Vous êtes chargé(e) de concevoir le système d'information d'un cinéma multip
 
 ### Besoins exprimés par le cinéma
 - Enregistrer les films projetés avec leurs détails (titre, genre, durée)
-- Gérer les séances de projection (date, heure, salle)
-- Suivre les réservations de places pour chaque séance
+- Gérer les sessions de projection (date, heure, salle)
+- Suivre les réservations de places pour chaque session
 - Gérer les clients et leurs informations de contact
 - Suivre les ventes de billets et les paiements
 
 ### Contraintes métier à respecter
-- Un film peut être projeté dans plusieurs séances
-- Une salle peut accueillir plusieurs séances à différents horaires
-- Une séance concerne toujours un seul film dans une seule salle
-- Un billet est toujours associé à une séance spécifique
+- Un film peut être projeté dans plusieurs sessions
+- Une salle peut accueillir plusieurs sessions à différents horaires
+- Une session concerne toujours un seul film dans une seule salle
+- Un billet est toujours associé à une session spécifique
 - Les informations sur le tarif et le placement doivent être enregistrées pour chaque billet
 - Tous les identifiants doivent être nommés "id"
 

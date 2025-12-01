@@ -340,7 +340,7 @@ Cette requête démontre qu'une base de données normalisée peut toujours produ
 
 Voici le [code SQL complet](more/session_4.sql) pour créer la base de données, les tables et insérer les données, en tenant compte de la normalisation jusqu'à la 3NF.
 
-Ce code est loin d'être pret pour la production, il ne couvre pas tous les aspects de la création de tables dans une base de données relationnelle. Il est simplifié pour des raisons pédagogiques et pour faciliter la compréhension des concepts abordés dans cette séance.
+Ce code est loin d'être pret pour la production, il ne couvre pas tous les aspects de la création de tables dans une base de données relationnelle. Il est simplifié pour des raisons pédagogiques et pour faciliter la compréhension des concepts abordés dans cette session.
 ---
 
 Il est cependant suffisant pour illustrer les concepts de normalisation et de création de tables. Il peut être utilisé comme point de départ pour des exercices plus complexes.
