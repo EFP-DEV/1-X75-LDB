@@ -32,18 +32,21 @@ graph TD
         statut]
         
     AVOIR((AVOIR))
-    PATIENT --- |"1"| AVOIR
-    AVOIR --- |"0,N"| CONSULTATION
+    PATIENT --- |"0,N"| AVOIR
+    AVOIR --- |"1,1"| CONSULTATION
     
     EFFECTUER((EFFECTUER))
-    MEDECIN --- |"1"| EFFECTUER
-    EFFECTUER --- |"0,N"| CONSULTATION
+    MEDECIN --- |"0,N"| EFFECTUER
+    EFFECTUER --- |"1,1"| CONSULTATION
     
-    POSSEDER((POSSEDER))
-    SPECIALITE --- |"1"| POSSEDER
-    POSSEDER --- |"0,N"| MEDECIN
-```
+    ATTACHE((ATTACHE))
+    SPECIALITE --- |"0,1"| ATTACHE
+    ATTACHE --- |"1,1"| MEDECIN
 
+    POSSEDER((POSSEDER))
+    SPECIALITE --- |"1,1"| POSSEDER
+    POSSEDER --- |"0,N"| MEDECIN```
+```
 
 # Justification des relations dans le MCD:
 
