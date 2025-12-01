@@ -1,4 +1,4 @@
-# Session 3 : Modélisation conceptuelle (MCD – Modèle Entité-Association)
+# Session 4 : Modélisation conceptuelle (MCD – Modèle Entité-Association)
 
 ## 1. Introduction à la méthode MERISE
 
