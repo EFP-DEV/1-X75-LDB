@@ -42,7 +42,7 @@ WHERE title LIKE '%sample%' OR description LIKE '%sample%';
 </details>
 
 ### Exercice B: Filtrage par tag
-Écrivez une requête pour afficher tous les items associés au tag "Tag1".
+Écrivez une requête pour afficher tous les items associés au tag "Programming".
 
 <details>
   <summary>Solution</summary>
@@ -52,7 +52,7 @@ SELECT i.id, i.title, i.description
 FROM item i
 JOIN item_tag it ON i.id = it.item_id
 JOIN tag t ON it.tag_id = t.id
-WHERE t.name = 'Tag1';
+WHERE t.name = 'Programming';
 ```
 </details>
 
@@ -137,20 +137,20 @@ SELECT * FROM message ORDER BY created_at DESC LIMIT 5;
 ## Niveau Intermédiaire
 
 ### Exercice 6: Jointures Simples
-Récupérez tous les items avec le nom de leur opérateur (créateur).
+Récupérez l'identifiant, le slug, le titre ainsi que les date de creation et mise a jour, ainsi que leur createur (operator) pour tous les items
 
 <details>
-  <summary>Solution</summary>
+<summary>Solution</summary>
   
 ```sql
-SELECT i.title, i.description, o.username AS creator
+SELECT i.id, i.slug, i.title, i.created_at, i.updated_at, o.username AS creator
 FROM item i
 INNER JOIN operator o ON i.operator_id = o.id;
 ```
 </details>
 
 ### Exercice 7: Agrégation
-Comptez le nombre d'items publiés par statut.
+1. Comptez le nombre d'items publiés par statut.
 
 <details>
   <summary>Solution</summary>
@@ -162,8 +162,21 @@ GROUP BY status;
 ```
 </details>
 
+2. Comptez le nombre d'items par operateur.
+<details>
+  <summary>Solution</summary>
+  
+```sql
+SELECT username, COUNT(*) AS item_count
+FROM item i
+INNER JOIN operator o ON i.operator_id = o.id
+GROUP BY username;
+```
+</details>
+
+
 ### Exercice 8: Jointures Multiples
-Récupérez tous les items qui possèdent le tag 'Tag1', avec le nom de leur créateur.
+Récupérez tous les items qui possèdent le tag 'Programming', avec le nom de leur créateur.
 
 <details>
   <summary>Solution</summary>
@@ -174,7 +187,7 @@ FROM item i
 INNER JOIN operator o ON i.operator_id = o.id
 INNER JOIN item_tag it ON i.id = it.item_id
 INNER JOIN tag t ON it.tag_id = t.id
-WHERE t.name = 'Tag1';
+WHERE t.name = 'Programming';
 ```
 </details>
 
