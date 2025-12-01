@@ -28,9 +28,9 @@ Vous trouverez ci-dessous, pour chaque exercice de la premiere session, un exemp
          │ classification_age   │
          │ note_moyenne         │
          └──────────────────────┘
-                │    M,N
+                │    0,N
                 │ joue dans
-                │
+                │    0,N
          ┌──────────────────────┐
          │       Acteur         │
          ├──────────────────────┤

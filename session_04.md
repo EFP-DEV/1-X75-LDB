@@ -54,8 +54,6 @@ Voici un **exemple simplifié** de MCD pour illustrer la méthode MERISE.
 Il s’agit d’un **système de commande** avec trois entités : **Client**, **Commande** et **Produit**.  
 
 
-<img src="more/session_3_fig_mcd_ecom.svg" alt="drawing" width="400"/>
-
 ###  Interprétation
 
 1. **Client**  
@@ -73,17 +71,13 @@ Il s’agit d’un **système de commande** avec trois entités : **Client**, **
 ### Associations et cardinalités
 
 * **PASSE** : Relation entre CLIENT et COMMANDE
-   * Cardinalité (1,1) côté CLIENT : Un client passe au minimum 1 et au maximum 1 commande à la fois
-   * Cardinalité (0,N) côté COMMANDE : Une commande est passée par exactement un client, et un client peut avoir 0 ou plusieurs commandes
+   * Cardinalité (0,N) côté CLIENT : Un client passe 0 ou plusieurs commandes
+   * Cardinalité (1,1) côté COMMANDE : Une commande est passée par exactement un et un seul client
 
 * **COMPORTE** : Relation entre COMMANDE et PRODUIT
-   * Cardinalité (0,N) côté COMMANDE : Une commande peut contenir plusieurs produits
-   * Cardinalité (1,N) côté PRODUIT : Un produit peut appartenir à plusieurs commandes, et une commande contient au moins un produit
+   * Cardinalité (1,N) côté COMMANDE : Une commande doit contenir au moins 1 produits, mais peut en contenir plusieurs
+   * Cardinalité (0,N) côté PRODUIT : Un produit peut ne jamais être commandé, ou être commandé dans plusieurs commandes
 
-## Points clés à comprendre
-* La cardinalité (1,1) pour CLIENT-PASSE indique qu'un client doit obligatoirement passer une commande
-* L'association COMPORTE permet d'implémenter une relation plusieurs-à-plusieurs entre commandes et produits
-* Les attributs dans chaque entité définissent les propriétés stockées (identifiants, dates, prix, etc.)
 
 Ce MCD représente un système simple de gestion de commandes en ligne.
 
