@@ -33,7 +33,7 @@ Cette requête :
 Quelle requête SQL permet de récupérer toutes les colonnes pour tous les employés de la table *employee* ?
 
 ```sql
-SELECT * FROM `employee` WHERE `department` = 'IT';
+SELECT * FROM `employee`;
 ```
 
 ### Explication
