@@ -1,4 +1,4 @@
-# Normalisation 1NF, 2NF, 3NF
+# Normalisation 1NF, 2NF
 
 ## Pourquoi normaliser?
 
