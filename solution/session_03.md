@@ -161,7 +161,7 @@ UPDATE `employee` SET `lastname` = 'Smith' WHERE `firstname` = 'John';
 Quelle requête SQL permet d'ajouter une colonne *salary*, obligatoire et, par défaut, représentant 10.000 ZNB ? Précisez la monnaie en commentaire.
 
 ```sql
-ALTER TABLE `employee` ADD `salary` FLOAT NOT NULL DEFAULT '10000' COMMENT 'ZNB' AFTER `department`;
+ALTER TABLE `employee` ADD `salary` DECIMAL(9,2) NOT NULL DEFAULT '10000' COMMENT 'ZNB' AFTER `department`;
 ```
 
 ### Explication
