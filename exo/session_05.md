@@ -1,4 +1,4 @@
-# Exercices de Normalisation: 1NF, 2NF, 3NF
+# Exercices de Normalisation: 1NF, 2NF
 
 ## Exercice 1: Gestion d'une Librairie
 
@@ -14,12 +14,10 @@ Voici un extrait des données d'une librairie stockées dans une seule table:
 **Instructions:**
 1. Convertir ces données en 1NF
 2. Convertir le résultat en 2NF
-3. Convertir le résultat en 3NF
 
 ### Violations à identifier:
 - Attributs multivalués (téléphones, livres, prix)
 - Dépendances partielles après conversion en 1NF
-- Dépendances transitives après conversion en 2NF
 
 ## Exercice 2: Gestion d'Université
 
@@ -38,12 +36,10 @@ Voici un extrait des données d'une université stockées dans une seule table:
 **Instructions:**
 1. Convertir ces données en 1NF
 2. Convertir le résultat en 2NF
-3. Convertir le résultat en 3NF
 
 ### Violations à identifier:
 - La table est déjà en 1NF (pas d'attributs multivalués)
 - Dépendances partielles (informations sur cours/professeurs/étudiants)
-- Dépendances transitives (département dépend du professeur, programme dépend de l'étudiant)
 
 ## Exercice 3: Gestion d'un Garage Automobile
 
@@ -60,12 +56,10 @@ Voici un extrait des données d'un garage automobile stockées dans une seule ta
 **Instructions:**
 1. Convertir ces données en 1NF
 2. Convertir le résultat en 2NF
-3. Convertir le résultat en 3NF
 
 ### Violations à identifier:
 - Attributs multivalués (téléphones, pièces, coûts, certifications)
 - Dépendances partielles (informations client liées uniquement à ID_Client)
-- Dépendances transitives (coût horaire standard, informations véhicule)
 
 ---
 
@@ -80,10 +74,6 @@ Pour chaque exercice, une solution complète comprendra:
 2. **Conversion en 2NF**:
    - Identification des dépendances partielles
    - Décomposition en tables sans dépendances partielles
-
-3. **Conversion en 3NF**:
-   - Identification des dépendances transitives
-   - Décomposition finale en tables sans dépendances transitives
 
 Les solutions montreront clairement la structure des tables résultantes avec leurs clés primaires et étrangères.
 

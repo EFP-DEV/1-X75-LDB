@@ -1,5 +1,3 @@
-Voici les énoncés suivis de vos réponses et des explications pour chaque clause utilisée:
-
 ## 1. Créer un nouvel employé
 ### Énoncé 
 Quelle requête SQL permet d'ajouter un nouvel employé à la table *employee* ? Le nom du nouvel employé est John Doe, qui est un Ingénieur Logiciel dans le département IT.

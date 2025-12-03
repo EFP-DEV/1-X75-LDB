@@ -40,15 +40,15 @@ Le module est structuré en **12 sessions de 4 heures**, alternant entre théori
 | #  | Titre                                          | Contenu principal                                                                           | Support                                                     |
 | -- | ---------------------------------------------- | ------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
 | 1  | Histoire du stockage et Tabulation | Pourquoi et comment stocker| [Support](session_01.md) / — |
-| 2  | Introduction & manipulation d’une table simple | Découverte des bases SQL : opérations CRUD, filtres et tri.                                 | [Support](session_02.md) / [Exercices](exo/session_02_exo.md) |
-| 3  | Experimentation SQL avec phpMyAdmin                   | Exercice guidé       | — / [Exercices](exo/session_03_exo.md) |
-| 4  | Modélisation conceptuelle (MCD)                | Construction d’un MCD : entités, associations, cardinalités, règles métiers.                | [Support](session_3.md) / [Exercices](exo/session_3_exo.md) |
-| 5  | Normalisation (1NF → 3NF)                      | Analyse et correction des anomalies pour obtenir un schéma logique fiable et non redondant. | [Support](session_4.md) / [Exercices](exo/session_4_exo.md) |
+| 2  | Introduction & manipulation d’une table simple | Découverte des bases SQL : opérations CRUD, filtres et tri.                                 | [Support](session_02.md) / [Exercices](exo/session_02.md) |
+| 3  | Experimentation SQL avec phpMyAdmin                   | Exercice guidé       | — / [Exercices](exo/session_03.md) |
+| 4  | Modélisation conceptuelle (MCD)                | Construction d’un MCD : entités, associations, cardinalités, règles métiers.                | [Support](session_04.md) / [Exercices](exo/session_04.md) |
+| 5  | Normalisation (1NF → 3NF)                      | Analyse et correction des anomalies pour obtenir un schéma logique fiable et non redondant. | [Support](session_05.md) / [Exercices](exo/session_05.md) |
 | 6  | Application sur un cas réel                    | Analyse d’un cahier des charges et création d’un modèle adapté au besoin métier.            | — / —                                                       |
 | 7  | Intégrité référentielle                        | Mise en place de clés étrangères + compréhension des actions ON DELETE / ON UPDATE.         | [Support](session_6.md)                                     |
-| 8  | Requêtes SQL avancées                          | Requêtes complexes : jointures, agrégations, sous-requêtes.                                 | [Support](session_7.md) / [Exercices](exo/session_7_exo.md) |
+| 8  | Requêtes SQL avancées                          | Requêtes complexes : jointures, agrégations, sous-requêtes.                                 | [Support](session_7.md) / [Exercices](exo/session_7.md) |
 | 9  | Cas pratiques & corrections                    | Résolution collective d’exercices couvrant toutes les notions vues.                         | — / —                                                       |
-| 10  | Requêtes projetées & application métier        | Requêtes adaptées à des besoins métier : filtrages avancés, opérateurs spécifiques.         | [Support](session_9.md) / [Exercices](exo/session_9_exo.md) |
+| 10  | Requêtes projetées & application métier        | Requêtes adaptées à des besoins métier : filtrages avancés, opérateurs spécifiques.         | [Support](session_9.md) / [Exercices](exo/session_9.md) |
 | 11 | Projet final                                   | Conception d’une base complète, insertion de données, préparation d’un export SQL final.    | [Support](session_11.md) / —                                |
 | 12 | Examen final & évaluation                      | QCM de validation + revue détaillée du projet final.                                        | — / —                                                       |
 

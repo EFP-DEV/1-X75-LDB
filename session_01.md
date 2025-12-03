@@ -1,9 +1,10 @@
-# Session 1 : Histoire des Bases de Données — Version Cours (Markdown, sans schémas)
+# Session 1 : Introduction aux bases de donnees
 
-
-## **1.1. Introduction : pourquoi étudier l’histoire des bases de données ?**
+# 1 Introduction aux bases de données
+## 1.1. Pourquoi étudier l’histoire des bases de données ?**
 
 Comprendre l’évolution des bases de données, c’est comprendre **comment l’humanité structure l’information** pour administrer, compter, prévoir, décider.
+
 Chaque étape historique répond à une même tension :
 
 * **le réel déborde**,

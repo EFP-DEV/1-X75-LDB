@@ -1,13 +1,13 @@
 # Session 2 :  **Introduction aux Concepts de Bases de Données**
 
-## **1. Qu'est-ce qu'une Base de Données ?**
+# 1. Qu'est-ce qu'une Base de Données ?
 Une **base de données** est une collection organisée de données stockées et gérées électroniquement. Les bases de données permettent aux utilisateurs de stocker, récupérer et manipuler des données de manière efficace en utilisant un logiciel spécialisé appelé **Système de Gestion de Base de Données (SGBD).**
 
-### **Types de Bases de Données**
+## **Types de Bases de Données**
 - **Bases de Données Relationnelles (SGBDR) :** Utilisent des tables structurées pour stocker les données et prennent en charge les requêtes SQL.
 - **Bases de Données NoSQL :** Stockent les données dans une variété de formats tels que clé-valeur, document ou structures basées sur des graphes.
 
-## **2. Tables dans une Base de Données**
+# 2. Tables dans une Base de Données
 Une **table** (ou **relation**) est l'élément fondamental d'une base de données relationnelle. Une table est composée de **lignes (enregistrements)** et de **colonnes (attributs).**
 
 Exemple de Table (Données des Étudiants) :
@@ -19,10 +19,10 @@ Exemple de Table (Données des Étudiants) :
 | 102 | Bob   | 22  | Mathématiques    |
 ```
 
-## **3. Schéma : La Structure d'une Base de Données**
+# **3. Schéma : La Structure d'une Base de Données**
 Un **schéma** définit la structure d'une base de données, y compris l'organisation des tables, des colonnes, des types de données et des relations entre les tables. Le schéma fournit un plan directeur pour le stockage et l'accès aux données.
 
-## **4. Lignes et Colonnes**
+# **4. Lignes et Colonnes**
 - **Ligne (Enregistrement ou Tuple) :** Une entrée unique dans une table qui contient des valeurs pour chaque colonne.
 - **Colonne (Attribut) :** Un champ de données spécifique dans une table qui contient des informations d'un type particulier.
 
@@ -30,7 +30,7 @@ Exemple :
 - Dans la table `student` ci-dessus, **chaque ligne représente un étudiant différent**.
 - **Les colonnes définissent le type d'information stockée** (par exemple, `name`, `age`, `major`).
 
-## **5. Relations Entre les Tables**
+# **5. Relations Entre les Tables**
 Dans les bases de données relationnelles, des **relations** sont établies entre les tables pour éviter la redondance des données et assurer une gestion efficace des données.
 
 ### **Types de Relations :**
@@ -41,7 +41,7 @@ Dans les bases de données relationnelles, des **relations** sont établies entr
 Exemple de Relation :
 - Une table `student` et une table `enrollment` peuvent être liées en utilisant un `student_id` comme clé étrangère.
 
-## **6. Clés dans une Base de Données**
+# **6. Clés dans une Base de Données**
 ### **Clé Primaire**
 Une **Clé Primaire** identifie de manière unique chaque enregistrement dans une table. Elle doit être unique et ne peut pas contenir de valeurs NULL.
 
@@ -70,7 +70,7 @@ CREATE TABLE enrollment (
 ```
 - `student_id` dans `enrollment` référence le `id` dans `student`.
 
-## **7. Index pour des Requêtes Plus Rapides**
+# **7. Index pour des Requêtes Plus Rapides**
 Un **index** est une structure de base de données qui améliore la vitesse des opérations de récupération de données. Les index fonctionnent comme une table des matières pour un livre, aidant la base de données à localiser les enregistrements de manière efficace.
 
 Exemple :
@@ -79,7 +79,7 @@ CREATE INDEX idx_student_name ON student(name);
 ```
 - Cet index accélère les recherches d'étudiants par `name`.
 
-## **8. Résumé**
+# **8. Résumé**
 - Une **base de données** est un système organisé pour stocker et gérer des données.
 - Une **table** est composée de **lignes (enregistrements)** et de **colonnes (attributs).**
 - Un **schéma** définit la structure d'une base de données.
