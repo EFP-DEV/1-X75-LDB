@@ -39,7 +39,6 @@ SELECT * FROM `employee`;
 ### Explication
 - `SELECT *`: Sélectionne toutes les colonnes
 - `FROM`: Spécifie la table source
-- `WHERE`: Filtre les résultats selon la condition (département = 'IT')
 
 ## 3. Lire les informations spécifiques d'un employé
 ### Énoncé 
