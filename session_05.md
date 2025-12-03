@@ -9,7 +9,7 @@
 
 ## Comment normaliser?
 
-Nous allons suivre un algorithme de normalisation en trois étapes, en appliquant les formes normales (1NF et 2NF uniquement). Chaque étape vise à résoudre des problèmes spécifiques de redondance et d'intégrité des données.
+Nous allons suivre un algorithme de normalisation en 2 étapes, en appliquant les formes normales (1NF et 2NF uniquement). Chaque étape vise à résoudre des problèmes spécifiques de redondance et d'intégrité des données.
 
 Nous allons aborder cette notion fondamentale par le biais d'un exemple pratique: imaginons que nous avons reçu un **fichier CSV** extrait du systeme de comptabilite que vous aller remplacer par votre solution. 
 
@@ -19,7 +19,6 @@ Le but du jeu: eviter la repetition d'informations
 
 
 ## Données de départ
-
 
 | sale_ID | sale_date | customer_ID | customer_name | customer_email | customer_phone | products | products_names | products_categories | unit_prices | quantities | seller_ID | seller_name | seller_department |
 |----------|------------|-----------|------------|--------------|------------------|------------------|---------------|---------------------|----------------|-----------|------------|-------------|---------------------|
