@@ -64,37 +64,5 @@ Voici quelques exemples de MCD pour différents domaines :
 
 Ce travail de modélisation **conceptuelle** servira de base au passage vers le **modèle logique** (MLD), puis **physique** (création des tables SQL).  
 
-
-## 5. Code Mermaid pour le MCD client commande
-
-```
-graph TD
-    CLIENT["CLIENT
-    id
-    nom
-    prenom
-    email"]
-    
-    COMMANDE["COMMANDE
-    id
-    date_cmd
-    creation
-    livraison"]
-    
-    PRODUIT["PRODUIT
-    id
-    libelle
-    prix"]
-    
-    PASSE["PASSE"]
-    COMPORTE["COMPORTE"]
-    
-    CLIENT --- |"0,N"| PASSE
-    PASSE --- |"1,1"| COMMANDE
-    
-    COMMANDE --- |"1,N"| COMPORTE
-    COMPORTE --- |"0,N"| PRODUIT
-```
-
 ---
 > Ce cours est distribué sous **licence Creative Commons**. Toute reproduction ou distribution à but commercial est interdite sans l’accord préalable de l’auteur.
