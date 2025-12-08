@@ -1,166 +1,55 @@
-# Solution Session 4 : MCD Gestion de cinema multiplex
+# Solution Session 4 : MCD — Gestion de cinéma multiplex
+
 
 # **1. Analyse & Modélisation**
 
 ## **Entités principales**
 
-* **FILM** : informations cinématographiques
-* **SALLE** : salles de projection
-* **SESSION** : projection (film, salle, date, heure)
-* **CLIENT** : personnes effectuant des réservations
-* **BILLET** : billet vendu (tarif, placement, paiement)
-* **RESERVATION** : réservation d’une place avant achat
-
-## **Associations**
-
-* FILM —< SESSION
-* SALLE —< SESSION
-* SESSION —< BILLET
-* CLIENT —< RESERVATION
-* SESSION —< RESERVATION
-
-## **Cardinalités**
-
-* Un film est projeté dans 0 à N sessions
-* Une salle accueille 0 à N sessions
-* Une session concerne 1 film et 1 salle
-* Un billet concerne 1 seule session
-* Un client peut avoir 0 à N réservations
-* Une réservation est pour 1 session
+| Entité          | Rôle                                                    |
+| --------------- | ------------------------------------------------------- |
+| **FILM**        | Données cinématographiques (titre, durée, réalisateur…) |
+| **SALLE**       | Salles physiques de projection                          |
+| **SESSION**     | Une projection : film + salle + date/heure              |
+| **CLIENT**      | Personnes pouvant réserver                              |
+| **RESERVATION** | Place(s) réservée(s) avant paiement                     |
+| **BILLET**      | Billet acheté pour une session                          |
 
 ---
 
-# 2. MCD
+# **2. Associations et cardinalités**
 
-![MCD](../asset/MCD-cinema.jpg)
+Tes associations deviennent :
 
-
-# 3. Explication des cardinalités
-
----
-
-# **1. FILM — PROJETE — SESSION**
-
-### **FILM → PROJETE : (1,N)**
-
-* Un film peut être projeté **dans plusieurs sessions** (N).
-* Un film projeté doit apparaître **au moins dans une session** (1).
-  (Si un film n’est jamais projeté, il n'est pas utile de l'enregistrer.)
-
-### **PROJETE → SESSION : (1,1)**
-
-* Une session correspond **à la projection d’un seul film** (1).
-* Chaque occurrence de PROJETE pointe donc vers **une seule session** (1).
-
-➡️ **Conclusion :**
-Un film peut être projeté plusieurs fois, mais une session projette un seul film.
+* **FILM —(0,N)→ PROJETE —(1,1)→ SESSION**
+* **SALLE —(0,N)→ SE_DEROULE —(1,1)→ SESSION**
+* **CLIENT —(0,N)→ RESERVE —(1,1)→ RESERVATION**
+* **SESSION —(0,N)→ FAIT —(1,1)→ RESERVATION**
+* **SESSION —(0,N)→ EMIS —(1,1)→ BILLET**
 
 ---
 
-# **2. SALLE — SE_DEROULE — SESSION**
-
-### **SALLE → SE_DEROULE : (1,N)**
-
-* Une salle accueille **plusieurs sessions** à des horaires différents (N).
-* Une salle utilisée doit accueillir **au moins une session** (1).
-
-### **SE_DEROULE → SESSION : (1,1)**
-
-* Une session se déroule **dans une seule salle** (1).
-* Une occurrence de l’association représente **un seul créneau dans une salle** (1).
-
-➡️ **Conclusion :**
-Une salle peut accueillir de nombreuses sessions, mais une session est toujours dans une seule salle.
-
----
-
-# **3. CLIENT — RESERVE — RESERVATION**
-
-### **CLIENT → RESERVE : (0,N)**
-
-* Un client peut effectuer **0, 1 ou plusieurs réservations**.
-* 0 est possible : un client peut être enregistré mais ne rien réserver.
-
-### **RESERVE → RESERVATION : (1,1)**
-
-* Une réservation est toujours faite **par un seul client** (1).
-* Elle ne peut pas être anonyme ou partagée (1).
-
-➡️ **Conclusion :**
-Un client peut faire plusieurs réservations, mais chaque réservation appartient à un seul client.
-
----
-
-# **4. SESSION — FAIT — RESERVATION**
-
-### **SESSION → FAIT : (1,N)**
-
-* Une session peut faire l’objet de **plusieurs réservations** (N).
-* Une session existe pour être projetée et peut être réservée **au moins une fois** (1).
-  (Dans un contexte commercial réel : une session sans réservation n’a pas de sens, mais on peut admettre 0 si nécessaire.)
-
-### **FAIT → RESERVATION : (1,1)**
-
-* Une réservation porte toujours sur **une seule session précise** (1).
-* Une réservation ne peut concerner plusieurs projections (1).
-
-➡️ **Conclusion :**
-Une session peut recevoir plusieurs réservations, mais chaque réservation concerne une unique session.
-
----
-
-# **5. SESSION — EMIS — BILLET**
-
-### **SESSION → EMIS : (1,N)**
-
-* Une session génère **plusieurs billets** (N).
-* Chaque billet correspond **à une place vendue**.
-* 1 minimum car un billet est lié à une session ; si la session n’a pas encore vendu de ticket, elle n’apparaît pas dans l’association.
-
-### **EMIS → BILLET : (1,1)**
-
-* Un billet appartient à **une seule session** (1).
-* Un billet ne peut pas être valable pour deux projections (1).
-
-➡️ **Conclusion :**
-Une session émet plusieurs billets, mais un billet correspond à une seule session.
-
----
-
-# **Résumé clair des cardinalités**
-
-| Relation                  | Lecture                                                                                            |
-| ------------------------- | -------------------------------------------------------------------------------------------------- |
-| FILM (1,N) SESSION        | Un film peut avoir plusieurs sessions, mais une session projette un seul film.                     |
-| SALLE (1,N) SESSION       | Une salle accueille plusieurs sessions, mais une session a une seule salle.                        |
-| CLIENT (0,N) RÉSERVATION  | Un client peut faire plusieurs réservations, mais une réservation appartient à un seul client.     |
-| SESSION (1,N) RÉSERVATION | Une session peut recevoir plusieurs réservations, mais une réservation concerne une seule session. |
-| SESSION (1,N) BILLET      | Une session émet plusieurs billets, mais un billet appartient à une seule session.                 |
-
-
----
-# Code mermaid
+# **3. MCD (mermaid)**
 
 ```mermaid
 graph TD
     FILM["FILM"]
-    
+
     SALLE["SALLE"]
-    
+
     SESSION["SESSION"]
-    
+
     CLIENT["CLIENT"]
-    
+
     RESERVATION["RESERVATION"]
-    
+
     BILLET["BILLET"]
-    
-    PROJETE["PROJETE"]
-    SE_DEROULE["SE_DEROULE"]
-    FAIT["FAIT"]
-    RESERVE["RESERVE"]
-    EMIS["EMIS"]
-    
+
+    PROJETE(("PROJETE"))
+    SE_DEROULE(("DEROULER"))
+    FAIT(("FAIT"))
+    RESERVE(("RESERVE"))
+    EMIS(("EMIS"))
+
     FILM --- |"0,N"| PROJETE
     PROJETE --- |"1,1"| SESSION
 
@@ -176,3 +65,103 @@ graph TD
     SESSION --- |"0,N"| EMIS
     EMIS --- |"1,1"| BILLET
 ```
+
+---
+
+# **4. Explication corrigée des cardinalités**
+
+---
+
+## **1. FILM — PROJETE — SESSION**
+
+### FILM → PROJETE : **(0,N)**
+
+* Un film **peut ne pas être encore projeté** (ex : film nouvellement encodé).
+* Un film peut être projeté dans **plusieurs sessions**.
+
+### PROJETE → SESSION : **(1,1)**
+
+* Une session projette **un seul film**.
+
+➡️ **Conclusion** : plusieurs sessions peuvent projeter le même film, mais une session ne projette qu’un film.
+
+---
+
+## **2. SALLE — SE_DEROULE — SESSION**
+
+### SALLE → SE_DEROULE : **(0,N)**
+
+* Une salle peut être encodée sans qu’aucune session ne soit encore programmée.
+* Une salle peut accueillir **N sessions**.
+
+### SE_DEROULE → SESSION : **(1,1)**
+
+* Une session a lieu **dans une seule salle**.
+
+➡️ **Conclusion :** une salle peut accueillir plusieurs sessions ; une session a une salle unique.
+
+---
+
+## **3. CLIENT — RESERVE — RESERVATION**
+
+### CLIENT → RESERVE : **(0,N)**
+
+* Un client peut avoir **0 ou plusieurs réservations**.
+
+### RESERVE → RESERVATION : **(1,1)**
+
+* Chaque réservation appartient **à un seul client**.
+
+➡️ **Conclusion :** plusieurs réservations possibles par client, mais toute réservation a un seul propriétaire.
+
+---
+
+## **4. SESSION — FAIT — RESERVATION**
+
+### SESSION → FAIT : **(0,N)**
+
+* Une session peut recevoir **0 à N réservations**.
+
+### FAIT → RESERVATION : **(1,1)**
+
+* Une réservation porte sur **une seule session**.
+
+➡️ **Conclusion :** une session peut être réservée plusieurs fois, mais chaque réservation vise une seule session.
+
+---
+
+## **5. SESSION — EMIS — BILLET**
+
+### SESSION → EMIS : **(0,N)**
+
+* Une session peut générer **0 à N billets** (si pas encore en vente : 0).
+
+### EMIS → BILLET : **(1,1)**
+
+* Un billet est toujours émis pour **une seule session**.
+
+➡️ **Conclusion :** une session émet plusieurs billets, un billet correspond à une seule session.
+
+---
+
+# **5. Résumé clair des cardinalités (version corrigée)**
+
+| Relation                  | Lecture                                                      |
+| ------------------------- | ------------------------------------------------------------ |
+| FILM (0,N) SESSION        | Un film peut être projeté dans plusieurs sessions ou aucune. |
+| SALLE (0,N) SESSION       | Une salle peut accueillir plusieurs sessions ou aucune.      |
+| CLIENT (0,N) RÉSERVATION  | Un client peut faire plusieurs réservations ou aucune.       |
+| SESSION (0,N) RÉSERVATION | Une session peut recevoir plusieurs réservations ou aucune.  |
+| SESSION (0,N) BILLET      | Une session peut émettre plusieurs billets ou aucun.         |
+
+---
+
+# 🎯 **Erratum 2025-12-08**
+
+| Élément               | Ancienne version | Nouvelle version                                                             |
+| --------------------- | ---------------- | ---------------------------------------------------------------------------- |
+| FILM → SESSION        | (1,N)            | (0,N)                                                                        |
+| SALLE → SESSION       | (1,N)            | (0,N)                                                                        |
+| SESSION → RESERVATION | (1,N)            | (0,N)                                                                        |
+| SESSION → BILLET      | (1,N)            | (0,N)                                                                        |
+| Justification         | “au moins 1”     | Adapté au schéma réel : sessions ou films peuvent exister avant exploitation |
