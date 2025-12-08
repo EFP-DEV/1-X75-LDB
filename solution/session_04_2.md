@@ -1,4 +1,4 @@
-+# Solution Session 4 : MCD Gestion de cinema multiplex
+# Solution Session 4 : MCD Gestion de cinema multiplex
 
 # **1. Analyse & Modélisation**
 
