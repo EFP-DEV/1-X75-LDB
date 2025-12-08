@@ -32,7 +32,7 @@
 
 # 2. MCD
 
-![MCD](../asset/MCD-hopital.jpg)
+![MCD](../asset/MCD-cinema.jpg)
 
 
 # 3. Explication des cardinalités
