@@ -46,8 +46,7 @@ Le **Modèle Conceptuel des Données (MCD)** est une représentation graphique e
 
 ## 3. Exemples de MCD
 
-Voici quelques exemples de MCD pour différents domaines : 
-[would you like to know more?](more/MERISE_MCD_examples.md)
+Voici quelques [exemples de MCD pour différents domaines](more/MERISE_MCD_examples.md)
 
 ---
 
