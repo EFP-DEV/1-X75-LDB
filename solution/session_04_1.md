@@ -48,8 +48,31 @@ Le système permet :
 
 ---
 
+```mermaid
+graph TD
+  PATIENT["PATIENT"]
+  MEDECIN["MEDECIN"]
+  SPECIALITE["SPECIALITE"]
+  
+  CONSULTATION["CONSULTATION"]
 
-![MCD](../asset/MCD-hopital.jpg)
+  MAITRISE["MAITRISE"]
+  EXERCE["EXERCE"]
+  CONSULTE["CONSULTE"]
+  REALISE["REALISE"]
+  
+  PATIENT --- |"1,N"| CONSULTE
+  CONSULTE --- |"1,1"| CONSULTATION
+
+  MEDECIN --- |"1,N"| REALISE
+  REALISE --- |"1,1"| CONSULTATION
+
+  MEDECIN --- |"1,1"| MAITRISE
+  MAITRISE --- |"0,1"| SPECIALITE
+
+  MEDECIN --- |"1,N"| EXERCE
+  EXERCE --- |"0,N"| SPECIALITE
+```
 
 ---
 
@@ -125,33 +148,3 @@ Le système permet :
 
 ➡️ Ensemble :
 **Chaque médecin exerce au minimum une spécialité, et une spécialité peut être exercée par 0 à plusieurs médecins.**
-
----
-
-# Code mermaid
-
-```
-graph TD
-  PATIENT["PATIENT"]
-  MEDECIN["MEDECIN"]
-  SPECIALITE["SPECIALITE"]
-  
-  CONSULTATION["CONSULTATION"]
-
-  MAITRISE["MAITRISE"]
-  EXERCE["EXERCE"]
-  CONSULTE["CONSULTE"]
-  REALISE["REALISE"]
-  
-  PATIENT --- |"1,N"| CONSULTE
-  CONSULTE --- |"1,1"| CONSULTATION
-
-  MEDECIN --- |"1,N"| REALISE
-  REALISE --- |"1,1"| CONSULTATION
-
-  MEDECIN --- |"1,1"| MAITRISE
-  MAITRISE --- |"0,1"| SPECIALITE
-
-  MEDECIN --- |"1,N"| EXERCE
-  EXERCE --- |"0,N"| SPECIALITE
-```
