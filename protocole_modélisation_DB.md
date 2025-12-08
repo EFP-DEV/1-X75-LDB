@@ -1,4 +1,4 @@
-# Session 2 : Protocole de modélisation de base de données pour débutants
+# Protocole de modélisation de base de données pour débutants
 
 ## 1. Identifier les entités
 Les entités sont les objets fondamentaux de votre base de données. Chaque entité représente un concept ou un objet du monde réel qui peut être identifié, classifié et décrit. Une entité deviendra généralement une table dans votre base de données. [|{ plus }](more/entity_identification.md)
