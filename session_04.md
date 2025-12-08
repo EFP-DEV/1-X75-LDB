@@ -25,15 +25,11 @@ Le **Modèle Conceptuel des Données (MCD)** est une représentation graphique e
    - Représente un **objet** ou un **concept** du domaine (ex. : Client, Produit, Commande).  
    - Peut être vue comme une « classe » ou « table » (lorsqu’on passera au niveau physique).
 
-2. **Attribut**  
-   - Représente une **propriété** de l’entité (ex. : nom, adresse, prix).  
-   - Se caractérise par un **type** (texte, nombre, date…).
-
-3. **Association (ou relation)**  
+2. **Association (ou relation)**  
    - Représente un **lien** entre des entités (ex. : un client passe une commande).  
    - Se définit par des **cardinalités** (ex. : un client peut passer plusieurs commandes ; une commande est passée par un seul client).
 
-4. **Cardinalités**  
+3. **Cardinalités**  
    - **1,1** : L’entité A est liée à exactement un élément de l’entité B.  
    - **1,N** : L’entité A peut être liée à plusieurs éléments de l’entité B, mais B est lié à un seul A.  
    - **M,N** : Les entités A et B peuvent être liées chacune à plusieurs éléments de l’autre.
