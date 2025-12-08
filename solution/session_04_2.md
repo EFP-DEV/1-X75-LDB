@@ -16,7 +16,7 @@
 
 ---
 
-# **2. Associations et cardinalités**
+# **Associations et cardinalités**
 
 Tes associations deviennent :
 
@@ -28,7 +28,7 @@ Tes associations deviennent :
 
 ---
 
-# **3. MCD (mermaid)**
+# **2. MCD (mermaid)**
 
 ```mermaid
 graph TD
@@ -65,10 +65,11 @@ graph TD
     SESSION --- |"0,N"| EMIS
     EMIS --- |"1,1"| BILLET
 ```
+See it [live on mermaid](https://mermaid.live/edit#pako:eNqdU01vwjAM_SuVTyAVRBlQkhuDIHUqMLXdDlumKVozQFtb1LXSNuC_kw9KQw87LBc7fvaL_ZLs4S2LOWBY52y3saIZTS2x5p6_eKYgDYUXmupoOPF9IsLKmnESht5qKRHtGdjU98gyEpB2DCQgIQkeJ5GuNHZGzq0nTpLV2jGQ-2B1RyLSalE4uxTa7aqf1xkJVg--gs9uUOPziRdJRNo6qjtQJWe3xsjCCyUgrY7WOlmdTsc6UOjZovND1dhVl1WKYzsypVLJlLXBUo_QHOlvLq1yg6waxxyzQWPKf32rDS6l2UXF_7IoHS_KNlj0XYMt3uQ2BvzOPr-4DQnPEyb3sJeVFIoNTzgFLNyY5R8UaHoURTuWPmVZArjIS1GWZ-V6cyEpdzEr-GzLxHOvU3ga83yalWkBGCkGwHv4Btx3b7pufzhCAzR2Bk5vbMMP4NGo6_QHSIZcByHkHm34VUf2umN3aAOPt0WWL_THUv_reAJAs-74)
 
 ---
 
-# **4. Explication corrigée des cardinalités**
+# **3. Explication des cardinalités**
 
 ---
 
