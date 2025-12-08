@@ -132,46 +132,26 @@ Le système permet :
 
 ```
 graph TD
-    PATIENT["PATIENT
-    id
-    nom
-    prenom
-    date_naissance
-    adresse
-    telephone"]
-    
-    MEDECIN["MEDECIN
-    id
-    nom
-    prenom"]
-    
-    SPECIALITE["SPECIALITE
-    id
-    libelle"]
-    
-    CONSULTATION["CONSULTATION
-    id
-    date_consult
-    heure
-    duree
-    diagnostic
-    tarif
-    statut"]
+  PATIENT["PATIENT"]
+  MEDECIN["MEDECIN"]
+  SPECIALITE["SPECIALITE"]
+  
+  CONSULTATION["CONSULTATION"]
 
-    MAITRISE["MAITRISE"]
-    EXERCE["EXERCE"]
-    CONSULTE["CONSULTE"]
-    REALISE["REALISE"]
-    
-    PATIENT --- |"1,N"| CONSULTE
-    CONSULTE --- |"1,1"| CONSULTATION
+  MAITRISE["MAITRISE"]
+  EXERCE["EXERCE"]
+  CONSULTE["CONSULTE"]
+  REALISE["REALISE"]
+  
+  PATIENT --- |"1,N"| CONSULTE
+  CONSULTE --- |"1,1"| CONSULTATION
 
-    MEDECIN --- |"1,N"| REALISE
-    REALISE --- |"1,1"| CONSULTATION
+  MEDECIN --- |"1,N"| REALISE
+  REALISE --- |"1,1"| CONSULTATION
 
-    MEDECIN --- |"1,1"| MAITRISE
-    MAITRISE --- |"0,N"| SPECIALITE
+  MEDECIN --- |"1,1"| MAITRISE
+  MAITRISE --- |"0,1"| SPECIALITE
 
-    MEDECIN --- |"1,N"| EXERCE
-    EXERCE --- |"0,N"| SPECIALITE
+  MEDECIN --- |"1,N"| EXERCE
+  EXERCE --- |"0,N"| SPECIALITE
 ```
