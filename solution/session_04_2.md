@@ -1,4 +1,4 @@
-# Solution Session 4 : MCD Gestion de cinema multiplex
++# Solution Session 4 : MCD Gestion de cinema multiplex
 
 # **1. Analyse & Modélisation**
 
@@ -142,41 +142,18 @@ Une session émet plusieurs billets, mais un billet correspond à une seule sess
 # Code mermaid
 
 ```mermaid
-
 graph TD
-    FILM["FILM
-    id
-    titre
-    genre
-    duree"]
+    FILM["FILM"]
     
-    SALLE["SALLE
-    id
-    nom
-    capacite"]
+    SALLE["SALLE"]
     
-    SESSION["SESSION
-    id
-    date_session
-    heure_session"]
+    SESSION["SESSION"]
     
-    CLIENT["CLIENT
-    id
-    nom
-    prenom
-    email
-    telephone"]
+    CLIENT["CLIENT"]
     
-    RESERVATION["RESERVATION
-    id
-    date_reservation
-    nb_places"]
+    RESERVATION["RESERVATION"]
     
-    BILLET["BILLET
-    id
-    tarif
-    placement
-    date_paiement"]
+    BILLET["BILLET"]
     
     PROJETE["PROJETE"]
     SE_DEROULE["SE_DEROULE"]
@@ -184,18 +161,18 @@ graph TD
     RESERVE["RESERVE"]
     EMIS["EMIS"]
     
-    FILM --- |"1,N"| PROJETE
+    FILM --- |"0,N"| PROJETE
     PROJETE --- |"1,1"| SESSION
 
-    SALLE --- |"1,N"| SE_DEROULE
+    SALLE --- |"0,N"| SE_DEROULE
     SE_DEROULE --- |"1,1"| SESSION
 
     CLIENT --- |"0,N"| RESERVE
     RESERVE --- |"1,1"| RESERVATION
 
-    SESSION --- |"1,N"| FAIT
+    SESSION --- |"0,N"| FAIT
     FAIT --- |"1,1"| RESERVATION
 
-    SESSION --- |"1,N"| EMIS
+    SESSION --- |"0,N"| EMIS
     EMIS --- |"1,1"| BILLET
 ```
