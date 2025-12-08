@@ -104,11 +104,13 @@ Les cartes perforées sont la **première base de données mécanisée**.
 
 ---
 
-## **1.6. Naissance de l’informatique et premières bases (1945 → 1969)**
+## 1.6. Naissance de l'informatique et premières bases (1945 → 1969)
 
-### **1.6.1. Le concept d’information (Shannon)**
+### 1.6.1. Le concept d'information (Shannon)
 
-L'information devient unité mesurable.
+**Claude Shannon** (1948) transforme l'information en quelque chose de mesurable, comme on mesure la distance ou le poids. Avant, "information" était un concept vague. Il en fait une quantité mathématique précise: le **bit**. L'unité de base. Un bit = une réponse oui/non. Pile ou face = 1 bit d'information.
+
+Shannon prouve que l'information peut être stockée, transmise et mesurée comme n'importe quelle grandeur physique, posant les fondations de l'ère numérique.
 
 ### **1.6.2. Ordinateurs à mémoire**
 
