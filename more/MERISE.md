@@ -8,7 +8,6 @@ Le modèle conceptuel représente la réalité métier indépendamment des contr
 Ce niveau se concentre sur:
 - Les objets métier essentiels
 - Les relations entre ces objets
-- Les attributs de base de chaque entité
 - Les cardinalités des relations
 
 ### Niveau Logique
@@ -17,7 +16,7 @@ Le modèle logique transforme le modèle conceptuel en une structure organisée 
 Les modifications incluent:
 - Transformation des entités en tables avec des noms en minuscules au pluriel
 - Introduction des clés primaires (PK) et étrangères (FK)
-- Définition des types de données génériques (VARCHAR, DATE, TEXT)
+- Liste des attributs (optionnel: avec type (texte, nombre, date, etc..))
 - Modélisation des relations par des clés étrangères
 
 ### Niveau Physique
@@ -66,7 +65,6 @@ D'après le schéma:
 ### Niveau Conceptuel
 
 ![image info](MERISE_MCD.svg)
-
 
 ---
 
