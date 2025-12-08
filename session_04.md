@@ -50,45 +50,8 @@ Le **Modèle Conceptuel des Données (MCD)** est une représentation graphique e
 
 ## 3. Exemples de MCD
 
-Voici un **exemple simplifié** de MCD pour illustrer la méthode MERISE.  
-Il s’agit d’un **système de commande** avec trois entités : **Client**, **Commande** et **Produit**.  
-
-
-###  Interprétation
-
-1. **Client**  
-   - Représente la personne qui passe la commande.  
-   - Attributs (ex. : `id`, `nom`, `prenom`, `email`).  
-
-2. **Commande**  
-   - Représente la commande effectuée par un client.  
-   - Attributs (ex. : `id`, `date_cmd`, `creation`, `livraison`).  
-
-3. **Produit**  
-   - Représente chaque produit pouvant être commandé.  
-   - Attributs (ex. : `id`, `libelle`, `prix`).  
-
-### Associations et cardinalités
-
-* **PASSE** : Relation entre CLIENT et COMMANDE
-   * Cardinalité (0,N) côté CLIENT : Un client passe 0 ou plusieurs commandes
-   * Cardinalité (1,1) côté COMMANDE : Une commande est passée par exactement un et un seul client
-
-* **COMPORTE** : Relation entre COMMANDE et PRODUIT
-   * Cardinalité (1,N) côté COMMANDE : Une commande doit contenir au moins 1 produits, mais peut en contenir plusieurs
-   * Cardinalité (0,N) côté PRODUIT : Un produit peut ne jamais être commandé, ou être commandé dans plusieurs commandes
-
-
-Ce MCD représente un système simple de gestion de commandes en ligne.
-
-Cet exemple illustre comment on **décrit les entités et leurs attributs** et comment on **définit les cardinalités** des relations.  
-Il s’agit d’une base pour comprendre la **démarche MERISE** et préparer la suite (création du Modèle Logique, puis Modèle Physique).
-
-
-## Autres exemples
-
-Voici quelques exemples supplémentaires de MCD pour différents domaines : 
-[would you like to know more?](more/MCD_ASCII.md)
+Voici quelques exemples de MCD pour différents domaines : 
+[would you like to know more?](more/MERISE_MCD_examples.md)
 
 ---
 
