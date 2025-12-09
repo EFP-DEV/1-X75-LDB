@@ -25,7 +25,7 @@ Les humains utilisent :
 * des **ossements marqués** (ex. l'os d’Ishango)
 * des **cailloux ou jetons**
 
-![Token summerien](asset/session_01_history_counting_tokens.jpg)
+![Counting Token](asset/session_01_history_counting_tokens.jpg)
 
 ![Ishango](asset/session_01_history_ishango.jpg)
 
@@ -49,7 +49,7 @@ C’est la fonction fondamentale de toute base de données.
 Les jetons d’argile (compter le grain, le bétail, les dettes) deviennent des **pictogrammes pressés dans l’argile**.
 La comptabilité *invente* l’écriture.
 
-
+![Summerian tablet](asset/session_01_history_summerian_tablet.jpg)
 ### **1.3.2. Les registres impériaux**
 
 Égypte, Mésopotamie, Chine, Rome :
