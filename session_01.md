@@ -25,6 +25,10 @@ Les humains utilisent :
 * des **ossements marqués** (ex. l'os d’Ishango)
 * des **cailloux ou jetons**
 
+![Token summerien](asset/session_01_history_counting_tokens.jpg)
+
+![Ishango](asset/session_01_history_ishango.jpg)
+
 Ces systèmes permettent de représenter des **quantités** ou des **différences**.
 Ce ne sont pas encore des “données” : ce sont des **indices stabilisés**.
 
@@ -44,6 +48,7 @@ C’est la fonction fondamentale de toute base de données.
 
 Les jetons d’argile (compter le grain, le bétail, les dettes) deviennent des **pictogrammes pressés dans l’argile**.
 La comptabilité *invente* l’écriture.
+
 
 ### **1.3.2. Les registres impériaux**
 
@@ -87,7 +92,7 @@ Le tableau devient outil de **fiabilité**.
 
 ### **1.5.1. Premières machines**
 
-* Pascaline
+* [Pacaline](https://www.youtube.com/watch?v=hSl2WFfCTD8)
 * Machine de Leibniz
 * Arithmomètre
 
@@ -99,6 +104,11 @@ Le stockage reste sur papier.
 Jacquard (1801) → instructions sur cartes.
 Hollerith (1890) → recensement américain par cartes.
 IBM naît de cette révolution.
+
+![Jacquard (1801)](asset/session_01_mecanic_jacquard.jpg)
+![Hollerith (1890)](asset/session_01_mecanic_card.jpg)
+![Hollerith (1890)](asset/session_01_mecanic_puncher.jpg)
+
 
 Les cartes perforées sont la **première base de données mécanisée**.
 
@@ -265,37 +275,96 @@ Cette structure bidimensionnelle (lignes × colonnes) rend l’information **lis
 
 # 2.2. Exemples concrets dans la vie quotidienne
 
-Les tableaux sont naturels pour organiser des informations. Ils apparaissent dans des contextes familiers, souvent sans qu’on les nomme “tableaux”.
+Les tableaux répondent à des principes **universels de rangement**, déjà présents dans le monde matériel. Ils apparaissent dans des contextes familiers, souvent sans qu’on les nomme “tableaux”.
 
-## **2.2.1. Tableaux de planification**
+## **2.2.1. Étagères**
 
-### **Planning de cours**
+* Chaque rayon = une catégorie
+* Objets similaires regroupés = colonnes
+* Emplacement fixe = cellule
 
-* Colonnes : jours, heures, salles
-* Lignes : créneaux
-* Permet de visualiser une semaine d’un coup
+Alors quand on voit tout, et qu'on a de la place:
+![OrgaNourriture](asset/session_01_shelves_food.jpg)
+Tout va bien.
 
-### **Table de multiplication**
+Mais si on ne voit pas dedans, et qu'on a beaucoup:
+![OrgaArchive](asset/session_01_shelves_archive.jpg)
+Ca devient vite insurmontable.
 
-* Exemple canonique de tableau strict
-* Recherche instantanée par croisement ligne/colonne
+Et ca pourrait etre pire:
+![OrgaPas](asset/session_01_shelves_pandemonium.jpg)
 
-## **2.2.2. Tableaux de gestion**
+Mais avec un peu de bon sens et des etiquettes:
+![OrgaCraft](asset/session_01_shelves_craft.jpg)
+
+L'organisation reflete la realite qu'elle occupe:
+![OrgaPharmacy](asset/session_01_shelvers_pharmacy.jpg)
+
+Ou le debut de la maladie mentale:
+![OrgaPharmacy](asset/session_01_shelves_books_by_color.jpg)
+
+## **2.2.2. Tiroir à couverts**
+
+* Compartiments = colonnes
+* Chaque type d’ustensile a sa place
+* Recherche immédiate, pas de confusion
+
+![Tiroir à couverts](asset/session_01_drawers_cutlery.webp)
+
+
+
+## **2.2.3. Gestion du quotidien**
 
 ### **Liste de tâches (Todo list)**
 
 * Attributs fréquents : tâche, priorité, échéance, statut
 * Suivi de progression et priorisation
+![TODO](asset/session_01_todo.png)
 
-### **Planning hebdomadaire**
+Ici, 2 colonnes:
+1. Checkbox: la tache est effectuee (oui/non)
+2. Intitule: la tache en question (texte)
 
-* Organisation du temps
-* Colonnes = jours ; lignes = heures (ou inversement)
+Maintenant, si on duplique le format d'un jour:
+
+![TODO](asset/session_01_todo_weekly.png)
+
+Combien de colonnes ?
+- 3
+- 4
+- 8
+- 7+1
 
 ### **Calendrier mensuel**
 
-* Structure fixe : 7 colonnes
 * Représentation visuelle du mois
+* Structure fixe : 7 colonnes
+* Donnees variables : calendrier imperial demarre le dimanche (bien sur)
+
+Question: combien de semaine dans un mois ?
+- 4
+- 5
+- 6
+- what ?
+
+
+![Calendar](asset/session_01_calendar_2025.jpg)
+
+<img src="asset/life_finds_a_way.jpg" alt="Description" width="173" >
+
+![Calendar](asset/session_01_calendar.png)
+> Vous avez (et vous serez encore) confronte a des questions comme celle la. Apres ce cours, vous y repondrez differement.
+
+
+## **2.2.4. Données historiques : liste des rois mérovingiens**
+
+* Colonnes : nom, dates, événements, succession
+* Permet la comparaison entre règnes
+
+![Rois partiel](asset/session_01_king.webp)
+<img src="asset/life_finds_a_way.jpg" alt="Description" width="173" >
+![Rois complet](asset/session_01_king_full.webp)
+
 
 ---
 
@@ -323,28 +392,23 @@ Les tableaux sont naturels pour organiser des informations. Ils apparaissent dan
 * Réduction des erreurs
 * Standardisation naturelle
 
----
 
-# **2.4. Analogies avec l’organisation physique**
+## **2.3.5. Exemples**
 
-Les tableaux répondent à des principes **universels de rangement**, déjà présents dans le monde matériel.
+### **Planning de cours**
 
-## **2.4.1. Étagères**
+* Colonnes : jours, heures, salles
+* Lignes : créneaux
+* Permet de visualiser une semaine d’un coup
 
-* Chaque rayon = une catégorie
-* Objets similaires regroupés = colonnes
-* Emplacement fixe = cellule
+![Planning cours](asset/session_01_horaire.png)
+### **Table de multiplication**
 
-## **2.4.2. Tiroir à couverts**
+* Exemple canonique de tableau strict
+* Recherche instantanée par croisement ligne/colonne
+![multiplication](asset/session_01_multiplication.png)
 
-* Compartiments = colonnes
-* Chaque type d’ustensile a sa place
-* Recherche immédiate, pas de confusion
 
-## **2.4.3. Données historiques : liste des rois mérovingiens**
-
-* Colonnes : nom, dates, événements, succession
-* Permet la comparaison entre règnes
 
 **Principe commun :**
 Organisation **cohérente, répétitive et optimisée** pour la recherche.
