@@ -99,6 +99,8 @@ Le tableau devient outil de **fiabilité**.
 Elles calculent, mais ne “stockent” pas.
 Le stockage reste sur papier.
 
+![Pascaline](asset/session_01_history_pascaline.jpg)
+
 ### **1.5.2. Les cartes perforées**
 
 Jacquard (1801) → instructions sur cartes.
