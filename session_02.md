@@ -1,93 +1,199 @@
-# Session 2 :  **Introduction aux Concepts de Bases de Données**
+# Session 2 : **Modélisation des Tables Simples (sans relations)**
 
-# 1. Qu'est-ce qu'une Base de Données ?
-Une **base de données** est une collection organisée de données stockées et gérées électroniquement. Les bases de données permettent aux utilisateurs de stocker, récupérer et manipuler des données de manière efficace en utilisant un logiciel spécialisé appelé **Système de Gestion de Base de Données (SGBD).**
-
-## **Types de Bases de Données**
-- **Bases de Données Relationnelles (SGBDR) :** Utilisent des tables structurées pour stocker les données et prennent en charge les requêtes SQL.
-- **Bases de Données NoSQL :** Stockent les données dans une variété de formats tels que clé-valeur, document ou structures basées sur des graphes.
-
-# 2. Tables dans une Base de Données
-Une **table** (ou **relation**) est l'élément fondamental d'une base de données relationnelle. Une table est composée de **lignes (enregistrements)** et de **colonnes (attributs).**
-
-Exemple de Table (Données des Étudiants) :
-
-```plaintext
-| id  | name  | age | major            |
-|-----|-------|-----|------------------|
-| 101 | Alice | 21  | Informatique     |
-| 102 | Bob   | 22  | Mathématiques    |
-```
-
-# **3. Schéma : La Structure d'une Base de Données**
-Un **schéma** définit la structure d'une base de données, y compris l'organisation des tables, des colonnes, des types de données et des relations entre les tables. Le schéma fournit un plan directeur pour le stockage et l'accès aux données.
-
-# **4. Lignes et Colonnes**
-- **Ligne (Enregistrement ou Tuple) :** Une entrée unique dans une table qui contient des valeurs pour chaque colonne.
-- **Colonne (Attribut) :** Un champ de données spécifique dans une table qui contient des informations d'un type particulier.
-
-Exemple :
-- Dans la table `student` ci-dessus, **chaque ligne représente un étudiant différent**.
-- **Les colonnes définissent le type d'information stockée** (par exemple, `name`, `age`, `major`).
-
-# **5. Relations Entre les Tables**
-Dans les bases de données relationnelles, des **relations** sont établies entre les tables pour éviter la redondance des données et assurer une gestion efficace des données.
-
-### **Types de Relations :**
-- **Un-à-Un (1:1) :** Chaque enregistrement de la Table A correspond à exactement un enregistrement de la Table B.
-- **Un-à-Plusieurs (1:M) :** Un enregistrement de la Table A peut être associé à plusieurs enregistrements de la Table B.
-- **Plusieurs-à-Plusieurs (M:N) :** Plusieurs enregistrements de la Table A peuvent être liés à plusieurs enregistrements de la Table B (nécessite une table de jonction).
-
-Exemple de Relation :
-- Une table `student` et une table `enrollment` peuvent être liées en utilisant un `student_id` comme clé étrangère.
-
-# **6. Clés dans une Base de Données**
-### **Clé Primaire**
-Une **Clé Primaire** identifie de manière unique chaque enregistrement dans une table. Elle doit être unique et ne peut pas contenir de valeurs NULL.
-
-Exemple :
-```sql
-CREATE TABLE student (
-    id INT PRIMARY KEY,
-    name VARCHAR(100),
-    age INT,
-    major VARCHAR(50)
-);
-```
-- `id` est la **clé primaire** dans cette table.
-
-### **Clé Étrangère**
-Une **Clé Étrangère** établit une relation entre deux tables en référençant la **Clé Primaire** d'une autre table.
-
-Exemple :
-```sql
-CREATE TABLE enrollment (
-    id INT PRIMARY KEY,
-    student_id INT,
-    course_id INT,
-    FOREIGN KEY (student_id) REFERENCES student(id)
-);
-```
-- `student_id` dans `enrollment` référence le `id` dans `student`.
-
-# **7. Index pour des Requêtes Plus Rapides**
-Un **index** est une structure de base de données qui améliore la vitesse des opérations de récupération de données. Les index fonctionnent comme une table des matières pour un livre, aidant la base de données à localiser les enregistrements de manière efficace.
-
-Exemple :
-```sql
-CREATE INDEX idx_student_name ON student(name);
-```
-- Cet index accélère les recherches d'étudiants par `name`.
-
-# **8. Résumé**
-- Une **base de données** est un système organisé pour stocker et gérer des données.
-- Une **table** est composée de **lignes (enregistrements)** et de **colonnes (attributs).**
-- Un **schéma** définit la structure d'une base de données.
-- Les **relations** entre les tables aident à maintenir l'intégrité des données.
-- Les **clés primaires** identifient de manière unique les enregistrements, tandis que les **clés étrangères** établissent des relations.
-- Les **index** améliorent les performances des requêtes.
-
-
+La modélisation des bases de données commence par la définition des **entités** et des **champs** qui les composent. Même sans relations entre tables, il est essentiel d’adopter une démarche rigoureuse pour structurer correctement les données.
 
 ---
-> Ce cours est distribué sous **licence Creative Commons**. Toute reproduction ou distribution à but commercial est interdite sans l’accord préalable de l’auteur.
+
+# 1. Les concepts fondamentaux
+
+## 1.1. **Entité**
+
+Une entité représente un **objet réel ou abstrait** pour lequel on souhaite stocker des informations.
+Chaque entité devient **une table**.
+
+Exemples :
+
+* Film
+* Acteur
+* Livre
+* Auteur
+* Article
+* Pays
+* Produit
+* Étudiant
+
+---
+
+## 1.2. **Attribut**
+
+Un attribut est une **information descriptive** liée à une entité.
+Il devient **un champ** dans une table.
+
+Exemples :
+
+* Pour un film : titre, durée, budget
+* Pour un étudiant : nom, email, numéro d’étudiant
+
+---
+
+## 1.3. **Identifiant (clé primaire – PK)**
+
+Même sans relations, chaque table doit posséder une **clé primaire**, qui sert à identifier ses enregistrements :
+
+Caractéristiques d’une bonne clé primaire :
+
+* Unique
+* Obligatoire
+* Stable
+* Souvent numérique et auto-incrémentée
+
+Exemples :
+`id_film`, `id_produit`, `id_client`
+
+---
+
+# 2. Définition des champs : les éléments essentiels
+
+Lorsqu’on modélise une table, chaque champ doit être décrit selon plusieurs critères.
+
+## 2.1. **Nom du champ**
+
+Le nom doit être :
+
+* Clair
+* Cohérent
+* Informatif
+* Suivre une convention (ex. snake_case : `date_publication`)
+
+Éviter les noms ambigus comme *info*, *data*, *valeur*.
+
+---
+
+## 2.2. **Type de données**
+
+Le type doit être choisi selon la nature de la donnée :
+
+| Type                        | Utilisation                      |
+| --------------------------- | -------------------------------- |
+| **NUMERIQUE (INT, BIGINT)** | Identifiants, quantités, années  |
+| **DECIMAL / FLOAT**         | Prix, notes, montants financiers |
+| **TEXTUEL (VARCHAR, TEXT)** | Noms, titres, descriptions       |
+| **DATE / DATETIME**         | Dates, heures                    |
+| **BOOLEAN**                 | Oui/Non                          |
+
+---
+
+## 2.3. **Longueur maximale**
+
+Les champs textuels doivent avoir une limite raisonnable :
+
+* `VARCHAR(50)` pour un prénom
+* `VARCHAR(150)` pour un nom d’auteur
+* `VARCHAR(255)` pour un titre
+* `TEXT` pour du contenu long (biographie, description, article)
+
+---
+
+## 2.4. **Caractère obligatoire**
+
+Un champ peut être :
+
+* **Obligatoire (NOT NULL)** si indispensable
+* **Optionnel** si la donnée peut être absente
+
+Exemples de champs obligatoires :
+
+* Titre d’un film
+* ISBN d’un livre
+* Nom d’un étudiant
+
+Exemples de champs facultatifs :
+
+* Biographie d’un auteur
+* Budget d’un film (si inconnu)
+
+---
+
+## 2.5. **Commentaires**
+
+Les commentaires permettent d’apporter des précisions utiles :
+
+* *année au format AAAA*
+* *durée du film en minutes*
+* *format du code ISO*
+* *coordonnées géographiques en degrés décimaux*
+
+---
+
+# 3. Méthodologie de modélisation
+
+Même sans relations, la démarche doit rester méthodique.
+
+## Étape 1 : Identifier les entités
+
+→ Quels sont les objets mentionnés dans le scénario ?
+Exemples : film, acteur, livre, auteur, pays, langue, produit, client…
+
+## Étape 2 : Lister les données à stocker pour chaque entité
+
+→ Cela deviendra les champs de la table.
+
+## Étape 3 : Définir l’identifiant principal
+
+→ Le plus souvent : `id` numérique auto-incrémenté.
+
+## Étape 4 : Décrire chaque champ
+
+Pour chaque attribut :
+
+* nom du champ
+* type de donnée
+* longueur
+* obligatoire OU non
+* commentaire éventuel
+
+## Étape 5 : Vérifier la cohérence globale
+
+* Les types sont-ils correctement choisis ?
+* Les longueurs sont-elles adaptées ?
+* Les champs essentiels sont-ils obligatoires ?
+* Les noms sont-ils cohérents dans toutes les tables ?
+
+---
+
+# 4. Critères d’une bonne modélisation (hors relations)
+
+Même sans relations, votre modélisation sera évaluée selon :
+
+### ✔ **Exhaustivité**
+
+Toutes les données importantes sont présentes.
+
+### ✔ **Cohérence**
+
+Même logique de nommage et structure similaire entre les tables.
+
+### ✔ **Pertinence des types**
+
+Le type correspond bien à la nature de la donnée.
+
+### ✔ **Clarté**
+
+Les tables sont compréhensibles même pour quelqu’un qui ne connaît pas le contexte.
+
+### ✔ **Simplicité**
+
+Une table doit contenir uniquement les informations liées à l’entité (ni plus, ni moins).
+
+---
+
+# 5. Objectif pédagogique
+
+L’objectif de ce cours est de vous apprendre à :
+
+* Identifier les entités pertinentes dans un contexte réel
+* Définir clairement les champs à stocker
+* Faire des choix pertinents en termes de type et de format
+* Préparer des tables prêtes à être converties en scripts SQL
+
+Ce travail constitue la base indispensable avant de passer aux relations (développées dans un cours ultérieur).
