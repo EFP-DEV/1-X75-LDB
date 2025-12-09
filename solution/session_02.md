@@ -7,18 +7,21 @@
 **Commentaire :** Contient les informations descriptives des films (sans relations ni multi-valeurs).
 **Identifiant :** id
 
+Voici le **tableau refait** : noms de champs en **anglais**, reste en **français**.
+
 | Champs             | Type      | Longueur | Obligatoire | Commentaires                                    |
 | ------------------ | --------- | -------- | ----------- | ----------------------------------------------- |
 | id                 | Numérique | -        | Oui         | PK auto-inc.                                    |
-| titre              | Textuel   | 255      | Oui         | Titre original                                  |
+| title              | Textuel   | 255      | Oui         | Titre original                                  |
 | genre              | Textuel   | 50       | Oui         | Un seul genre, 1NF strict                       |
-| langue_originale   | Textuel   | 2 ou 3   | Oui         | Code ISO 639-1 (2 lettres) ou 639-2 (3 lettres) |
-| annee_sortie       | Numérique | -        | Oui         | Année (ex : 2020)                               |
-| pays_production    | Textuel   | 2        | Oui         | Code ISO 3166-1 alpha-2 (ex : FR, BE, US)       |
+| original_language  | Textuel   | 3        | Oui         | 639-2 (3 lettres) |
+| release_year       | Numérique | -        | Oui         | Année (ex : 2020)                               |
+| production_country | Textuel   | 2        | Oui         | Code ISO 3166-1 alpha-2 (ex : FR, BE, US)       |
 | budget             | Numérique | -        | Non         | En euros                                        |
-| duree_minutes      | Numérique | -        | Oui         | Durée en minutes                                |
-| classification_age | Textuel   | 10       | Oui         | Exemple : “PG-13”, “16+”                        |
-| note_moyenne       | Numérique | -        | Non         | Exemple : 8.4                                   |
+| duration_minutes   | Numérique | -        | Oui         | Durée en minutes                                |
+| age_rating         | Textuel   | 10       | Oui         | Exemple : “PG-13”, “16+”                        |
+| average_rating     | Numérique | -        | Non         | Exemple : 8.4                                   |
+
 
 ### Notes pédagogiques
 
