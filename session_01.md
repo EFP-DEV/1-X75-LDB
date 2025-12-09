@@ -104,15 +104,18 @@ Le stockage reste sur papier.
 ### **1.5.2. Les cartes perforées**
 
 Jacquard (1801) → instructions sur cartes.
-Hollerith (1890) → recensement américain par cartes.
-IBM naît de cette révolution.
 
 ![Jacquard (1801)](asset/session_01_mecanic_jacquard.jpg)
+
+Hollerith (1890) → recensement américain par cartes.
 ![Hollerith (1890)](asset/session_01_mecanic_card.jpg)
-![Hollerith (1890)](asset/session_01_mecanic_puncher.jpg)
+IBM naît de cette révolution.
 
+> Les cartes perforées sont la **première base de données mécanisée**.
 
-Les cartes perforées sont la **première base de données mécanisée**.
+Et voici le clavier:
+
+![Card Puncher](asset/session_01_mecanic_puncher.jpg)
 
 ---
 
@@ -139,7 +142,11 @@ Machines capables de :
 * **CODASYL** : modèle **réseau**
 
 Ces systèmes sont performants mais peu flexibles.
+
 Les données sont **prisonnières de la structure**.
+- Pour retrouver une information, on doit parcourir la structure.
+- Si la structure change, les programmes doivent être modifiés.
+- Peu de flexibilité pour faire des requêtes variées.
 
 ---
 
