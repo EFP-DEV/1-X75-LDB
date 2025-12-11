@@ -495,3 +495,77 @@ CREATE TABLE taguer (
     PRIMARY KEY (item_id, tag_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 ```
+
+
+
+# Cheat Code theme, categorie et tag
+
+```prompt
+Je travaille sur un projet de classification.
+Je dois organiser un ensemble d’éléments (personnages / objets / œuvres / etc.).
+Génère pour moi trois listes distinctes :
+
+1. 7 catégories
+
+Ces catégories doivent être :
+
+exclusives entre elles (un élément ≈ une seule catégorie),
+
+structurantes (types, rôles, formes, familles…),
+
+abstraites mais pratiques pour trier rapidement.
+Ne fais PAS de catégories basées sur les thèmes émotionnels, narratifs ou esthétiques.
+
+2. 7 thèmes
+
+Les thèmes doivent être :
+
+transversaux,
+
+liés à l’atmosphère, au ton, à l’univers, ou à la symbolique,
+
+non techniques.
+Un élément peut avoir un thème différent de sa catégorie.
+
+3. 15 tags libres
+
+Les tags doivent être :
+
+indépendants des catégories et des thèmes,
+
+plus précis, plus descriptifs, utilisables pour du filtrage,
+
+courts, simples, variés (traits, caractéristiques, mécaniques, styles, origines…).
+Aucun tag ne doit être une catégorie ou un thème déguisé.
+
+Format attendu :
+CATÉGORIES (7)
+1. ...
+2. ...
+3. ...
+4. ...
+5. ...
+6. ...
+7. ...
+
+THÈMES (7)
+1. ...
+2. ...
+3. ...
+4. ...
+5. ...
+6. ...
+7. ...
+
+TAGS LIBRES (15)
+- ...
+- ...
+- ...
+(...)
+
+Rappel important :
+
+Les catégories = structure
+Les thèmes = ambiance
+Les tags = détails libres
+```
