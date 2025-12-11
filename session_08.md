@@ -292,6 +292,7 @@ graph TD
     id PK
     email
     password
+    role
     last_login
     is_active"]
 
@@ -327,7 +328,9 @@ graph TD
     main_image
     status
     created_at
-    updated_at"]
+    updated_at
+    theme_id (FK)
+    category_id (FK)"]
 
     CATEGORY["CATEGORY
     ---
@@ -361,7 +364,9 @@ graph TD
     MESSAGE  -->|"0,1"| OPERATOR
 
     ITEM -->|"0,N"| TAGUER
-    TAGUER -->|"0,N"| TAG
+    TAGUER -->|"1,1"| TAG
+    TAGUER -->|"1,1"| ITEM
+    TAG -->|"0,N"| TAGUER
 
     COLLECTION -->|"0,N"| COLLECTION_ITEM
     COLLECTION_ITEM -->|"1,1"| COLLECTION
@@ -374,8 +379,9 @@ graph TD
 
     ITEM -->|"1,1"| THEME
     THEME -->|"0,N"| ITEM
-```
 
+```
+!!! Add note on M,N that yields 1,1 to linked records
 
 ```sql
 /* =========================================================
