@@ -7,18 +7,21 @@
 **Commentaire :** Contient les informations descriptives des films (sans relations ni multi-valeurs).
 **Identifiant :** id
 
+Voici le **tableau refait** : noms de champs en **anglais**, reste en **français**.
+
 | Champs             | Type      | Longueur | Obligatoire | Commentaires                                    |
 | ------------------ | --------- | -------- | ----------- | ----------------------------------------------- |
 | id                 | Numérique | -        | Oui         | PK auto-inc.                                    |
-| titre              | Textuel   | 255      | Oui         | Titre original                                  |
+| title              | Textuel   | 255      | Oui         | Titre original                                  |
 | genre              | Textuel   | 50       | Oui         | Un seul genre, 1NF strict                       |
-| langue_originale   | Textuel   | 2 ou 3   | Oui         | Code ISO 639-1 (2 lettres) ou 639-2 (3 lettres) |
-| annee_sortie       | Numérique | -        | Oui         | Année (ex : 2020)                               |
-| pays_production    | Textuel   | 2        | Oui         | Code ISO 3166-1 alpha-2 (ex : FR, BE, US)       |
+| original_language  | Textuel   | 3        | Oui         | 639-2 (3 lettres) |
+| release_year       | Numérique | -        | Oui         | Année (ex : 2020)                               |
+| production_country | Textuel   | 2        | Oui         | Code ISO 3166-1 alpha-2 (ex : FR, BE, US)       |
 | budget             | Numérique | -        | Non         | En euros                                        |
-| duree_minutes      | Numérique | -        | Oui         | Durée en minutes                                |
-| classification_age | Textuel   | 10       | Oui         | Exemple : “PG-13”, “16+”                        |
-| note_moyenne       | Numérique | -        | Non         | Exemple : 8.4                                   |
+| duration_minutes   | Numérique | -        | Oui         | Durée en minutes                                |
+| age_rating         | Textuel   | 10       | Oui         | Exemple : “PG-13”, “16+”                        |
+| average_rating     | Numérique | -        | Non         | Exemple : 8.4                                   |
+
 
 ### Notes pédagogiques
 
@@ -32,14 +35,15 @@
 **Commentaire :** Table des acteurs avec données biographiques essentielles (sans relations).
 **Identifiant :** id
 
-| Champs         | Type      | Longueur | Obligatoire | Commentaires                   |
-| -------------- | --------- | -------- | ----------- | ------------------------------ |
-| id             | Numérique | -        | Oui         | PK auto-inc.                   |
-| nom            | Textuel   | 150      | Oui         | Nom complet                    |
-| date_naissance | Date      | -        | Non         | Format ISO 8601                |
-| lieu_naissance | Textuel   | 150      | Non         | Ville + code ISO pays possible |
-| nationalite    | Textuel   | 2        | Non         | Code ISO 3166-1 alpha-2        |
-| biographie     | Textuel   | 2000     | Non         | Résumé biographique            |
+| Champs      | Type      | Longueur | Obligatoire | Commentaires                   |
+| ----------- | --------- | -------- | ----------- | ------------------------------ |
+| id          | Numérique | -        | Oui         | PK auto-inc.                   |
+| full_name   | Textuel   | 150      | Oui         | Nom complet                    |
+| birth_date  | Date      | -        | Non         | Format ISO 8601                |
+| birth_place | Textuel   | 150      | Non         | Ville + code ISO pays possible |
+| nationality | Textuel   | 2        | Non         | Code ISO 3166-1 alpha-2        |
+| biography   | Textuel   | 2000     | Non         | Résumé biographique            |
+
 
 ### Notes pédagogiques
 
@@ -56,17 +60,18 @@
 **Commentaire :** Informations sur les livres vendus par la librairie.
 **Identifiant :** id
 
-| Champs            | Type      | Longueur | Obligatoire | Commentaires                                              |
-| ----------------- | --------- | -------- | ----------- | --------------------------------------------------------- |
-| id                | Numérique | -        | Oui         | PK auto-inc.                                              |
-| isbn              | Textuel   | 17       | Oui         | Format ISBN-13, unique                                    |
-| titre             | Textuel   | 255      | Oui         | Titre complet                                             |
-| format            | Textuel   | 20       | Oui         | Une seule valeur : `poche` / `grand_format` / `numerique` |
-| annee_publication | Numérique | -        | Oui         | Année (ex : 2018)                                         |
-| langue            | Textuel   | 2 ou 3   | Oui         | ISO 639-1 ou 639-2                                        |
-| pays_edition      | Textuel   | 2        | Non         | Pays d’édition (ISO 3166-1 alpha-2)                       |
-| prix              | Numérique | -        | Oui         | Prix TTC                                                  |
-| stock             | Numérique | -        | Oui         | Quantité disponible en magasin                            |
+| Champs             | Type      | Longueur | Obligatoire | Commentaires                                          |
+| ------------------ | --------- | -------- | ----------- | ----------------------------------------------------- |
+| id                 | Numérique | -        | Oui         | PK auto-inc.                                          |
+| isbn               | Textuel   | 17       | Oui         | Format ISBN-13, unique                                |
+| title              | Textuel   | 255      | Oui         | Titre complet                                         |
+| book_format        | Textuel   | 20       | Oui         | Une seule valeur : `pocket` / `hardcover` / `digital` |
+| publication_year   | Numérique | -        | Oui         | Année (ex : 2018)                                     |
+| language           | Textuel   | 2 ou 3   | Oui         | ISO 639-1 ou 639-2                                    |
+| publishing_country | Textuel   | 2        | Non         | Pays d’édition (ISO 3166-1 alpha-2)                   |
+| price              | Numérique | -        | Oui         | Prix TTC                                              |
+| stock              | Numérique | -        | Oui         | Quantité disponible en magasin                        |
+
 
 ### Notes pédagogiques
 
@@ -82,14 +87,14 @@
 **Commentaire :** Informations biographiques et bibliographiques des auteurs.
 **Identifiant :** id
 
-| Champs               | Type      | Longueur | Obligatoire | Commentaires                                                            |
-| -------------------- | --------- | -------- | ----------- | ----------------------------------------------------------------------- |
-| id                   | Numérique | -        | Oui         | PK auto-inc.                                                            |
-| nom                  | Textuel   | 150      | Oui         | Nom complet                                                             |
-| date_naissance       | Date      | -        | Non         | Format ISO 8601                                                         |
-| nationalite          | Textuel   | 2        | Non         | ISO 3166-1 alpha-2                                                      |
-| biographie           | Textuel   | 2000     | Non         | Résumé biographique                                                     |
-| bibliographie_resume | Textuel   | 2000     | Non         | Quelques titres, en texte simple (pas de listes de valeurs structurées) |
+| Champs               | Type      | Longueur | Obligatoire | Commentaires                                            |
+| -------------------- | --------- | -------- | ----------- | ------------------------------------------------------- |
+| id                   | Numérique | -        | Oui         | PK auto-inc.                                            |
+| full_name            | Textuel   | 150      | Oui         | Nom complet                                             |
+| birth_date           | Date      | -        | Non         | Format ISO 8601                                         |
+| nationality          | Textuel   | 3        | Non         | ISO 3166-1 alpha-3                                      |
+| biography            | Textuel   | 2000     | Non         | Résumé biographique                                     |
+| bibliography_summary | Textuel   | 2000     | Non         | Quelques titres dans texte simple (pas de liste structurée) |
 
 ### Notes pédagogiques
 
@@ -105,14 +110,14 @@
 **Commentaire :** Contient les informations des articles publiés ou en préparation.
 **Identifiant :** id
 
-| Champs           | Type      | Longueur | Obligatoire | Commentaires                                                    |
-| ---------------- | --------- | -------- | ----------- | --------------------------------------------------------------- |
-| id               | Numérique | -        | Oui         | PK auto-inc.                                                    |
-| titre            | Textuel   | 255      | Oui         | Titre de l’article                                              |
-| contenu          | Textuel   | -        | Oui         | Texte complet                                                   |
-| date_publication | Date      | -        | Non         | Peut être vide si brouillon                                     |
-| statut           | Textuel   | 20       | Oui         | Une seule valeur : `brouillon`, `revision`, `publie`, `archive` |
-| categorie        | Textuel   | 100      | Oui         | Une seule catégorie (1NF strict)                                |
+| Champs           | Type      | Longueur | Obligatoire | Commentaires                                                  |
+| ---------------- | --------- | -------- | ----------- | ------------------------------------------------------------- |
+| id               | Numérique | -        | Oui         | PK auto-inc.                                                  |
+| title            | Textuel   | 255      | Oui         | Titre de l’article                                            |
+| content          | Textuel   | -        | Oui         | Texte complet                                                 |
+| publication_date | Date      | -        | Non         | Peut être vide si brouillon                                   |
+| status           | Textuel   | 20       | Oui         | Une seule valeur : `draft`, `review`, `published`, `archived` |
+| category         | Textuel   | 100      | Oui         | Une seule catégorie (1NF strict)                              |
 
 ### Notes pédagogiques
 
@@ -127,13 +132,13 @@
 **Commentaire :** Contient les informations sur les éditeurs / journalistes.
 **Identifiant :** id
 
-| Champs              | Type      | Longueur | Obligatoire | Commentaires                                                |
-| ------------------- | --------- | -------- | ----------- | ----------------------------------------------------------- |
-| id                  | Numérique | -        | Oui         | PK auto-inc.                                                |
-| nom                 | Textuel   | 150      | Oui         | Nom complet                                                 |
-| email               | Textuel   | 255      | Oui         | Unique                                                      |
-| role                | Textuel   | 100      | Oui         | Rôle principal (ex : rédacteur, correcteur, chef d’édition) |
-| niveau_autorisation | Numérique | -        | Oui         | Niveau simple : 1 = bas, 2 = moyen, 3 = élevé               |
+| Champs           | Type      | Longueur | Obligatoire | Commentaires                                                |
+| ---------------- | --------- | -------- | ----------- | ----------------------------------------------------------- |
+| id               | Numérique | -        | Oui         | PK auto-inc.                                                |
+| full_name        | Textuel   | 150      | Oui         | Nom complet                                                 |
+| email            | Textuel   | 255      | Oui         | Unique                                                      |
+| role             | Textuel   | 100      | Oui         | Rôle principal (ex : rédacteur, correcteur, chef d’édition) |
+| permission_level | Numérique | -        | Oui         | 1 = bas, 2 = moyen, 3 = élevé                               |
 
 ### Notes pédagogiques
 
@@ -153,11 +158,12 @@
 | Champs            | Type      | Longueur | Obligatoire | Commentaires                        |
 | ----------------- | --------- | -------- | ----------- | ----------------------------------- |
 | id                | Numérique | -        | Oui         | PK auto-inc.                        |
-| nom               | Textuel   | 150      | Oui         | Nom officiel                        |
-| code_iso          | Textuel   | 2        | Oui         | ISO 3166-1 alpha-2                  |
-| langue_officielle | Textuel   | 2        | Oui         | ISO 639-1 (1 seule langue pour 1NF) |
-| devise            | Textuel   | 3        | Oui         | Code ISO 4217 (ex : EUR, USD)       |
+| official_name     | Textuel   | 150      | Oui         | Nom officiel                        |
+| iso_code          | Textuel   | 2        | Oui         | ISO 3166-1 alpha-2                  |
+| official_language | Textuel   | 2        | Oui         | ISO 639-1 (1 seule langue pour 1NF) |
+| currency          | Textuel   | 3        | Oui         | Code ISO 4217 (ex : EUR, USD)       |
 | population        | Numérique | -        | Non         | Donnée démographique simple         |
+
 
 ### Notes pédagogiques
 
@@ -172,16 +178,17 @@
 **Commentaire :** Informations sur les villes de l’application d’itinéraires internationaux.
 **Identifiant :** id
 
-| Champs         | Type      | Longueur | Obligatoire | Commentaires                   |
-| -------------- | --------- | -------- | ----------- | ------------------------------ |
-| id             | Numérique | -        | Oui         | PK auto-inc.                   |
-| nom            | Textuel   | 150      | Oui         | Nom de la ville                |
-| latitude       | Numérique | -        | Oui         | Coordonnée décimale            |
-| longitude      | Numérique | -        | Oui         | Coordonnée décimale            |
-| fuseau_horaire | Textuel   | 50       | Oui         | Exemple : `Europe/Paris`       |
-| population     | Numérique | -        | Non         | Démographie                    |
-| code_aeroport  | Textuel   | 3        | Non         | Code IATA (1 seul, 1NF strict) |
-| code_gare      | Textuel   | 10       | Non         | Code ferroviaire (1 seul)      |
+| Champs       | Type      | Longueur | Obligatoire | Commentaires                   |
+| ------------ | --------- | -------- | ----------- | ------------------------------ |
+| id           | Numérique | -        | Oui         | PK auto-inc.                   |
+| name         | Textuel   | 150      | Oui         | Nom de la ville                |
+| latitude     | Numérique | -        | Oui         | Coordonnée décimale            |
+| longitude    | Numérique | -        | Oui         | Coordonnée décimale            |
+| timezone     | Textuel   | 50       | Oui         | Exemple : `Europe/Paris`       |
+| population   | Numérique | -        | Non         | Démographie                    |
+| airport_code | Textuel   | 3        | Non         | Code IATA (1 seul, 1NF strict) |
+| railway_code | Textuel   | 10       | Non         | Code ferroviaire (1 seul)      |
+
 
 ### Notes pédagogiques
 
@@ -198,17 +205,18 @@
 **Commentaire :** Informations principales sur les langues du monde (1NF, sans multi-valeurs ni relations).
 **Identifiant :** id
 
-| Champs               | Type      | Longueur | Obligatoire | Commentaires                                                    |
-| -------------------- | --------- | -------- | ----------- | --------------------------------------------------------------- |
-| id                   | Numérique | -        | Oui         | PK auto-inc.                                                    |
-| nom                  | Textuel   | 150      | Oui         | Nom de la langue                                                |
-| code_iso             | Textuel   | 3        | Oui         | ISO 639-2                                                       |
-| famille_linguistique | Textuel   | 100      | Oui         | Une seule famille (1NF strict)                                  |
-| statut               | Textuel   | 50       | Oui         | Exemple : `vivante`, `en danger`, `morte`                       |
-| systeme_ecriture     | Textuel   | 100      | Oui         | Un seul système d’écriture : ex. `latin`, `cyrillique`, `arabe` |
-| locuteurs            | Numérique | -        | Oui         | Nombre approximatif de locuteurs                                |
-| region_principale    | Textuel   | 100      | Oui         | Une seule région principale                                     |
-| region_secondaire    | Textuel   | 100      | Non         | Optionnelle (pas de liste, 1 valeur max)                        |
+| Champs            | Type      | Longueur | Obligatoire | Commentaires                              |
+| ----------------- | --------- | -------- | ----------- | ----------------------------------------- |
+| id                | Numérique | -        | Oui         | PK auto-inc.                              |
+| name              | Textuel   | 150      | Oui         | Nom de la langue                          |
+| iso_code          | Textuel   | 3        | Oui         | ISO 639-2                                 |
+| linguistic_family | Textuel   | 100      | Oui         | Une seule famille (1NF strict)            |
+| status            | Textuel   | 50       | Oui         | Exemple : `vivante`, `en danger`, `morte` |
+| writing_system    | Textuel   | 100      | Oui         | Un seul système d’écriture                |
+| speakers          | Numérique | -        | Oui         | Nombre approximatif de locuteurs          |
+| primary_region    | Textuel   | 100      | Oui         | Une seule région principale               |
+| secondary_region  | Textuel   | 100      | Non         | Optionnelle (1 seule valeur)              |
+
 
 ---
 
@@ -231,16 +239,17 @@
 **Commentaire :** Contient les informations des produits vendus en ligne.
 **Identifiant :** id
 
-| Champs        | Type      | Longueur | Obligatoire | Commentaires                         |
-| ------------- | --------- | -------- | ----------- | ------------------------------------ |
-| id            | Numérique | -        | Oui         | PK auto-inc.                         |
-| reference     | Textuel   | 50       | Oui         | Référence produit, unique            |
-| nom           | Textuel   | 255      | Oui         | Nom ou label produit                 |
-| description   | Textuel   | -        | Non         | Description marketing                |
-| prix          | Numérique | -        | Oui         | Prix en euros                        |
-| stock         | Numérique | -        | Oui         | Quantité disponible                  |
-| disponibilite | Textuel   | 20       | Oui         | `en_stock`, `rupture`, `precommande` |
-| poids_grammes | Numérique | -        | Non         | Facultatif, utile pour livraison     |
+| Champs       | Type      | Longueur | Obligatoire | Commentaires                         |
+| ------------ | --------- | -------- | ----------- | ------------------------------------ |
+| id           | Numérique | -        | Oui         | PK auto-inc.                         |
+| reference    | Textuel   | 50       | Oui         | Référence produit, unique            |
+| name         | Textuel   | 255      | Oui         | Nom ou label produit                 |
+| description  | Textuel   | -        | Non         | Description marketing                |
+| price        | Numérique | -        | Oui         | Prix en euros                        |
+| stock        | Numérique | -        | Oui         | Quantité disponible                  |
+| availability | Textuel   | 20       | Oui         | `en_stock`, `rupture`, `precommande` |
+| weight_grams | Numérique | -        | Non         | Facultatif, utile pour livraison     |
+
 
 ### Notes pédagogiques
 
@@ -255,19 +264,20 @@
 **Commentaire :** Informations des clients, avec un historique “simplifié” compatible 1NF.
 **Identifiant :** id
 
-| Champs                 | Type      | Longueur | Obligatoire | Commentaires                       |
-| ---------------------- | --------- | -------- | ----------- | ---------------------------------- |
-| id                     | Numérique | -        | Oui         | PK auto-inc.                       |
-| nom                    | Textuel   | 150      | Oui         | Nom complet                        |
-| email                  | Textuel   | 255      | Oui         | Unique                             |
-| telephone              | Textuel   | 20       | Non         | Format libre                       |
-| adresse_ligne1         | Textuel   | 150      | Oui         | Adresse de facturation             |
-| adresse_ligne2         | Textuel   | 150      | Non         | Complément                         |
-| ville                  | Textuel   | 100      | Oui         | —                                  |
-| code_postal            | Textuel   | 20       | Oui         | —                                  |
-| pays                   | Textuel   | 2        | Oui         | ISO 3166-1 alpha-2                 |
-| nombre_commandes       | Numérique | -        | Oui         | Historique simplifié               |
-| date_derniere_commande | Date      | -        | Non         | Permet un minimum d’historique 1NF |
+| Champs          | Type      | Longueur | Obligatoire | Commentaires                       |
+| --------------- | --------- | -------- | ----------- | ---------------------------------- |
+| id              | Numérique | -        | Oui         | PK auto-inc.                       |
+| full_name       | Textuel   | 150      | Oui         | Nom complet                        |
+| email           | Textuel   | 255      | Oui         | Unique                             |
+| phone           | Textuel   | 20       | Non         | Format libre                       |
+| address_line1   | Textuel   | 150      | Oui         | Adresse de facturation             |
+| address_line2   | Textuel   | 150      | Non         | Complément                         |
+| city            | Textuel   | 100      | Oui         | —                                  |
+| postal_code     | Textuel   | 20       | Oui         | —                                  |
+| country         | Textuel   | 2        | Oui         | ISO 3166-1 alpha-2                 |
+| order_count     | Numérique | -        | Oui         | Historique simplifié               |
+| last_order_date | Date      | -        | Non         | Permet un minimum d’historique 1NF |
+
 
 ### Notes pédagogiques
 
@@ -291,12 +301,13 @@
 | Champs                | Type      | Longueur | Obligatoire | Commentaires                      |
 | --------------------- | --------- | -------- | ----------- | --------------------------------- |
 | id                    | Numérique | -        | Oui         | PK auto-inc.                      |
-| nom                   | Textuel   | 150      | Oui         | Nom complet                       |
-| specialite            | Textuel   | 100      | Oui         | Une seule spécialité (1NF strict) |
-| numero_licence        | Textuel   | 50       | Oui         | Identifiant professionnel unique  |
-| horaire_disponibilite | Textuel   | 100      | Non         | Exemple : “Lun-Ven 9h–17h”        |
-| telephone             | Textuel   | 20       | Non         | —                                 |
+| full_name             | Textuel   | 150      | Oui         | Nom complet                       |
+| specialty             | Textuel   | 100      | Oui         | Une seule spécialité (1NF strict) |
+| license_number        | Textuel   | 50       | Oui         | Identifiant professionnel unique  |
+| availability_schedule | Textuel   | 100      | Non         | Exemple : “Lun-Ven 9h–17h”        |
+| phone                 | Textuel   | 20       | Non         | —                                 |
 | email                 | Textuel   | 255      | Non         | —                                 |
+
 
 ### Notes pédagogiques
 
@@ -310,18 +321,18 @@
 **Commentaire :** Informations médicales et administratives des patients.
 **Identifiant :** id
 
-| Champs                     | Type      | Longueur | Obligatoire | Commentaires                       |
-| -------------------------- | --------- | -------- | ----------- | ---------------------------------- |
-| id                         | Numérique | -        | Oui         | PK auto-inc.                       |
-| nom                        | Textuel   | 150      | Oui         | Nom complet                        |
-| date_naissance             | Date      | -        | Oui         | Format ISO                         |
-| antecedent_principal       | Textuel   | 255      | Non         | Un seul antécédent (1NF strict)    |
-| allergie_principale        | Textuel   | 255      | Non         | Une seule allergie                 |
-| assurance_nom              | Textuel   | 150      | Non         | Nom de la compagnie                |
-| assurance_numero           | Textuel   | 50       | Non         | Numéro d’assurance                 |
-| nombre_consultations       | Numérique | -        | Oui         | Historique simplifié               |
-| date_derniere_consultation | Date      | -        | Non         | —                                  |
-| derniere_note_medicale     | Textuel   | 1000     | Non         | Résumé de la dernière consultation |
+| Champs                 | Type      | Longueur | Obligatoire | Commentaires                       |
+| ---------------------- | --------- | -------- | ----------- | ---------------------------------- |
+| id                     | Numérique | -        | Oui         | PK auto-inc.                       |
+| full_name              | Textuel   | 150      | Oui         | Nom complet                        |
+| birth_date             | Date      | -        | Oui         | Format ISO                         |
+| main_medical_history   | Textuel   | 255      | Non         | Un seul antécédent (1NF strict)    |
+| main_allergy           | Textuel   | 255      | Non         | Une seule allergie                 |
+| insurance_name         | Textuel   | 150      | Non         | Nom de la compagnie                |
+| insurance_number       | Textuel   | 50       | Non         | Numéro d’assurance                 |
+| consultation_count     | Numérique | -        | Oui         | Historique simplifié               |
+| last_consultation_date | Date      | -        | Non         | —                                  |
+| last_medical_note      | Textuel   | 1000     | Non         | Résumé de la dernière consultation |
 
 ### Notes pédagogiques
 

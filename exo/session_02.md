@@ -43,7 +43,7 @@ Utilisez ce tableau pour organiser vos réponses avant de rédiger les scripts S
 | id | Numerique | - | Oui | PK auto-inc. |
  | label | Textuel | 255 | Oui | Titre original  |
 | released | Numerique | - | Oui | Année de sortie |
-| réalisateur | Textuel | 150 | Oui | Nom du réalisateur |
+| director | Textuel | 150 | Oui | Nom du réalisateur |
 
 
 ---

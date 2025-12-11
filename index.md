@@ -59,10 +59,14 @@ Le module est structuré en **12 sessions de 4 heures**, alternant entre théori
 - Un éditeur de code comme **Visual Studio Code** ou **Zed** ou **Notepad++**
 - Un navigateur web (Chrome, Firefox, etc.)
 
-### 1. Installer XAMPP
+### 1. Installer Laragon sur les machines virtuelles
 
-- Télécharger XAMPP depuis : [https://www.apachefriends.org/index.html](https://www.apachefriends.org/index.html)
+- Télécharger Laragon depuis : [laragon site]([https://www.apachefriends.org/index.html](https://laragon.org/download))
 - Suivre les instructions d’installation pour ton système d’exploitation
+
+> Si vous venez avec votre PC, et que vous avez un stack xAMP pret, vous ne devez rien faire.
+> Si vous avez une preference pour MAMP, XAMPP, WAMP, etc.. grand bien vous fasse, tant que ca fonctionne !
+
 
 ### 2. Lancer les services
 
