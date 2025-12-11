@@ -189,7 +189,7 @@ Exemples fréquents :
 
 ---
 
-# ## 6. Résultat attendu (vision consolidée)
+# ## 6. Résultat attendu
 
 ### Un MCD propre, lisible, sans bruit administratif
 
@@ -248,3 +248,246 @@ Cette correction clôt la trilogie :
 2. **MCD + MLD + MPD (Session 07)**
 3. **Correction finale + justification (Session 08)**
 
+# MCD
+```mermaid
+graph TD
+    OPERATOR["OPERATOR"]
+    ITEM["ITEM"]
+    TAG["Tag"]
+    CATEGORY["Category"]
+    THEME["Theme"]
+    COLLECTION["COLLECTION"]
+    MESSAGE["MESSAGE"]
+
+    POSSEDER(("POSSEDER"))
+    ASSIGNER(("ASSIGNER"))
+    TAGUER(("TAGUER"))
+    CONTENIR(("CONTENIR"))
+    CATEGORISER(("CATÉGORISER"))
+    THEMATISER(("THÉMATISER"))
+
+    OPERATOR -->|"0,N"| POSSEDER
+    POSSEDER -->|"1,1"| COLLECTION
+
+    OPERATOR -->|"0,N"| ASSIGNER
+    ASSIGNER -->|"0,1"| MESSAGE
+
+    ITEM     -->|"0,N"| TAGUER
+    TAGUER   -->|"0,N"| TAG
+
+    COLLECTION -->|"0,N"| CONTENIR
+    CONTENIR   -->|"0,N"| ITEM
+
+    ITEM -->|"1,1"| CATEGORISER
+    CATEGORISER -->|"0,N"| CATEGORY
+
+    ITEM -->|"1,1"| THEMATISER
+    THEMATISER -->|"0,N"| THEME
+```
+
+# MLD
+```mermaid
+graph TD
+
+    OPERATOR["OPERATOR
+    ---
+    id PK
+    email
+    password
+    last_login
+    is_active"]
+
+    COLLECTION["COLLECTION
+    ---
+    id PK
+    creator_id FK(OPERATOR)
+    name"]
+
+    COLLECTION_ITEM["COLLECTION_ITEM
+    ---
+    collection_id FK(COLLECTION)
+    item_id FK(ITEM)
+    PK(collection_id, item_id)"]
+
+    MESSAGE["MESSAGE
+    ---
+    id PK
+    name
+    email
+    subject
+    content
+    status
+    assigned_to FK(OPERATOR)"]
+
+    ITEM["ITEM
+    ---
+    id PK
+    slug UNI
+    label
+    short_description
+    content
+    main_image
+    status
+    created_at
+    updated_at"]
+
+    CATEGORY["CATEGORY
+    ---
+    id PK
+    slug UNI
+    label"]
+
+    THEME["THEME
+    ---
+    id PK
+    slug UNI
+    label"]
+
+    TAG["TAG
+    ---
+    id PK
+    slug UNI
+    label"]
+
+    TAGUER["TAGUER
+    ---
+    item_id FK(ITEM)
+    tag_id FK(TAG)
+    PK(item_id, tag_id)"]
+
+
+    OPERATOR -->|"0,N"| COLLECTION
+    COLLECTION -->|"1,1"| OPERATOR
+
+    OPERATOR -->|"0,N"| MESSAGE
+    MESSAGE  -->|"0,1"| OPERATOR
+
+    ITEM -->|"0,N"| TAGUER
+    TAGUER -->|"0,N"| TAG
+
+    COLLECTION -->|"0,N"| COLLECTION_ITEM
+    COLLECTION_ITEM -->|"1,1"| COLLECTION
+
+    COLLECTION_ITEM -->|"1,1"| ITEM
+    ITEM -->|"0,N"| COLLECTION_ITEM
+
+    ITEM -->|"1,1"| CATEGORY
+    CATEGORY -->|"0,N"| ITEM
+
+    ITEM -->|"1,1"| THEME
+    THEME -->|"0,N"| ITEM
+```
+
+
+```sql
+/* =========================================================
+   TABLE: OPERATOR
+   Origin: Entity in MCD (administrators / operators)
+========================================================= */
+CREATE TABLE operator (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    last_login DATETIME NULL,
+    is_active TINYINT(1) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/* =========================================================
+   TABLE: CATEGORY
+   MCD: ITEM → CATEGORY is (1,1), so FK will be NOT NULL
+========================================================= */
+CREATE TABLE category (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    slug VARCHAR(255) NOT NULL UNIQUE,
+    label VARCHAR(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/* =========================================================
+   TABLE: THEME
+   MCD: ITEM → THEME is (1,1), FK NOT NULL
+========================================================= */
+CREATE TABLE theme (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    slug VARCHAR(255) NOT NULL UNIQUE,
+    label VARCHAR(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/* =========================================================
+   TABLE: TAG
+   Used only for 0,N free tagging
+========================================================= */
+CREATE TABLE tag (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    slug VARCHAR(255) NOT NULL UNIQUE,
+    label VARCHAR(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/* =========================================================
+   TABLE: ITEM
+   MCD:
+     - CATEGORY 1,1 → category_id NOT NULL
+     - THEME 1,1 → theme_id NOT NULL
+========================================================= */
+CREATE TABLE item (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    slug VARCHAR(255) NOT NULL UNIQUE,
+    label VARCHAR(255) NOT NULL,
+    short_description TEXT NULL,
+    content LONGTEXT NULL,
+    main_image VARCHAR(255),
+    status ENUM('draft','published','archived') DEFAULT 'draft',
+    created_at DATETIME NOT NULL,
+    updated_at DATETIME NOT NULL,
+
+    category_id INT UNSIGNED NOT NULL,   -- (1,1)
+    theme_id INT UNSIGNED NOT NULL       -- (1,1)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/* =========================================================
+   TABLE: COLLECTION
+   MCD:
+     OPERATOR 1,N → COLLECTION (creator_id NOT NULL)
+========================================================= */
+CREATE TABLE collection (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    creator_id INT UNSIGNED NOT NULL,
+    name VARCHAR(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/* =========================================================
+   TABLE: COLLECTION_ITEM  (junction)
+   MCD: COLLECTION 0,N — 0,N ITEM
+========================================================= */
+CREATE TABLE collection_item (
+    collection_id INT UNSIGNED NOT NULL,
+    item_id INT UNSIGNED NOT NULL,
+    PRIMARY KEY (collection_id, item_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/* =========================================================
+   TABLE: MESSAGE
+   MCD:
+     OPERATOR 0,1 → MESSAGE
+     Means: assigned_to must be NULLABLE
+========================================================= */
+CREATE TABLE message (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    subject VARCHAR(255),
+    content TEXT NOT NULL,
+    status ENUM('new','read','archived') DEFAULT 'new',
+
+    assigned_to INT UNSIGNED NULL      -- (0,1)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/* =========================================================
+   TABLE: TAGUER (item_tag)
+   MCD: ITEM 0,N — 0,N TAG
+========================================================= */
+CREATE TABLE taguer (
+    item_id INT UNSIGNED NOT NULL,
+    tag_id INT UNSIGNED NOT NULL,
+    PRIMARY KEY (item_id, tag_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+```

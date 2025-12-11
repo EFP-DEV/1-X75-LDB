@@ -66,6 +66,44 @@ Elles n’existent pas encore.
 >  **Dans le MCD, on ne crée pas les tables d’association.
 On se contente de dire que la relation est N,N.**
 
+
+```mermaid
+
+graph TD
+    OPERATOR["OPERATOR"]
+    ITEM["ITEM"]
+    TAG["Tag"]
+    CATEGORY["Category"]
+    THEME["Theme"]
+    COLLECTION["COLLECTION"]
+    MESSAGE["MESSAGE"]
+
+    POSSEDER(("POSSEDER"))
+    ASSIGNER(("ASSIGNER"))
+    TAGUER(("TAGUER"))
+    CONTENIR(("CONTENIR"))
+    CATEGORISER(("CATÉGORISER"))
+    THEMATISER(("THÉMATISER"))
+
+    OPERATOR -->|"0,N"| POSSEDER
+    POSSEDER -->|"1,1"| COLLECTION
+
+    OPERATOR -->|"0,N"| ASSIGNER
+    ASSIGNER -->|"0,1"| MESSAGE
+
+    ITEM     -->|"0,N"| TAGUER
+    TAGUER   -->|"0,N"| TAG
+
+    COLLECTION -->|"0,N"| CONTENIR
+    CONTENIR   -->|"0,N"| ITEM
+
+    ITEM -->|"1,1"| CATEGORISER
+    CATEGORISER -->|"0,N"| CATEGORY
+
+    ITEM -->|"1,1"| THEMATISER
+    THEMATISER -->|"0,N"| THEME
+```
+
 ---
 
 # 3. Étape 2 — MCD → MLD
