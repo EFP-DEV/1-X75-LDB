@@ -27,7 +27,6 @@ Cette séance clôt la trilogie de modélisation.
 * **Tag**
 * **Message**
 * **Collection**
-* **Collection_Item** (table associative)
 * **Taguer** (table associative)
 
 ### Critères de validité
