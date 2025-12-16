@@ -1,4 +1,4 @@
-# **Exercices CRUD**
+# **Exercices Session 3 : CRUD**
 
 Ci-dessous sont présentés **20 exercices** centrés sur les opérations CRUD (Create, Retrieve, Update, Delete) sur une seule table d'une base de données.
 Ces exercices sont progressifs et sont conçus pour vous aider à vous familiariser avec **l’interface de phpMyAdmin** ainsi qu’avec les **opérations élémentaires** des bases de données:
