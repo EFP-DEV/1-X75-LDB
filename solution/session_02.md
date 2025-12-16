@@ -160,8 +160,8 @@ Voici le **tableau refait** : noms de champs en **anglais**, reste en **françai
 | id                | Numérique | -        | Oui         | PK auto-inc.                        |
 | official_name     | Textuel   | 150      | Oui         | Nom officiel                        |
 | iso_code          | Textuel   | 2        | Oui         | ISO 3166-1 alpha-2                  |
-| official_language | Textuel   | 2        | Oui         | ISO 639-1 (1 seule langue pour 1NF) |
-| currency          | Textuel   | 3        | Oui         | Code ISO 4217 (ex : EUR, USD)       |
+| official_language | Textuel   | 2        | Non         | ISO 639-1 (1 seule langue pour 1NF) |
+| currency          | Textuel   | 3        | Non         | Code ISO 4217 (ex : EUR, USD)       |
 | population        | Numérique | -        | Non         | Donnée démographique simple         |
 
 
