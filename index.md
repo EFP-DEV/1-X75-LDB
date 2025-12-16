@@ -40,7 +40,7 @@ Le module est structuré en **12 sessions de 4 heures**, alternant entre théori
 | #  | Titre                                           | Contenu principal                                                                 | Support                                                      |
 |----|-------------------------------------------------|-----------------------------------------------------------------------------------|--------------------------------------------------------------|
 | 1  | Histoire du stockage et données tabulées        | Pourquoi et comment stocker l’information.                                        | [Support](session_01.md) / —                                 |
-| 2  | Introduction & manipulation d’une table simple  | Bases du SQL : opérations CRUD, filtres et tri.                                   | [Support](session_02.md) / [Exercices](exo/session_02.md)    |
+| 2  | Introduction & manipulation d’une table simple  | Bases du SQL : les tables et les attributs                                        | [Support](session_02.md) / [Exercices](exo/session_02.md)    |
 | 3  | Expérimentation SQL avec phpMyAdmin             | Prise en main et exercices guidés.                                                | — / [Exercices](exo/session_03.md)                           |
 | 4  | Modélisation conceptuelle (MCD)                 | Entités, associations, cardinalités, règles métiers.                              | [Support](session_04.md) / [Exercices](exo/session_04.md)    |
 | 5  | Normalisation (1NF → 3NF)                       | Analyse et correction des anomalies de données.                                   | [Support](session_05.md) / [Exercices](exo/session_05.md)    |
