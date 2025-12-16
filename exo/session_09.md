@@ -1,12 +1,12 @@
 # **Exercices Session 9 : Interroger la base de données du projet**
 
-## 🎯 Objectif de la séance
+## Objectif de la séance
 
 Dans cette séance, vous allez apprendre à écrire **les requêtes SQL nécessaires au fonctionnement réel de l’interface d’administration** du projet.
 
-👉 Vous n’écrivez **pas du SQL “théorique”**.
+ - Vous n’écrivez **pas du SQL “théorique”**.
 
-👉 Chaque requête correspond à **une fonctionnalité concrète** du site.
+ - Chaque requête correspond à **une fonctionnalité concrète** du site.
 
 > Si une requête n’existe pas, la fonctionnalité ne peut pas être développée.
 
