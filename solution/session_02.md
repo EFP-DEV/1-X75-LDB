@@ -70,7 +70,7 @@ Voici le **tableau refait** : noms de champs en **anglais**, reste en **françai
 | language           | Textuel   | 2 ou 3   | Oui         | ISO 639-1 ou 639-2                                    |
 | publishing_country | Textuel   | 2        | Non         | Pays d’édition (ISO 3166-1 alpha-2)                   |
 | price              | Numérique | -        | Oui         | Prix TTC                                              |
-| stock              | Numérique | -        | Oui         | Quantité disponible en magasin                        |
+| stock              | Numérique | -        | Non         | Quantité disponible en magasin (null pour digital)    |
 
 
 ### Notes pédagogiques
