@@ -45,6 +45,10 @@ Les relations sont **déjà en place** (FK, tables de jointure).
 
 ---
 
+
+## Donnees exemples
+[INSERT SQL on programming languages](session_09.sql)
+---
 ## Consignes générales
 
 * N’inventez **aucune donnée**
