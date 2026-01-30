@@ -46,8 +46,12 @@ Les relations sont **déjà en place** (FK, tables de jointure).
 ---
 
 
-## Donnees exemples
-[INSERT SQL on programming languages](session_09.sql)
+## Structures et donnees exemples
+
+[MPD - Struture](https://github.com/EFP-DEV/1-X75-Atelier/blob/main/assets/MPD.sql)
+
+[MPD - Data on programming languages](session_09.sql)
+
 ---
 ## Consignes générales
 
