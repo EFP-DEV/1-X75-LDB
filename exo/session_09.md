@@ -48,7 +48,7 @@ Les relations sont **déjà en place** (FK, tables de jointure).
 
 ## Structures et donnees exemples
 
-[MPD - Struture](https://github.com/EFP-DEV/1-X75-Atelier/blob/main/assets/MPD.sql)
+[MPD - Structure](https://github.com/EFP-DEV/1-X75-Atelier/blob/main/assets/MPD.sql)
 
 [MPD - Data on programming languages](session_09.sql)
 
