@@ -1,4 +1,4 @@
-# **Exercices Session 5 : Normalisation: 1NF, 2NF
+# Exercices Session 5 : Normalisation: 1NF, 2NF
 
 ## Exercice 1: Gestion d'une Librairie
 
