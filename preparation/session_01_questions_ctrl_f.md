@@ -1,6 +1,6 @@
 # Séance 1 — Corrigé formateur des treize questions
 
-Ce corrigé reprend les treize questions du [support étudiant](../session_01.md#5-rechercher-dans-le-classement) et de la [préparation de séance](session_01.md#questions-de-la-séance), dans le même ordre : dix recherches d’informations et trois comptages. Les réponses sont établies à partir des descriptions textuelles de [session_01.html](../session_01.html) et de l’[inventaire du corpus](../asset/session_01/README.md). Les difficultés visuelles sont estimées à partir de ces descriptions.
+Ce corrigé reprend les treize questions du [support étudiant](../session_01.md#5-rechercher-dans-le-classement) et de la [préparation de séance](session_01.md#questions-de-la-séance), dans le même ordre : dix recherches d’informations et trois comptages. Les réponses sont établies à partir des descriptions textuelles de [exo/session_01.html](../exo/session_01.html) et de l’[inventaire du corpus](../asset/session_01/README.md). Les difficultés visuelles sont estimées à partir de ces descriptions.
 
 Les groupes répondent d’abord à partir de leur classement. La démonstration et la pratique de Ctrl+F reprennent ensuite la même série : ouvrir le code source du plateau avec **Ctrl+U**, puis chercher le terme avec **Ctrl+F**. Lire le contexte de la correspondance et relever le numéro `data-id` du document. En classe, rapprocher la réponse de l’image et conserver les preuves dans `observations-classement.md`.
 

@@ -128,7 +128,7 @@ La vérification se fait dans les deux sens : on relit les octets obtenus avec l
 
 Après la pause, on change d’échelle. On vient d’étudier les unités qui représentent les données dans un ordinateur ; on s’intéresse maintenant à la manière d’organiser de nombreux documents pour y retrouver des informations.
 
-On ouvre l’[interface web de classement](https://efp-dev.github.io/1-X75-LDB/session_01.html) sur GitHub Pages pour l’activité. Le corpus comprend 42 documents culturels : couvertures, pochettes, affiches, documents de théâtre, billets, cartes postales et photographies de lieux. Ces objets peuvent être publiés et réunis en collections dans le [projet du module](projet.md). Un clic agrandit une image pour lire les données qui y sont inscrites.
+On ouvre l’[interface web de classement](https://efp-dev.github.io/1-X75-LDB/exo/session_01.html) sur GitHub Pages pour l’activité. Le corpus comprend 42 documents culturels : couvertures, pochettes, affiches, documents de théâtre, billets, cartes postales et photographies de lieux. Ces objets peuvent être publiés et réunis en collections dans le [projet du module](projet.md). Un clic agrandit une image pour lire les données qui y sont inscrites.
 
 L’activité se déroule sur un ordinateur connecté à Internet, dans un espace tenant à l’écran. Les positions ne sont pas sauvegardées : recharger la page rétablit la disposition initiale.
 
@@ -214,7 +214,7 @@ Les images possèdent déjà des descriptions textuelles dans leur attribut `alt
 Pour reprendre la question 1, on cherche `1.99`. La description du document 04 permet de retrouver la pochette de Tanita Tikaram :
 
 ```html
-<img src="asset/session_01/04-tanita-tikaram.jpg"
+<img src="../asset/session_01/04-tanita-tikaram.jpg"
      alt="Pochette de disque : le CD « Twist in My Sobriety (Full Length Version) » de Tanita Tikaram. Fond blanc, motif géométrique coloré en bas à gauche, photographie de l’artiste près de son nom et carré rouge portant la mention « Special Price £1.99 »."
      draggable="false">
 ```
@@ -229,7 +229,7 @@ Avec une recherche sans distinction entre majuscules et minuscules, `Megadeth` d
 
 Le nombre affiché par la recherche est donc un **nombre d’occurrences du texte recherché**. Pour l’interpréter comme un nombre de documents, il faut vérifier ce qui a été compté.
 
-Dans l’onglet du code source de `session_01.html`, on reprend les trois comptages en cherchant successivement `Couverture de livre`, `Pochette de disque` et `Affiche de cinéma`. Chaque description concernée commence par l’une de ces expressions, présente une seule fois par document. On compare les résultats aux comptages visuels et on retrouve les documents qui les justifient.
+Dans l’onglet du code source de `exo/session_01.html`, on reprend les trois comptages en cherchant successivement `Couverture de livre`, `Pochette de disque` et `Affiche de cinéma`. Chaque description concernée commence par l’une de ces expressions, présente une seule fois par document. On compare les résultats aux comptages visuels et on retrouve les documents qui les justifient.
 
 On essaie aussi `livre` seul : ce texte apparaît dans `livret d’accompagnement du DVD`, au document 13. De même, `affiche` apparaît dans certains chemins d’images. On explique pourquoi une formulation plus précise change le résultat et répond mieux à la question posée.
 

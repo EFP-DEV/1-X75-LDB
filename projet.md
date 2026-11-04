@@ -45,7 +45,7 @@ Les exercices du cours utilisent d’abord le [corpus commun de 42 documents cul
 
 Pour la séance 2, chaque groupe reprend :
 
-- les 42 documents et leurs descriptions dans le [support HTML](session_01.html) ;
+- les 42 documents et leurs descriptions dans le [support HTML](exo/session_01.html) ;
 - son fichier `observations-classement.md`, avec les réponses justifiées aux [treize questions de la séance 1](session_01.md#5-rechercher-dans-le-classement) et les trois inventaires de comptage ;
 - les captures du classement, les noms et les règles des regroupements, ainsi que les documents difficiles à placer.
 

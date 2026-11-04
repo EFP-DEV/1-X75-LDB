@@ -2,7 +2,7 @@
 
 ## Activité de classement et de recherche
 
-Le [support étudiant](../session_01.md) utilise une [page de classement](../session_01.html), avec des images déplaçables en JavaScript. La diffusion retenue passe exclusivement par GitHub Pages, à l’[adresse cible du plateau](https://efp-dev.github.io/1-X75-LDB/session_01.html). La publication du nouveau plateau reste à effectuer selon les modalités ci-dessous. Le [corpus](../asset/session_01/README.md) retient 42 documents, tous disponibles dans le dépôt, dont les douze couvertures de livres et bandes dessinées.
+Le [support étudiant](../session_01.md) utilise une [page de classement](../exo/session_01.html), avec des images déplaçables en JavaScript. La diffusion retenue passe exclusivement par GitHub Pages, à l’[adresse cible du plateau](https://efp-dev.github.io/1-X75-LDB/exo/session_01.html). La publication du nouveau plateau reste à effectuer selon les modalités ci-dessous. Le [corpus](../asset/session_01/README.md) retient 42 documents, tous disponibles dans le dépôt, dont les douze couvertures de livres et bandes dessinées.
 
 L’activité commence directement par le classement libre des 42 documents. Chaque groupe répond ensuite à treize questions : dix recherches d’informations et trois comptages. L’utilisation du classement par un autre groupe et la mise en commun permettent de comparer les parcours, les difficultés et les risques d’oubli, de double comptage ou d’interprétation incorrecte.
 
@@ -58,19 +58,19 @@ Le [corrigé formateur](session_01_questions_ctrl_f.md) reprend ces treize quest
 
 ## Supports et diffusion
 
-Les 42 références figurent dans `session_01.html` et dans le [manifeste du corpus](../asset/session_01/corpus.json), toutes avec le statut `available`. L’[inventaire](../asset/session_01/README.md) précise les titres, les auteurs ou artistes, les supports et les noms de fichiers. Un clic agrandit l’image ; Échap, le bouton « Fermer » ou un clic à l’extérieur referment l’agrandissement. Les questions sont posées par le formateur et ne figurent pas dans l’interface.
+Les 42 références figurent dans `exo/session_01.html` et dans le [manifeste du corpus](../asset/session_01/corpus.json), toutes avec le statut `available`. L’[inventaire](../asset/session_01/README.md) précise les titres, les auteurs ou artistes, les supports et les noms de fichiers. Un clic agrandit l’image ; Échap, le bouton « Fermer » ou un clic à l’extérieur referment l’agrandissement. Les questions sont posées par le formateur et ne figurent pas dans l’interface.
 
 Parmi les documents de la sélection active, 39 images téléchargées et 3 billets fictifs sont disponibles. Les vingt anciens fichiers remplacés ont été supprimés. Les informations de provenance et les sources originales restent conservées. Les références diversifient les origines culturelles et les langues ; leurs réponses doivent rester accessibles à partir des inscriptions, sans connaissance préalable des œuvres.
 
 ### Accès par GitHub Pages
 
-L’adresse du plateau à communiquer aux groupes est [https://efp-dev.github.io/1-X75-LDB/session_01.html](https://efp-dev.github.io/1-X75-LDB/session_01.html). L’activité nécessite un ordinateur connecté à Internet. Les recherches dans les classements et dans le code source portent sur cette même page et sur le même corpus complet.
+L’adresse du plateau à communiquer aux groupes est [https://efp-dev.github.io/1-X75-LDB/exo/session_01.html](https://efp-dev.github.io/1-X75-LDB/exo/session_01.html). L’activité nécessite un ordinateur connecté à Internet. Les recherches dans les classements et dans le code source portent sur cette même page et sur le même corpus complet.
 
-**État de publication relevé le 4 novembre 2026 :** GitHub Pages est déjà configuré pour le dépôt `EFP-DEV/1-X75-LDB`, depuis la branche `main`, dossier racine `/`, sans domaine personnalisé. Le site existant est publié, mais le nouveau fichier `session_01.html` est encore absent de la branche distante. L’adresse ci-dessus est donc la cible de diffusion du nouveau plateau ; la finalisation des supports ne vaut pas publication.
+**État de publication relevé le 4 novembre 2026 :** GitHub Pages est déjà configuré pour le dépôt `EFP-DEV/1-X75-LDB`, depuis la branche `main`, dossier racine `/`, sans domaine personnalisé. Le site existant est publié, mais le nouveau fichier `exo/session_01.html` est encore absent de la branche distante. L’adresse ci-dessus est donc la cible de diffusion du nouveau plateau ; la finalisation des supports ne vaut pas publication.
 
 La mise en ligne devra inclure ensemble, en conservant leurs chemins relatifs :
 
-- `session_01.html` à la racine ;
+- `exo/session_01.html` ;
 - `asset/session_01.css` et `asset/session_01.js` ;
 - les 42 fichiers images de `asset/session_01/` référencés dans le HTML et le [manifeste](../asset/session_01/corpus.json), y compris les trois billets SVG.
 
@@ -106,7 +106,7 @@ Commencer par `1.99` : la recherche conduit au document 04, la pochette de **Twi
 
 Chercher ensuite `Megadeth` sans distinction entre majuscules et minuscules : les quatre occurrences correspondent à deux documents, la pochette 06 et le billet 16. Le nom figure dans le texte alternatif et dans le chemin de chaque image. La recherche `B12`, utilisée pour la question 9, permet de retrouver précisément le billet. Conserver les chemins des images dans les attributs `src` : leurs correspondances supplémentaires font partie de la démonstration.
 
-Terminer la démonstration par `Couverture de livre`, pour reprendre la question 3. Pendant la pratique, reprendre aussi les questions 7 et 11 dans le même onglet du code source de `session_01.html`. Chaque description concernée commence par l’expression correspondante, écrite une seule fois par document. Lire le nombre de résultats de la recherche, puis retrouver les numéros dans les attributs `data-id` :
+Terminer la démonstration par `Couverture de livre`, pour reprendre la question 3. Pendant la pratique, reprendre aussi les questions 7 et 11 dans le même onglet du code source de `exo/session_01.html`. Chaque description concernée commence par l’expression correspondante, écrite une seule fois par document. Lire le nombre de résultats de la recherche, puis retrouver les numéros dans les attributs `data-id` :
 
 | Recherche dans le code source | Nombre de documents | Numéros des documents (`data-id`) |
 |---|---:|---|
