@@ -57,7 +57,7 @@ Aucune donnée pour l’instant. On vérifie **la structure**, pas le contenu.
 
 Avant d’insérer des contenus, vous devez **définir votre univers**.
 
-### Étape 1 — Définir la classification
+### Étape 1 : Définir la classification
 
 * **Catégories = structure**
 * **Thèmes = ambiance**

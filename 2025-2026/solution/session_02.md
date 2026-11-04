@@ -272,8 +272,8 @@ Voici le **tableau refait** : noms de champs en **anglais**, reste en **françai
 | phone           | Textuel   | 20       | Non         | Format libre                       |
 | address_line1   | Textuel   | 150      | Oui         | Adresse de facturation             |
 | address_line2   | Textuel   | 150      | Non         | Complément                         |
-| city            | Textuel   | 100      | Oui         | —                                  |
-| postal_code     | Textuel   | 20       | Oui         | —                                  |
+| city            | Textuel   | 100      | Oui         | -                                  |
+| postal_code     | Textuel   | 20       | Oui         | -                                  |
 | country         | Textuel   | 2        | Oui         | ISO 3166-1 alpha-2                 |
 | order_count     | Numérique | -        | Oui         | Historique simplifié               |
 | last_order_date | Date      | -        | Non         | Permet un minimum d’historique 1NF |
@@ -305,8 +305,8 @@ Voici le **tableau refait** : noms de champs en **anglais**, reste en **françai
 | specialty             | Textuel   | 100      | Oui         | Une seule spécialité (1NF strict) |
 | license_number        | Textuel   | 50       | Oui         | Identifiant professionnel unique  |
 | availability_schedule | Textuel   | 100      | Non         | Exemple : “Lun-Ven 9h–17h”        |
-| phone                 | Textuel   | 20       | Non         | —                                 |
-| email                 | Textuel   | 255      | Non         | —                                 |
+| phone                 | Textuel   | 20       | Non         | -                                 |
+| email                 | Textuel   | 255      | Non         | -                                 |
 
 
 ### Notes pédagogiques
@@ -331,7 +331,7 @@ Voici le **tableau refait** : noms de champs en **anglais**, reste en **françai
 | insurance_name         | Textuel   | 150      | Non         | Nom de la compagnie                |
 | insurance_number       | Textuel   | 50       | Non         | Numéro d’assurance                 |
 | consultation_count     | Numérique | -        | Oui         | Historique simplifié               |
-| last_consultation_date | Date      | -        | Non         | —                                  |
+| last_consultation_date | Date      | -        | Non         | -                                  |
 | last_medical_note      | Textuel   | 1000     | Non         | Résumé de la dernière consultation |
 
 ### Notes pédagogiques

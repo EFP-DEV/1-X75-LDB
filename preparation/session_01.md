@@ -1,4 +1,4 @@
-# Préparation — Séance 1
+# Préparation : Séance 1
 
 ## Systèmes de numération
 
@@ -114,11 +114,11 @@ Le volume officiel du module reste de **48 heures**, réparties en **12 séances
 
 Les durées sont des repères pour le formateur ; elles restent dans la préparation, sans apparaître dans le support étudiant. Les numéros de sections ci-dessous renvoient au [support étudiant](../session_01.md).
 
-Les **vingt premières minutes** sont consacrées à la présentation du formateur, aux trois cours assurés ensemble — **LDB, LPB et ADB** —, à leur articulation, aux contraintes d’organisation et de travail et aux questions des étudiants. La mise en commun des mots autour des données commence ensuite.
+Les **vingt premières minutes** sont consacrées à la présentation du formateur, aux trois cours assurés ensemble - **LDB, LPB et ADB** -, à leur articulation, aux contraintes d’organisation et de travail et aux questions des étudiants. La mise en commun des mots autour des données commence ensuite.
 
 La séance suit deux mouvements opposés. **Avant la pause**, partir des connaissances et des mots des étudiants pour distinguer les données de leur représentation. Les systèmes de numération permettent de comparer plusieurs écritures d’une même quantité, jusqu’au binaire et au **bit, la plus petite unité de donnée numérique**. **Après la pause**, changer d’échelle : partir de nombreux documents pour construire des regroupements et discuter leur classification. La pause intervient après **une heure de cours**, de **01:00 à 01:20**. Elle marque le changement d’échelle ; toute l’activité de classement commence ensuite.
 
-### Déroulé — 180 minutes de travail et 20 minutes de pause
+### Déroulé : 180 minutes de travail et 20 minutes de pause
 
 | Temps écoulé | Durée | Activité et conduite | Résultat ou vérification attendue |
 |---|---:|---|---|

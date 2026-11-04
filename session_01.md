@@ -1,4 +1,4 @@
-# Séance 1 — Définir, classer et retrouver
+# Séance 1 : Définir, classer et retrouver
 
 Un titre, une date, une photographie ou un prix peuvent constituer des données. Une application les conserve pour les afficher, les rechercher et les modifier.
 
@@ -237,7 +237,7 @@ Comme pour les données étudiées au début de la séance, **l’interprétatio
 Conservez les deux conversions, leurs décompositions de vérification et votre explication du passage des bits au texte affiché.
 
 <details>
-<summary><strong>Correction — à lire après l’activité</strong></summary>
+<summary><strong>Correction : à lire après l’activité</strong></summary>
 
 Pour `y` :
 
@@ -266,7 +266,7 @@ Les bits permettent de représenter des nombres. Une convention comme ASCII asso
 
 ---
 
-**Pause — 20 minutes**
+**Pause : 20 minutes**
 
 ---
 

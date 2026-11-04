@@ -244,7 +244,7 @@ Les entreprises combinent plusieurs types de bases selon les besoins :
 
 ---
 
-## Synthèse — Points à retenir pour le cours
+## Synthèse : Points à retenir pour le cours
 
 1. La donnée est d’abord un **outil administratif** avant d’être numérique.
 2. Les structures tabulaires existent bien avant l’informatique.

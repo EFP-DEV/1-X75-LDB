@@ -13,15 +13,15 @@
 
 ## **Associations**
 
-* PATIENT — CONSULTATION — MEDECIN
-* MEDECIN — SPECIALITE (spécialité principale)
-* MEDECIN — SPECIALITE (spécialités secondaires uniquement)
+* PATIENT - CONSULTATION - MEDECIN
+* MEDECIN - SPECIALITE (spécialité principale)
+* MEDECIN - SPECIALITE (spécialités secondaires uniquement)
 
 ---
 
 ## **Cardinalités**
 
-### PATIENT — CONSULTATION — MEDECIN
+### PATIENT - CONSULTATION - MEDECIN
 * Un patient peut n'avoir eu aucune consultation, comme il peut en avoir eu plusieurs
 * Une consultation concerne un et un seul patient
 * **CONCERNE**  
@@ -30,12 +30,12 @@
 * Une consultation est effectuée par un et un seul médecin
 * **EFFECTUE** ou **REALISE**
 
-### MEDECIN — SPECIALITE (spécialité principale)
+### MEDECIN - SPECIALITE (spécialité principale)
 * Un médecin possède une et une seule spécialité principale
 * Une spécialité peut n'être la principale d'aucun médecin, comme elle peut être la principale de plusieurs médecins
 * **MAITRISE**
 
-### MEDECIN — SPECIALITE (spécialités secondaires uniquement)
+### MEDECIN - SPECIALITE (spécialités secondaires uniquement)
 * Un médecin peut n'exercer aucune spécialité secondaire, comme il peut en exercer plusieurs
 * Une spécialité peut n'être exercée comme secondaire par aucun médecin, comme elle peut être exercée comme secondaire par plusieurs médecins
 * **EXERCE**
@@ -86,7 +86,7 @@ See it [live on mermaid](https://mermaid.live/edit#pako:eNqVUstqwzAQ_BWzpwSUEOXl
 ---
 # 3. Explication des cardinalités
 
-## **1. PATIENT — CONSULTE — CONSULTATION**
+## **1. PATIENT - CONSULTE - CONSULTATION**
 
 ### **Du côté PATIENT : (0,N)**
 
@@ -100,7 +100,7 @@ Chaque consultation est liée à un patient précis. On ne peut pas avoir une co
 
 ---
 
-## **2. MEDECIN — REALISE — CONSULTATION**
+## **2. MEDECIN - REALISE - CONSULTATION**
 
 ### **Du côté MEDECIN : (0,N)**
 
@@ -114,7 +114,7 @@ Une consultation est toujours assurée par un médecin et un seul. On ne peut pa
 
 ---
 
-## **3. MEDECIN — MAITRISE — SPECIALITE**
+## **3. MEDECIN - MAITRISE - SPECIALITE**
 
 *(la spécialité principale du médecin)*
 
@@ -132,7 +132,7 @@ Une spécialité peut exister dans le catalogue sans qu'aucun médecin ne l'ait 
 
 ---
 
-## **4. MEDECIN — EXERCE — SPECIALITE**
+## **4. MEDECIN - EXERCE - SPECIALITE**
 
 *(les spécialités secondaires uniquement)*
 

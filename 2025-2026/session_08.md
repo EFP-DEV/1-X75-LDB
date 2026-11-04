@@ -1,4 +1,4 @@
-# **Session 08 — Correction complète : du cahier des charges au SQL final**
+# **Session 08 : Correction complète : du cahier des charges au SQL final**
 
 ---
 
@@ -101,14 +101,14 @@ Le MLD reprend le MCD en suivant ces règles :
 
 | Table           | Clés                               | Commentaires               |
 | --------------- | ---------------------------------- | -------------------------- |
-| operator        | id PK                              | —                          |
+| operator        | id PK                              | -                          |
 | collection      | id PK, creator_id FK               | 1 operator = N collections |
 | collection_item | (collection_id, item_id) PK        | table associative          |
 | message         | id PK, assigned_to FK NULL         | relation 0,1               |
 | item            | id PK, category_id FK, theme_id FK | relations 1,1              |
-| category        | id PK                              | —                          |
-| theme           | id PK                              | —                          |
-| tag             | id PK                              | —                          |
+| category        | id PK                              | -                          |
+| theme           | id PK                              | -                          |
+| tag             | id PK                              | -                          |
 | taguer          | (item_id, tag_id) PK               | table associative          |
 
 ---

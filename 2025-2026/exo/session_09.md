@@ -66,7 +66,7 @@ Les relations sont **déjà en place** (FK, tables de jointure).
 # 1. Gestion des contenus (items)
 
 
-### Exercice 1 — Liste des contenus (admin)
+### Exercice 1 : Liste des contenus (admin)
 
 **Contexte**
 Vous êtes dans l’interface d’administration.
@@ -82,7 +82,7 @@ Vous devez afficher la liste de tous les contenus existants.
 
 ---
 
-### Exercice 2 — Fiche détaillée d’un contenu
+### Exercice 2 : Fiche détaillée d’un contenu
 
 **Contexte**
 Un administrateur clique sur un item pour voir sa fiche complète.
@@ -96,7 +96,7 @@ Un administrateur clique sur un item pour voir sa fiche complète.
 
 ---
 
-### Exercice 3 — Création d’un contenu
+### Exercice 3 : Création d’un contenu
 
 **Contexte**
 Un administrateur crée un nouveau contenu via un formulaire.
@@ -112,7 +112,7 @@ Un administrateur crée un nouveau contenu via un formulaire.
 
 ---
 
-### Exercice 4 — Modification d’un contenu
+### Exercice 4 : Modification d’un contenu
 
 **Contexte**
 Un contenu existant doit être modifié.
@@ -127,7 +127,7 @@ Un contenu existant doit être modifié.
 
 ---
 
-### Exercice 5 — Suppression d’un contenu
+### Exercice 5 : Suppression d’un contenu
 
 **Contexte**
 Un administrateur supprime un contenu.
@@ -141,7 +141,7 @@ Un administrateur supprime un contenu.
 
 ---
 
-### Exercice 6 — Liste des catégories
+### Exercice 6 : Liste des catégories
 
 **Contexte**
 Écran “gestion des catégories”.
@@ -151,7 +151,7 @@ Un administrateur supprime un contenu.
 
 ---
 
-### Exercice 7 — Liste des tags
+### Exercice 7 : Liste des tags
 
 **Contexte**
 Écran “gestion des tags”.
@@ -161,7 +161,7 @@ Un administrateur supprime un contenu.
 
 ---
 
-### Exercice 8 — Associer un tag à un contenu
+### Exercice 8 : Associer un tag à un contenu
 
 **Contexte**
 Un administrateur ajoute un tag à un item.
@@ -171,7 +171,7 @@ Un administrateur ajoute un tag à un item.
 
 ---
 
-### Exercice 9 — Retirer un tag d’un contenu
+### Exercice 9 : Retirer un tag d’un contenu
 
 **Contexte**
 Un administrateur retire un tag d’un item.
@@ -181,7 +181,7 @@ Un administrateur retire un tag d’un item.
 
 ---
 
-### Exercice 10 — Voir les contenus liés à un tag
+### Exercice 10 : Voir les contenus liés à un tag
 
 **Contexte**
 Cliquer sur un tag affiche les contenus associés.
@@ -191,7 +191,7 @@ Cliquer sur un tag affiche les contenus associés.
 
 ---
 
-### Exercice 11 — Tags utilisés / non utilisés
+### Exercice 11 : Tags utilisés / non utilisés
 
 **Contexte**
 Le responsable éditorial veut nettoyer les tags inutiles.
@@ -207,7 +207,7 @@ Le responsable éditorial veut nettoyer les tags inutiles.
 
 ---
 
-### Exercice 12 — Liste des messages
+### Exercice 12 : Liste des messages
 
 **Contexte**
 Interface admin → messages reçus via le formulaire de contact.
@@ -222,7 +222,7 @@ Interface admin → messages reçus via le formulaire de contact.
 
 ---
 
-### Exercice 13 — Tri des messages
+### Exercice 13 : Tri des messages
 
 **Contexte**
 L’admin veut traiter les messages en priorité.
@@ -234,7 +234,7 @@ L’admin veut traiter les messages en priorité.
 
 ---
 
-### Exercice 14 — Lecture d’un message
+### Exercice 14 : Lecture d’un message
 
 **Contexte**
 L’admin ouvre un message précis.
@@ -244,7 +244,7 @@ L’admin ouvre un message précis.
 
 ---
 
-### Exercice 15 — Marquer un message comme traité
+### Exercice 15 : Marquer un message comme traité
 
 **Contexte**
 Un message a été pris en charge.
@@ -254,7 +254,7 @@ Un message a été pris en charge.
 
 ---
 
-### Exercice 16 — Suppression d’un message
+### Exercice 16 : Suppression d’un message
 
 **Contexte**
 Un message indésirable doit être supprimé.
@@ -268,7 +268,7 @@ Un message indésirable doit être supprimé.
 
 ---
 
-### Exercice 17 — Connexion d’un administrateur
+### Exercice 17 : Connexion d’un administrateur
 
 **Contexte**
 Un administrateur tente de se connecter.
@@ -278,7 +278,7 @@ Un administrateur tente de se connecter.
 
 ---
 
-### Exercice 18 — Mise à jour de la dernière connexion
+### Exercice 18 : Mise à jour de la dernière connexion
 
 **Contexte**
 Après une connexion réussie, l’activité est enregistrée.
@@ -292,7 +292,7 @@ Après une connexion réussie, l’activité est enregistrée.
 
 ---
 
-### Exercice 19 — Liste des collections d’un utilisateur
+### Exercice 19 : Liste des collections d’un utilisateur
 
 **Contexte**
 Un utilisateur connecté consulte ses collections.
@@ -302,7 +302,7 @@ Un utilisateur connecté consulte ses collections.
 
 ---
 
-### Exercice 20 — Contenu d’une collection
+### Exercice 20 : Contenu d’une collection
 
 **Contexte**
 Afficher les items d’une collection (favoris).
@@ -312,7 +312,7 @@ Afficher les items d’une collection (favoris).
 
 ---
 
-### Exercice 21 — Ajouter un item à une collection
+### Exercice 21 : Ajouter un item à une collection
 
 **Contexte**
 Un utilisateur ajoute un contenu à ses favoris.
@@ -322,7 +322,7 @@ Un utilisateur ajoute un contenu à ses favoris.
 
 ---
 
-### Exercice 22 — Retirer un item d’une collection
+### Exercice 22 : Retirer un item d’une collection
 
 **Contexte**
 Un utilisateur retire un favori.
@@ -336,7 +336,7 @@ Un utilisateur retire un favori.
 
 ---
 
-### Exercice 23 — Catalogue paginé
+### Exercice 23 : Catalogue paginé
 
 **Contexte**
 Le catalogue affiche 10 contenus par page.
@@ -348,7 +348,7 @@ Le catalogue affiche 10 contenus par page.
 
 ---
 
-### Exercice 24 — Navigation par catégorie
+### Exercice 24 : Navigation par catégorie
 
 **Contexte**
 Page listant les contenus d’une catégorie.
@@ -358,7 +358,7 @@ Page listant les contenus d’une catégorie.
 
 ---
 
-### Exercice 25 — Navigation par thème
+### Exercice 25 : Navigation par thème
 
 **Contexte**
 Page thématique.
@@ -368,7 +368,7 @@ Page thématique.
 
 ---
 
-### Exercice 26 — Recherche par mot-clé
+### Exercice 26 : Recherche par mot-clé
 
 **Contexte**
 Champ de recherche global du site.
@@ -382,7 +382,7 @@ Champ de recherche global du site.
 
 ---
 
-### Exercice 27 — Statistiques globales
+### Exercice 27 : Statistiques globales
 
 **Contexte**
 Page d’accueil de l’admin.
@@ -395,7 +395,7 @@ Page d’accueil de l’admin.
 
 ---
 
-### Exercice 28 — Contenus récents
+### Exercice 28 : Contenus récents
 
 **Contexte**
 Afficher les derniers contenus ajoutés.
@@ -405,7 +405,7 @@ Afficher les derniers contenus ajoutés.
 
 ---
 
-### Exercice 29 — Messages en attente
+### Exercice 29 : Messages en attente
 
 **Contexte**
 Badge “messages à traiter”.

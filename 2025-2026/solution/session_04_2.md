@@ -1,4 +1,4 @@
-# Session 4 : MCD — Gestion de cinéma multiplex
+# Session 4 : MCD : Gestion de cinéma multiplex
 
 
 # **1. Analyse & Modélisation**
@@ -20,11 +20,11 @@
 
 Tes associations deviennent :
 
-* **FILM —(0,N)→ PROJETE —(1,1)→ SESSION**
-* **SALLE —(0,N)→ SE_DEROULE —(1,1)→ SESSION**
-* **CLIENT —(0,N)→ RESERVE —(1,1)→ RESERVATION**
-* **SESSION —(0,N)→ FAIT —(1,1)→ RESERVATION**
-* **SESSION —(0,N)→ EMIS —(1,1)→ BILLET**
+* **FILM -(0,N)→ PROJETE -(1,1)→ SESSION**
+* **SALLE -(0,N)→ SE_DEROULE -(1,1)→ SESSION**
+* **CLIENT -(0,N)→ RESERVE -(1,1)→ RESERVATION**
+* **SESSION -(0,N)→ FAIT -(1,1)→ RESERVATION**
+* **SESSION -(0,N)→ EMIS -(1,1)→ BILLET**
 
 ---
 
@@ -73,7 +73,7 @@ See it [live on mermaid](https://mermaid.live/edit#pako:eNqdU01vwjAM_SuVTyAVRBlQ
 
 ---
 
-## **1. FILM — PROJETE — SESSION**
+## **1. FILM - PROJETE - SESSION**
 
 ### FILM → PROJETE : **(0,N)**
 
@@ -88,7 +88,7 @@ See it [live on mermaid](https://mermaid.live/edit#pako:eNqdU01vwjAM_SuVTyAVRBlQ
 
 ---
 
-## **2. SALLE — SE_DEROULE — SESSION**
+## **2. SALLE - SE_DEROULE - SESSION**
 
 ### SALLE → SE_DEROULE : **(0,N)**
 
@@ -103,7 +103,7 @@ See it [live on mermaid](https://mermaid.live/edit#pako:eNqdU01vwjAM_SuVTyAVRBlQ
 
 ---
 
-## **3. CLIENT — RESERVE — RESERVATION**
+## **3. CLIENT - RESERVE - RESERVATION**
 
 ### CLIENT → RESERVE : **(0,N)**
 
@@ -117,7 +117,7 @@ See it [live on mermaid](https://mermaid.live/edit#pako:eNqdU01vwjAM_SuVTyAVRBlQ
 
 ---
 
-## **4. SESSION — FAIT — RESERVATION**
+## **4. SESSION - FAIT - RESERVATION**
 
 ### SESSION → FAIT : **(0,N)**
 
@@ -131,7 +131,7 @@ See it [live on mermaid](https://mermaid.live/edit#pako:eNqdU01vwjAM_SuVTyAVRBlQ
 
 ---
 
-## **5. SESSION — EMIS — BILLET**
+## **5. SESSION - EMIS - BILLET**
 
 ### SESSION → EMIS : **(0,N)**
 

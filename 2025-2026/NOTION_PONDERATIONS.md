@@ -4,11 +4,11 @@ Le classement porte sur la **place actuelle des concepts dans les supports**, se
 
 | Poids | Signification |
 |---|---|
-| **5 — Très fort** | Concept structurant, expliqué et mobilisé dans plusieurs séances. |
-| **4 — Fort** | Concept régulièrement travaillé ou central dans plusieurs activités. |
-| **3 — Moyen** | Concept développé dans une activité, une séance ou un complément substantiel. |
-| **2 — Léger** | Explication ponctuelle ou notion secondaire dans les activités. |
-| **1 — Repère** | Notion citée, ouverture ou pratique demandée sans développement approfondi. |
+| **5 - Très fort** | Concept structurant, expliqué et mobilisé dans plusieurs séances. |
+| **4 - Fort** | Concept régulièrement travaillé ou central dans plusieurs activités. |
+| **3 - Moyen** | Concept développé dans une activité, une séance ou un complément substantiel. |
+| **2 - Léger** | Explication ponctuelle ou notion secondaire dans les activités. |
+| **1 - Repère** | Notion citée, ouverture ou pratique demandée sans développement approfondi. |
 
 Les numéros désignent les séances **avec leurs exercices et corrigés**. **7e** désigne la banque d’exercices SQL nommée « session 7 », dont le contenu dépasse celui du support principal. **Annexe** indique qu’aucune séance ne lui est explicitement attribuée. La séance **11** correspond à l’atelier final.
 

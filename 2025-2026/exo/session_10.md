@@ -1,4 +1,4 @@
-## Exercice de groupe — Mini système de commandes
+## Exercice de groupe : Mini système de commandes
 
 ### Objectifs pédagogiques
 
@@ -40,7 +40,7 @@ Une commande peut contenir plusieurs produits, avec une quantité pour chacun.
 
 ---
 
-## Partie 1 — MCD (Modèle Conceptuel des Données)
+## Partie 1 : MCD (Modèle Conceptuel des Données)
 
 Travail collectif au tableau.
 
@@ -52,7 +52,7 @@ Faire émerger la ligne de commande comme association porteuse de données.
 
 ---
 
-## Partie 2 — MLD (Modèle Logique des Données)
+## Partie 2 : MLD (Modèle Logique des Données)
 
 Transformation du MCD en tables relationnelles.
 
@@ -75,7 +75,7 @@ La table commande existe pour porter les données communes à toutes les lignes.
 
 ---
 
-## Partie 3 — MPD (Modèle Physique des Données)
+## Partie 3 : MPD (Modèle Physique des Données)
 
 Construction progressive de la base.
 
@@ -93,7 +93,7 @@ La base accepte tout tant qu’aucune contrainte n’est définie.
 
 ---
 
-## Partie 4 — Introduction des contraintes
+## Partie 4 : Introduction des contraintes
 
 Cours theorique apres exemple
 

@@ -38,13 +38,13 @@
 - **MongoDB** revendique plus de **150 millions de téléchargements** et est utilisé par des entreprises comme **Adobe, eBay, Bosch, Coinbase**…
 - **PostgreSQL** est classé **4e** dans l’indice de popularité **DB-Engines** (2025), derrière Oracle, MySQL et Microsoft SQL Server.
 - **Redis** est utilisé par des entreprises comme **GitHub, StackOverflow, Twitter** pour le **caching, les sessions et les files d’attente**.
-- **Cassandra** peut gérer des **pétaoctets de données** réparties sur **des centaines de nœuds** — il est utilisé par **Netflix, Instagram, Spotify**.
+- **Cassandra** peut gérer des **pétaoctets de données** réparties sur **des centaines de nœuds** : il est utilisé par **Netflix, Instagram, Spotify**.
 - **Neo4j** est utilisé pour des cas complexes comme la **lutte contre le blanchiment d'argent**, la **détection de fraude**, ou **l’analyse de réseaux sociaux**.
 
 # Comment ?
 - **MongoDB** utilise un format de document **BSON** (Binary JSON) pour stocker des données semi-structurées, permettant une flexibilité dans le schéma.
 - **Redis** fonctionne intégralement **en mémoire** : c’est ce qui lui permet d’être **des centaines de fois plus rapide** qu’un SGBD classique.
-- Le **plus gros cluster Cassandra connu** opère avec **plus de 1 000 nœuds** — utilisé par **Apple** pour iMessage.
+- Le **plus gros cluster Cassandra connu** opère avec **plus de 1 000 nœuds** : utilisé par **Apple** pour iMessage.
 - **Neo4j** a été utilisé pour analyser les **Panama Papers**, révélant des liens entre des milliers de sociétés offshore.
 - Le système SQL de PostgreSQL est **tellement conforme** aux standards qu’il sert souvent de **référence académique** pour enseigner la théorie des bases relationnelles.
 

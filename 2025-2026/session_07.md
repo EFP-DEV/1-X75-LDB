@@ -1,6 +1,6 @@
-# **Session 7 — Du MCD au MLD puis du MLD au MPD**
+# **Session 7 : Du MCD au MLD puis du MLD au MPD**
 
-### *Version corrigée — Sans tables associatives au MCD et en snake_case uniquement*
+### *Version corrigée : Sans tables associatives au MCD et en snake_case uniquement*
 
 ---
 
@@ -21,7 +21,7 @@ Chaque étape traduit la précédente, sans en sauter une.
 
 ---
 
-# 2. Étape 1 — Construire le MCD (Conceptuel)
+# 2. Étape 1 : Construire le MCD (Conceptuel)
 
 Le **MCD** décrit le *sens* du système, sans logique SQL.
 
@@ -55,7 +55,7 @@ Elles n’existent pas encore.
 * Un **operator** peut gérer plusieurs **collections** (1,N).
 * Un **operator** peut traiter plusieurs **messages** (1,N ou 0,N).
 
-### Relations multiples (N,N) — *conceptuelles* :
+### Relations multiples (N,N) : *conceptuelles* :
 
 * Un **item** peut avoir plusieurs **tags**,
   et un **tag** peut être associé à plusieurs **items** → relation **N,N**.
@@ -106,7 +106,7 @@ graph TD
 
 ---
 
-# 3. Étape 2 — MCD → MLD
+# 3. Étape 2 : MCD → MLD
 
 Le **MLD** est la traduction logique du MCD.
 
@@ -154,7 +154,7 @@ Chaque table d’association contient **deux clés étrangères** et interdit le
 
 ---
 
-# 4. Étape 3 — MLD → MPD
+# 4. Étape 3 : MLD → MPD
 
 Le **MPD** est la version exploitable par MySQL/MariaDB.
 On y ajoute :
@@ -240,7 +240,7 @@ Voici une **version textuelle, simple et pédagogique**, sans SQL précis.
 | ------- | --------------------------------------------------------- | ------------------------------------------------ |
 | **MCD** | les entités, les relations                                | ❌ clés étrangères ❌ types ❌ tables d’association |
 | **MLD** | les tables, les clés étrangères, les tables d’association | ❌ SQL spécifique                                 |
-| **MPD** | la version finale adaptée au SGBD                         | —                                                |
+| **MPD** | la version finale adaptée au SGBD                         | -                                                |
 
 ---
 

@@ -26,7 +26,7 @@ Ce document présente les différentes stratégies disponibles pour les clauses 
 
 ## Exemples `ON DELETE`
 
-### CASCADE — Supprimer automatiquement les lignes dépendantes
+### CASCADE : Supprimer automatiquement les lignes dépendantes
 
 **Cas d’usage** : un `operator` possède des collections.
 Lorsqu’un operator est supprimé, toutes ses collections doivent l’être également.
@@ -55,7 +55,7 @@ SELECT * FROM collection WHERE operator_id = 1; -- résultat vide
 
 ---
 
-### RESTRICT — Bloquer la suppression si des références existent
+### RESTRICT : Bloquer la suppression si des références existent
 
 **Cas d’usage** : un operator a créé des tags.
 On veut empêcher sa suppression tant que ces tags existent.
@@ -79,7 +79,7 @@ DELETE FROM operator WHERE id = 1;
 
 ---
 
-### SET NULL — Conserver les données mais supprimer la référence
+### SET NULL : Conserver les données mais supprimer la référence
 
 **Cas d’usage** : des messages sont associés à un operator.
 Lorsqu’un operator est supprimé, les messages doivent rester, mais sans référence.
@@ -109,7 +109,7 @@ WHERE id IN (1, 2, 3); -- operator_id = NULL
 
 ---
 
-### NO ACTION — Vérification différée à la fin de la transaction
+### NO ACTION : Vérification différée à la fin de la transaction
 
 **Cas d’usage** : des avis (`review`) sont liés à un item.
 La suppression d’un item référencé doit invalider toute la transaction.
@@ -142,7 +142,7 @@ COMMIT; -- échec : contrainte NO ACTION violée
 
 ## Exemples `ON UPDATE`
 
-### CASCADE — Propager une mise à jour de clé primaire
+### CASCADE : Propager une mise à jour de clé primaire
 
 **Cas d’usage** : un `tag` est référencé dans `item_tag`.
 Si l’identifiant du tag change, toutes les références doivent être mises à jour.
@@ -176,7 +176,7 @@ WHERE t.id = 100;
 
 ## Cas d’usage pratiques dans le schéma
 
-### 1. `collection_item` — suppression d’un item
+### 1. `collection_item` : suppression d’un item
 
 ```sql
 ALTER TABLE collection_item
@@ -188,7 +188,7 @@ ON DELETE CASCADE;
 
 ---
 
-### 2. `search` — conservation des recherches après suppression d’un operator
+### 2. `search` : conservation des recherches après suppression d’un operator
 
 ```sql
 ALTER TABLE search
@@ -200,7 +200,7 @@ ON DELETE SET NULL;
 
 ---
 
-### 3. `item` — protection contre la suppression d’un operator créateur
+### 3. `item` : protection contre la suppression d’un operator créateur
 
 ```sql
 ALTER TABLE item

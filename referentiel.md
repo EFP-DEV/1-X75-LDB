@@ -1,4 +1,4 @@
-# LDB — Langages de base de données · 48 heures
+# LDB : Langages de base de données · 48 heures
 
 Le module vise à apprendre à **concevoir, créer, exploiter et maintenir une base de données simple**, principalement relationnelle, et à s’y connecter de manière sécurisée dans le cadre d’une application web.
 
@@ -19,7 +19,7 @@ Le module vise à apprendre à **concevoir, créer, exploiter et maintenir une b
 
 Les compétences portent sur **la compréhension et la mise en pratique** : l’étudiant doit pouvoir réaliser les opérations, vérifier leurs résultats et expliquer ses choix.
 
-# LDB — Langages de base de données
+# LDB : Langages de base de données
 
 **X75 · Première année · 48 heures**
 
@@ -30,7 +30,7 @@ Ce cours vous apprend à **concevoir, créer, exploiter et maintenir une base de
 À l’issue du cours, vous serez capable de :
 
 - **Comprendre les bases de données** : rôle d’un SGBD, principales familles de bases de données et différences entre les approches relationnelles et NoSQL.
-- **Modéliser les données** : analyser un besoin, identifier les entités et leurs relations, construire les modèles conceptuel et logique — MCD et MLD.
+- **Modéliser les données** : analyser un besoin, identifier les entités et leurs relations, construire les modèles conceptuel et logique : MCD et MLD.
 - **Structurer une base relationnelle** : définir les tables, les champs, les types, les clés et les contraintes ; normaliser les données pour limiter les redondances et les incohérences.
 - **Manipuler les données avec SQL** : rechercher, filtrer, trier, ajouter, modifier et supprimer des données ; effectuer des jointures et comprendre l’utilité des index.
 - **Utiliser les outils adaptés** : outils de modélisation, d’administration et de connexion aux bases de données.

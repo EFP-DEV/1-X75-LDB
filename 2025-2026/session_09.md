@@ -35,7 +35,7 @@ Relations principales :
 
 ---
 
-## 1. SELECT — Lire des données
+## 1. SELECT : Lire des données
 
 ### Principe
 
@@ -54,7 +54,7 @@ Cette requête lit la colonne `label` de la table `item`.
 
 ---
 
-## 2. AS — Alias de colonnes
+## 2. AS : Alias de colonnes
 
 ### Principe
 
@@ -69,7 +69,7 @@ Le champ s’appelle toujours `label` dans la table, mais apparaît sous le nom 
 
 ---
 
-## 3. WHERE — Filtrer les lignes
+## 3. WHERE : Filtrer les lignes
 
 ### Principe
 
@@ -85,7 +85,7 @@ Seuls les items dont le statut est `published` sont retournés.
 
 ---
 
-## 4. IN — Tester plusieurs valeurs
+## 4. IN : Tester plusieurs valeurs
 
 ### Principe
 
@@ -101,7 +101,7 @@ Cette requête retourne les items dont le statut est soit `draft`, soit `publish
 
 ---
 
-## 5. LIKE — Recherche partielle
+## 5. LIKE : Recherche partielle
 
 ### Principe
 
@@ -119,7 +119,7 @@ Cette requête retourne les items dont le titre contient le mot `guide`.
 
 ### Caractères spéciaux utilisés avec LIKE
 
-#### Le symbole `%` — suite de caractères
+#### Le symbole `%` : suite de caractères
 
 ```sql
 SELECT label
@@ -139,7 +139,7 @@ Titres qui se terminent par `Guide`.
 
 ---
 
-#### Le symbole `_` — un seul caractère
+#### Le symbole `_` : un seul caractère
 
 ```sql
 SELECT label
@@ -165,7 +165,7 @@ Recherche les titres contenant réellement le caractère `_`.
 
 ---
 
-## 6. INNER JOIN — Relier des tables (relations obligatoires)
+## 6. INNER JOIN : Relier des tables (relations obligatoires)
 
 ### Principe
 
@@ -182,7 +182,7 @@ Un item sans catégorie n’apparaît pas dans le résultat.
 
 ---
 
-## 7. INNER JOIN — Relation N..N (tags)
+## 7. INNER JOIN : Relation N..N (tags)
 
 ### Principe
 
@@ -201,7 +201,7 @@ Cette requête relie `item` à `tag` via `item_tag`.
 
 ---
 
-## 8. LEFT JOIN — Inclure les données absentes
+## 8. LEFT JOIN : Inclure les données absentes
 
 ### Principe
 
@@ -220,7 +220,7 @@ Les items sans tag apparaissent avec des valeurs `NULL`.
 
 ---
 
-## 9. ORDER BY — Trier les résultats
+## 9. ORDER BY : Trier les résultats
 
 ### Principe
 
@@ -244,7 +244,7 @@ Trie les items par titre, par ordre décroissant.
 
 ---
 
-## 10. LIMIT — Limiter le nombre de résultats
+## 10. LIMIT : Limiter le nombre de résultats
 
 ### Principe
 

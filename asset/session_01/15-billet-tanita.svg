@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560">
-<title>Billet fictif — TANITA TIKARAM</title><rect width="1200" height="560" rx="18" fill="#f5f0e5"/>
+<title>Billet fictif - TANITA TIKARAM</title><rect width="1200" height="560" rx="18" fill="#f5f0e5"/>
 <rect width="1200" height="95" fill="#3c5b4b"/><g font-family="DejaVu Sans, sans-serif" fill="#242424">
 <text x="42" y="60" font-size="25" fill="white" letter-spacing="3">BILLET DE SPECTACLE · EXEMPLAIRE PÉDAGOGIQUE</text>
 <text x="42" y="165" font-size="43" font-weight="bold">TANITA TIKARAM</text>
@@ -9,5 +9,5 @@
 <path d="M 855 110 V 455" stroke="#a7a091" stroke-width="2" stroke-dasharray="8 8"/>
 <text x="895" y="225" font-size="20" fill="#666">PLACEMENT</text><text x="895" y="266" font-size="22">Parterre · debout</text>
 <text x="895" y="340" font-size="20" fill="#666">TARIF</text><text x="895" y="385" font-size="30">38,00 €</text>
-<path d="M 42 435 H 1158" stroke="#b7b09f"/><text x="42" y="484" font-size="21">DOCUMENT FICTIF — Événement inventé pour l’exercice, sans valeur d’entrée.</text>
+<path d="M 42 435 H 1158" stroke="#b7b09f"/><text x="42" y="484" font-size="21">DOCUMENT FICTIF : Événement inventé pour l’exercice, sans valeur d’entrée.</text>
 <text x="42" y="525" font-size="18" fill="#666">LDB · Séance 1 · Référence 15-EXERCICE</text></g></svg>
