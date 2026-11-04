@@ -1,500 +1,359 @@
-# Session 1 : Introduction aux bases de donnees
+# Séance 1 — Définir, classer et retrouver
 
-# 1 Introduction aux bases de données
-## 1.1. Pourquoi étudier l’histoire des bases de données ?**
+La séance explore deux échelles : avant la pause, on part de ce que l’on connaît pour aller jusqu’au **bit**, la plus petite unité de donnée numérique ; après la pause, on passe à l’organisation d’un ensemble de documents par la **classification**.
 
-Comprendre l’évolution des bases de données, c’est comprendre **comment l’humanité structure l’information** pour administrer, compter, prévoir, décider.
+## Introduction — Le formateur et les cours
 
-Chaque étape historique répond à une même tension :
+Le formateur se présente et présente les trois cours que nous suivrons avec lui : **LDB, LPB et ADB**. Il explique leurs objectifs, leur articulation et l’organisation du travail.
 
-* **le réel déborde**,
-* l’humain **tente de le contenir** dans des symboles,
-* les systèmes **se perfectionnent** pour éviter que le chaos ne revienne.
+On précise les contraintes d’organisation et de travail, puis on prend le temps de poser les questions sur les cours et leur déroulement. On note les réponses utiles et les points qui restent à clarifier.
 
-L’histoire des bases de données n’est donc pas technique au départ : **elle est sociale, économique et cognitive**.
+## 1. Mettre les mots en commun
 
----
+On part de cette question : **quand on vous dit "base de donnees" a quoi pensez vous ?**
 
-## **1.2. Préhistoire : de la marque à la donnée (–20 000 → –3 000)**
+On inscrit au tableau tous les mots proposés par les étudiants et on demande un exemple concret pour chacun. Les propositions restent visibles pendant la discussion, même lorsque plusieurs significations apparaissent pour un même mot.
 
-### **1.2.1. Les premières traces**
+On élargit ensuite la recherche :
 
-Les humains utilisent :
+- Quelles données existent sur papier ?
+- Que peut-on conserver à propos d’un contenu, d’une personne ou d’un message ?
+- Quelles données proviennent d’une saisie ? D’une action sur le site ? D’un calcul ?
+- Que signifient les mots « donnée », « information », « fichier » et « base de données » ?
 
-* des **bâtons entaillés**
-* des **ossements marqués** (ex. l'os d’Ishango)
-* des **cailloux ou jetons**
+On regroupe les propositions qui semblent proches. Pour chaque désaccord, on conserve les différentes explications et l’exemple qui permet de les discuter.
 
-![Counting Token](asset/session_01_history_counting_tokens.jpg)
+Le résultat de cette mise en commun est une liste de mots accompagnés d’exemples et de définitions provisoires. On la conserve pour la reprendre en fin de séance.
 
-![Ishango](asset/session_01_history_ishango.jpg)
+## 2. Construire une histoire et aller vers le binaire
 
-Ces systèmes permettent de représenter des **quantités** ou des **différences**.
-Ce ne sont pas encore des “données” : ce sont des **indices stabilisés**.
+Le formateur invente une histoire en utilisant tous les mots inscrits au tableau. On suit les liens entre les mots et on précise leur sens dans le contexte du récit. Les mots restent visibles pour vérifier qu’ils ont tous été utilisés.
 
-### **1.2.2. La logique sous-jacente**
+L’histoire conduit à une question : comment représenter dans un ordinateur les données que nous venons d’évoquer ? On aboutit à une représentation utilisant deux symboles, `0` et `1` : le binaire. La section suivante introduit le bit, l’octet et l’encodage du texte.
 
-* Stocker → pour se souvenir
-* Représenter → pour transmettre
-* Recompter → pour vérifier
+Au fil du récit, on distingue les données, le contexte qui leur donne du sens et les conclusions que l’on peut en tirer. Les exemples suivants peuvent servir à préciser ces distinctions.
 
-C’est la fonction fondamentale de toute base de données.
+### Une valeur sans contexte
 
----
+On observe cette valeur :
 
-## **1.1.3. Antiquité : écriture, comptabilité, administration (–3 300 → 500)**
+```text
+12
+```
 
-### **1.3.1. Les tokens sumériens → le cunéiforme**
+On propose plusieurs significations possibles. Qu’est-ce qui manque pour choisir entre ces interprétations ?
 
-Les jetons d’argile (compter le grain, le bétail, les dettes) deviennent des **pictogrammes pressés dans l’argile**.
-La comptabilité *invente* l’écriture.
+On ajoute ensuite le contexte :
 
-![Summerian tablet](asset/session_01_history_summerian_tablet.jpg)
-### **1.3.2. Les registres impériaux**
+```text
+Nombre d’éléments publiés : 12
+```
 
-Égypte, Mésopotamie, Chine, Rome :
+On formule ce que cette indication permet de savoir. Peut-on également en déduire le nombre de brouillons ou la date de publication des éléments ?
 
-* recensements
-* cadastres
-* inventaires
-* listes militaires
-* comptes fiscaux
+<details>
+<summary>Après la discussion : donnée, information et interprétation</summary>
 
-Les premiers “systèmes d’information” étaient **administratifs**, pas littéraires.
+Une **donnée** est une valeur ou une description représentée sous une forme qui permet de la conserver, de la transmettre ou de la traiter. `12`, un titre, une photographie et une date peuvent constituer des données.
 
-### **1.3.3. La table comme principe**
+Une **information** est ce que l’on peut apprendre à partir de données replacées dans un contexte. Ici, le libellé permet de comprendre à quoi correspond le nombre `12`.
 
-On voit apparaître : lignes, colonnes, cases.
-**Structure + répétition = base de données rudimentaire.**
+L’**interprétation** consiste à attribuer un sens aux données à partir du contexte et de règles. Elle peut être incorrecte si le contexte manque ou si une règle est supposée à tort.
 
----
+La valeur `12` ne suffit pas à connaître le nombre de brouillons. Le libellé ajouté ne donne pas non plus la période concernée ni le moment du comptage.
 
-## **1.4. Moyen Âge → Lumières : systèmes comptables (1200 → 1800)**
+</details>
 
-### **1.4.1. La comptabilité en partie double**
+### Ce qui est écrit et ce que l’on suppose
 
-Introduction des colonnes “débit” / “crédit”.
-C’est une forme primitive de **relation** entre opérations.
+On observe deux indications :
 
-### **1.4.2. Standardisation du tableau**
+```text
+Statut : brouillon
+```
 
-Les livres de comptes deviennent :
+```text
+Publication prévue : 10 novembre
+```
 
-* structurés
-* normalisés
-* audités
+On distingue ce qui est explicitement indiqué de ce qui reste à vérifier. Une publication prévue suffit-elle à affirmer que l’élément est déjà publié ?
 
-Le tableau devient outil de **fiabilité**.
+On reprend un exemple du brainstorming. On précise la donnée conservée, son contexte et une conclusion qu’elle permet réellement de soutenir.
 
----
+## 3. Représenter le texte dans un ordinateur
 
-## **1.5. Mécanisation du calcul (1642 → 1900)**
+### Une même suite, plusieurs lectures
 
-### **1.5.1. Premières machines**
+On observe cette suite sans lui attribuer immédiatement une signification :
 
-* [Pacaline](https://www.youtube.com/watch?v=hSl2WFfCTD8)
-* Machine de Leibniz
-* Arithmomètre
+```text
+01000001
+```
 
-Elles calculent, mais ne “stockent” pas.
-Le stockage reste sur papier.
+On décrit d’abord ce qui est visible : les symboles utilisés, leur nombre et leur ordre. On cherche ensuite la règle qui manquerait pour lire cette suite comme un nombre ou comme du texte.
 
-![Pascaline](asset/session_01_history_pascaline.jpg)
+Un **bit** peut prendre deux valeurs, notées `0` et `1`. Un groupe de huit bits forme un **octet**. Les données numériques sont représentées par des suites de bits ; leur lecture dépend des règles utilisées.
 
-### **1.5.2. Les cartes perforées**
+On reçoit deux règles de lecture pour les mêmes huit bits :
 
-Jacquard (1801) → instructions sur cartes.
+- Lus comme un entier non signé écrit en binaire, ils représentent le nombre `65`.
+- Lus comme un octet de texte selon l’encodage UTF-8, ils représentent la lettre `A`.
 
-![Jacquard (1801)](asset/session_01_mecanic_jacquard.jpg)
+Les bits ont-ils changé ? Qu’est-ce qui explique la différence entre les deux résultats ?
 
-Hollerith (1890) → recensement américain par cartes.
-![Hollerith (1890)](asset/session_01_mecanic_card.jpg)
-IBM naît de cette révolution.
+Un **encodage du texte** définit comment représenter les caractères par des octets. UTF-8 est un encodage. Il utilise un ou plusieurs octets selon le caractère : la taille d’un texte en octets n’est donc pas toujours égale au nombre de caractères affichés.
 
-> Les cartes perforées sont la **première base de données mécanisée**.
+### Retrouver un petit texte
 
-Et voici le clavier:
+Pour cette activité, on fournit les correspondances suivantes en UTF-8 :
 
-![Card Puncher](asset/session_01_mecanic_puncher.jpg)
+```text
+A       01000001
+B       01000010
+C       01000011
+espace  00100000
+```
 
----
+On utilise ces correspondances pour lire :
 
-## 1.6. Naissance de l'informatique et premières bases (1945 → 1969)
+```text
+01000011 01000001 01000010
+```
 
-### 1.6.1. Le concept d'information (Shannon)
+On représente ensuite le texte `BAC`, puis `A B`. On compare le nombre de caractères, espaces compris, et le nombre d’octets dans ces deux exemples.
 
-**Claude Shannon** (1948) transforme l'information en quelque chose de mesurable, comme on mesure la distance ou le poids. Avant, "information" était un concept vague. Il en fait une quantité mathématique précise: le **bit**. L'unité de base. Un bit = une réponse oui/non. Pile ou face = 1 bit d'information.
+La vérification se fait dans les deux sens : on relit les octets obtenus avec les correspondances fournies. Le texte retrouvé doit être exactement celui du départ, y compris les espaces.
 
-Shannon prouve que l'information peut être stockée, transmise et mesurée comme n'importe quelle grandeur physique, posant les fondations de l'ère numérique.
+## 4. Réorganiser librement
 
-### **1.6.2. Ordinateurs à mémoire**
+Après la pause, on change d’échelle. On vient d’étudier les unités qui représentent les données dans un ordinateur ; on s’intéresse maintenant à la manière d’organiser de nombreux documents pour y retrouver des informations.
 
-Machines capables de :
+On ouvre l’[interface web de classement](https://efp-dev.github.io/1-X75-LDB/session_01.html) sur GitHub Pages pour l’activité. Le corpus comprend 42 documents culturels : couvertures, pochettes, affiches, documents de théâtre, billets, cartes postales et photographies de lieux. Ces objets peuvent être publiés et réunis en collections dans le [projet du module](projet.md). Un clic agrandit une image pour lire les données qui y sont inscrites.
 
-* stocker
-* calculer
-* effacer
-* réutiliser
+L’activité se déroule sur un ordinateur connecté à Internet, dans un espace tenant à l’écran. Les positions ne sont pas sauvegardées : recharger la page rétablit la disposition initiale.
 
-### **1.6.3. Bases hiérarchiques et navigables**
+Chaque groupe part du même ensemble de documents, dans la même disposition initiale. **On commence directement par les réorganiser librement.**
 
-* **IMS (IBM)** : données organisées en **arbres**
-* **CODASYL** : modèle **réseau**
+On crée un fichier `observations-classement.md` pour conserver la règle de classement, les difficultés rencontrées et les réponses aux recherches qui suivront. Ce fichier sert aux notes de l’activité ; il ne contient pas le jeu de données.
 
-Ces systèmes sont performants mais peu flexibles.
+On déplace les images par glisser-déposer dans un espace libre, sans zone prédéfinie. Les regroupements apparaissent par leur position. On décrit et nomme librement ces regroupements dans les notes.
 
-Les données sont **prisonnières de la structure**.
-- Pour retrouver une information, on doit parcourir la structure.
-- Si la structure change, les programmes doivent être modifiés.
-- Peu de flexibilité pour faire des requêtes variées.
+**Le texte des documents reste inchangé. Aucun document n’est supprimé ni dupliqué.** Les classements des groupes portent sur le même ensemble de données.
 
----
+On note la règle envisagée, puis on l’applique. Lorsqu’un document pourrait appartenir à plusieurs groupes, on décrit le problème et le choix effectué. Cette difficulté fait partie des observations à conserver.
 
-## **1.7. 1970 : Le modèle relationnel (Codd)**
+À la fin du rangement, on vérifie que les 42 documents sont encore présents et on décrit le classement dans `observations-classement.md`. On conserve une capture de l’ensemble : elle servira à la comparaison des classements et à la séance suivante.
 
-Moment fondateur.
+## 5. Rechercher dans le classement
 
-### **1.7.1. Les principes**
+On utilise le classement obtenu, sans recharger la page ni déplacer les documents pendant les recherches.
 
-* la donnée = **table**
-* un enregistrement = **tuple**
-* une colonne = **attribut**
-* la contrainte = **vérité**
-* manipulations = **algèbre relationnelle**
+Le formateur pose les treize questions suivantes dans l’ordre. Elles comprennent dix recherches d’informations et trois comptages. Chaque groupe y répond à partir de son classement.
 
-### **1.7.2. Les avantages**
+1. Quel document affiche un prix de 1,99 livre sterling ?
+2. Quel document porte la référence CML-2456 ?
+3. Combien de livres sont représentés, bandes dessinées comprises ?
+4. Sur quelle façade peut-on lire « Societas MDCCXCII » ?
+5. Quel document porte le logo d’Ethiopian Airlines ?
+6. Quelle carte postale mentionne un moteur de 25 HP ?
+7. Combien de pochettes de disques y a-t-il ?
+8. Quel spectacle annonce une durée de 1 h 25 ?
+9. Quel billet indique le placement « Balcon · B12 » ?
+10. Quelle carte postale montre un Hôtel-Café de la Comédie ?
+11. Combien d’affiches de cinéma y a-t-il ?
+12. Quel document mentionne Ravi Shankar comme compositeur ?
+13. Quelle pochette mentionne l’année 1972 ?
 
-* indépendance des données
-* flexibilité
-* cohérence
-* normalisation
+Pour chaque question, on note :
 
-Le relationnel **sépare** la façon de stocker de la façon d’interroger.
-C’est une révolution conceptuelle, pas seulement technique.
+- la réponse, avec les titres ou les références permettant de retrouver les documents ;
+- les documents qui justifient cette réponse ;
+- le chemin suivi et les éventuels retours en arrière ;
+- le temps nécessaire pour retrouver les documents et établir la réponse ;
+- les hésitations ou les informations qui manquent.
 
----
+Pour chaque comptage, on relève les documents retenus afin de pouvoir vérifier le total et repérer les oublis ou les doubles comptages.
 
-## **1.8. L’ère des SGBDR industriels (1979 → 2000)**
+Une réponse incertaine reste signalée comme telle. L’absence de résultat après une recherche ne suffit pas à affirmer qu’aucun document ne correspond.
 
-### **1.8.1. Les pionniers**
+## 6. Comparer les classements
 
-* Oracle (1979)
-* Ingres
-* IBM DB2
+On relève une recherche simple à effectuer dans son classement, une recherche difficile et la raison observable de chaque résultat : regroupement directement repéré, documents répartis entre plusieurs groupes ou critère ambigu.
 
-### **1.8.2. SQL devient normatif**
+### Faire utiliser le classement par un autre groupe
 
-Le langage unifie l’industrie.
-Les SGBDR deviennent le cœur des systèmes financiers, administratifs, logistiques.
+Un autre groupe reprend les **questions 1 et 3**, communes à la classe : retrouver le document affichant un prix de 1,99 livre sterling et compter les livres, bandes dessinées comprises. Il utilise notre classement sans recevoir d’explication orale sur le rangement. On utilise le même ordinateur, sans recharger la page ni déplacer les documents. On observe les regroupements vers lesquels il se dirige et les critères qu’il comprend ou interprète autrement.
 
-### **1.8.3. Le data warehouse**
+Le groupe doit retrouver les documents qui justifient ses réponses et désigner ceux qu’il compte, même s’il connaît déjà les résultats. On note les parcours et les hésitations, puis on échange sur les critères compris. Si les réponses diffèrent, on retourne aux documents pour repérer un oubli, un double comptage ou une interprétation différente.
 
-Naissance de l’analytique moderne :
+### Mettre les observations en commun
 
-* index avancés
-* requêtes complexes
-* dénormalisation stratégique
+On compare ensuite les classements obtenus dans la classe :
 
----
+- Quel critère organise chaque classement ?
+- Quels documents se retrouvent ensemble ?
+- Quelles recherches ce choix facilite-t-il ?
+- Quel document a été difficile à placer, et pourquoi ?
+- Une autre personne peut-elle retrouver l’information à partir des noms choisis ?
 
-## **1.9. Rupture : Big Data & NoSQL (2005 → 2015)**
+On justifie les comparaisons par les recherches réellement effectuées. Un classement par support peut faciliter la recherche d’un livre tout en séparant une œuvre de son programme de théâtre et de son billet. Le temps dépend aussi de la familiarité avec les documents ; on explique les différences à partir des parcours observés.
 
-### **1.9.1. Explosion des volumes**
+## 7. Chercher autrement dans les mêmes documents
 
-Google, Amazon, Facebook dépassent les limites des SGBDR centralisés.
+Après la comparaison des classements, le formateur montre une autre manière de répondre aux mêmes questions. On observe ce qui permet de trouver l’information plus vite et ce qui reste à vérifier.
 
-### **1.9.2. Les nouveaux modèles**
+<details>
+<summary>Après la démonstration : le code source et la recherche du navigateur</summary>
 
-* clé-valeur (Redis)
-* documents (MongoDB)
-* colonnes (Cassandra)
-* graphes (Neo4j)
+### Retrouver les descriptions des images
 
-Chaque modèle privilégie un usage.
-On renonce volontairement à certaines garanties pour **scaler**.
+Depuis le plateau de classement, **Ctrl+U** ouvre le code source HTML de la page. Dans cet onglet, **Ctrl+F** ouvre la recherche de texte du navigateur.
 
----
+Les images possèdent déjà des descriptions textuelles dans leur attribut `alt`. Ces textes alternatifs décrivent leur contenu, notamment pour les personnes qui utilisent un lecteur d’écran. Ils permettent aussi de retrouver les informations sans lire les inscriptions dans les images.
 
-## **1.10. NewSQL & systèmes distribués relationnels (2012 → …)**
+Pour reprendre la question 1, on cherche `1.99`. La description du document 04 permet de retrouver la pochette de Tanita Tikaram :
 
-### **1.10.1. Retour au relationnel, mais distribué**
+```html
+<img src="asset/session_01/04-tanita-tikaram.jpg"
+     alt="Pochette de disque : le CD « Twist in My Sobriety (Full Length Version) » de Tanita Tikaram. Fond blanc, motif géométrique coloré en bas à gauche, photographie de l’artiste près de son nom et carré rouge portant la mention « Special Price £1.99 »."
+     draggable="false">
+```
 
-* Google Spanner
-* CockroachDB
-* Yugabyte
+L’attribut `src` indique le chemin du fichier image. L’attribut `alt` décrit ici le support, le titre, l’interprète et le prix inscrit. Le navigateur cherche dans ce texte ; les inscriptions de l’image ont déjà été transcrites. La notation compte : le texte utilise un point dans `1.99`, alors que la question utilise une virgule.
 
-Objectif : réunir **cohérence + scalabilité horizontale**.
+On lit la description du document trouvé, puis on retourne à l’image pour vérifier la réponse. Pour reprendre une autre recherche, on choisit une mention précise de la question : référence, inscription, durée ou nom.
 
-### **1.10.2. Convergence**
+### Distinguer les occurrences et les documents
 
-On garde le SQL, on change l’architecture.
+Avec une recherche sans distinction entre majuscules et minuscules, `Megadeth` donne quatre résultats dans le code source pour deux documents : la pochette 06 et le billet 16. Le nom apparaît dans le chemin du fichier et dans le texte alternatif de chacun. Pour la question 9, la mention `B12` permet de retrouver le billet concerné.
 
----
+Le nombre affiché par la recherche est donc un **nombre d’occurrences du texte recherché**. Pour l’interpréter comme un nombre de documents, il faut vérifier ce qui a été compté.
 
-# **1.11. Aujourd’hui : écosystèmes polyglottes**
+Dans l’onglet du code source de `session_01.html`, on reprend les trois comptages en cherchant successivement `Couverture de livre`, `Pochette de disque` et `Affiche de cinéma`. Chaque description concernée commence par l’une de ces expressions, présente une seule fois par document. On compare les résultats aux comptages visuels et on retrouve les documents qui les justifient.
 
-Les entreprises combinent plusieurs types de bases selon les besoins :
+On essaie aussi `livre` seul : ce texte apparaît dans `livret d’accompagnement du DVD`, au document 13. De même, `affiche` apparaît dans certains chemins d’images. On explique pourquoi une formulation plus précise change le résultat et répond mieux à la question posée.
 
-* relationnel pour l’intégrité
-* graphes pour les liens
-* colonnes pour l’analytique
-* documents pour la flexibilité
+### Comprendre le besoin avant de construire l’outil
 
-**Il n’y a plus une vérité : il y a une adéquation.**
+**Pour répondre aux questions de cette activité, les données de la page et la recherche du navigateur suffisent.** Les descriptions sont déjà conservées dans un fichier et un outil permet déjà de les retrouver. Cette autre manière d’exploiter les documents reste disponible quel que soit leur classement visuel.
 
----
+Le cours nous apprendra à construire et à gérer des bases de données, ainsi qu’à écrire des recherches. Le choix d’un nouvel outil devra répondre à des opérations précises : retrouver, compter, rapprocher ou modifier les données. On commence donc par identifier les besoins et par comprendre ce que les données et les outils disponibles permettent déjà de faire.
 
-## Synthèse — Points à retenir pour le cours
+Dans `observations-classement.md`, on conserve une recherche effectuée dans le code source, sa réponse vérifiée et un exemple où le nombre d’occurrences diffère du nombre de documents.
 
-1. La donnée est d’abord un **outil administratif** avant d’être numérique.
-2. Les structures tabulaires existent bien avant l’informatique.
-3. Les premiers systèmes informatiques étaient **hiérarchiques** ou **réseau**.
-4. Le relationnel (Codd) reste la **pierre angulaire** de la discipline.
-5. SQL est un standard industriel depuis les années 80.
-6. Les modèles NoSQL répondent à des besoins de **scalabilité** et de **flexibilité**.
-7. Les systèmes modernes sont **hybrides** et **spécialisés** selon l’usage.
+</details>
 
+## 8. Nommer ce qui a été observé
 
----
+### Organiser et classer
 
-# **2. Données tabulées**
+**Classer** consiste à regrouper ou à ordonner des éléments selon des critères. Dans l’activité, l’œuvre, l’artiste ou la nature du document peuvent servir de critères.
 
-## 2.1 **Qu'est-ce qu'une donnée tabulée ?**
+On reprend un regroupement réalisé et on formule sa règle en une phrase. On vérifie cette règle sur un document placé à l’intérieur et sur un document placé ailleurs.
 
-Les **données tabulées** sont des informations organisées sous forme de **tableau**.
-Cette structure bidimensionnelle (lignes × colonnes) rend l’information **lisible, comparable et exploitable**.
+Un nom comme « divers » indique peu de choses sur la place d’un nouveau document. Une règle explicite aide à décider où ranger et où chercher. Plusieurs classements restent possibles selon les usages.
 
-### **Caractéristiques principales**
+### Base de données et SGBD
 
-**Données tabulées**
+Une **base de données** est un ensemble organisé de données conservées pour être retrouvées et exploitées. L’organisation doit permettre de répondre aux besoins de l’application.
 
-* Présentées sous forme de tableau structuré
-* Manipulées avec un tableur (Excel, Google Sheets…)
-* Organisées en lignes et colonnes
-* Permettent tri, filtrage, recherche, calcul et comparaison
+Un **système de gestion de base de données**, ou **SGBD**, est un logiciel qui permet de définir, de conserver, de rechercher et de modifier des données. Il fournit aussi des mécanismes de contrôle des accès et de cohérence.
 
-**Table**
+Dans la démonstration, le fichier HTML joue le rôle d’une petite base de données en fichier plat. La recherche du navigateur est l’outil utilisé pour l’interroger. Ces deux éléments suffisent aux recherches réalisées ; un SGBD répondra à d’autres besoins de gestion au fil du cours.
 
-* Structure ordonnée contenant des données de même nature
-* **Ligne / enregistrement** : représente une entité complète
-* **Colonne / attribut** : représente un type d’information
-* **Cellule** : valeur à l’intersection ligne/colonne
+Dans le projet, les éléments publiés, les utilisateurs et les collections font partie des données. Le SGBD est le logiciel qui les gère. L’application utilise ces données pour proposer ses pages et ses fonctions.
 
----
+L’apparence de l’interface ne permet pas, à elle seule, de savoir comment les données sont conservées. Déplacer une carte à l’écran n’implique pas nécessairement de déplacer un fichier dans un dossier.
 
-# 2.2. Exemples concrets dans la vie quotidienne
+On reprend la liste de mots du début. On corrige les définitions provisoires à partir des exemples rencontrés, puis on explique la différence entre les données de l’application et le logiciel qui les gère.
 
-Les tableaux répondent à des principes **universels de rangement**, déjà présents dans le monde matériel. Ils apparaissent dans des contextes familiers, souvent sans qu’on les nomme “tableaux”.
+## 9. Du classement aux langages de bases de données
 
-## **2.2.1. Étagères**
+### Trouver du texte et répondre à la question
 
-* Chaque rayon = une catégorie
-* Objets similaires regroupés = colonnes
-* Emplacement fixe = cellule
+Ctrl+F recherche une suite de caractères. Pour chercher les documents qui affichent un prix à payer, on essaie `prix` dans le code source, puis on examine le contexte des occurrences.
 
-Alors quand on voit tout, et qu'on a de la place:
-![OrgaNourriture](asset/session_01_shelves_food.jpg)
-Tout va bien.
+| Cas dans le corpus | Ce que la recherche permet de constater |
+|---|---|
+| L’affiche de *Quand la mer monte...*, document 09, mentionne le **prix Louis-Delluc 2004**. | `prix` est présent, mais il désigne une récompense. C’est un **faux positif** pour la recherche d’un montant à payer. |
+| La pochette de Tanita Tikaram, document 04, porte **Special Price £1.99**. | Son texte alternatif contient un montant, mais pas le mot français `prix`. Cette recherche manque donc un document pertinent : un **faux négatif**. |
 
-Mais si on ne voit pas dedans, et qu'on a beaucoup:
-![OrgaArchive](asset/session_01_shelves_archive.jpg)
-Ca devient vite insurmontable.
+On retrouve le document 04 avec `1.99`. La notation compte : le texte enregistré utilise un point, alors que la question en français peut employer la virgule dans « 1,99 livre sterling ».
 
-Et ca pourrait etre pire:
-![OrgaPas](asset/session_01_shelves_pandemonium.jpg)
+Si une information de l’image a été omise dans la description, aucune recherche dans ce texte ne peut la retrouver. La fiabilité dépend à la fois de la formulation de la recherche et de la manière dont le document a été décrit.
 
-Mais avec un peu de bon sens et des etiquettes:
-![OrgaCraft](asset/session_01_shelves_craft.jpg)
+### Une base conserve un état du système
 
-L'organisation reflete la realite qu'elle occupe:
-![OrgaPharmacy](asset/session_01_shelvers_pharmacy.jpg)
+Le montant `£1.99` permet d’affirmer qu’un prix figure sur cette pochette. Il ne suffit pas à connaître le prix de vente du disque aujourd’hui. De même, un numéro conservé dans les contacts peut avoir été correct lors de sa saisie et avoir changé depuis.
 
-Ou le debut de la maladie mentale:
-![OrgaPharmacy](asset/session_01_shelves_books_by_color.jpg)
+**Une base de données contient un état enregistré du système, selon un modèle et à un moment donné.** Cet état peut réunir des observations, des déclarations, des calculs ou des prévisions. Leur enregistrement ne garantit ni leur exactitude initiale ni leur validité actuelle.
 
-## **2.2.2. Tiroir à couverts**
+Deux vérifications sont donc nécessaires :
 
-* Compartiments = colonnes
-* Chaque type d’ustensile a sa place
-* Recherche immédiate, pas de confusion
+- **La recherche traduit-elle correctement la question ?** Les critères doivent sélectionner les données qui répondent au besoin.
+- **Les données représentent-elles correctement la situation concernée ?** Leur sens, leur provenance, leur date et les éventuelles omissions doivent être compris.
 
-![Tiroir à couverts](asset/session_01_drawers_cutlery.webp)
+Un SGBD peut faire respecter des règles de cohérence, par exemple exiger un montant positif. Un montant erroné peut toutefois respecter cette règle. La cohérence interne et la fidélité au réel sont deux exigences distinctes.
 
+### Vers les requêtes et SQL
 
+Une **requête** est une demande adressée à un système pour obtenir des données selon des critères. **SQL** permet notamment d’exprimer ces demandes dans une base relationnelle. On apprendra à formuler ces critères, puis à vérifier les résultats et ce qu’ils permettent d’affirmer.
 
-## **2.2.3. Gestion du quotidien**
+### Justifier une réponse
 
-### **Liste de tâches (Todo list)**
+On reprend une réponse obtenue dans le corpus. Dans `observations-classement.md`, on précise le critère de recherche, la raison de retenir ou d’écarter un résultat et ce que le document permet réellement d’affirmer. Une information absente reste signalée comme inconnue.
 
-* Attributs fréquents : tâche, priorité, échéance, statut
-* Suivi de progression et priorisation
-![TODO](asset/session_01_todo.png)
+## 10. Conserver les résultats
 
-Ici, 2 colonnes:
-1. Checkbox: la tache est effectuee (oui/non)
-2. Intitule: la tache en question (texte)
+Dans `observations-classement.md`, on conserve :
 
-Maintenant, si on duplique le format d'un jour:
+- les réponses justifiées aux treize questions et les trois inventaires ;
+- la règle de classement et les difficultés rencontrées ;
+- les observations lors de l’utilisation par un autre groupe et une comparaison appuyée sur une recherche précise ;
+- une recherche dans le code source et la manière dont sa réponse a été vérifiée ;
+- un exemple de différence entre le nombre d’occurrences et le nombre de documents ;
+- une explication de la différence entre donnée et information ;
+- une explication du rôle de l’encodage dans la lecture des bits ;
+- une distinction entre base de données, SGBD et application ;
+- la justification rédigée pendant la synthèse : critère de recherche, raison de retenir ou d’écarter un résultat et limites de ce que le document permet d’affirmer.
 
-![TODO](asset/session_01_todo_weekly.png)
+On termine par une question que le classement obtenu laisse difficile à résoudre. On indique si la recherche dans le code source permet d’y répondre et ce qui reste difficile.
 
-Combien de colonnes ?
-- 3
-- 4
-- 8
-- 7+1
+Pour la séance 2, on conserve `observations-classement.md`, les captures et l’accès aux 42 documents avec leurs descriptions complètes, notamment les mentions utilisées dans les treize questions. On reprendra les mêmes numéros pour organiser leurs informations en tableaux et décrire les collections proposées. Le programme, le livret DVD et le billet d’une même œuvre resteront des documents distincts. Les réponses et les inventaires de cette séance serviront à vérifier les tableaux obtenus, selon les [données de départ du projet](projet.md#données-de-départ-et-reprise-en-séance-2).
 
-### **Calendrier mensuel**
+## Complément facultatif — Classement, modèle relationnel et interfaces
 
-* Représentation visuelle du mois
-* Structure fixe : 7 colonnes
-* Donnees variables : calendrier imperial demarre le dimanche (bien sur)
+Cette lecture prolonge la synthèse. Elle est **facultative, hors séance**, et ne demande aucun travail à remettre.
 
-Question: combien de semaine dans un mois ?
-- 4
-- 5
-- 6
-- what ?
+### Un classement efficace pour quelles questions ?
 
+Quand on connaît les données et les questions à l’avance, une organisation simple peut suffire. Pour retrouver des prix, on sépare les documents qui affichent un montant de ceux qui n’en affichent pas. On classe ensuite les montants, en tenant compte de leur monnaie. Ce rangement répond au besoin prévu.
 
-![Calendar](asset/session_01_calendar_2025.jpg)
+La question change : **quel document mentionne Ravi Shankar comme compositeur ?** Le classement par prix aide peu. La propriété « compositeur » oriente vers la musique, donc vers les disques. Pourtant, la réponse est une affiche de cinéma : *Pather Panchali*, document 36.
 
-<img src="asset/life_finds_a_way.jpg" alt="Description" width="173" >
+Une propriété peut guider la recherche sans déterminer à elle seule la catégorie du document. Le même ensemble peut être interrogé par prix, date, lieu, personne ou objet représenté.
 
-![Calendar](asset/session_01_calendar.png)
-> Vous avez (et vous serez encore) confronte a des questions comme celle la. Apres ce cours, vous y repondrez differement.
+**La difficulté est de répondre à des questions nouvelles sans réorganiser les documents à chaque demande.** On cherche une manière commune d’exploiter les propriétés enregistrées, de les combiner et de rapprocher les données.
 
+### Codd et le modèle relationnel
 
-## **2.2.4. Données historiques : liste des rois mérovingiens**
+En 1970, **Edgar F. Codd** publie le modèle relationnel. Il propose de décrire les données par des relations, représentées sous forme de tables, et de les manipuler indépendamment de leur organisation physique dans la machine. Un changement de stockage doit pouvoir laisser les programmes qui les utilisent inchangés. C’est le principe d’**indépendance des données**. [Publication de Codd, 1970](https://research.ibm.com/publications/a-relational-model-of-data-for-large-shared-data-banks).
 
-* Colonnes : nom, dates, événements, succession
-* Permet la comparaison entre règnes
+Cette séparation permet de formuler les propriétés du résultat attendu sans imposer le parcours à suivre pour le trouver. Le SGBD prend en charge l’accès aux données. Les mêmes tables peuvent servir à sélectionner, trier, compter ou rapprocher des informations selon des questions différentes.
 
-![Rois partiel](asset/session_01_king.webp)
-<img src="asset/life_finds_a_way.jpg" alt="Description" width="173" >
-![Rois complet](asset/session_01_king_full.webp)
+**SQL**, développé ensuite par Donald Chamberlin et Raymond Boyce, concrétise cette approche : on décrit le résultat recherché, et le SGBD détermine comment l’obtenir. [Histoire du modèle relationnel et de SQL, IBM](https://www.ibm.com/history/relational-database).
 
+### Des interfaces pour poser des questions
 
----
+Cette interrogation des données est déjà présente dans les applications du quotidien.
 
-# **2.3. Pourquoi utiliser des tableaux ?**
+| Application | Manière de poser la question | Résultat recherché |
+|---|---|---|
+| Contacts du téléphone | Saisir un nom ou une partie d’un numéro. | Les fiches de contact correspondantes. |
+| Moteur de recherche | Saisir des mots dans un champ. | Des documents indexés correspondant à la recherche. |
+| Boutique en ligne | Choisir une catégorie, puis une taille, une couleur ou une fourchette de prix. | Les produits qui satisfont les critères choisis. |
+| Gestionnaire de contenus ou CMS | Choisir un type de contenu, une catégorie, un thème ou des tags. | Les contenus qui possèdent les propriétés demandées. |
 
-## **2.3.1. Comparaison facilitée**
+Les filtres combinables d’une boutique sont souvent appelés **facettes**. Un champ de recherche ou un ensemble de filtres permet de construire une **requête** : une demande adressée au système pour obtenir des données selon des critères.
 
-* Les colonnes permettent de comparer une même caractéristique
-* On repère rapidement différences et similarités
-* Exemple : comparer les prix de plusieurs produits
-
-## **2.3.2. Recherche rapide**
-
-* Une cellule est localisée par *coordonnées*
-* Trouver “cours de X à 14h” revient à croiser une ligne avec une colonne
-
-## **2.3.3. Vue d’ensemble**
-
-* Un tableau offre une photographie globale
-* Utile pour détecter tendances, anomalies ou patterns
-
-## **2.3.4. Organisation logique**
-
-* Structure claire, prévisible
-* Réduction des erreurs
-* Standardisation naturelle
-
-
-## **2.3.5. Exemples**
-
-### **Planning de cours**
-
-* Colonnes : jours, heures, salles
-* Lignes : créneaux
-* Permet de visualiser une semaine d’un coup
-
-![Planning cours](asset/session_01_horaire.png)
-### **Table de multiplication**
-
-* Exemple canonique de tableau strict
-* Recherche instantanée par croisement ligne/colonne
-![multiplication](asset/session_01_multiplication.png)
-
-
-
-**Principe commun :**
-Organisation **cohérente, répétitive et optimisée** pour la recherche.
-
----
-
-# **2.5. Structure formelle des données tabulées**
-
-## **2.5.1. Terminologie**
-
-| Terme              | Description                              | Synonymes    | Exemple          |
-| ------------------ | ---------------------------------------- | ------------ | ---------------- |
-| **Enregistrement** | Ligne représentant une entité complète   | Tuple, row   | Un étudiant      |
-| **Attribut**       | Colonne représentant une caractéristique | Champ, field | La colonne “Âge” |
-| **Valeur**         | Donnée dans une cellule                  | Cellule      | 18               |
-| **Clé**            | Attribut identifiant de manière unique   | ID           | Numéro étudiant  |
-
-## **2.5.2. Exemple : tableau des étudiants**
-
-| ID_Etudiant | Nom     | Prénom | Âge | Classe      |
-| ----------- | ------- | ------ | --- | ----------- |
-| 001         | Dupont  | Jean   | 18  | Terminale A |
-| 002         | Martin  | Marie  | 17  | Première B  |
-| 003         | Bernard | Luc    | 18  | Terminale A |
-
-**Analyse :**
-
-* 3 enregistrements
-* 5 attributs
-* 15 valeurs
-* **ID_Etudiant** joue le rôle de clé primaire
-
----
-
-# **2.6. Principes fondamentaux des données tabulées**
-
-## **2.6.1. Organisation bidimensionnelle**
-
-* Lignes = entités
-* Colonnes = caractéristiques
-
-## **2.6.2. Cohérence des types**
-
-* Chaque colonne contient des valeurs du même type
-* Permet tri, calcul et comparaison
-
-## **2.6.3. Atomicité**
-
-* Une cellule = une seule information
-* Éviter les données combinées (“Dupont, Martin”)
-
-## **2.6.4. Accès par coordonnées**
-
-* Une cellule = intersection ligne/colonne
-* Exemple : âge du 2ᵉ étudiant = [2, Âge]
-
-## **2.6.5. Analyse verticale et horizontale**
-
-* Verticale : comparer un attribut (ex : tous les âges)
-* Horizontale : analyser un enregistrement (profil complet)
-
-## **2.6.6. Intégrité**
-
-* Un enregistrement = unique
-* Une clé = garantie d’unicité
-
----
-
-# **2.7. Limites des tableaux simples**
-
-Ces limites expliquent la naissance des bases de données relationnelles :
-
-1. **Redondance** (informations répétées)
-2. **Difficultés de mise à jour** (modification à plusieurs endroits)
-3. **Absence de relations** (liens difficiles à gérer)
-4. **Volume** (les tableurs ne passent pas à grande échelle)
-
-
----
-> Ce cours est distribué sous **licence Creative Commons**. Toute reproduction ou distribution à but commercial est interdite sans l’accord préalable de l’auteur.
+L’application traduit les choix faits dans l’interface en instructions exécutables. Les langages varient selon les systèmes ; ce module porte principalement sur **SQL et les bases de données relationnelles**. On apprendra à exprimer les questions avec précision, à organiser les données nécessaires et à vérifier les réponses obtenues.
