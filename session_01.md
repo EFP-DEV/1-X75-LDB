@@ -2,7 +2,7 @@
 
 Un titre, une date, une photographie ou un prix peuvent constituer des données. Une application les conserve pour les afficher, les rechercher et les modifier.
 
-On distingue d’abord **donnée et information**, puis on compare plusieurs manières de représenter une même quantité, jusqu’à l’écriture **binaire**. On classe ensuite un ensemble de **42 documents culturels** pour y rechercher des informations. Chaque réponse doit être justifiée par le document correspondant ; chaque comptage, par la liste des documents retenus.
+On distingue d’abord **donnée et information**, puis on compare plusieurs manières de représenter le nombre **122**, jusqu’à l’écriture **binaire**. Le code **ASCII** permet ensuite de relier ce nombre à la lettre **z**, dont une police fournit le dessin affiché à l’écran. On classe ensuite un ensemble de **42 documents culturels** pour y rechercher des informations. Chaque réponse doit être justifiée par le document correspondant ; chaque comptage, par la liste des documents retenus.
 
 ## 1. Mettre les mots en commun
 
@@ -39,273 +39,230 @@ Savoir qu’une collection contient 12 éléments ne permet pas de connaître le
 
 Reprenez un exemple proposé au début de la séance. Identifiez la donnée, précisez son contexte, puis formulez une information que vous pouvez en tirer. Indiquez aussi une conclusion que ces éléments ne permettent pas de soutenir. Faites relire votre exemple par une autre personne : dispose-t-elle du contexte nécessaire pour comprendre la donnée de la même façon ?
 
-## 3. Les systèmes de numération
+## 3. Les systèmes de numération : des bits au texte affiché
 
-### Quantité et représentation
+**Si les ordinateurs ne connaissent que 0 et 1, comment du texte apparaît-il à l’écran ?**
 
-On compte les pommes de chaque ligne, puis on compare les deux écritures proposées.
+Les données numériques sont représentées par des suites de **bits**. Un bit peut prendre deux valeurs, notées `0` et `1`. Pour comprendre comment ces deux valeurs permettent de représenter une lettre, nous allons suivre le nombre **122** : apprendre à l’écrire autrement, l’associer à un caractère, puis expliquer son affichage.
 
-| Pommes | Décimal | Binaire |
-|---|---|---|
-| 🍎 | 1 | 1 |
-| 🍎🍎 | 2 | 10 |
-| 🍎🍎🍎🍎🍎🍎🍎 🍎🍎🍎🍎🍎🍎🍎 | 14 | 1110 |
+### Quantité et représentation : le décimal (base 10)
 
-**La quantité reste la même ; son écriture dépend des conventions choisies.** Un **système de numération** définit les symboles et les règles qui permettent d’écrire et de lire les nombres. Ainsi, `10` en binaire représente la même quantité que `2` en décimal.
+Un **système de numération** définit les symboles et les règles qui permettent d’écrire et de lire les nombres. Une même quantité peut avoir plusieurs écritures selon les conventions choisies.
 
-Les écritures `1`, `2` et `32` représentent des nombres. Quel rôle joue alors le symbole `0` ? On garde cette question pour la suite.
-
-L’illustration suivante représente le nombre décimal **1614** en notation maya. On observe ses symboles avant d’en découvrir les règles de lecture.
-
-<img src="asset/numeration/mayan_number.png" alt="Écriture maya du nombre décimal 1614, à interpréter après l’étude des bases." width="161" />
-
-<details>
-<summary><strong>Comprendre la notation maya</strong></summary>
-
-L’illustration ci-dessus représente le nombre **1614**. La notation maya présentée ici utilise trois signes :
-
-- un point pour représenter `1` ;
-- une barre pour représenter `5` ;
-- un signe en forme de coquillage pour représenter `0`.
-
-Les points et les barres se combinent pour écrire les valeurs de `1` à `19`. Les positions sont disposées verticalement. Dans la représentation en base 20 utilisée ici, le niveau inférieur vaut `20⁰ = 1`, le suivant `20¹ = 20`, puis `20² = 400`. Un zéro peut occuper tout niveau où la contribution est nulle. [Diane Davies, archéologue spécialiste des Mayas, « The Maya number system »](https://www.mayaarchaeologist.co.uk/the-main-differences-between-the-maya-number-system-and-ours/).
-
-On retrouve alors la décomposition suivante :
+Le système décimal utilise dix chiffres : `0123456789`. On décompose le nombre **122** :
 
 ```text
-1614 = 4 × 400 + 0 × 20 + 14 × 1
-```
-
-<img src="asset/numeration/mayan_number_revealed.png" alt="Illustration de la décomposition du nombre 1614 en notation maya." />
-
-Le zéro occupe ici le niveau des vingtaines. La quantité reste **1614**, même si les symboles et leur disposition changent.
-
-</details>
-
-### Décimal (base 10)
-
-#### Les chiffres et leur position
-
-Le système décimal utilise dix chiffres : `0123456789`.
-
-```text
-  0 -   9
- 10 -  19
- 20 -  29
- 30 -  39
-   ...
- 90 -  99
-100 - 199
-200 - 299
-   ...
-900 - 999
-```
-
-Avec des **zéros non significatifs à gauche**, on peut écrire les mêmes nombres sur trois positions :
-
-```text
-000 - 009
-010 - 019
-020 - 029
-030 - 039
-   ...
-090 - 099
-100 - 199
-200 - 299
-   ...
-900 - 999
-```
-
-Par exemple, `007` et `7` représentent la même quantité. Ces zéros à gauche préparent une écriture de longueur fixe.
-
-#### Décomposer un nombre décimal
-
-On décompose le nombre `847` :
-
-```text
-847 = 800 + 40 + 7
+122 = 100 + 20 + 2
+122 = 1 × 100 + 2 × 10 + 2 × 1
 ```
 
 Chaque chiffre multiplie la valeur de sa position :
-
-```text
-847 = 8 × 100 + 4 × 10 + 7 × 1
-```
-
-Les valeurs des positions sont des puissances de dix :
-
-```text
-847 = 8 × 10² + 4 × 10¹ + 7 × 10⁰
-```
 
 | | Centaines | Dizaines | Unités |
 |---|---|---|---|
 | Rang | 2 | 1 | 0 |
 | Valeur de la position | 10² = 100 | 10¹ = 10 | 10⁰ = 1 |
-| Chiffre | 8 | 4 | 7 |
-| Contribution au nombre | 800 | 40 | 7 |
+| Chiffre | 1 | 2 | 2 |
+| Contribution au nombre | 100 | 20 | 2 |
 
-La **base est 10**. Le **rang** commence à zéro à droite ; il devient l’exposant de la puissance. Chaque position vaut dix fois celle qui se trouve immédiatement à sa droite.
+La **base est 10** : chaque position vaut dix fois celle située immédiatement à sa droite. Le **rang** commence à zéro à droite ; il devient l’exposant de la puissance. On parle de **notation positionnelle**, car la contribution d’un chiffre dépend de sa position.
+
+Dans `122`, les deux chiffres `2` contribuent-ils de la même façon au nombre ? Expliquez à partir du tableau.
+
+Les regroupements par dix nous sont familiers. D’autres conventions utilisent d’autres regroupements pour représenter la même quantité.
 
 ### Sexagésimal (base 60)
 
-On observe cette autre succession d’écritures. Quelle convention pourrait expliquer le passage de `059` à `100`, puis de `5959` à `10000` ?
+Une minute regroupe **60 secondes** et une heure regroupe **60 minutes**. Pour exprimer une durée de 122 secondes, on forme deux groupes de 60 secondes ; il reste deux secondes :
 
 ```text
-000 - 009
-010 - 019
-020 - 029
-030 - 039
-040 - 049
-050 - 059
-
-100 - 109
-110 - 119
-120 - 129
-130 - 139
-140 - 149
-150 - 159
-
-200 - 209
-210 - 219
-220 - 229
-230 - 239
-240 - 249
-250 - 259
-
-...
-
-5900 - 5909
-5910 - 5919
-5920 - 5929
-5930 - 5939
-5940 - 5949
-5950 - 5959
-
-10000 - 10009
-10010 - 10019
-10020 - 10029
-...
-10050 - 10059
-10100 - 10159
-...
-15900 - 15959
+122 secondes = 2 × 60 secondes + 2 secondes
+122 secondes = 2 minutes et 2 secondes
 ```
 
-<details>
-<summary><strong>Révéler la convention</strong></summary>
-
-On ajoute les séparateurs et les zéros à gauche : une écriture familière apparaît.
+En heures, minutes et secondes, cette durée s’écrit **`00:02:02`**. Chaque groupe est écrit avec des chiffres décimaux, mais le passage des secondes aux minutes, puis des minutes aux heures, se fait par **60**. C’est le principe **sexagésimal**.
 
 ```text
-00:00:00 → 00:00:09
-00:00:10 → 00:00:19
-00:00:20 → 00:00:59
-00:01:00 → 00:01:59
-00:02:00 → 00:02:59
-00:59:00 → 00:59:59
-01:00:00 → 01:00:59
+00:00:59 → 00:01:00
+00:59:59 → 01:00:00
 ```
 
-Il s’agit de durées écrites en **heures, minutes et secondes**. Une minute regroupe 60 secondes ; une heure regroupe 60 minutes. Après `00:00:59`, la seconde suivante donne `00:01:00`. Après `00:59:59`, elle donne `01:00:00`.
+On vérifie la durée en revenant aux secondes : `2 × 60 + 2 = 122`.
 
-Chaque groupe est écrit avec les chiffres décimaux, mais le passage d’un groupe au suivant se fait par **60**. Le principe sexagésimal apparaît aussi dans la subdivision des angles : un degré comprend 60 minutes d’arc, et une minute d’arc comprend 60 secondes d’arc.
+Pourquoi 122 secondes ne correspondent-elles pas à 1 minute et 22 secondes ? Faites le calcul pour justifier votre réponse.
 
-</details>
+La durée ne change pas ; sa représentation dépend de la convention. On peut aussi regrouper des unités par vingt.
 
 ### Vigésimal (base 20)
 
-On énonce les dizaines jusqu’à cent : dix, vingt, trente, quarante, cinquante, soixante… Les noms suivants varient selon les usages francophones.
+Un regroupement par **vingt** est appelé **vigésimal**. Le nom « quatre-vingts » en conserve la trace : il désigne `4 × 20`. Même lorsqu’on dit « quatre-vingts », l’écriture chiffrée `80` reste décimale. Le nom du nombre et son écriture chiffrée sont deux représentations distinctes. [Académie française, « Septante, octante, nonante »](https://www.dictionnaire-academie.fr/article/QDL078).
 
-| Nombre | France | Belgique | Suisse romande | Québec |
-|---|---|---|---|---|
-| 70 | soixante-dix | septante | septante | soixante-dix |
-| 80 | quatre-vingts | quatre-vingts | huitante ou quatre-vingts | quatre-vingts |
-| 90 | quatre-vingt-dix | nonante | nonante | quatre-vingt-dix |
-
-En Suisse romande, les formes « huitante » et « quatre-vingts » coexistent selon les régions. En France et en Belgique, l’usage courant est « quatre-vingts ». « Octante » désigne aussi 80, mais cette forme vieillie ne correspond à l’usage courant d’aucun des trois pays du tableau. [Académie française, « Septante, octante, nonante »](https://www.dictionnaire-academie.fr/article/QDL078).
-
-On décompose les noms employés en France :
+Pour représenter 122 par groupes de vingt, on forme six vingtaines et il reste deux unités :
 
 ```text
-soixante-dix     = 60 + 10
-quatre-vingts    = 4 × 20
-quatre-vingt-dix = 4 × 20 + 10
+122 = 6 × 20 + 2 × 1
 ```
 
-« Quatre-vingts » conserve la trace d’un comptage par groupes de vingt, appelé **vigésimal**. Le nom du nombre et son écriture chiffrée sont deux représentations : même lorsqu’on dit « quatre-vingts », l’écriture `80` reste décimale. [Académie française, « Septante, octante, nonante »](https://www.dictionnaire-academie.fr/article/QDL078).
+On vérifie : six groupes de vingt donnent 120 ; les deux unités restantes donnent 122.
 
-### Binaire (base 2)
+Dans cette décomposition, que représente le `6` ? Que représente le `2` ? Expliquez pourquoi les additionner directement ne suffit pas à retrouver 122.
 
-Le système binaire utilise seulement deux chiffres : `0` et `1`. Les données numériques d’un ordinateur sont représentées par des suites de **bits**. Un **bit** peut prendre deux valeurs, notées `0` et `1` ; dans l’écriture binaire d’un entier, chaque chiffre correspond à un bit.
+Il reste à choisir des signes et des positions pour écrire ces deux valeurs. La notation maya en fournit un exemple.
 
-Avec seulement ces deux chiffres, le rôle du zéro devient essentiel. On le retrouve d’abord dans un nombre décimal connu.
+### La notation maya en base 20
 
-#### Le rôle du zéro
+La notation maya présentée ici utilise trois signes : un **point** pour 1, une **barre** pour 5 et un signe en forme de **coquillage** pour 0. Les points et les barres se combinent pour représenter les valeurs de 1 à 19.
 
-On décompose le nombre **décimal** `1023` :
+Les positions sont disposées verticalement. Dans la représentation en base 20 utilisée ici, le niveau inférieur vaut 1, le suivant 20, puis le suivant 400. Un signe zéro peut occuper un niveau où la contribution est nulle. [Diane Davies, archéologue spécialiste des Mayas, « The Maya number system »](https://www.mayaarchaeologist.co.uk/the-main-differences-between-the-maya-number-system-and-ours/).
 
-```text
-1023 = 1 × 1000 + 0 × 100 + 2 × 10 + 3 × 1
-```
+Pour notre nombre 122, deux niveaux suffisent :
 
-Le zéro indique qu’il n’y a **aucune centaine** à ce rang. Il conserve la position des autres chiffres. Le supprimer donnerait `123`, qui représente une autre quantité.
+| Niveau | Signes à ce niveau | Valeur des signes | Contribution au nombre |
+|---|---|---|---|
+| Vingtaines, au-dessus | Un point au-dessus d’une barre | 1 + 5 = 6 | 6 × 20 = 120 |
+| Unités, en dessous | Deux points | 2 | 2 × 1 = 2 |
 
-#### Notation positionnelle
+La somme des contributions redonne **122**. Les signes et leur disposition changent, mais on retrouve le principe positionnel : la valeur d’un groupe de signes dépend de son niveau.
 
-Dans une notation positionnelle, la valeur d’un chiffre dépend de son rang. La base indique le multiplicateur entre deux positions voisines :
+Pourquoi compter les valeurs des signes sans tenir compte des niveaux donnerait-il une mauvaise réponse ?
 
-```text
-Base 10 : 1023
-          10³  10²  10¹  10⁰
-          1    0    2    3
-```
-
-On applique le même principe à la base 2. Quelle quantité l’écriture `1101` représente-t-elle ?
-
-```text
-Base 2 : 1101
-         2³   2²   2¹   2⁰
-         1    1    0    1
-```
-
-Les positions valent `8`, `4`, `2` et `1`. On multiplie chaque chiffre par la valeur de sa position, puis on additionne les contributions. Un zéro conserve le rang, mais sa contribution à la somme est nulle.
-
-Pour passer du décimal au binaire, on décompose la quantité en puissances de deux. On place `1` aux rangs utilisés et `0` aux autres rangs. La somme des contributions doit redonner le nombre décimal de départ.
+Cette distinction permet de comparer la notation positionnelle à un comptage où toutes les marques ont la même valeur.
 
 ### Unaire (comptage par marques)
 
-Dans la numération **unaire**, parfois appelée « base 1 », chaque marque représente une unité. Le nombre cinq s’écrit par exemple `|||||`.
+Dans la numération **unaire**, chaque marque représente une unité. Le nombre cinq s’écrit par exemple `|||||`. Pour représenter **122**, il faudrait donc **122 marques**.
 
-On compte les marques pour retrouver la quantité. Leur position ne multiplie pas leur valeur : ce système ne suit pas le principe positionnel des bases 10 et 2. Représenter un grand nombre demande donc beaucoup de marques.
+Chaque marque vaut une unité, quelle que soit sa position. On compte les marques pour retrouver la quantité : aucune position ne multiplie leur valeur. Ce système est différent des notations positionnelles que nous venons de voir et demande beaucoup de marques pour un grand nombre.
 
-<img src="asset/numeration/unary_ishango_bone.jpg" alt="Os d’Ishango, illustration associée au comptage par marques." width="161" />
+Déplacer une marque, sans en ajouter ni en retirer, change-t-il la quantité représentée ? Justifiez votre réponse.
 
-### Exercices : changer de représentation
+Avec les bits, nous allons utiliser deux symboles et une notation positionnelle pour représenter 122 en quelques positions.
 
-#### Exercice 1 : encoder
+### Binaire (base 2)
 
-On représente le nombre décimal **17** en binaire en complétant la dernière ligne du tableau.
+Le système **binaire** utilise deux chiffres : `0` et `1`. Dans l’écriture binaire d’un entier, chaque chiffre correspond à un bit. Chaque position vaut **deux fois** celle située immédiatement à sa droite.
 
-| 2⁴ | 2³ | 2² | 2¹ | 2⁰ |
-|---|---|---|---|---|
-| 16 | 8 | 4 | 2 | 1 |
-| | | | | |
+On décompose 122 en puissances de deux. On place `1` aux positions retenues et `0` aux autres :
 
-On vérifie ensuite que la somme des puissances de deux retenues redonne **17**, puis on explique le rôle des zéros placés dans l’écriture obtenue.
+```text
+122 = 64 + 32 + 16 + 8 + 2
+```
 
-#### Exercice 2 : décoder
+| Puissance de deux | 2⁷ | 2⁶ | 2⁵ | 2⁴ | 2³ | 2² | 2¹ | 2⁰ |
+|---|---|---|---|---|---|---|---|---|
+| Valeur de la position | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1 |
+| Bit | 0 | 1 | 1 | 1 | 1 | 0 | 1 | 0 |
 
-On cherche la valeur décimale du nombre binaire **101010**.
+Le nombre **122 en décimal** s’écrit donc **`01111010` en binaire**, sur huit positions. Pour vérifier, on additionne les valeurs des positions contenant `1` : on doit retrouver 122.
 
-| 2⁵ | 2⁴ | 2³ | 2² | 2¹ | 2⁰ |
-|---|---|---|---|---|---|
-| 32 | 16 | 8 | 4 | 2 | 1 |
-| 1 | 0 | 1 | 0 | 1 | 0 |
+Un zéro indique qu’une position ne contribue pas à la somme, tout en maintenant la place des autres chiffres. Le zéro à la position de valeur 4 signifie que cette valeur n’est pas retenue. Le remplacer par `1` changerait le nombre.
 
-On écrit la somme des contributions, puis son résultat en décimal. Pour vérifier la réponse, on décompose ce résultat en puissances de deux : l’écriture obtenue doit être **101010**.
+Le zéro tout à gauche ne change pas la valeur : **`1111010` et `01111010` représentent le même nombre**. Il permet ici de compléter l’écriture jusqu’à huit positions.
 
-Dans les deux exercices, on précise ce qui change dans l’écriture et ce qui reste identique dans la quantité représentée. On conserve les deux conversions, leurs décompositions et leurs vérifications pour le bilan de la séance.
+Pourquoi la position de valeur 4 contient-elle `0` ? Quelle valeur obtiendrait-on en remplaçant ce seul bit par `1` ?
+
+Nous savons maintenant représenter 122 avec des bits. Pour lui faire représenter une lettre, il faut une convention supplémentaire.
+
+### ASCII : du nombre au caractère
+
+Un **caractère** est un élément de texte : une lettre, un chiffre, un signe de ponctuation ou une espace, par exemple. **ASCII** est une convention commune qui associe des caractères à des codes numériques.
+
+Voici un extrait de sa table :
+
+| Caractère | Code ASCII en décimal |
+|---|---|
+| `x` minuscule | 120 |
+| `y` minuscule | 121 |
+| `z` minuscule | 122 |
+
+Le nombre que nous suivons depuis le début, **122**, est donc le **code ASCII de `z` minuscule**. Ce code numérique, également appelé **point de code**, sert ici à identifier le caractère. Il ne compte pas un nombre de lettres.
+
+ASCII définit **128 codes, de 0 à 127**, représentables sur **sept bits**. Certains correspondent à des caractères visibles ; d’autres servent notamment à commander des retours à la ligne.
+
+Un **octet** est un groupe de **huit bits**. Dans les exemples de ce cours, on place le code ASCII dans un octet en ajoutant un zéro à gauche :
+
+```text
+Caractère :                     z
+Code ASCII en décimal :         122
+Code sur sept bits :            1111010
+Représentation sur un octet :    01111010
+```
+
+Un **encodage de caractères** est une convention qui permet de représenter les caractères par des codes et des bits. Avec ASCII, nous pouvons donc passer de `z` à l’octet `01111010`. Lors de la lecture, le **décodage** permet de retrouver `z` à partir de cet octet.
+
+**ASCII ne permet pas de représenter les lettres accentuées comme `é`.**
+
+Une fois le caractère retrouvé, il reste à lui donner une forme visible.
+
+### De la lettre au glyphe affiché
+
+Une **police de caractères** fournit des formes graphiques appelées **glyphes**. Pour afficher notre lettre, le logiciel sélectionne un glyphe de `z` dans la police utilisée, puis le transforme en **pixels**, les points qui composent l’image à l’écran.
+
+Deux polices peuvent dessiner `z` différemment. Le caractère et son code ASCII restent les mêmes ; la forme graphique peut changer.
+
+| Notion | Rôle dans notre exemple |
+|---|---|
+| **Caractère** | La lettre `z` que l’on veut représenter. |
+| **Code numérique ou point de code** | Le numéro 122 attribué à `z` dans la table ASCII. |
+| **Encodage** | La convention ASCII qui permet de représenter ce caractère par des bits ; ici, `01111010` sur un octet. |
+| **Glyphe** | Le dessin de `z` fourni par la police pour son affichage. |
+
+On peut maintenant suivre les deux sens du parcours :
+
+```text
+Pour enregistrer :
+z → code ASCII 122 → représentation sur un octet → 01111010
+
+Pour afficher :
+01111010 → décodage ASCII → caractère z
+→ choix d’un glyphe dans une police → pixels à l’écran
+```
+
+Comme pour les données étudiées au début de la séance, **l’interprétation dépend du contexte**. La suite `01111010` peut représenter le nombre 122. Lue comme du texte ASCII, elle représente `z`. Les bits seuls ne précisent pas laquelle de ces interprétations le logiciel doit utiliser.
+
+### Activité : convertir, vérifier et expliquer
+
+**Durée indicative : 10 minutes, sur papier, en binôme.** Utilisez la petite table ASCII donnée plus haut.
+
+1. **Convertissez 121**, le code ASCII de `y`, en binaire sur huit positions. Complétez la dernière ligne du tableau ci-dessous.
+2. **Faites vérifier votre résultat** par votre partenaire : il additionne les valeurs des positions contenant `1`. Il doit retrouver 121.
+3. **Lisez `01111000`** : calculez sa valeur décimale, puis identifiez le caractère correspondant dans la table ASCII. Vérifiez en décomposant le résultat pour retrouver les mêmes bits.
+4. **Expliquez le passage à l’affichage** : décrivez comment le logiciel passe de cet octet au caractère puis au glyphe affiché. Précisez ce qui peut changer si l’on choisit une autre police.
+5. **Précisez le contexte nécessaire** : pourquoi la suite de bits seule ne permet-elle pas de décider s’il faut l’interpréter comme un nombre ou comme du texte ?
+
+| Valeur de la position | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1 |
+|---|---|---|---|---|---|---|---|---|
+| Bit pour représenter 121 | | | | | | | | |
+
+Conservez les deux conversions, leurs décompositions de vérification et votre explication du passage des bits au texte affiché.
+
+<details>
+<summary><strong>Correction — à lire après l’activité</strong></summary>
+
+Pour `y` :
+
+```text
+121 = 64 + 32 + 16 + 8 + 1
+121 en décimal = 01111001 en binaire
+```
+
+Pour l’octet à lire :
+
+```text
+01111000 en binaire = 64 + 32 + 16 + 8 = 120 en décimal
+```
+
+Le code ASCII 120 correspond à **`x` minuscule**. Le logiciel retrouve ce caractère en décodant l’octet selon ASCII, puis utilise une police pour choisir un glyphe et l’afficher en pixels. Changer de police peut changer son dessin, mais ne change pas son code ASCII.
+
+Le contexte doit indiquer comment interpréter la donnée : comme un nombre ou comme du texte utilisant un encodage donné. Sans cette indication, on ne peut pas décider si `01111000` désigne le nombre 120 ou le caractère `x`.
+
+</details>
+
+### Réponse à la question de départ
+
+**Si les ordinateurs ne connaissent que 0 et 1, comment du texte apparaît-il à l’écran ?**
+
+Les bits permettent de représenter des nombres. Une convention comme ASCII associe certains nombres à des caractères : **122 correspond à `z`**. Le logiciel interprète les bits selon cette convention, retrouve le caractère, puis utilise une police pour afficher son glyphe sous forme de pixels.
 
 ---
 
