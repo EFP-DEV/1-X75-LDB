@@ -274,7 +274,7 @@ Les bits permettent de représenter des nombres. Une convention comme ASCII asso
 
 Comment organiser de nombreux documents pour y retrouver des informations ?
 
-En groupe, ouvrez l’[interface web de classement](https://efp-dev.github.io/1-X75-LDB/exo/session_01.html) sur un ordinateur connecté à Internet. Vous disposez de **42 documents culturels** : couvertures, pochettes, affiches, documents de théâtre, billets, cartes postales et photographies de lieux. Ces objets peuvent être publiés et réunis en collections dans le [projet du module](projet.md).
+En groupe, ouvrez l’[interface web de classement](https://efp-dev.github.io/1-X75-LDB/exo/session_01.html) sur un ordinateur connecté à Internet. Vous disposez de **42 documents culturels** : couvertures, pochettes, affiches, documents de théâtre, billets, cartes postales et photographies de lieux. Ces objets peuvent être publiés et réunis en collections dans le projet du module.
 
 Déplacez les images par glisser-déposer. Cliquez sur une image pour l’agrandir et lire ses inscriptions. **Les positions ne sont pas sauvegardées : recharger la page rétablit la disposition initiale.**
 

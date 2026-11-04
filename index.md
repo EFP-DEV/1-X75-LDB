@@ -8,7 +8,7 @@ Le [résumé du référentiel EFP et les objectifs du cours](referentiel.md) pr�
 
 ## Le projet du module
 
-Le [projet commun](projet.md) repose sur une **application centrée sur les collections**, déclinable en application de collections, réseau social ou boutique pour l’atelier ADB. Son socle comprend des utilisateurs, des éléments publiés, des médias, des collections, des interactions et des crédits internes. Les thèmes, catégories et tags peuvent compléter le projet selon les besoins.
+Le projet commun repose sur une **application centrée sur les collections**, déclinable en application de collections, réseau social ou boutique pour l’atelier ADB. Son socle comprend des utilisateurs, des éléments publiés, des médias, des collections, des interactions et des crédits internes. Les thèmes, catégories et tags peuvent compléter le projet selon les besoins.
 
 Les exercices commencent avec un même corpus de **42 documents culturels**, utilisé en séance 1 puis repris en tableaux à la séance 2. On classe d’abord les documents librement, puis on y recherche des informations. On apprend progressivement à interroger les données avec SQL, à les modifier, à les relier et à construire une base cohérente. Les mêmes tâches permettent de comparer les solutions et de vérifier les effets des changements. Les étudiants adaptent ensuite ce socle au sujet de leur application.
 
@@ -57,7 +57,7 @@ La synthèse porte sur les résultats de la recherche textuelle : documents trou
 
 On reprend les 42 documents de la séance 1, leurs numéros, les notes et les captures des classements. Chaque document devient une fiche d’élément à publier ; plusieurs documents concernant la même œuvre restent distincts. On relève les informations utiles aux recherches : titre ou désignation, nature du document, personnes mentionnées et leurs rôles, lieu, date et horaire lorsqu’ils sont indiqués. On conserve aussi les descriptions complètes et les mentions utilisées dans les treize questions : prix et monnaie, référence, inscription, logo, puissance du moteur, durée, placement et année. Les regroupements proposés servent à décrire des collections et les documents qu’elles réunissent.
 
-On organise ces données en tableaux pour reprendre les treize questions et en poser de nouvelles qui traversent plusieurs regroupements. On précise les champs pour distinguer les homonymes, interpréter les dates et représenter les valeurs manquantes. On vérifie les réponses et les comptages à partir du corpus, puis on conserve les tableaux, leur dictionnaire des données et les exports CSV pour la séance 3. Les [données de départ](projet.md#données-de-départ-et-reprise-en-séance-2) précisent cette continuité.
+On organise ces données en tableaux pour reprendre les treize questions et en poser de nouvelles qui traversent plusieurs regroupements. On précise les champs pour distinguer les homonymes, interpréter les dates et représenter les valeurs manquantes. On vérifie les réponses et les comptages à partir du corpus, puis on conserve les tableaux, leur dictionnaire des données et les exports CSV pour la séance 3. Les données de départ précisent cette continuité.
 
 **Notions abordées :** Tableur ; tableaux, lignes, colonnes et cellules ; identifiants ; dictionnaire des données ; nommage, types, formats et longueurs ; valeur absente, chaîne vide et zéro ; export CSV.
 

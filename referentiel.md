@@ -42,7 +42,7 @@ Ce cours vous apprend à **concevoir, créer, exploiter et maintenir une base de
 
 ## Mise en pratique
 
-Vous apprendrez à réaliser ces opérations, à vérifier leurs résultats et à expliquer vos choix. Les exercices porteront sur les données du [projet commun](projet.md), une **application centrée sur les collections**, déclinable en application de collections, réseau social ou boutique pour l’atelier ADB.
+Vous apprendrez à réaliser ces opérations, à vérifier leurs résultats et à expliquer vos choix. Les exercices porteront sur les données du projet commun, une **application centrée sur les collections**, déclinable en application de collections, réseau social ou boutique pour l’atelier ADB.
 
 ## Organisation
 

@@ -22,7 +22,7 @@ L’activité commence directement par le classement libre des 42 documents. Cha
 
 La démonstration dans le code source vient après cette comparaison. Elle montre que les descriptions des documents et la recherche du navigateur permettent déjà de répondre aux questions. La séance fait ainsi identifier le besoin auquel un outil doit répondre avant d’en construire ou d’en installer un.
 
-Les objets représentés peuvent être publiés et réunis en collections dans le [projet commun](../projet.md). Les regroupements spontanés permettront ensuite d’introduire les tables ; on ne fournit pas de classement modèle.
+Les objets représentés peuvent être publiés et réunis en collections dans le projet commun. Les regroupements spontanés permettront ensuite d’introduire les tables ; on ne fournit pas de classement modèle.
 
 ## Utilisation du plateau
 
@@ -102,9 +102,9 @@ Les totaux portent sur les **42 documents du corpus**. Le manga nº 27 est compt
 
 ## Articulation avec le programme
 
-Cette activité ouvre le [projet commun de collections](../projet.md), déclinable en application de collections, réseau social ou boutique pour l’atelier ADB. Elle suit la progression du [programme](../index.md) et travaille les compétences de recherche, d’organisation, de vérification et de justification du [référentiel](../referentiel.md).
+Cette activité ouvre le projet commun de collections, déclinable en application de collections, réseau social ou boutique pour l’atelier ADB. Elle suit la progression du [programme](../index.md) et travaille les compétences de recherche, d’organisation, de vérification et de justification du [référentiel](../referentiel.md).
 
-Pour la séance 2, faire conserver les notes, les captures et l’accès au corpus complet avec ses descriptions, y compris les mentions nécessaires aux treize questions. Les 42 documents seront repris avec les mêmes numéros pour organiser leurs informations en tableaux ; les regroupements serviront à décrire les collections proposées. Utiliser les treize réponses et les inventaires du [corrigé](session_01_questions_ctrl_f.md) pour vérifier la conservation des informations. Les [données de départ du projet](../projet.md#données-de-départ-et-reprise-en-séance-2) précisent les informations à reprendre et les fichiers attendus.
+Pour la séance 2, faire conserver les notes, les captures et l’accès au corpus complet avec ses descriptions, y compris les mentions nécessaires aux treize questions. Les 42 documents seront repris avec les mêmes numéros pour organiser leurs informations en tableaux ; les regroupements serviront à décrire les collections proposées. Utiliser les treize réponses et les inventaires du [corrigé](session_01_questions_ctrl_f.md) pour vérifier la conservation des informations. Les données de départ du projet précisent les informations à reprendre et les fichiers attendus.
 
 Les données fictives d’utilisateurs, de statuts et de dates de publication seront fournies à partir de la séance 3. Distinguer alors les informations figurant sur le document de celles qui décrivent sa publication dans l’application.
 
