@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Retrouver et classer · LDB</title>
+  <link rel="stylesheet" href="asset/session_01.css">
+  <script src="asset/session_01.js" defer></script>
+</head>
+<body>
+  <header class="toolbar">
+    <h1><span>LDB · 01</span> Retrouver et classer</h1>
+    <p>Glisser pour déplacer <span aria-hidden="true">·</span> Cliquer pour agrandir</p>
+  </header>
+
+  <p id="keyboard-help" class="visually-hidden">Utilisez Tab pour choisir un document, les flèches pour le déplacer et Entrée pour l’agrandir. Maintenez Maj avec les flèches pour un déplacement fin. Échap ferme l’image agrandie. Recharger la page rétablit la disposition initiale.</p>
+
+  <main id="board" aria-label="Documents à classer" aria-describedby="keyboard-help">
+    <figure class="document portrait" tabindex="0" data-id="01" data-x="0.337" data-y="0.210" aria-haspopup="dialog">
+      <img src="asset/session_01/01-jodorowsky.png"
+        alt="Couverture de livre : « La Danse de la Réalité » d’Alejandro Jodorowsky, avec un chat. Mention « Espaces Libres » en bas et bande bleue « Écritures » sur la marge gauche."
+        draggable="false">
+      <span class="placeholder" aria-hidden="true">01</span>
+    </figure>
+
+    <figure class="document square" tabindex="0" data-id="04" data-x="0.495" data-y="0.015" aria-haspopup="dialog">
+      <img src="asset/session_01/04-tanita-tikaram.jpg"
+        alt="Pochette de disque : le CD « Twist in My Sobriety (Full Length Version) » de Tanita Tikaram. Fond blanc, motif géométrique coloré en bas à gauche, photographie de l’artiste près de son nom et carré rouge portant la mention « Special Price £1.99 »."
+        draggable="false">
+      <span class="placeholder" aria-hidden="true">04</span>
+    </figure>
+
+    <figure class="document portrait" tabindex="0" data-id="08" data-x="0.499" data-y="0.208" aria-haspopup="dialog">
+      <img src="asset/session_01/08-the-wild-robot-cinema.jpg"
+        alt="Affiche de cinéma : le film d’animation « The Wild Robot » de DreamWorks, réalisé par Chris Sanders. En haut figurent les noms des voix : Lupita Nyong’o, Pedro Pascal, Kit Connor, Bill Nighy, Stephanie Hsu, Mark Hamill et Catherine O’Hara. Sous le titre, un robot composé de deux sphères se tient dans un paysage naturel nocturne, accompagné d’un renard qui regarde un oison installé sur ses jambes."
+        draggable="false">
+      <span class="placeholder" aria-hidden="true">08</span>
+    </figure>
+
+    <figure class="document portrait" tabindex="0" data-id="12" data-x="0.828" data-y="0.592" aria-haspopup="dialog">
+      <img src="asset/session_01/12-cantatrice-pradinas.jpg"
+        alt="Page du programme du Théâtre de Cornouaille consacrée à « La Cantatrice chauve » d’Eugène Ionesco, mise en scène par Pierre Pradinas, avec Romane Bohringer. Sur fond blanc, le titre et les noms surmontent un texte en deux colonnes, suivi des crédits. En bas figurent les représentations des 10 et 11 octobre à 20 h, la durée de 1 h 25 et les tarifs."
+        draggable="false">
+      <span class="placeholder" aria-hidden="true">12</span>
+    </figure>
+
+    <figure class="document ticket" tabindex="0" data-id="15" data-x="0.336" data-y="0.981" aria-haspopup="dialog">
+      <img src="asset/session_01/15-billet-tanita.svg"
+        alt="Billet fictif pour le concert de Tanita Tikaram à l’Ancienne Belgique, Bruxelles, le 18 novembre 2027 à 20 h 00. Sur fond crème, un bandeau vert porte la mention « Billet de spectacle · Exemplaire pédagogique ». À droite d’une séparation en pointillés figurent le placement « Parterre · debout » et le tarif de 38,00 €. En bas, mention d’un événement inventé pour l’exercice, sans valeur d’entrée, et référence 15-EXERCICE."
+        draggable="false">
+      <span class="placeholder" aria-hidden="true">15</span>
+    </figure>
+
+    <figure class="document landscape" tabindex="0" data-id="18" data-x="0.668" data-y="0.403" aria-haspopup="dialog">
+      <img src="asset/session_01/18-carte-theatre.jpg"
+        alt="Carte postale ancienne en noir et blanc du théâtre de Toul. À droite, la façade ornée de sculptures, de grandes fenêtres cintrées et de grilles porte l’inscription « Théâtre ». À gauche se trouvent l’Hôtel-Café de la Comédie, des passants et un véhicule. En haut figure « La Meurthe-et-Moselle illustrée » ; en bas, « Toul — Le Théâtre — Entrée de l’Île-au-Quentin »."
+        draggable="false">
+      <span class="placeholder" aria-hidden="true">18</span>
+    </figure>
+
+    <figure class="document portrait" tabindex="0" data-id="02" data-x="0.654" data-y="0.976" aria-haspopup="dialog">
+      <img src="asset/session_01/02-barjavel.jpg"
+        alt="Couverture de livre : le roman « La Nuit des Temps » de René Barjavel, édition en grands caractères pour personnes malvoyantes. Paysage de banquise avec un centre de recherche, sous un ciel illuminé par une aurore boréale et la galaxie."
+        draggable="false">
+      <span class="placeholder" aria-hidden="true">02</span>
+    </figure>
+
+    <figure class="document square" tabindex="0" data-id="05" data-x="0.663" data-y="0.599" aria-haspopup="dialog">
+      <img src="asset/session_01/05-garland-jeffreys.jpg"
+        alt="Pochette de disque : « Hail Hail Rock and Roll » de Garland Jeffreys, titre inscrit en rouge en haut à gauche. Un homme vêtu de noir, portant des lunettes de soleil, se tient les mains appuyées contre deux murs de briques bleues, de part et d’autre de lui, dans un cul-de-sac."
+        draggable="false">
+      <span class="placeholder" aria-hidden="true">05</span>
+    </figure>
+
+    <figure class="document portrait" tabindex="0" data-id="09" data-x="0.670" data-y="0.024" aria-haspopup="dialog">
+      <img src="asset/session_01/09-quand-la-mer-monte.jpg"
+        alt="Affiche de cinéma : « Quand la mer monte... » de Gilles Porte et Yolande Moreau. L’illustration peinte montre une femme en robe aux très longues manches marchant sur une dune, les bras en croix, sous un ciel bleu parsemé de nuages blancs. En haut figurent le prix Louis-Delluc 2004 et les César 2005 du meilleur premier film et de la meilleure actrice. Le nom de Yolande Moreau et le titre apparaissent au centre, les crédits en bas."
+        draggable="false">
+      <span class="placeholder" aria-hidden="true">09</span>
+    </figure>
+
+    <figure class="document portrait" tabindex="0" data-id="13" data-x="0.827" data-y="0.787" aria-haspopup="dialog">
+      <img src="asset/session_01/13-cantatrice-lagarce.jpg"
+        alt="Couverture du livret d’accompagnement du DVD « La Cantatrice chauve » d’Eugène Ionesco, mise en scène par Jean-Luc Lagarce. Sur fond sombre, deux femmes en tailleurs et chapeaux roses, portant des colliers de perles, sont assises côte à côte, l’une sur une chaise et l’autre sur une balançoire. En haut à gauche figure « 02 Œuvres accompagnées » en vert ; en bas, le logo SCÉRÉN et la mention CRDP Franche-Comté."
+        draggable="false">
+      <span class="placeholder" aria-hidden="true">13</span>
+    </figure>
+
+    <figure class="document ticket" tabindex="0" data-id="16" data-x="0.179" data-y="0.599" aria-haspopup="dialog">
+      <img src="asset/session_01/16-billet-megadeth.svg"
+        alt="Billet fictif pour le concert de Megadeth au Botanique, salle de l’Orangerie, Bruxelles, le 26 novembre 2027 à 19 h 30. Sur fond crème, un bandeau brun rouge porte la mention « Billet de spectacle · Exemplaire pédagogique ». À droite d’une séparation en pointillés figurent le placement « Balcon · B12 » et le tarif de 45,00 €. En bas, mention d’un événement inventé pour l’exercice, sans valeur d’entrée, et référence 16-EXERCICE."
+        draggable="false">
+      <span class="placeholder" aria-hidden="true">16</span>
+    </figure>
+
+    <figure class="document landscape" tabindex="0" data-id="19" data-x="0.653" data-y="0.211" aria-haspopup="dialog">
+      <img src="asset/session_01/19-carte-concert.jpg"
+        alt="Carte postale ancienne aux tons sépia, légendée « Paris — Concert de La Scala ». La façade de la salle porte une grande enseigne « La Scala » et un décor sculpté de deux lions autour d’une lyre. Des affiches de spectacles encadrent les entrées, devant lesquelles plusieurs personnes se tiennent sur le trottoir. Un timbre rouge oblitéré apparaît en haut à droite."
+        draggable="false">
+      <span class="placeholder" aria-hidden="true">19</span>
+    </figure>
+
+    <figure class="document portrait" tabindex="0" data-id="03" data-x="0.183" data-y="0.790" aria-haspopup="dialog">
+      <img src="asset/session_01/03-seuss.jpg"
+        alt="Couverture de livre : « The Lorax » de Dr. Seuss, pour enfants. L’illustration colorée montre un paysage naturel aux grandes fleurs étranges, où un petit personnage orange aux longues moustaches jaunes et aux quelques poils sur la tête se tient sur une tige coupée."
+        draggable="false">
+      <span class="placeholder" aria-hidden="true">03</span>
+    </figure>
+
+    <figure class="document square" tabindex="0" data-id="06" data-x="0.024" data-y="0.592" aria-haspopup="dialog">
+      <img src="asset/session_01/06-megadeth.jpg"
+        alt="Pochette de disque : le maxi-single 12 pouces « Symphony of Destruction » de Megadeth, avec le nom du groupe en lettres stylisées. Sur un mur de béton, une main humaine, dont on voit le poignet et le début de l’avant-bras, laisse une longue griffure diagonale partant du coin supérieur gauche vers le bas à droite."
+        draggable="false">
+      <span class="placeholder" aria-hidden="true">06</span>
+    </figure>
+
+    <figure class="document portrait" tabindex="0" data-id="10" data-x="0.823" data-y="0.212" aria-haspopup="dialog">
+      <img src="asset/session_01/10-enfermes-dehors.jpg"
+        alt="Affiche de cinéma : « Enfermés dehors » d’Albert Dupontel. Le photomontage montre un décor urbain chaotique, entre usines, route et débris, où un policier français incarné par Albert Dupontel a la tête passée à travers un mur après un violent choc. En bas figurent le titre, la sortie en salles le 5 avril, le nom du réalisateur et l’adresse www.enfermedehors-lefilm.com."
+        draggable="false">
+      <span class="placeholder" aria-hidden="true">10</span>
+    </figure>
+
+    <figure class="document portrait" tabindex="0" data-id="14" data-x="0.495" data-y="0.596" aria-haspopup="dialog">
+      <img src="asset/session_01/14-don-quichotte.jpg"
+        alt="Programme déplié du spectacle « Don Quichotte » de Miguel de Cervantès au Théâtre national populaire (TNP), Villeurbanne. À gauche, une photographie en noir et blanc montre trois personnages en costumes sur scène, dont un homme coiffé d’un large chapeau et tenant une lance. Le reste du document, sur fond bleu, réunit des textes sur Cervantès et Christian Schiaretti, les spectacles à venir et, à droite, le titre en grandes lettres blanches sur noir avec le logo rond du TNP."
+        draggable="false">
+      <span class="placeholder" aria-hidden="true">14</span>
+    </figure>
+
+    <figure class="document ticket" tabindex="0" data-id="17" data-x="0.015" data-y="0.984" aria-haspopup="dialog">
+      <img src="asset/session_01/17-billet-cantatrice.svg"
+        alt="Billet fictif pour « La Cantatrice chauve » au Théâtre de la Vie, Bruxelles, le 4 décembre 2027 à 20 h 30. Sur fond crème, un bandeau bleu porte la mention « Billet de spectacle · Exemplaire pédagogique ». À droite d’une séparation en pointillés figurent le placement « Rang C · place 08 » et le tarif de 18,00 €. En bas, mention d’un événement inventé pour l’exercice, sans valeur d’entrée, et référence 17-EXERCICE."
+        draggable="false">
+      <span class="placeholder" aria-hidden="true">17</span>
+    </figure>
+
+    <figure class="document landscape" tabindex="0" data-id="20" data-x="0.184" data-y="0.977" aria-haspopup="dialog">
+      <img src="asset/session_01/20-carte-cinema.jpg"
+        alt="Carte postale ancienne en noir et blanc du cinéma-concert de la Brasserie du Globe, P. Lebon, au camp de Sissonne dans l’Aisne. Cinq photographies montrent la vue extérieure avec un groupe de personnes, la salle de concert avec ses rangées de sièges, un véhicule du service des transports, une salle à manger et le groupe moteur de 25 HP du cinéma. Le titre « Cinéma-Concert » occupe le centre du montage."
+        draggable="false">
+      <span class="placeholder" aria-hidden="true">20</span>
+    </figure>
+
+    <figure class="document square" tabindex="0" data-id="07" data-x="0.656" data-y="0.791" aria-haspopup="dialog">
+      <img src="asset/session_01/07-lavilliers-ringer.jpg"
+        alt="Pochette de disque : « Acoustique » de Bernard Lavilliers, présentant le titre « Idées noires » en duo avec Catherine Ringer. Sur fond noir, au centre, inscriptions vertes, orange, jaunes et blanches, avec le mot « Acoustique » en typographie stylisée."
+        draggable="false">
+      <span class="placeholder" aria-hidden="true">07</span>
+    </figure>
+
+    <figure class="document portrait" tabindex="0" data-id="11" data-x="0.971" data-y="0.215" aria-haspopup="dialog">
+      <img src="asset/session_01/11-trailer-park-boys.jpg"
+        alt="Affiche de cinéma : « Trailer Park Boys: The Movie », avec le titre en lettres blanches bordées de rouge et de noir sur un fond de planches de bois orangées. Sous le titre figure « Baked on a true story ». En bas, l’annonce « Summer 2006 » surmonte une invitation à regarder la bande-annonce sur TPBMOVIE.COM."
+        draggable="false">
+      <span class="placeholder" aria-hidden="true">11</span>
+    </figure>
+
+    <!-- Documents 21 à 42. -->
+    <figure class="document portrait" tabindex="0" data-id="21" data-x="0.346" data-y="0.595" aria-haspopup="dialog">
+      <img src="asset/session_01/21-priya-padma-sens-unique.jpg"
+        alt="Couverture de livre : « Priya Padma — Sens unique » de Lauise Warinda. Le titre et le nom de l’autrice sont inscrits en lettres dorées sur un fond bleu sombre. Sous une ligne de montagnes, deux silhouettes se tiennent devant l’entrée d’un tunnel ou d’une grotte d’où jaillit une lumière blanche. Un triangle contenant le chiffre 1 sépare le titre du sous-titre."
+        draggable="false">
+      <span class="placeholder" aria-hidden="true">21</span>
+    </figure>
+
+    <figure class="document portrait" tabindex="0" data-id="22" data-x="0.971" data-y="0.408" aria-haspopup="dialog">
+      <img src="asset/session_01/22-dit-du-genji-murasaki-shikibu.jpg"
+        alt="Couverture de livre : « Le Dit du Genji » de Murasaki Shikibu, traduit du japonais par René Sieffert, aux éditions Verdier. Sur fond crème, le nom de l’autrice apparaît en noir et le titre en orange. Trois grands caractères japonais noirs sont disposés verticalement au centre de la moitié inférieure, au-dessus du nom de l’éditeur en orange."
+        draggable="false">
+      <span class="placeholder" aria-hidden="true">22</span>
+    </figure>
+
+    <figure class="document portrait" tabindex="0" data-id="23" data-x="0.021" data-y="0.790" aria-haspopup="dialog">
+      <img src="asset/session_01/23-palais-des-reves-kadare.jpg"
+        alt="Couverture de livre : « Le Palais des rêves » d’Ismaïl Kadaré. Sur un fond peint clair, quatre personnages aux visages déformés portent des vêtements colorés et des coiffures étranges, dont un chapeau bleu surmonté d’une longue plume rouge et orange. Le nom de l’auteur est inscrit en rouge en haut ; les mentions « biblio » et « Le Livre de Poche » figurent en bas."
+        draggable="false">
+      <span class="placeholder" aria-hidden="true">23</span>
+    </figure>
+
+    <figure class="document portrait" tabindex="0" data-id="24" data-x="0.494" data-y="0.980" aria-haspopup="dialog">
+      <img src="asset/session_01/24-don-quichotte-cervantes.jpg"
+        alt="Couverture de livre : tome I de « Don Quichotte » de Cervantès, photographié sur un fond bleu turquoise. Sur la couverture blanche, le nom de l’auteur est en noir et le titre en rouge sombre. Au centre, un dessin au trait montre un personnage la tête en bas, les mains au sol et les jambes en l’air, près d’un arbre. En bas figurent « Les Classiques de Poche » et le logo rouge du Livre de Poche."
+        draggable="false">
+      <span class="placeholder" aria-hidden="true">24</span>
+    </figure>
+
+    <figure class="document portrait" tabindex="0" data-id="25" data-x="0.348" data-y="0.789" aria-haspopup="dialog">
+      <img src="asset/session_01/25-cent-ans-de-solitude-garcia-marquez.jpg"
+        alt="Couverture de livre : « Cent ans de solitude » de Gabriel García Márquez, dans la collection Points. Sur cette couverture en noir et blanc, le nom de l’auteur et le titre apparaissent en blanc dans une grande forme noire centrale. Tout autour s’entrelacent des branches, des feuilles, des fleurs et des oiseaux dessinés en silhouettes noires sur fond blanc."
+        draggable="false">
+      <span class="placeholder" aria-hidden="true">25</span>
+    </figure>
+
+    <figure class="document portrait" tabindex="0" data-id="26" data-x="0.813" data-y="0.400" aria-haspopup="dialog">
+      <img src="asset/session_01/26-la-vegetarienne-han-kang.jpg"
+        alt="Couverture de livre : « La Végétarienne » de Han Kang. Sur fond rouge, une silhouette noire de femme vue de profil, les cheveux attachés et la tête inclinée vers l’arrière, se prolonge en taches d’encre, en tiges et en racines. Le titre traverse l’illustration en grandes lettres blanches. En bas figurent « Man Booker Prize International 2016 » et le logo du Livre de Poche."
+        draggable="false">
+      <span class="placeholder" aria-hidden="true">26</span>
+    </figure>
+
+    <figure class="document portrait" tabindex="0" data-id="27" data-x="0.345" data-y="0.404" aria-haspopup="dialog">
+      <img src="asset/session_01/27-akira-tome-1-otomo.jpg"
+        alt="Couverture de livre : tome 1 du manga « Akira » de Katsuhiro Otomo, aux éditions Glénat. Le titre occupe le haut en très grandes lettres noires ; un cartouche jaune à gauche porte le nom de l’auteur et le numéro 1. Dans une scène dominée par le rouge, un jeune homme armé d’un pistolet se tient derrière une moto renversée, tandis qu’un autre se penche au premier plan et qu’un personnage est étendu à gauche."
+        draggable="false">
+      <span class="placeholder" aria-hidden="true">27</span>
+    </figure>
+
+    <figure class="document square" tabindex="0" data-id="28" data-x="0.985" data-y="0.979" aria-haspopup="dialog">
+      <img src="asset/session_01/28-buena-vista-social-club.jpg"
+        alt="Pochette de disque : l’album collectif « Buena Vista Social Club ». Une photographie montre un homme coiffé d’une casquette blanche, en chemise rayée et pantalon sombre, marchant dans une rue entre une façade à l’ombre et un trottoir ensoleillé. En haut à gauche, une vignette en forme de timbre porte le titre et les noms Ry Cooder, Ibrahim Ferrer, Rubén González, Eliades Ochoa, Compay Segundo et Omara Portuondo."
+        draggable="false">
+      <span class="placeholder" aria-hidden="true">28</span>
+    </figure>
+
+    <figure class="document square" tabindex="0" data-id="29" data-x="0.982" data-y="0.787" aria-haspopup="dialog">
+      <img src="asset/session_01/29-clube-da-esquina.jpg"
+        alt="Pochette de disque : « Clube da Esquina » de Milton Nascimento et Lô Borges. Sur fond jaune orangé, les noms des deux artistes et le titre occupent le centre en grandes lettres noires arrondies. En dessous, une petite photographie montre un groupe d’enfants et d’adultes debout sur un sol de galets. Les logos EMI et Odeon ainsi que l’année 1972 figurent en bas à droite."
+        draggable="false">
+      <span class="placeholder" aria-hidden="true">29</span>
+    </figure>
+
+    <figure class="document square" tabindex="0" data-id="30" data-x="0.510" data-y="0.784" aria-haspopup="dialog">
+      <img src="asset/session_01/30-mulatu-of-ethiopia.jpg"
+        alt="Pochette de disque : « Mulatu of Ethiopia » de Mulatu Astatke. Sur cette pochette en noir et blanc, un homme souriant, moustachu et vêtu d’une chemise claire tient des mailloches derrière un vibraphone. Le fond est couvert de motifs abstraits, dont un grand œil à droite. Le titre apparaît en grandes lettres blanches en haut et le logo Ethiopian Airlines en bas à gauche."
+        draggable="false">
+      <span class="placeholder" aria-hidden="true">30</span>
+    </figure>
+
+    <figure class="document square" tabindex="0" data-id="31" data-x="0.020" data-y="0.023" aria-haspopup="dialog">
+      <img src="asset/session_01/31-miss-perfumado-cesaria-evora.jpg"
+        alt="Pochette de disque : « Miss Perfumado » de Cesária Évora. Sur fond blanc, une femme en longue robe ample à motifs se tient debout, face à l’objectif. Le nom de l’artiste est inscrit en grandes lettres noires, orange et bleues en haut à gauche ; le titre traverse le bas de la photographie en lettres bleues bordées d’orange."
+        draggable="false">
+      <span class="placeholder" aria-hidden="true">31</span>
+    </figure>
+
+    <figure class="document square" tabindex="0" data-id="32" data-x="0.347" data-y="0.017" aria-haspopup="dialog">
+      <img src="asset/session_01/32-ultimas-composiciones-violeta-parra.jpg"
+        alt="Pochette de disque : « Las últimas composiciones de Violeta Parra ». Une photographie en noir et blanc montre une femme aux longs cheveux, assise et jouant d’un petit instrument à cordes, le regard tourné vers le haut à gauche. Le titre et le nom de l’artiste sont inscrits en rouge à gauche ; la mention RCA Victor et la référence CML-2456 figurent en haut à droite."
+        draggable="false">
+      <span class="placeholder" aria-hidden="true">32</span>
+    </figure>
+
+    <figure class="document portrait" tabindex="0" data-id="33" data-x="0.973" data-y="0.598" aria-haspopup="dialog">
+      <img src="asset/session_01/33-voyage-de-chihiro-affiche.jpg"
+        alt="Affiche de cinéma : le film d’animation « Le Voyage de Chihiro » de Hayao Miyazaki. Une jeune fille aux cheveux bruns, vêtue de rouge avec une ceinture et des liens blancs, se retourne vers le spectateur. Derrière elle, des bâtiments éclairés et une guirlande de lanternes rouges se détachent dans la nuit ; un personnage au masque blanc apparaît à droite. Le titre français est inscrit en haut et le titre japonais verticalement en rouge."
+        draggable="false">
+      <span class="placeholder" aria-hidden="true">33</span>
+    </figure>
+
+    <figure class="document portrait" tabindex="0" data-id="34" data-x="0.822" data-y="0.019" aria-haspopup="dialog">
+      <img src="asset/session_01/34-une-separation-affiche.jpg"
+        alt="Affiche de cinéma : « Une séparation » d’Asghar Farhadi, composée de photographies séparées par des bandes blanches obliques. Au centre, les visages d’un homme barbu et d’une femme ajustant son foulard ; en haut, le visage d’une jeune fille derrière une vitre ; en bas, plusieurs hommes dans une altercation. Le titre apparaît en grandes lettres rouges et noires. En haut figurent des avis de presse et l’Ours d’or du Festival de Berlin."
+        draggable="false">
+      <span class="placeholder" aria-hidden="true">34</span>
+    </figure>
+
+    <figure class="document portrait" tabindex="0" data-id="35" data-x="0.982" data-y="0.020" aria-haspopup="dialog">
+      <img src="asset/session_01/35-parasite-affiche.jpg"
+        alt="Affiche de cinéma : « Parasite » de Bong Joon Ho. Devant une maison moderne aux grandes baies vitrées, un homme se tient sur la pelouse ; derrière lui, un jeune homme porte une pierre, un couple occupe des chaises longues et un enfant se tient près d’un tipi. Des bandes noires ou blanches masquent les yeux des personnages. Au premier plan, deux jambes dépassent du bord gauche. L’accroche « Cherchez l’intrus » figure en haut et le titre en grandes lettres blanches en bas."
+        draggable="false">
+      <span class="placeholder" aria-hidden="true">35</span>
+    </figure>
+
+    <figure class="document portrait" tabindex="0" data-id="36" data-x="0.175" data-y="0.213" aria-haspopup="dialog">
+      <img src="asset/session_01/36-pather-panchali-affiche.jpg"
+        alt="Affiche de cinéma : « Pather Panchali » de Satyajit Ray, dans les tons vert et crème. Dans un grand cercle dentelé, un montage photographique en noir et blanc réunit une femme souriante, une jeune fille et un garçon, entourés de dessins d’un poisson, d’un oiseau, d’un soleil et de deux empreintes de pieds. Sous le cercle figurent le nom Bibhutibhusan Banerji, le titre en lettres manuscrites et les crédits du réalisateur Satyajit Ray et du compositeur Ravi Shankar."
+        draggable="false">
+      <span class="placeholder" aria-hidden="true">36</span>
+    </figure>
+
+    <figure class="document square" tabindex="0" data-id="37" data-x="0.029" data-y="0.406" aria-haspopup="dialog">
+      <img src="asset/session_01/37-alf-leila-wa-leila-oum-kalthoum.jpg"
+        alt="Pochette de disque : « Alf Leila wa Leila » d’Oum Kalthoum. Sur fond vert grisé, un portrait colorisé montre une femme aux cheveux relevés, portant des lunettes sombres aux coins pointus, un vêtement mauve et un long collier. Son nom apparaît en blanc en caractères latins et arabes en haut ; le titre est inscrit en noir dans les deux écritures en bas, avec les mentions Souma Records et 33 RPM."
+        draggable="false">
+      <span class="placeholder" aria-hidden="true">37</span>
+    </figure>
+
+    <figure class="document portrait" tabindex="0" data-id="38" data-x="0.172" data-y="0.408" aria-haspopup="dialog">
+      <img src="asset/session_01/38-mille-et-une-nuits.jpg"
+        alt="Couverture de livre : tome I des « Mille et Une Nuits », édition et traduction de Jamel Eddine Bencheikh et André Miquel, dans la collection Folio classique. Sous le titre bleu sur fond blanc, une illustration colorée montre un personnage coiffé d’un turban lisant un livre ouvert. Ses vêtements réunissent de petites scènes avec des personnages et des animaux, au milieu de motifs floraux et décoratifs."
+        draggable="false">
+      <span class="placeholder" aria-hidden="true">38</span>
+    </figure>
+
+    <figure class="document portrait" tabindex="0" data-id="39" data-x="0.505" data-y="0.407" aria-haspopup="dialog">
+      <img src="asset/session_01/39-neige-orhan-pamuk.jpg"
+        alt="Couverture de livre : le roman « Neige » d’Orhan Pamuk, traduit du turc par Jean-François Pérouse, aux éditions Gallimard. Sur fond crème, la mention « Du monde entier » forme un arc au-dessus du nom de l’auteur ; le titre est inscrit en rouge au centre. Dans la moitié inférieure, un motif noir de lignes courbes entrelacées forme une boule, au-dessus du sigle rouge nrf et du nom de l’éditeur."
+        draggable="false">
+      <span class="placeholder" aria-hidden="true">39</span>
+    </figure>
+
+    <figure class="document landscape" tabindex="0" data-id="40" data-x="0.177" data-y="0.018" aria-haspopup="dialog">
+      <img src="asset/session_01/40-teatro-colon-buenos-aires.jpg"
+        alt="Photographie de la façade du Teatro Colón à Buenos Aires, vue de face sous un ciel bleu nuageux. Le bâtiment beige présente une façade symétrique ornée de colonnes, de fenêtres cintrées, de balcons et de frontons triangulaires. Une large marquise vitrée verte abrite les entrées ; quelques passants traversent le trottoir au premier plan et un drapeau flotte au sommet."
+        draggable="false">
+      <span class="placeholder" aria-hidden="true">40</span>
+    </figure>
+
+    <figure class="document landscape" tabindex="0" data-id="41" data-x="0.013" data-y="0.207" aria-haspopup="dialog">
+      <img src="asset/session_01/41-la-fenice-venise.jpg"
+        alt="Photographie de la façade du Teatro La Fenice à Venise. Un escalier mène à un portique de quatre colonnes, surmonté d’un balcon portant plusieurs drapeaux, dont le drapeau italien. Deux statues dans des niches encadrent la fenêtre centrale ; plus haut figure l’inscription « Societas MDCCXCII ». Des visiteurs sont assis sur les marches ou traversent la place pavée, entre deux lampadaires noirs."
+        draggable="false">
+      <span class="placeholder" aria-hidden="true">41</span>
+    </figure>
+
+    <figure class="document landscape" tabindex="0" data-id="42" data-x="0.824" data-y="0.982" aria-haspopup="dialog">
+      <img src="asset/session_01/42-opera-harbin.jpg"
+        alt="Photographie de l’opéra de Harbin sous un ciel bleu dégagé. Le vaste bâtiment argenté présente des volumes courbes qui descendent jusqu’au sol autour d’une haute verrière sombre composée de facettes triangulaires. Une esplanade pavée occupe le premier plan, bordée de pelouse et de jeunes arbres ; une sculpture blanche en forme de clé de sol se trouve près de l’entrée à droite."
+        draggable="false">
+      <span class="placeholder" aria-hidden="true">42</span>
+    </figure>
+  </main>
+
+  <dialog id="viewer" aria-labelledby="viewer-title">
+    <div class="viewer-toolbar">
+      <h2 id="viewer-title"></h2>
+      <button id="close-viewer" type="button" autofocus>Fermer <span aria-hidden="true">×</span></button>
+    </div>
+    <div class="viewer-content">
+      <img id="viewer-image" alt="" draggable="false" hidden>
+      <p id="viewer-placeholder">Image indisponible</p>
+    </div>
+  </dialog>
+
+  <noscript>Activez JavaScript pour déplacer et agrandir les documents.</noscript>
+</body>
+</html>

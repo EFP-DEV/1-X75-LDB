@@ -1,0 +1,163 @@
+[
+  {
+    "id": 22,
+    "source_page": "https://editions-verdier.fr/livre/le-dit-du-genji/",
+    "image_url": "https://editions-verdier.fr/wp-content/uploads/2015/10/le_dit_du_genji-653x1024.jpg",
+    "status": "available",
+    "file": "22-dit-du-genji-murasaki-shikibu.jpg",
+    "title": "Le Dit du Genji — Murasaki Shikibu"
+  },
+  {
+    "id": 23,
+    "source_page": "https://qublivre.ca/products/palais-des-reves-le-2ed",
+    "image_url": "https://qublivre.ca/cdn/shop/products/gr_9782253064749.jpg?v=1630016671",
+    "status": "available",
+    "file": "23-palais-des-reves-kadare.jpg",
+    "title": "Le Palais des rêves — Ismail Kadaré"
+  },
+  {
+    "id": 25,
+    "source_page": "https://actualitte.com/livres/29396/extraits/cent-ans-de-solitude-gabriel-garcia-marquez-9782757810231",
+    "image_url": "https://actualitte.com/uploads/images/9782757810231-475x500-1-6265d7e9d46e9544221318.jpg",
+    "status": "available",
+    "file": "25-cent-ans-de-solitude-garcia-marquez.jpg",
+    "title": "Cent Ans de solitude — Gabriel García Márquez"
+  },
+  {
+    "id": 26,
+    "source_page": "https://www.pagedeslibraires.fr/livre/la-vegetarienne",
+    "image_url": "https://www.pagedeslibraires.fr/images/livre/9782253067900/la-vegetarienne-couv.jpg",
+    "status": "available",
+    "file": "26-la-vegetarienne-han-kang.jpg",
+    "title": "La Végétarienne — Han Kang"
+  },
+  {
+    "id": 27,
+    "source_page": "https://www.bdbase.fr/manga/akira-tome-1-tetsuo",
+    "image_url": "https://static.bdbase.fr/images/books/40/couvertures/139340.jpg",
+    "status": "available",
+    "file": "27-akira-tome-1-otomo.jpg",
+    "title": "Akira, tome 1 — Katsuhiro Ōtomo"
+  },
+  {
+    "id": 28,
+    "source_page": "https://www.theingroove.com/products/buena-vista-social-club-buena-vista-social-club-lp",
+    "image_url": "https://www.theingroove.com/cdn/shop/products/original_1bdc06bd-81c0-46a0-81d2-e6a50cdb41ee.jpg?v=1617411314&width=1920",
+    "status": "available",
+    "file": "28-buena-vista-social-club.jpg",
+    "title": "Buena Vista Social Club — album collectif"
+  },
+  {
+    "id": 29,
+    "source_page": "https://ellarecords.jp/products/20240205-onl-s0007731",
+    "image_url": "https://ellarecords.jp/cdn/shop/files/20240209_095.jpg?v=1748333468&width=1946",
+    "status": "available",
+    "note": "Verso de la pochette, avec titre et noms des artistes.",
+    "file": "29-clube-da-esquina.jpg",
+    "title": "Clube da Esquina — Milton Nascimento et Lô Borges"
+  },
+  {
+    "id": 30,
+    "source_page": "https://www.goldminerecords.com.au/products/mulatu-astatke-mulatu-of-ethiopia-180g-vinyl-lp-1972-ethiopian-jazz-funk",
+    "image_url": "https://www.goldminerecords.com.au/cdn/shop/products/mulatuofethiopia1.jpg?v=1678902792&width=1500",
+    "status": "available",
+    "file": "30-mulatu-of-ethiopia.jpg",
+    "title": "Mulatu of Ethiopia — Mulatu Astatke"
+  },
+  {
+    "id": 31,
+    "source_page": "https://trisquelartesania.com/en/african-influences/1865-cesaria-evora-miss-perfumado-743211882125.html",
+    "image_url": "https://trisquelartesania.com/9329-large_default/cesaria-evora-miss-perfumado.jpg",
+    "status": "available",
+    "file": "31-miss-perfumado-cesaria-evora.jpg",
+    "title": "Miss Perfumado — Cesária Évora"
+  },
+  {
+    "id": 32,
+    "source_page": "https://www.zoombidos.cl/musica/violeta-parra-las-ultimas-composiciones-vinilo/",
+    "image_url": "https://www.zoombidos.cl/wp-content/uploads/2024/08/VIOLETA-PARRA-LAS-ULTIMAS-COMPOSICIONES-VINILO.jpg",
+    "status": "available",
+    "file": "32-ultimas-composiciones-violeta-parra.jpg",
+    "title": "Las últimas composiciones — Violeta Parra"
+  },
+  {
+    "id": 33,
+    "source_page": "https://cine-images.com/produit/le-voyage-de-chihiro-2",
+    "image_url": "https://cine-images.com/wp-content/uploads/2018/05/le-voyage-de-chihiro-40x60ok.jpg",
+    "status": "available",
+    "file": "33-voyage-de-chihiro-affiche.jpg",
+    "title": "Le Voyage de Chihiro — Hayao Miyazaki"
+  },
+  {
+    "id": 34,
+    "source_page": "https://www.imdb.com/fr/title/tt1832382/",
+    "image_url": "https://m.media-amazon.com/images/M/MV5BYmY2MGNiNDEtNTIwYi00N2Y2LTkyMTYtMDMxZDEyNDYwYmNhXkEyXkFqcGc%40._V1_FMjpg_UX1000_.jpg",
+    "status": "available",
+    "file": "34-une-separation-affiche.jpg",
+    "title": "Une séparation — Asghar Farhadi"
+  },
+  {
+    "id": 35,
+    "source_page": "https://www.goldposter.com/310884/full/",
+    "image_url": "https://img.goldposter.com/2019/04/parasite_poster_goldposter_com_1.jpg",
+    "status": "available",
+    "file": "35-parasite-affiche.jpg",
+    "title": "Parasite — Bong Joon-ho"
+  },
+  {
+    "id": 36,
+    "source_page": "https://www.themoviedb.org/movie/5801/images/posters",
+    "image_url": "https://image.tmdb.org/t/p/original/AqtfFCIdlBaLsKmFJM4eIR525Dz.jpg",
+    "status": "available",
+    "file": "36-pather-panchali-affiche.jpg",
+    "title": "Pather Panchali — Satyajit Ray"
+  },
+  {
+    "id": 37,
+    "source_page": "https://apocalypsevinyl.com/products/om-kalsoum-alf-leila-wa-leila-vinyl",
+    "image_url": "https://apocalypsevinyl.com/cdn/shop/files/om-kalsoum-alf-leila-wa-leila_sRCsQ.jpg?v=1762521415&width=1848",
+    "status": "available",
+    "file": "37-alf-leila-wa-leila-oum-kalthoum.jpg",
+    "title": "Alf Leila wa Leila — Oum Kalthoum"
+  },
+  {
+    "id": 38,
+    "source_page": "https://clemslibrary.wordpress.com/2022/03/10/les-mille-et-une-nuits-tome-1-collectif/",
+    "image_url": "https://clemslibrary.files.wordpress.com/2022/03/5-les-mille-et-une-nuits-t1.jpg?w=622",
+    "status": "available",
+    "file": "38-mille-et-une-nuits.jpg",
+    "title": "Les Mille et Une Nuits — recueil anonyme"
+  },
+  {
+    "id": 39,
+    "source_page": "https://www.gallimard.fr/catalogue/neige/9782070771240",
+    "image_url": "https://media.groupe.gallimard.fr/couvHD/A77124.jpg",
+    "status": "available",
+    "file": "39-neige-orhan-pamuk.jpg",
+    "title": "Neige — Orhan Pamuk"
+  },
+  {
+    "id": 40,
+    "source_page": "https://www.traveladventures.org/continents/americas/teatro-colon.html",
+    "image_url": "https://www.traveladventures.org/countries/argentina/images/teatro-colon04.jpg",
+    "status": "available",
+    "file": "40-teatro-colon-buenos-aires.jpg",
+    "title": "Teatro Colón — façade, Buenos Aires"
+  },
+  {
+    "id": 41,
+    "source_page": "https://en.wikipedia.org/wiki/La_Fenice",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Teatro_La_Fenice_%28Venice%29_-_Facade.jpg",
+    "status": "available",
+    "file": "41-la-fenice-venise.jpg",
+    "title": "Teatro La Fenice — façade, Venise"
+  },
+  {
+    "id": 42,
+    "source_page": "https://www.tatlerasia.com/homes/architecture-design/concert-halls-amazing-architecture-design-acoustics",
+    "image_url": "https://cdn.tatlerasia.com/tatlerasia/i/2024/01/26174047-6-harbin-grand-theatre-photo-editq-wikicommons_cover_1600x1200.jpg",
+    "status": "available",
+    "file": "42-opera-harbin.jpg",
+    "title": "Opéra de Harbin — bâtiment, Harbin"
+  }
+]

@@ -1,0 +1,349 @@
+[
+  {
+    "id": 1,
+    "file": "01-jodorowsky.png",
+    "title": "La Danse de la réalité",
+    "fictional": false,
+    "status": "available"
+  },
+  {
+    "id": 2,
+    "file": "02-barjavel.jpg",
+    "title": "La Nuit des temps",
+    "fictional": false,
+    "status": "available"
+  },
+  {
+    "id": 3,
+    "file": "03-seuss.jpg",
+    "title": "The Lorax",
+    "fictional": false,
+    "status": "available"
+  },
+  {
+    "id": 4,
+    "file": "04-tanita-tikaram.jpg",
+    "title": "Twist in My Sobriety",
+    "fictional": false,
+    "status": "available"
+  },
+  {
+    "id": 5,
+    "file": "05-garland-jeffreys.jpg",
+    "title": "Hail Hail Rock ’n’ Roll",
+    "fictional": false,
+    "status": "available"
+  },
+  {
+    "id": 6,
+    "file": "06-megadeth.jpg",
+    "title": "Symphony of Destruction",
+    "fictional": false,
+    "status": "available"
+  },
+  {
+    "id": 7,
+    "file": "07-lavilliers-ringer.jpg",
+    "title": "Idées noires — Catherine Ringer",
+    "fictional": false,
+    "status": "available"
+  },
+  {
+    "id": 8,
+    "file": "08-the-wild-robot-cinema.jpg",
+    "title": "The Wild Robot — affiche cinéma avec générique",
+    "fictional": false,
+    "status": "available"
+  },
+  {
+    "id": 9,
+    "file": "09-quand-la-mer-monte.jpg",
+    "title": "Quand la mer monte…",
+    "fictional": false,
+    "status": "available"
+  },
+  {
+    "id": 10,
+    "file": "10-enfermes-dehors.jpg",
+    "title": "Enfermés dehors",
+    "fictional": false,
+    "status": "available"
+  },
+  {
+    "id": 11,
+    "file": "11-trailer-park-boys.jpg",
+    "title": "Trailer Park Boys: The Movie",
+    "fictional": false,
+    "status": "available"
+  },
+  {
+    "id": 12,
+    "file": "12-cantatrice-pradinas.jpg",
+    "title": "La Cantatrice chauve — programme de Cornouaille, Pierre Pradinas",
+    "fictional": false,
+    "status": "available"
+  },
+  {
+    "id": 13,
+    "file": "13-cantatrice-lagarce.jpg",
+    "title": "La Cantatrice chauve — livret du DVD, Jean-Luc Lagarce",
+    "fictional": false,
+    "status": "available"
+  },
+  {
+    "id": 14,
+    "file": "14-don-quichotte.jpg",
+    "title": "Don Quichotte — programme du TNP",
+    "fictional": false,
+    "status": "available"
+  },
+  {
+    "id": 15,
+    "file": "15-billet-tanita.svg",
+    "title": "TANITA TIKARAM",
+    "fictional": true,
+    "status": "available"
+  },
+  {
+    "id": 16,
+    "file": "16-billet-megadeth.svg",
+    "title": "MEGADETH",
+    "fictional": true,
+    "status": "available"
+  },
+  {
+    "id": 17,
+    "file": "17-billet-cantatrice.svg",
+    "title": "LA CANTATRICE CHAUVE",
+    "fictional": true,
+    "status": "available"
+  },
+  {
+    "id": 18,
+    "file": "18-carte-theatre.jpg",
+    "title": "Toul — Le Théâtre — carte postale ancienne (lieu provisoire)",
+    "fictional": false,
+    "status": "available"
+  },
+  {
+    "id": 19,
+    "file": "19-carte-concert.jpg",
+    "title": "Paris — Concert de La Scala — carte postale ancienne (lieu provisoire)",
+    "fictional": false,
+    "status": "available"
+  },
+  {
+    "id": 20,
+    "file": "20-carte-cinema.jpg",
+    "title": "Sissonne — Cinéma-Concert — carte postale ancienne (lieu provisoire)",
+    "fictional": false,
+    "status": "available"
+  },
+  {
+    "id": 21,
+    "file": "21-priya-padma-sens-unique.jpg",
+    "title": "Priya PADMA — Sens unique — Lauise Warinda",
+    "fictional": false,
+    "document_type": "Couverture de livre",
+    "status": "available",
+    "reference_url": "https://www.chasse-aux-livres.fr/prix/B0DBF7PWYK/priya-padma-sens-unique-9798332039683",
+    "isbn": "9798332039683"
+  },
+  {
+    "id": 22,
+    "file": "22-dit-du-genji-murasaki-shikibu.jpg",
+    "title": "Le Dit du Genji — Murasaki Shikibu",
+    "fictional": false,
+    "document_type": "Couverture de livre",
+    "status": "available",
+    "cultural_context": "Japon"
+  },
+  {
+    "id": 23,
+    "file": "23-palais-des-reves-kadare.jpg",
+    "title": "Le Palais des rêves — Ismail Kadaré",
+    "fictional": false,
+    "document_type": "Couverture de livre",
+    "status": "available",
+    "cultural_context": "Albanie",
+    "reference_url": "https://www.hachette.fr/livre/le-palais-des-reves-9782253064749/"
+  },
+  {
+    "id": 24,
+    "file": "24-don-quichotte-cervantes.jpg",
+    "title": "Don Quichotte — Miguel de Cervantès",
+    "fictional": false,
+    "document_type": "Couverture de livre",
+    "status": "available",
+    "cultural_context": "Espagne"
+  },
+  {
+    "id": 25,
+    "file": "25-cent-ans-de-solitude-garcia-marquez.jpg",
+    "title": "Cent Ans de solitude — Gabriel García Márquez",
+    "fictional": false,
+    "document_type": "Couverture de livre",
+    "status": "available",
+    "cultural_context": "Colombie"
+  },
+  {
+    "id": 26,
+    "file": "26-la-vegetarienne-han-kang.jpg",
+    "title": "La Végétarienne — Han Kang",
+    "fictional": false,
+    "document_type": "Couverture de livre",
+    "status": "available",
+    "cultural_context": "Corée du Sud"
+  },
+  {
+    "id": 27,
+    "file": "27-akira-tome-1-otomo.jpg",
+    "title": "Akira, tome 1 — Katsuhiro Ōtomo",
+    "fictional": false,
+    "document_type": "Couverture de bande dessinée",
+    "status": "available",
+    "cultural_context": "Japon"
+  },
+  {
+    "id": 28,
+    "file": "28-buena-vista-social-club.jpg",
+    "title": "Buena Vista Social Club — album collectif",
+    "fictional": false,
+    "document_type": "Pochette de disque",
+    "status": "available",
+    "cultural_context": "Cuba"
+  },
+  {
+    "id": 29,
+    "file": "29-clube-da-esquina.jpg",
+    "title": "Clube da Esquina — Milton Nascimento et Lô Borges",
+    "fictional": false,
+    "document_type": "Pochette de disque",
+    "status": "available",
+    "cultural_context": "Brésil",
+    "reference_url": "https://music.apple.com/us/album/clube-da-esquina/1473446573"
+  },
+  {
+    "id": 30,
+    "file": "30-mulatu-of-ethiopia.jpg",
+    "title": "Mulatu of Ethiopia — Mulatu Astatke",
+    "fictional": false,
+    "document_type": "Pochette de disque",
+    "status": "available",
+    "cultural_context": "Éthiopie",
+    "reference_url": "https://www.eatethio.com/records/mulatu-of-ethiopia"
+  },
+  {
+    "id": 31,
+    "file": "31-miss-perfumado-cesaria-evora.jpg",
+    "title": "Miss Perfumado — Cesária Évora",
+    "fictional": false,
+    "document_type": "Pochette de disque",
+    "status": "available",
+    "cultural_context": "Cap-Vert"
+  },
+  {
+    "id": 32,
+    "file": "32-ultimas-composiciones-violeta-parra.jpg",
+    "title": "Las últimas composiciones — Violeta Parra",
+    "fictional": false,
+    "document_type": "Pochette de disque",
+    "status": "available",
+    "cultural_context": "Chili",
+    "reference_url": "https://www.cultura.gob.cl/wp-content/uploads/2017/05/cuaderno-violeta-parra.pdf"
+  },
+  {
+    "id": 33,
+    "file": "33-voyage-de-chihiro-affiche.jpg",
+    "title": "Le Voyage de Chihiro — Hayao Miyazaki",
+    "fictional": false,
+    "document_type": "Affiche de cinéma",
+    "status": "available",
+    "cultural_context": "Japon"
+  },
+  {
+    "id": 34,
+    "file": "34-une-separation-affiche.jpg",
+    "title": "Une séparation — Asghar Farhadi",
+    "fictional": false,
+    "document_type": "Affiche de cinéma",
+    "status": "available",
+    "cultural_context": "Iran"
+  },
+  {
+    "id": 35,
+    "file": "35-parasite-affiche.jpg",
+    "title": "Parasite — Bong Joon-ho",
+    "fictional": false,
+    "document_type": "Affiche de cinéma",
+    "status": "available",
+    "cultural_context": "Corée du Sud"
+  },
+  {
+    "id": 36,
+    "file": "36-pather-panchali-affiche.jpg",
+    "title": "Pather Panchali — Satyajit Ray",
+    "fictional": false,
+    "document_type": "Affiche de cinéma",
+    "status": "available",
+    "cultural_context": "Inde"
+  },
+  {
+    "id": 37,
+    "file": "37-alf-leila-wa-leila-oum-kalthoum.jpg",
+    "title": "Alf Leila wa Leila — Oum Kalthoum",
+    "fictional": false,
+    "document_type": "Pochette de disque",
+    "status": "available",
+    "cultural_context": "Égypte",
+    "reference_url": "https://ummkulthum.bandcamp.com/album/alf-leila-wa-leila"
+  },
+  {
+    "id": 38,
+    "file": "38-mille-et-une-nuits.jpg",
+    "title": "Les Mille et Une Nuits — recueil anonyme",
+    "fictional": false,
+    "document_type": "Couverture de livre",
+    "status": "available",
+    "cultural_context": "Traditions arabes, persanes et indiennes"
+  },
+  {
+    "id": 39,
+    "file": "39-neige-orhan-pamuk.jpg",
+    "title": "Neige — Orhan Pamuk",
+    "fictional": false,
+    "document_type": "Couverture de livre",
+    "status": "available",
+    "cultural_context": "Turquie"
+  },
+  {
+    "id": 40,
+    "file": "40-teatro-colon-buenos-aires.jpg",
+    "title": "Teatro Colón — façade, Buenos Aires",
+    "fictional": false,
+    "document_type": "Photographie de lieu",
+    "status": "available",
+    "selection_note": "Choisir une vue où le nom du lieu est lisible dans l’image, sans légende ajoutée.",
+    "cultural_context": "Argentine"
+  },
+  {
+    "id": 41,
+    "file": "41-la-fenice-venise.jpg",
+    "title": "Teatro La Fenice — façade, Venise",
+    "fictional": false,
+    "document_type": "Photographie de lieu",
+    "status": "available",
+    "selection_note": "Choisir une vue où le nom du lieu est lisible dans l’image, sans légende ajoutée.",
+    "cultural_context": "Italie"
+  },
+  {
+    "id": 42,
+    "file": "42-opera-harbin.jpg",
+    "title": "Opéra de Harbin — bâtiment, Harbin",
+    "fictional": false,
+    "document_type": "Photographie de lieu",
+    "status": "available",
+    "selection_note": "Choisir une vue où le nom du lieu est lisible dans l’image, sans légende ajoutée.",
+    "cultural_context": "Chine"
+  }
+]
