@@ -289,23 +289,9 @@ Votre première tâche est de **classer librement les documents**, avant de pass
 
 ## 5. Rechercher dans le classement
 
-Répondez aux treize questions suivantes dans l’ordre, à partir de votre classement. Gardez les documents à leur place et ne rechargez pas la page pendant les recherches.
+Une fois le classement terminé, le formateur vous pose treize questions de recherche. Répondez dans l’ordre, à partir de votre classement. Gardez les documents à leur place et ne rechargez pas la page pendant les recherches.
 
-Pour les comptages, les livres comprennent les bandes dessinées, dont le manga. Les programmes de théâtre et le livret DVD restent distincts des livres. Les pochettes de disques comprennent les albums et les singles.
-
-1. Quel document affiche un prix de 1,99 livre sterling ?
-2. Quel document porte la référence CML-2456 ?
-3. Combien de livres sont représentés, bandes dessinées comprises ?
-4. Sur quelle façade peut-on lire « Societas MDCCXCII » ?
-5. Quel document porte le logo d’Ethiopian Airlines ?
-6. Quelle carte postale mentionne un moteur de 25 HP ?
-7. Combien de pochettes de disques y a-t-il ?
-8. Quel spectacle annonce une durée de 1 h 25 ?
-9. Quel billet indique le placement « Balcon · B12 » ?
-10. Quelle carte postale montre un Hôtel-Café de la Comédie ?
-11. Combien d’affiches de cinéma y a-t-il ?
-12. Quel document mentionne Ravi Shankar comme compositeur ?
-13. Quelle pochette mentionne l’année 1972 ?
+[Questions de recherche — document formateur](preparation/session_01_questions.md).
 
 Pour chaque question, notez :
 
@@ -321,27 +307,7 @@ Signalez les recherches inachevées pour les reprendre lors de la recherche dans
 
 ## 6. Comparer les classements
 
-Choisissez une recherche facile et une recherche difficile dans votre classement. Pour chacune, expliquez ce qui vous a aidés ou gênés : regroupement directement repéré, documents répartis entre plusieurs groupes ou document rangé dans un groupe que vous n’aviez pas consulté.
-
-### Faire utiliser le classement par un autre groupe
-
-Invitez un autre groupe à reprendre les **questions 1 et 3** dans votre classement : retrouver le document affichant un prix de 1,99 livre sterling et compter les livres, bandes dessinées comprises. Laissez-le utiliser votre ordinateur sans expliquer oralement votre rangement. Les documents restent à leur place et la page reste ouverte.
-
-Observez les regroupements visités, les parcours et les hésitations. Le groupe doit retrouver les documents qui justifient ses réponses et désigner ceux qu’il compte, même s’il connaît déjà les résultats.
-
-Échangez ensuite les rôles et utilisez son classement. Comparez les regroupements parcourus pour chaque question. Si vos réponses diffèrent, comparez vos listes pour repérer un document oublié, compté deux fois ou rangé dans une autre catégorie.
-
-### Mettre les observations en commun
-
-Comparez vos observations avec celles des autres groupes :
-
-- Quel critère organise chaque classement ?
-- Quels documents se retrouvent ensemble ?
-- Quelles recherches ce choix facilite-t-il ?
-- Quel document a été difficile à placer, et pourquoi ?
-- Une autre personne peut-elle retrouver l’information à partir des noms choisis ?
-
-Appuyez vos comparaisons sur les recherches effectuées. Un classement par support peut faciliter la recherche d’un livre tout en séparant une œuvre de son programme de théâtre et de son billet. Le temps dépend aussi de votre familiarité avec les documents : les parcours et les hésitations aident à comprendre les différences observées.
+[Exercice : comparer les classements](exo/session_01_comparer_classements.md).
 
 ## 7. Chercher autrement dans les mêmes documents
 

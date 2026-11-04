@@ -38,25 +38,13 @@ Une même œuvre peut apparaître sur plusieurs supports : couverture, programme
 
 ## Questions de la séance
 
-1. Quel document affiche un prix de 1,99 livre sterling ?
-2. Quel document porte la référence CML-2456 ?
-3. Combien de livres sont représentés, bandes dessinées comprises ?
-4. Sur quelle façade peut-on lire « Societas MDCCXCII » ?
-5. Quel document porte le logo d’Ethiopian Airlines ?
-6. Quelle carte postale mentionne un moteur de 25 HP ?
-7. Combien de pochettes de disques y a-t-il ?
-8. Quel spectacle annonce une durée de 1 h 25 ?
-9. Quel billet indique le placement « Balcon · B12 » ?
-10. Quelle carte postale montre un Hôtel-Café de la Comédie ?
-11. Combien d’affiches de cinéma y a-t-il ?
-12. Quel document mentionne Ravi Shankar comme compositeur ?
-13. Quelle pochette mentionne l’année 1972 ?
+La série est conservée dans le [document de questions destiné au formateur](session_01_questions.md). La présenter uniquement après le classement libre.
 
 Le [corrigé formateur](session_01_questions_ctrl_f.md) donne les réponses, les documents justificatifs, les termes de recherche et les inventaires des trois comptages. Il propose aussi cinq questions complémentaires hors déroulé.
 
 ## Accès par GitHub Pages
 
-Ouvrir le [plateau de classement](https://efp-dev.github.io/1-X75-LDB/exo/session_01.html) sur un ordinateur connecté à Internet. Les recherches visuelles et dans le code source portent sur cette même page et sur le même corpus complet. Les questions sont posées par le formateur et restent consultables dans le support étudiant.
+Ouvrir le [plateau de classement](https://efp-dev.github.io/1-X75-LDB/exo/session_01.html) sur un ordinateur connecté à Internet. Les recherches visuelles et dans le code source portent sur cette même page et sur le même corpus complet. Les questions sont conservées dans le document formateur et posées après le classement libre.
 
 ## Conventions de recherche et de comptage
 
@@ -151,7 +139,7 @@ L’échange entre groupes dispose de **10 minutes**, soit cinq minutes par clas
 
 Former des groupes de deux ou trois. Tous participent aux décisions de classement, à la lecture et à la justification des réponses. Pendant les recherches, une personne manipule les documents ; une autre prend les notes et relève les durées. Dans un trinôme, séparer la prise de notes et le chronométrage.
 
-Pendant la prise en main, faire créer `observations-classement.md` avec un espace pour la règle et les difficultés de classement, treize entrées numérotées pour les réponses et un espace pour les observations de l’autre groupe. Les questions restent consultables dans le support ; il suffit de relever leur numéro. Autoriser des notes brèves : réponse, titres ou références des documents justificatifs, parcours et hésitations en quelques mots. Pour un comptage, conserver la liste des documents retenus avec le total.
+Pendant la prise en main, faire créer `observations-classement.md` avec un espace pour la règle et les difficultés de classement, treize entrées numérotées pour les réponses et un espace pour les observations de l’autre groupe. Le formateur pose les questions après le classement ; les groupes relèvent leur numéro dans leurs notes. Autoriser des notes brèves : réponse, titres ou références des documents justificatifs, parcours et hésitations en quelques mots. Pour un comptage, conserver la liste des documents retenus avec le total.
 
 Présenter les questions et leur ordre après le classement. Chaque groupe démarre le chronomètre à la lecture d’une question et l’arrête lorsque sa réponse, ses preuves et, le cas échéant, son inventaire sont consignés. Il relève ensuite la durée, avec les regroupements parcourus et les éventuels retours en arrière. La correction et la justification des réponses restent les critères de réussite.
 
