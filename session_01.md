@@ -283,7 +283,7 @@ Votre première tâche est de **classer librement les documents**, avant de pass
 1. Créez un fichier `observations-classement.md` pour vos notes : règle de classement, difficultés et réponses aux recherches.
 2. Choisissez une règle de classement et notez-la. Déplacez les documents pour former vos regroupements ; donnez un nom à chacun dans vos notes.
 3. Si un document pourrait appartenir à plusieurs regroupements, décrivez la difficulté et justifiez votre choix.
-4. Vérifiez que les 42 documents sont encore présents. Conservez une capture de l’ensemble pour comparer votre classement et le reprendre à la séance suivante.
+4. Ne rechargez pas la page.
 
 **Conservez tous les documents, sans les modifier, les supprimer ni les dupliquer.**
 

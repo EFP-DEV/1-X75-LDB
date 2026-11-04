@@ -47,7 +47,7 @@ Pour la séance 2, chaque groupe reprend :
 
 - les 42 documents et leurs descriptions dans le [support HTML](exo/session_01.html) ;
 - son fichier `observations-classement.md`, avec les réponses justifiées aux [treize questions de la séance 1](session_01.md#5-rechercher-dans-le-classement) et les trois inventaires de comptage ;
-- les captures du classement, les noms et les règles des regroupements, ainsi que les documents difficiles à placer.
+- les noms et les règles des regroupements, ainsi que les documents difficiles à placer.
 
 Les premières données à organiser sont les numéros des documents, leurs titres ou désignations, leur nature, les personnes mentionnées et leurs rôles, les lieux, les dates et les horaires lorsqu’ils sont indiqués. On conserve aussi la référence de l’image et sa description complète, y compris les mentions nécessaires aux treize questions : prix et monnaie, référence imprimée, inscription, logo, puissance du moteur, durée, placement et année. Ces informations doivent rester retrouvables dans les tableaux ; leur transcription conserve les signes, les unités et la notation présents dans les documents. Une donnée absente reste signalée comme telle ; on ne la déduit pas d’une connaissance de l’œuvre. Les regroupements servent à proposer des collections décrites par un nom, une règle et la liste des numéros des documents retenus.
 
