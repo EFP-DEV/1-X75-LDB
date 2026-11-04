@@ -1,154 +1,340 @@
 # Séance 1 — Définir, classer et retrouver
 
-La séance explore deux échelles : avant la pause, on part de ce que l’on connaît pour aller jusqu’au **bit**, la plus petite unité de donnée numérique ; après la pause, on passe à l’organisation d’un ensemble de documents par la **classification**.
+Un titre, une date, une photographie ou un prix peuvent constituer des données. Une application les conserve pour les afficher, les rechercher et les modifier.
 
-## Introduction — Le formateur et les cours
-
-Le formateur se présente et présente les trois cours que nous suivrons avec lui : **LDB, LPB et ADB**. Il explique leurs objectifs, leur articulation et l’organisation du travail.
-
-On précise les contraintes d’organisation et de travail, puis on prend le temps de poser les questions sur les cours et leur déroulement. On note les réponses utiles et les points qui restent à clarifier.
+On distingue d’abord **donnée et information**, puis on compare plusieurs manières de représenter une même quantité, jusqu’à l’écriture **binaire**. On classe ensuite un ensemble de **42 documents culturels** pour y rechercher des informations. Chaque réponse doit être justifiée par le document correspondant ; chaque comptage, par la liste des documents retenus.
 
 ## 1. Mettre les mots en commun
 
-On part de cette question : **quand on vous dit "base de donnees" a quoi pensez vous ?**
+**Quand vous entendez « base de données », à quoi pensez-vous ?**
 
-On inscrit au tableau tous les mots proposés par les étudiants et on demande un exemple concret pour chacun. Les propositions restent visibles pendant la discussion, même lorsque plusieurs significations apparaissent pour un même mot.
+Proposez les mots qui vous viennent à l’esprit et un exemple concret pour chacun. Conservez cette liste pour la reprendre à la fin de la séance.
 
-On élargit ensuite la recherche :
+## 2. Distinguer donnée et information
 
-- Quelles données existent sur papier ?
-- Que peut-on conserver à propos d’un contenu, d’une personne ou d’un message ?
-- Quelles données proviennent d’une saisie ? D’une action sur le site ? D’un calcul ?
-- Que signifient les mots « donnée », « information », « fichier » et « base de données » ?
+Une **donnée** est une valeur ou une description représentée sous une forme que l’on peut conserver, transmettre ou traiter. Un nombre, un titre, une date ou une photographie peuvent constituer des données.
 
-On regroupe les propositions qui semblent proches. Pour chaque désaccord, on conserve les différentes explications et l’exemple qui permet de les discuter.
+Une **information** est ce que l’on apprend en interprétant des données dans un **contexte**. Ce contexte précise à quoi les données se rapportent et comment les comprendre.
 
-Le résultat de cette mise en commun est une liste de mots accompagnés d’exemples et de définitions provisoires. On la conserve pour la reprendre en fin de séance.
+### Une même donnée, plusieurs significations
 
-## 2. Construire une histoire et aller vers le binaire
-
-Le formateur invente une histoire en utilisant tous les mots inscrits au tableau. On suit les liens entre les mots et on précise leur sens dans le contexte du récit. Les mots restent visibles pour vérifier qu’ils ont tous été utilisés.
-
-L’histoire conduit à une question : comment représenter dans un ordinateur les données que nous venons d’évoquer ? On aboutit à une représentation utilisant deux symboles, `0` et `1` : le binaire. La section suivante introduit le bit, l’octet et l’encodage du texte.
-
-Au fil du récit, on distingue les données, le contexte qui leur donne du sens et les conclusions que l’on peut en tirer. Les exemples suivants peuvent servir à préciser ces distinctions.
-
-### Une valeur sans contexte
-
-On observe cette valeur :
+Observez cette valeur :
 
 ```text
 12
 ```
 
-On propose plusieurs significations possibles. Qu’est-ce qui manque pour choisir entre ces interprétations ?
+Que représente-t-elle ? Un nombre d’objets, un prix, un âge ? La valeur seule ne permet pas de choisir. Comparons deux contextes possibles :
 
-On ajoute ensuite le contexte :
+| Donnée | Contexte | Information obtenue |
+|---|---|---|
+| `12` | Nombre d’éléments dans la collection « À lire ». | La collection « À lire » contient 12 éléments. |
+| `12` | Prix indiqué pour un livre, en euros. | Le prix indiqué pour ce livre est de 12 €. |
 
-```text
-Nombre d’éléments publiés : 12
-```
+La valeur est identique, mais l’information obtenue change avec le contexte : l’objet concerné, le libellé et l’unité permettent de l’interpréter. Le contexte peut lui-même être enregistré sous forme de données, par exemple le nom de la collection ou la monnaie du prix.
 
-On formule ce que cette indication permet de savoir. Peut-on également en déduire le nombre de brouillons ou la date de publication des éléments ?
+### Justifier l’information obtenue
+
+Savoir qu’une collection contient 12 éléments ne permet pas de connaître leurs titres. L’information formulée doit s’appuyer sur les données disponibles et leur contexte.
+
+Reprenez un exemple proposé au début de la séance. Identifiez la donnée, précisez son contexte, puis formulez une information que vous pouvez en tirer. Indiquez aussi une conclusion que ces éléments ne permettent pas de soutenir. Faites relire votre exemple par une autre personne : dispose-t-elle du contexte nécessaire pour comprendre la donnée de la même façon ?
+
+## 3. Les systèmes de numération
+
+### Quantité et représentation
+
+On compte les pommes de chaque ligne, puis on compare les deux écritures proposées.
+
+| Pommes | Décimal | Binaire |
+|---|---|---|
+| 🍎 | 1 | 1 |
+| 🍎🍎 | 2 | 10 |
+| 🍎🍎🍎🍎🍎🍎🍎 🍎🍎🍎🍎🍎🍎🍎 | 14 | 1110 |
+
+**La quantité reste la même ; son écriture dépend des conventions choisies.** Un **système de numération** définit les symboles et les règles qui permettent d’écrire et de lire les nombres. Ainsi, `10` en binaire représente la même quantité que `2` en décimal.
+
+Les écritures `1`, `2` et `32` représentent des nombres. Quel rôle joue alors le symbole `0` ? On garde cette question pour la suite.
+
+L’illustration suivante représente le nombre décimal **1614** en notation maya. On observe ses symboles avant d’en découvrir les règles de lecture.
+
+<img src="asset/numeration/mayan_number.png" alt="Écriture maya du nombre décimal 1614, à interpréter après l’étude des bases." width="161" />
 
 <details>
-<summary>Après la discussion : donnée, information et interprétation</summary>
+<summary><strong>Comprendre la notation maya</strong></summary>
 
-Une **donnée** est une valeur ou une description représentée sous une forme qui permet de la conserver, de la transmettre ou de la traiter. `12`, un titre, une photographie et une date peuvent constituer des données.
+L’illustration ci-dessus représente le nombre **1614**. La notation maya présentée ici utilise trois signes :
 
-Une **information** est ce que l’on peut apprendre à partir de données replacées dans un contexte. Ici, le libellé permet de comprendre à quoi correspond le nombre `12`.
+- un point pour représenter `1` ;
+- une barre pour représenter `5` ;
+- un signe en forme de coquillage pour représenter `0`.
 
-L’**interprétation** consiste à attribuer un sens aux données à partir du contexte et de règles. Elle peut être incorrecte si le contexte manque ou si une règle est supposée à tort.
+Les points et les barres se combinent pour écrire les valeurs de `1` à `19`. Les positions sont disposées verticalement. Dans la représentation en base 20 utilisée ici, le niveau inférieur vaut `20⁰ = 1`, le suivant `20¹ = 20`, puis `20² = 400`. Un zéro peut occuper tout niveau où la contribution est nulle. [Diane Davies, archéologue spécialiste des Mayas, « The Maya number system »](https://www.mayaarchaeologist.co.uk/the-main-differences-between-the-maya-number-system-and-ours/).
 
-La valeur `12` ne suffit pas à connaître le nombre de brouillons. Le libellé ajouté ne donne pas non plus la période concernée ni le moment du comptage.
+On retrouve alors la décomposition suivante :
+
+```text
+1614 = 4 × 400 + 0 × 20 + 14 × 1
+```
+
+<img src="asset/numeration/mayan_number_revealed.png" alt="Illustration de la décomposition du nombre 1614 en notation maya." />
+
+Le zéro occupe ici le niveau des vingtaines. La quantité reste **1614**, même si les symboles et leur disposition changent.
 
 </details>
 
-### Ce qui est écrit et ce que l’on suppose
+### Décimal (base 10)
 
-On observe deux indications :
+#### Les chiffres et leur position
 
-```text
-Statut : brouillon
-```
+Le système décimal utilise dix chiffres : `0123456789`.
 
 ```text
-Publication prévue : 10 novembre
+  0 -   9
+ 10 -  19
+ 20 -  29
+ 30 -  39
+   ...
+ 90 -  99
+100 - 199
+200 - 299
+   ...
+900 - 999
 ```
 
-On distingue ce qui est explicitement indiqué de ce qui reste à vérifier. Une publication prévue suffit-elle à affirmer que l’élément est déjà publié ?
-
-On reprend un exemple du brainstorming. On précise la donnée conservée, son contexte et une conclusion qu’elle permet réellement de soutenir.
-
-## 3. Représenter le texte dans un ordinateur
-
-### Une même suite, plusieurs lectures
-
-On observe cette suite sans lui attribuer immédiatement une signification :
+Avec des **zéros non significatifs à gauche**, on peut écrire les mêmes nombres sur trois positions :
 
 ```text
-01000001
+000 - 009
+010 - 019
+020 - 029
+030 - 039
+   ...
+090 - 099
+100 - 199
+200 - 299
+   ...
+900 - 999
 ```
 
-On décrit d’abord ce qui est visible : les symboles utilisés, leur nombre et leur ordre. On cherche ensuite la règle qui manquerait pour lire cette suite comme un nombre ou comme du texte.
+Par exemple, `007` et `7` représentent la même quantité. Ces zéros à gauche préparent une écriture de longueur fixe.
 
-Un **bit** peut prendre deux valeurs, notées `0` et `1`. Un groupe de huit bits forme un **octet**. Les données numériques sont représentées par des suites de bits ; leur lecture dépend des règles utilisées.
+#### Décomposer un nombre décimal
 
-On reçoit deux règles de lecture pour les mêmes huit bits :
-
-- Lus comme un entier non signé écrit en binaire, ils représentent le nombre `65`.
-- Lus comme un octet de texte selon l’encodage UTF-8, ils représentent la lettre `A`.
-
-Les bits ont-ils changé ? Qu’est-ce qui explique la différence entre les deux résultats ?
-
-Un **encodage du texte** définit comment représenter les caractères par des octets. UTF-8 est un encodage. Il utilise un ou plusieurs octets selon le caractère : la taille d’un texte en octets n’est donc pas toujours égale au nombre de caractères affichés.
-
-### Retrouver un petit texte
-
-Pour cette activité, on fournit les correspondances suivantes en UTF-8 :
+On décompose le nombre `847` :
 
 ```text
-A       01000001
-B       01000010
-C       01000011
-espace  00100000
+847 = 800 + 40 + 7
 ```
 
-On utilise ces correspondances pour lire :
+Chaque chiffre multiplie la valeur de sa position :
 
 ```text
-01000011 01000001 01000010
+847 = 8 × 100 + 4 × 10 + 7 × 1
 ```
 
-On représente ensuite le texte `BAC`, puis `A B`. On compare le nombre de caractères, espaces compris, et le nombre d’octets dans ces deux exemples.
+Les valeurs des positions sont des puissances de dix :
 
-La vérification se fait dans les deux sens : on relit les octets obtenus avec les correspondances fournies. Le texte retrouvé doit être exactement celui du départ, y compris les espaces.
+```text
+847 = 8 × 10² + 4 × 10¹ + 7 × 10⁰
+```
+
+| | Centaines | Dizaines | Unités |
+|---|---|---|---|
+| Rang | 2 | 1 | 0 |
+| Valeur de la position | 10² = 100 | 10¹ = 10 | 10⁰ = 1 |
+| Chiffre | 8 | 4 | 7 |
+| Contribution au nombre | 800 | 40 | 7 |
+
+La **base est 10**. Le **rang** commence à zéro à droite ; il devient l’exposant de la puissance. Chaque position vaut dix fois celle qui se trouve immédiatement à sa droite.
+
+### Sexagésimal (base 60)
+
+On observe cette autre succession d’écritures. Quelle convention pourrait expliquer le passage de `059` à `100`, puis de `5959` à `10000` ?
+
+```text
+000 - 009
+010 - 019
+020 - 029
+030 - 039
+040 - 049
+050 - 059
+
+100 - 109
+110 - 119
+120 - 129
+130 - 139
+140 - 149
+150 - 159
+
+200 - 209
+210 - 219
+220 - 229
+230 - 239
+240 - 249
+250 - 259
+
+...
+
+5900 - 5909
+5910 - 5919
+5920 - 5929
+5930 - 5939
+5940 - 5949
+5950 - 5959
+
+10000 - 10009
+10010 - 10019
+10020 - 10029
+...
+10050 - 10059
+10100 - 10159
+...
+15900 - 15959
+```
+
+<details>
+<summary><strong>Révéler la convention</strong></summary>
+
+On ajoute les séparateurs et les zéros à gauche : une écriture familière apparaît.
+
+```text
+00:00:00 → 00:00:09
+00:00:10 → 00:00:19
+00:00:20 → 00:00:59
+00:01:00 → 00:01:59
+00:02:00 → 00:02:59
+00:59:00 → 00:59:59
+01:00:00 → 01:00:59
+```
+
+Il s’agit de durées écrites en **heures, minutes et secondes**. Une minute regroupe 60 secondes ; une heure regroupe 60 minutes. Après `00:00:59`, la seconde suivante donne `00:01:00`. Après `00:59:59`, elle donne `01:00:00`.
+
+Chaque groupe est écrit avec les chiffres décimaux, mais le passage d’un groupe au suivant se fait par **60**. Le principe sexagésimal apparaît aussi dans la subdivision des angles : un degré comprend 60 minutes d’arc, et une minute d’arc comprend 60 secondes d’arc.
+
+</details>
+
+### Vigésimal (base 20)
+
+On énonce les dizaines jusqu’à cent : dix, vingt, trente, quarante, cinquante, soixante… Les noms suivants varient selon les usages francophones.
+
+| Nombre | France | Belgique | Suisse romande | Québec |
+|---|---|---|---|---|
+| 70 | soixante-dix | septante | septante | soixante-dix |
+| 80 | quatre-vingts | quatre-vingts | huitante ou quatre-vingts | quatre-vingts |
+| 90 | quatre-vingt-dix | nonante | nonante | quatre-vingt-dix |
+
+En Suisse romande, les formes « huitante » et « quatre-vingts » coexistent selon les régions. En France et en Belgique, l’usage courant est « quatre-vingts ». « Octante » désigne aussi 80, mais cette forme vieillie ne correspond à l’usage courant d’aucun des trois pays du tableau. [Académie française, « Septante, octante, nonante »](https://www.dictionnaire-academie.fr/article/QDL078).
+
+On décompose les noms employés en France :
+
+```text
+soixante-dix     = 60 + 10
+quatre-vingts    = 4 × 20
+quatre-vingt-dix = 4 × 20 + 10
+```
+
+« Quatre-vingts » conserve la trace d’un comptage par groupes de vingt, appelé **vigésimal**. Le nom du nombre et son écriture chiffrée sont deux représentations : même lorsqu’on dit « quatre-vingts », l’écriture `80` reste décimale. [Académie française, « Septante, octante, nonante »](https://www.dictionnaire-academie.fr/article/QDL078).
+
+### Binaire (base 2)
+
+Le système binaire utilise seulement deux chiffres : `0` et `1`. Les données numériques d’un ordinateur sont représentées par des suites de **bits**. Un **bit** peut prendre deux valeurs, notées `0` et `1` ; dans l’écriture binaire d’un entier, chaque chiffre correspond à un bit.
+
+Avec seulement ces deux chiffres, le rôle du zéro devient essentiel. On le retrouve d’abord dans un nombre décimal connu.
+
+#### Le rôle du zéro
+
+On décompose le nombre **décimal** `1023` :
+
+```text
+1023 = 1 × 1000 + 0 × 100 + 2 × 10 + 3 × 1
+```
+
+Le zéro indique qu’il n’y a **aucune centaine** à ce rang. Il conserve la position des autres chiffres. Le supprimer donnerait `123`, qui représente une autre quantité.
+
+#### Notation positionnelle
+
+Dans une notation positionnelle, la valeur d’un chiffre dépend de son rang. La base indique le multiplicateur entre deux positions voisines :
+
+```text
+Base 10 : 1023
+          10³  10²  10¹  10⁰
+          1    0    2    3
+```
+
+On applique le même principe à la base 2. Quelle quantité l’écriture `1101` représente-t-elle ?
+
+```text
+Base 2 : 1101
+         2³   2²   2¹   2⁰
+         1    1    0    1
+```
+
+Les positions valent `8`, `4`, `2` et `1`. On multiplie chaque chiffre par la valeur de sa position, puis on additionne les contributions. Un zéro conserve le rang, mais sa contribution à la somme est nulle.
+
+Pour passer du décimal au binaire, on décompose la quantité en puissances de deux. On place `1` aux rangs utilisés et `0` aux autres rangs. La somme des contributions doit redonner le nombre décimal de départ.
+
+### Unaire (comptage par marques)
+
+Dans la numération **unaire**, parfois appelée « base 1 », chaque marque représente une unité. Le nombre cinq s’écrit par exemple `|||||`.
+
+On compte les marques pour retrouver la quantité. Leur position ne multiplie pas leur valeur : ce système ne suit pas le principe positionnel des bases 10 et 2. Représenter un grand nombre demande donc beaucoup de marques.
+
+<img src="asset/numeration/unary_ishango_bone.jpg" alt="Os d’Ishango, illustration associée au comptage par marques." width="161" />
+
+### Exercices : changer de représentation
+
+#### Exercice 1 : encoder
+
+On représente le nombre décimal **17** en binaire en complétant la dernière ligne du tableau.
+
+| 2⁴ | 2³ | 2² | 2¹ | 2⁰ |
+|---|---|---|---|---|
+| 16 | 8 | 4 | 2 | 1 |
+| | | | | |
+
+On vérifie ensuite que la somme des puissances de deux retenues redonne **17**, puis on explique le rôle des zéros placés dans l’écriture obtenue.
+
+#### Exercice 2 : décoder
+
+On cherche la valeur décimale du nombre binaire **101010**.
+
+| 2⁵ | 2⁴ | 2³ | 2² | 2¹ | 2⁰ |
+|---|---|---|---|---|---|
+| 32 | 16 | 8 | 4 | 2 | 1 |
+| 1 | 0 | 1 | 0 | 1 | 0 |
+
+On écrit la somme des contributions, puis son résultat en décimal. Pour vérifier la réponse, on décompose ce résultat en puissances de deux : l’écriture obtenue doit être **101010**.
+
+Dans les deux exercices, on précise ce qui change dans l’écriture et ce qui reste identique dans la quantité représentée. On conserve les deux conversions, leurs décompositions et leurs vérifications pour le bilan de la séance.
+
+---
+
+**Pause — 20 minutes**
+
+---
 
 ## 4. Réorganiser librement
 
-Après la pause, on change d’échelle. On vient d’étudier les unités qui représentent les données dans un ordinateur ; on s’intéresse maintenant à la manière d’organiser de nombreux documents pour y retrouver des informations.
+Comment organiser de nombreux documents pour y retrouver des informations ?
 
-On ouvre l’[interface web de classement](https://efp-dev.github.io/1-X75-LDB/exo/session_01.html) sur GitHub Pages pour l’activité. Le corpus comprend 42 documents culturels : couvertures, pochettes, affiches, documents de théâtre, billets, cartes postales et photographies de lieux. Ces objets peuvent être publiés et réunis en collections dans le [projet du module](projet.md). Un clic agrandit une image pour lire les données qui y sont inscrites.
+En groupe, ouvrez l’[interface web de classement](https://efp-dev.github.io/1-X75-LDB/exo/session_01.html) sur un ordinateur connecté à Internet. Vous disposez de **42 documents culturels** : couvertures, pochettes, affiches, documents de théâtre, billets, cartes postales et photographies de lieux. Ces objets peuvent être publiés et réunis en collections dans le [projet du module](projet.md).
 
-L’activité se déroule sur un ordinateur connecté à Internet, dans un espace tenant à l’écran. Les positions ne sont pas sauvegardées : recharger la page rétablit la disposition initiale.
+Déplacez les images par glisser-déposer. Cliquez sur une image pour l’agrandir et lire ses inscriptions. **Les positions ne sont pas sauvegardées : recharger la page rétablit la disposition initiale.**
 
-Chaque groupe part du même ensemble de documents, dans la même disposition initiale. **On commence directement par les réorganiser librement.**
+Votre première tâche est de **classer librement les documents**, avant de passer aux questions de recherche. Tous les groupes disposent du même ensemble, dans la même disposition initiale.
 
-On crée un fichier `observations-classement.md` pour conserver la règle de classement, les difficultés rencontrées et les réponses aux recherches qui suivront. Ce fichier sert aux notes de l’activité ; il ne contient pas le jeu de données.
+1. Créez un fichier `observations-classement.md` pour vos notes : règle de classement, difficultés et réponses aux recherches.
+2. Choisissez une règle de classement et notez-la. Déplacez les documents pour former vos regroupements ; donnez un nom à chacun dans vos notes.
+3. Si un document pourrait appartenir à plusieurs regroupements, décrivez la difficulté et justifiez votre choix.
+4. Vérifiez que les 42 documents sont encore présents. Conservez une capture de l’ensemble pour comparer votre classement et le reprendre à la séance suivante.
 
-On déplace les images par glisser-déposer dans un espace libre, sans zone prédéfinie. Les regroupements apparaissent par leur position. On décrit et nomme librement ces regroupements dans les notes.
-
-**Le texte des documents reste inchangé. Aucun document n’est supprimé ni dupliqué.** Les classements des groupes portent sur le même ensemble de données.
-
-On note la règle envisagée, puis on l’applique. Lorsqu’un document pourrait appartenir à plusieurs groupes, on décrit le problème et le choix effectué. Cette difficulté fait partie des observations à conserver.
-
-À la fin du rangement, on vérifie que les 42 documents sont encore présents et on décrit le classement dans `observations-classement.md`. On conserve une capture de l’ensemble : elle servira à la comparaison des classements et à la séance suivante.
+**Conservez tous les documents, sans les modifier, les supprimer ni les dupliquer.**
 
 ## 5. Rechercher dans le classement
 
-On utilise le classement obtenu, sans recharger la page ni déplacer les documents pendant les recherches.
+Répondez aux treize questions suivantes dans l’ordre, à partir de votre classement. Gardez les documents à leur place et ne rechargez pas la page pendant les recherches.
 
-Le formateur pose les treize questions suivantes dans l’ordre. Elles comprennent dix recherches d’informations et trois comptages. Chaque groupe y répond à partir de son classement.
+Pour les comptages, les livres comprennent les bandes dessinées, dont le manga. Les programmes de théâtre et le livret DVD restent distincts des livres. Les pochettes de disques comprennent les albums et les singles.
 
 1. Quel document affiche un prix de 1,99 livre sterling ?
 2. Quel document porte la référence CML-2456 ?
@@ -164,7 +350,7 @@ Le formateur pose les treize questions suivantes dans l’ordre. Elles comprenne
 12. Quel document mentionne Ravi Shankar comme compositeur ?
 13. Quelle pochette mentionne l’année 1972 ?
 
-Pour chaque question, on note :
+Pour chaque question, notez :
 
 - la réponse, avec les titres ou les références permettant de retrouver les documents ;
 - les documents qui justifient cette réponse ;
@@ -172,23 +358,25 @@ Pour chaque question, on note :
 - le temps nécessaire pour retrouver les documents et établir la réponse ;
 - les hésitations ou les informations qui manquent.
 
-Pour chaque comptage, on relève les documents retenus afin de pouvoir vérifier le total et repérer les oublis ou les doubles comptages.
+Pour chaque comptage, dressez la liste des documents retenus. Cette liste doit permettre de vérifier le total et de repérer les oublis ou les doubles comptages.
 
-Une réponse incertaine reste signalée comme telle. L’absence de résultat après une recherche ne suffit pas à affirmer qu’aucun document ne correspond.
+Signalez les recherches inachevées pour les reprendre lors de la recherche dans le code source.
 
 ## 6. Comparer les classements
 
-On relève une recherche simple à effectuer dans son classement, une recherche difficile et la raison observable de chaque résultat : regroupement directement repéré, documents répartis entre plusieurs groupes ou critère ambigu.
+Choisissez une recherche facile et une recherche difficile dans votre classement. Pour chacune, expliquez ce qui vous a aidés ou gênés : regroupement directement repéré, documents répartis entre plusieurs groupes ou document rangé dans un groupe que vous n’aviez pas consulté.
 
 ### Faire utiliser le classement par un autre groupe
 
-Un autre groupe reprend les **questions 1 et 3**, communes à la classe : retrouver le document affichant un prix de 1,99 livre sterling et compter les livres, bandes dessinées comprises. Il utilise notre classement sans recevoir d’explication orale sur le rangement. On utilise le même ordinateur, sans recharger la page ni déplacer les documents. On observe les regroupements vers lesquels il se dirige et les critères qu’il comprend ou interprète autrement.
+Invitez un autre groupe à reprendre les **questions 1 et 3** dans votre classement : retrouver le document affichant un prix de 1,99 livre sterling et compter les livres, bandes dessinées comprises. Laissez-le utiliser votre ordinateur sans expliquer oralement votre rangement. Les documents restent à leur place et la page reste ouverte.
 
-Le groupe doit retrouver les documents qui justifient ses réponses et désigner ceux qu’il compte, même s’il connaît déjà les résultats. On note les parcours et les hésitations, puis on échange sur les critères compris. Si les réponses diffèrent, on retourne aux documents pour repérer un oubli, un double comptage ou une interprétation différente.
+Observez les regroupements visités, les parcours et les hésitations. Le groupe doit retrouver les documents qui justifient ses réponses et désigner ceux qu’il compte, même s’il connaît déjà les résultats.
+
+Échangez ensuite les rôles et utilisez son classement. Comparez les regroupements parcourus pour chaque question. Si vos réponses diffèrent, comparez vos listes pour repérer un document oublié, compté deux fois ou rangé dans une autre catégorie.
 
 ### Mettre les observations en commun
 
-On compare ensuite les classements obtenus dans la classe :
+Comparez vos observations avec celles des autres groupes :
 
 - Quel critère organise chaque classement ?
 - Quels documents se retrouvent ensemble ?
@@ -196,22 +384,22 @@ On compare ensuite les classements obtenus dans la classe :
 - Quel document a été difficile à placer, et pourquoi ?
 - Une autre personne peut-elle retrouver l’information à partir des noms choisis ?
 
-On justifie les comparaisons par les recherches réellement effectuées. Un classement par support peut faciliter la recherche d’un livre tout en séparant une œuvre de son programme de théâtre et de son billet. Le temps dépend aussi de la familiarité avec les documents ; on explique les différences à partir des parcours observés.
+Appuyez vos comparaisons sur les recherches effectuées. Un classement par support peut faciliter la recherche d’un livre tout en séparant une œuvre de son programme de théâtre et de son billet. Le temps dépend aussi de votre familiarité avec les documents : les parcours et les hésitations aident à comprendre les différences observées.
 
 ## 7. Chercher autrement dans les mêmes documents
 
-Après la comparaison des classements, le formateur montre une autre manière de répondre aux mêmes questions. On observe ce qui permet de trouver l’information plus vite et ce qui reste à vérifier.
+Les positions des images sont une manière d’organiser votre recherche. La page conserve aussi une description textuelle de chaque document. Ces descriptions permettent de chercher directement une référence, un nom ou une inscription.
 
 <details>
-<summary>Après la démonstration : le code source et la recherche du navigateur</summary>
+<summary>Après la comparaison des classements : rechercher dans le code source</summary>
 
 ### Retrouver les descriptions des images
 
-Depuis le plateau de classement, **Ctrl+U** ouvre le code source HTML de la page. Dans cet onglet, **Ctrl+F** ouvre la recherche de texte du navigateur.
+Depuis le plateau de classement, ouvrez le code source HTML de la page avec **Ctrl+U**. Dans ce nouvel onglet, ouvrez la recherche de texte du navigateur avec **Ctrl+F**.
 
 Les images possèdent déjà des descriptions textuelles dans leur attribut `alt`. Ces textes alternatifs décrivent leur contenu, notamment pour les personnes qui utilisent un lecteur d’écran. Ils permettent aussi de retrouver les informations sans lire les inscriptions dans les images.
 
-Pour reprendre la question 1, on cherche `1.99`. La description du document 04 permet de retrouver la pochette de Tanita Tikaram :
+Pour reprendre la question 1, cherchez `1.99`. La description du document 04 permet de retrouver la pochette de Tanita Tikaram :
 
 ```html
 <img src="../asset/session_01/04-tanita-tikaram.jpg"
@@ -221,139 +409,81 @@ Pour reprendre la question 1, on cherche `1.99`. La description du document 04 p
 
 L’attribut `src` indique le chemin du fichier image. L’attribut `alt` décrit ici le support, le titre, l’interprète et le prix inscrit. Le navigateur cherche dans ce texte ; les inscriptions de l’image ont déjà été transcrites. La notation compte : le texte utilise un point dans `1.99`, alors que la question utilise une virgule.
 
-On lit la description du document trouvé, puis on retourne à l’image pour vérifier la réponse. Pour reprendre une autre recherche, on choisit une mention précise de la question : référence, inscription, durée ou nom.
+Lisez la description du document trouvé, puis revenez à l’image pour vérifier la réponse. Reprenez une autre question en cherchant une mention précise : référence, inscription, durée ou nom. Qu’est-ce qui facilite la recherche par rapport à votre classement visuel ?
 
 ### Distinguer les occurrences et les documents
 
 Avec une recherche sans distinction entre majuscules et minuscules, `Megadeth` donne quatre résultats dans le code source pour deux documents : la pochette 06 et le billet 16. Le nom apparaît dans le chemin du fichier et dans le texte alternatif de chacun. Pour la question 9, la mention `B12` permet de retrouver le billet concerné.
 
-Le nombre affiché par la recherche est donc un **nombre d’occurrences du texte recherché**. Pour l’interpréter comme un nombre de documents, il faut vérifier ce qui a été compté.
+Le nombre affiché par la recherche est donc un **nombre d’occurrences du texte recherché**. Un même document peut contenir plusieurs occurrences : comptez chaque document une seule fois.
 
-Dans l’onglet du code source de `exo/session_01.html`, on reprend les trois comptages en cherchant successivement `Couverture de livre`, `Pochette de disque` et `Affiche de cinéma`. Chaque description concernée commence par l’une de ces expressions, présente une seule fois par document. On compare les résultats aux comptages visuels et on retrouve les documents qui les justifient.
+Dans l’onglet du code source de `exo/session_01.html`, reprenez les trois comptages en cherchant successivement `Couverture de livre`, `Pochette de disque` et `Affiche de cinéma`. Chaque description concernée commence par l’une de ces expressions, présente une seule fois par document. Comparez les résultats à vos comptages visuels et retrouvez les documents qui les justifient.
 
-On essaie aussi `livre` seul : ce texte apparaît dans `livret d’accompagnement du DVD`, au document 13. De même, `affiche` apparaît dans certains chemins d’images. On explique pourquoi une formulation plus précise change le résultat et répond mieux à la question posée.
+Essayez aussi `livre` seul : ce texte apparaît dans `livret d’accompagnement du DVD`, au document 13. De même, `affiche` apparaît dans certains chemins d’images. Expliquez pourquoi une formulation plus précise change le résultat et répond mieux à la question posée.
 
 ### Comprendre le besoin avant de construire l’outil
 
 **Pour répondre aux questions de cette activité, les données de la page et la recherche du navigateur suffisent.** Les descriptions sont déjà conservées dans un fichier et un outil permet déjà de les retrouver. Cette autre manière d’exploiter les documents reste disponible quel que soit leur classement visuel.
 
-Le cours nous apprendra à construire et à gérer des bases de données, ainsi qu’à écrire des recherches. Le choix d’un nouvel outil devra répondre à des opérations précises : retrouver, compter, rapprocher ou modifier les données. On commence donc par identifier les besoins et par comprendre ce que les données et les outils disponibles permettent déjà de faire.
+Le choix d’un outil dépend des opérations à réaliser : retrouver, compter, rapprocher ou modifier les données. Avant de construire une base ou d’installer un logiciel, identifiez vos besoins et ce que les données et les outils disponibles permettent déjà de faire.
 
-Dans `observations-classement.md`, on conserve une recherche effectuée dans le code source, sa réponse vérifiée et un exemple où le nombre d’occurrences diffère du nombre de documents.
+Dans `observations-classement.md`, conservez une recherche effectuée dans le code source, sa réponse vérifiée et un exemple où le nombre d’occurrences diffère du nombre de documents.
 
 </details>
 
-## 8. Nommer ce qui a été observé
+## 8. Du classement aux bases de données et aux requêtes
 
-### Organiser et classer
+### Les limites du classement et de la recherche textuelle
 
-**Classer** consiste à regrouper ou à ordonner des éléments selon des critères. Dans l’activité, l’œuvre, l’artiste ou la nature du document peuvent servir de critères.
+**Classer** consiste à regrouper ou à ordonner des éléments selon des critères. Parmi les 42 documents, un regroupement par prix facilite la recherche d’un montant. Il aide peu à répondre à une autre question : **quel document mentionne Ravi Shankar comme compositeur ?** Chercher seulement parmi les disques ferait manquer l’affiche de cinéma *Pather Panchali*, document 36.
 
-On reprend un regroupement réalisé et on formule sa règle en une phrase. On vérifie cette règle sur un document placé à l’intérieur et sur un document placé ailleurs.
+Une recherche sur le nom permet de retrouver cette affiche sans déplacer les documents. Le même ensemble peut être recherché par prix, date, lieu ou personne. **L’enjeu est de répondre à des questions différentes sans refaire le classement à chaque demande.**
 
-Un nom comme « divers » indique peu de choses sur la place d’un nouveau document. Une règle explicite aide à décider où ranger et où chercher. Plusieurs classements restent possibles selon les usages.
-
-### Base de données et SGBD
-
-Une **base de données** est un ensemble organisé de données conservées pour être retrouvées et exploitées. L’organisation doit permettre de répondre aux besoins de l’application.
-
-Un **système de gestion de base de données**, ou **SGBD**, est un logiciel qui permet de définir, de conserver, de rechercher et de modifier des données. Il fournit aussi des mécanismes de contrôle des accès et de cohérence.
-
-Dans la démonstration, le fichier HTML joue le rôle d’une petite base de données en fichier plat. La recherche du navigateur est l’outil utilisé pour l’interroger. Ces deux éléments suffisent aux recherches réalisées ; un SGBD répondra à d’autres besoins de gestion au fil du cours.
-
-Dans le projet, les éléments publiés, les utilisateurs et les collections font partie des données. Le SGBD est le logiciel qui les gère. L’application utilise ces données pour proposer ses pages et ses fonctions.
-
-L’apparence de l’interface ne permet pas, à elle seule, de savoir comment les données sont conservées. Déplacer une carte à l’écran n’implique pas nécessairement de déplacer un fichier dans un dossier.
-
-On reprend la liste de mots du début. On corrige les définitions provisoires à partir des exemples rencontrés, puis on explique la différence entre les données de l’application et le logiciel qui les gère.
-
-## 9. Du classement aux langages de bases de données
-
-### Trouver du texte et répondre à la question
-
-Ctrl+F recherche une suite de caractères. Pour chercher les documents qui affichent un prix à payer, on essaie `prix` dans le code source, puis on examine le contexte des occurrences.
+La recherche textuelle a toutefois ses limites : **Ctrl+F cherche une suite de caractères**, dont il faut interpréter le sens. Pour retrouver les documents qui affichent un montant à payer, essayez `prix` dans le code source, puis lisez les descriptions trouvées.
 
 | Cas dans le corpus | Ce que la recherche permet de constater |
 |---|---|
-| L’affiche de *Quand la mer monte...*, document 09, mentionne le **prix Louis-Delluc 2004**. | `prix` est présent, mais il désigne une récompense. C’est un **faux positif** pour la recherche d’un montant à payer. |
-| La pochette de Tanita Tikaram, document 04, porte **Special Price £1.99**. | Son texte alternatif contient un montant, mais pas le mot français `prix`. Cette recherche manque donc un document pertinent : un **faux négatif**. |
+| L’affiche de *Quand la mer monte...*, document 09, mentionne le **prix Louis-Delluc 2004**. | Le mot est présent, mais désigne une récompense : c’est un **faux positif**, un résultat trouvé qui ne répond pas à la question. |
+| La pochette de Tanita Tikaram, document 04, porte **Special Price £1.99**. | Le montant figure dans la description, mais pas le mot français `prix` : c’est un **faux négatif**, un document pertinent que la recherche manque. |
 
-On retrouve le document 04 avec `1.99`. La notation compte : le texte enregistré utilise un point, alors que la question en français peut employer la virgule dans « 1,99 livre sterling ».
+Le choix des termes et la qualité des descriptions déterminent les résultats. Si une inscription manque dans le texte, Ctrl+F ne peut pas la retrouver. De même, comme vous l’avez constaté avec `Megadeth`, compter les occurrences ne suffit pas à compter les documents.
 
-Si une information de l’image a été omise dans la description, aucune recherche dans ce texte ne peut la retrouver. La fiabilité dépend à la fois de la formulation de la recherche et de la manière dont le document a été décrit.
+### Distinguer base de données, SGBD et application
 
-### Une base conserve un état du système
+Ces recherches permettent de distinguer les données conservées des logiciels qui les exploitent.
 
-Le montant `£1.99` permet d’affirmer qu’un prix figure sur cette pochette. Il ne suffit pas à connaître le prix de vente du disque aujourd’hui. De même, un numéro conservé dans les contacts peut avoir été correct lors de sa saisie et avoir changé depuis.
-
-**Une base de données contient un état enregistré du système, selon un modèle et à un moment donné.** Cet état peut réunir des observations, des déclarations, des calculs ou des prévisions. Leur enregistrement ne garantit ni leur exactitude initiale ni leur validité actuelle.
-
-Deux vérifications sont donc nécessaires :
-
-- **La recherche traduit-elle correctement la question ?** Les critères doivent sélectionner les données qui répondent au besoin.
-- **Les données représentent-elles correctement la situation concernée ?** Leur sens, leur provenance, leur date et les éventuelles omissions doivent être compris.
-
-Un SGBD peut faire respecter des règles de cohérence, par exemple exiger un montant positif. Un montant erroné peut toutefois respecter cette règle. La cohérence interne et la fidélité au réel sont deux exigences distinctes.
-
-### Vers les requêtes et SQL
-
-Une **requête** est une demande adressée à un système pour obtenir des données selon des critères. **SQL** permet notamment d’exprimer ces demandes dans une base relationnelle. On apprendra à formuler ces critères, puis à vérifier les résultats et ce qu’ils permettent d’affirmer.
-
-### Justifier une réponse
-
-On reprend une réponse obtenue dans le corpus. Dans `observations-classement.md`, on précise le critère de recherche, la raison de retenir ou d’écarter un résultat et ce que le document permet réellement d’affirmer. Une information absente reste signalée comme inconnue.
-
-## 10. Conserver les résultats
-
-Dans `observations-classement.md`, on conserve :
-
-- les réponses justifiées aux treize questions et les trois inventaires ;
-- la règle de classement et les difficultés rencontrées ;
-- les observations lors de l’utilisation par un autre groupe et une comparaison appuyée sur une recherche précise ;
-- une recherche dans le code source et la manière dont sa réponse a été vérifiée ;
-- un exemple de différence entre le nombre d’occurrences et le nombre de documents ;
-- une explication de la différence entre donnée et information ;
-- une explication du rôle de l’encodage dans la lecture des bits ;
-- une distinction entre base de données, SGBD et application ;
-- la justification rédigée pendant la synthèse : critère de recherche, raison de retenir ou d’écarter un résultat et limites de ce que le document permet d’affirmer.
-
-On termine par une question que le classement obtenu laisse difficile à résoudre. On indique si la recherche dans le code source permet d’y répondre et ce qui reste difficile.
-
-Pour la séance 2, on conserve `observations-classement.md`, les captures et l’accès aux 42 documents avec leurs descriptions complètes, notamment les mentions utilisées dans les treize questions. On reprendra les mêmes numéros pour organiser leurs informations en tableaux et décrire les collections proposées. Le programme, le livret DVD et le billet d’une même œuvre resteront des documents distincts. Les réponses et les inventaires de cette séance serviront à vérifier les tableaux obtenus, selon les [données de départ du projet](projet.md#données-de-départ-et-reprise-en-séance-2).
-
-## Complément facultatif — Classement, modèle relationnel et interfaces
-
-Cette lecture prolonge la synthèse. Elle est **facultative, hors séance**, et ne demande aucun travail à remettre.
-
-### Un classement efficace pour quelles questions ?
-
-Quand on connaît les données et les questions à l’avance, une organisation simple peut suffire. Pour retrouver des prix, on sépare les documents qui affichent un montant de ceux qui n’en affichent pas. On classe ensuite les montants, en tenant compte de leur monnaie. Ce rangement répond au besoin prévu.
-
-La question change : **quel document mentionne Ravi Shankar comme compositeur ?** Le classement par prix aide peu. La propriété « compositeur » oriente vers la musique, donc vers les disques. Pourtant, la réponse est une affiche de cinéma : *Pather Panchali*, document 36.
-
-Une propriété peut guider la recherche sans déterminer à elle seule la catégorie du document. Le même ensemble peut être interrogé par prix, date, lieu, personne ou objet représenté.
-
-**La difficulté est de répondre à des questions nouvelles sans réorganiser les documents à chaque demande.** On cherche une manière commune d’exploiter les propriétés enregistrées, de les combiner et de rapprocher les données.
-
-### Codd et le modèle relationnel
-
-En 1970, **Edgar F. Codd** publie le modèle relationnel. Il propose de décrire les données par des relations, représentées sous forme de tables, et de les manipuler indépendamment de leur organisation physique dans la machine. Un changement de stockage doit pouvoir laisser les programmes qui les utilisent inchangés. C’est le principe d’**indépendance des données**. [Publication de Codd, 1970](https://research.ibm.com/publications/a-relational-model-of-data-for-large-shared-data-banks).
-
-Cette séparation permet de formuler les propriétés du résultat attendu sans imposer le parcours à suivre pour le trouver. Le SGBD prend en charge l’accès aux données. Les mêmes tables peuvent servir à sélectionner, trier, compter ou rapprocher des informations selon des questions différentes.
-
-**SQL**, développé ensuite par Donald Chamberlin et Raymond Boyce, concrétise cette approche : on décrit le résultat recherché, et le SGBD détermine comment l’obtenir. [Histoire du modèle relationnel et de SQL, IBM](https://www.ibm.com/history/relational-database).
-
-### Des interfaces pour poser des questions
-
-Cette interrogation des données est déjà présente dans les applications du quotidien.
-
-| Application | Manière de poser la question | Résultat recherché |
+| Notion | Rôle | Exemple dans le projet de collections |
 |---|---|---|
-| Contacts du téléphone | Saisir un nom ou une partie d’un numéro. | Les fiches de contact correspondantes. |
-| Moteur de recherche | Saisir des mots dans un champ. | Des documents indexés correspondant à la recherche. |
-| Boutique en ligne | Choisir une catégorie, puis une taille, une couleur ou une fourchette de prix. | Les produits qui satisfont les critères choisis. |
-| Gestionnaire de contenus ou CMS | Choisir un type de contenu, une catégorie, un thème ou des tags. | Les contenus qui possèdent les propriétés demandées. |
+| **Base de données** | Ensemble organisé de données conservées pour être retrouvées et exploitées. | Les données des éléments publiés, des utilisateurs et des collections. |
+| **Système de gestion de base de données (SGBD)** | Logiciel qui permet de définir, conserver, rechercher et modifier les données. Il fournit aussi des mécanismes de contrôle des accès et de cohérence. | Il enregistre une nouvelle fiche, retrouve les éléments d’une collection et applique les droits d’accès à la base. |
+| **Application** | Logiciel qui utilise les données pour proposer des pages et des fonctions à ses utilisateurs. | Elle affiche les collections et propose des formulaires de recherche ou de modification. |
 
-Les filtres combinables d’une boutique sont souvent appelés **facettes**. Un champ de recherche ou un ensemble de filtres permet de construire une **requête** : une demande adressée au système pour obtenir des données selon des critères.
+Dans notre activité, le fichier HTML joue le rôle d’une petite base de données en **fichier plat** : les descriptions sont conservées directement dans ce fichier. **Ce fichier et Ctrl+F suffisent pour répondre aux treize questions**, en lisant les descriptions et en vérifiant les documents retenus.
 
-L’application traduit les choix faits dans l’interface en instructions exécutables. Les langages varient selon les systèmes ; ce module porte principalement sur **SQL et les bases de données relationnelles**. On apprendra à exprimer les questions avec précision, à organiser les données nécessaires et à vérifier les réponses obtenues.
+Les besoins du projet iront plus loin : répéter des recherches combinant plusieurs critères, relier documents et collections, gérer des modifications simultanées ou attribuer des droits différents. Un SGBD fournit des mécanismes adaptés à ces opérations. Son choix se justifie par les besoins de gestion ; il ne dispense pas de décrire correctement les données ni de vérifier les réponses.
+
+### Le modèle relationnel et l’indépendance des données
+
+Le **modèle relationnel** organise les données en **relations**, représentées sous forme de tables. Une table décrit des enregistrements en lignes et leurs propriétés en colonnes. Des identifiants permettent de rapprocher les données de plusieurs tables.
+
+Pour notre corpus, on pourrait distinguer le titre du document, sa nature, le montant inscrit et sa monnaie. Une récompense et un montant à payer seraient alors décrits par des propriétés distinctes. La précision de la recherche dépend donc aussi de la manière dont on structure les données.
+
+En **1970, Edgar F. Codd** propose ce modèle pour permettre notamment d’exploiter les données sans connaître leur organisation interne dans la machine. Le principe d’**indépendance des données** vise à séparer les programmes des détails de leur stockage : une réorganisation physique doit pouvoir laisser les programmes qui utilisent les données inchangés. [Publication de Codd, 1970](https://research.ibm.com/publications/a-relational-model-of-data-for-large-shared-data-banks).
+
+Les mêmes tables peuvent ainsi servir à plusieurs recherches, sans imposer un classement unique. En séance 2, vous reprendrez les 42 documents pour organiser leurs propriétés en tableaux, en conservant les informations nécessaires aux questions déjà résolues.
+
+### Formuler une requête avec SQL ou une interface
+
+Une **requête de recherche** est une demande adressée à un système pour obtenir des données selon des critères. « Retrouver les documents mentionnant Ravi Shankar comme compositeur » précise une personne et son rôle ; « compter les éléments d’une collection » demande un résultat calculé à partir des éléments retenus.
+
+**SQL** est un langage utilisé pour interroger et gérer les bases de données relationnelles. Pour une recherche, on décrit le résultat attendu : les données à sélectionner, les conditions à respecter, le tri ou le comptage souhaité. Le SGBD détermine comment accéder aux données pour obtenir ce résultat. SQL permet aussi de définir leur structure, de les ajouter, de les modifier et de les supprimer. Sa syntaxe sera introduite à partir de la séance 3.
+
+Une interface permet de formuler ces demandes sans écrire directement le langage utilisé par le système. Dans les contacts d’un téléphone, on saisit un nom ; dans une boutique, on combine une catégorie, une taille et une fourchette de prix. Ces filtres combinables sont souvent appelés **facettes**.
+
+L’application traduit les choix de l’utilisateur en instructions exécutables. Elle peut notamment envoyer une requête SQL à un SGBD relationnel, puis présenter les résultats. D’autres systèmes utilisent d’autres langages : l’apparence d’un champ de recherche ne permet pas de déduire comment les données sont conservées ou interrogées.
+
+### Vérifier et expliquer
+
+Reprenez une de vos recherches dans `observations-classement.md`. Notez le critère recherché, le texte saisi, le numéro du document retenu et l’inscription qui justifie la réponse. Indiquez un résultat à écarter ou un document que la recherche manque, puis expliquez pourquoi. Une information absente reste signalée comme inconnue.
+
+Reprenez enfin les mots proposés au début de séance. Expliquez la différence entre base de données, SGBD et application, puis citez un besoin couvert par le fichier HTML et Ctrl+F et un besoin du projet qui justifierait l’emploi d’un SGBD.

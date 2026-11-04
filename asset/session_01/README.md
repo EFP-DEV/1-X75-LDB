@@ -95,4 +95,4 @@ Les conventions de comptage figurent dans la [préparation de séance](../../pre
 
 Le téléchargement ne constitue pas une licence libre. Les références des documents et leurs sources sont conservées ; aucune autorisation de republication n’est affirmée pour les œuvres téléchargées.
 
-GitHub Pages héberge déjà le site du cours depuis la branche `main`, à la racine du dépôt. Au 4 novembre 2026, le nouveau plateau `exo/session_01.html` est encore absent de cette branche distante. Sa publication avec le CSS, le JavaScript et les 42 images reste à effectuer. L’adresse cible et les fichiers à publier sont précisés dans les [modalités de diffusion](../../preparation/session_01.md#accès-par-github-pages).
+GitHub Pages héberge le site du cours depuis la branche `main`, à la racine du dépôt. Le plateau `exo/session_01.html` utilise `asset/session_01.css`, `asset/session_01.js` et les 42 images référencées dans le [manifeste](corpus.json). Les consignes d’[accès au plateau](../../preparation/session_01.md#accès-par-github-pages) figurent dans la préparation de séance.
