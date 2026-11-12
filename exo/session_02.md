@@ -10,7 +10,7 @@ Les commandes, personnes et coordonnées du dossier sont fictives. Les variation
 
 ## 1. Lot A — Relever les champs utiles
 
-Ouvrez uniquement le **lot A**, puis créez `papeterie_champs.xlsx` avec une feuille nommée `champs`.
+Ouvrez uniquement le **[lot A](session_02_documents.html#lot-a)**, puis créez `papeterie_champs.xlsx` avec une feuille nommée `champs`.
 
 Commencez avec deux colonnes :
 
@@ -18,7 +18,7 @@ Commencez avec deux colonnes :
 |---|---|
 | | |
 
-**Une ligne décrit un champ, pas une personne ni une commande.** Choisissez les champs nécessaires pour préparer les articles, joindre la personne et livrer. Pour chacun, recopiez un exemple exact de A1 ou A2. Indiquez le repère du document dans un commentaire de la cellule contenant l’exemple.
+**Une ligne décrit un champ, pas une personne ni une commande.** Choisissez les champs nécessaires pour préparer les articles, joindre la personne et livrer. Pour chacun, recopiez un exemple exact de [A1](session_02_documents.html#titre-a1) ou [A2](session_02_documents.html#titre-a2). Indiquez le repère du document dans un commentaire de la cellule contenant l’exemple.
 
 Comparez chaque exemple au document. Avez-vous conservé ses signes, ses espaces et sa précision ? Si Excel a modifié une valeur, cherchez comment la conserver telle qu’elle apparaît dans le document, puis vérifiez le résultat. Chaque champ répond-il à un besoin de la papeterie ?
 
@@ -26,7 +26,7 @@ Comparez chaque exemple au document. Avez-vous conservé ses signes, ses espaces
 
 ## 2. Préciser le sens, puis proposer un type
 
-Au signal du professeur, reprenez A1 et répondez :
+Au signal du professeur, reprenez [A1](session_02_documents.html#titre-a1) et répondez :
 
 1. Deux dates apparaissent. Que représente chacune ? Vos noms de champs permettent-ils de les distinguer ?
 2. Le montant `12,50 €` concerne-t-il un carnet ou les quatre carnets ? Votre champ permet-il de le comprendre ?
@@ -42,18 +42,18 @@ Créez maintenant une feuille `decisions` pour garder la trace des choix discut�
 |---|---|---|---|---|
 | | | | | |
 
-Au signal suivant, ajoutez **« Type proposé »** dans `champs`. Choisissez pour chaque champ une représentation : texte, nombre entier, nombre décimal ou date. Préparez une justification fondée sur l’usage de la valeur. Conservez vos propositions avant d’ouvrir le lot B.
+Au signal suivant, ajoutez **« Type proposé »** dans `champs`. Choisissez pour chaque champ une représentation : texte, nombre entier, nombre décimal ou date. Préparez une justification fondée sur l’usage de la valeur. Conservez vos propositions avant d’ouvrir le [lot B](session_02_documents.html#lot-b).
 
 ## 3. Lot B — Confronter les types aux nouvelles valeurs
 
-Ouvrez **B1 et B2**. Gardez votre tableau et confrontez vos choix aux nouvelles valeurs.
+Ouvrez **[B1](session_02_documents.html#titre-b1) et [B2](session_02_documents.html#titre-b2)**. Gardez votre tableau et confrontez vos choix aux nouvelles valeurs.
 
 Pour chaque champ concerné :
 
 1. relevez une valeur nouvelle et son document ;
 2. appliquez votre type proposé : permet-il de conserver la valeur sans l’altérer et de réaliser l’usage attendu ?
 3. notez toute perte, tout refus ou toute difficulté ;
-4. maintenez ou modifiez votre proposition, puis reprenez les valeurs de A1 et A2 pour vérifier le choix retenu.
+4. maintenez ou modifiez votre proposition, puis reprenez les valeurs de [A1](session_02_documents.html#titre-a1) et [A2](session_02_documents.html#titre-a2) pour vérifier le choix retenu.
 
 Conservez les exemples initiaux. Les nouvelles valeurs qui justifient vos décisions figurent dans `decisions`.
 
@@ -63,7 +63,7 @@ Après l’échange, ajoutez **« Format retenu »**. Décrivez l’écriture ou
 
 ## 4. Proposer des règles de contenu et de longueur
 
-Avant d’ouvrir le lot C, ajoutez **« Contenu et longueur »**.
+Avant d’ouvrir le [lot C](session_02_documents.html#lot-c), ajoutez **« Contenu et longueur »**.
 
 Pour le nom de contact, la référence d’article et la consigne de livraison, proposez les caractères admis et les éventuelles longueurs minimale et maximale. Précisez l’unité de longueur et justifiez chaque restriction.
 
@@ -71,18 +71,18 @@ Si vous ne disposez pas d’éléments suffisants pour fixer une limite, écrive
 
 ## 5. Lot C — Examiner les textes à conserver
 
-Ouvrez **C1 à C3**. Testez vos règles de contenu et de longueur sur les textes tels qu’ils sont écrits.
+Ouvrez **[C1](session_02_documents.html#titre-c1), [C2](session_02_documents.html#titre-c2) et [C3](session_02_documents.html#titre-c3)**. Testez vos règles de contenu et de longueur sur les textes tels qu’ils sont écrits.
 
 1. Votre représentation conserve-t-elle chaque nom et chaque consigne en entier ?
 2. Quels caractères ou quelles longueurs mettent vos règles en difficulté ? Citez les valeurs exactes.
 3. Si une valeur dépasse votre limite, que feriez-vous concrètement ?
 4. Si toutes les valeurs tiennent, votre limite est-elle pour autant justifiée pour les prochaines commandes ?
 
-Consignez les conséquences et les décisions dans `decisions`, puis mettez à jour `champs`. Après une modification, appliquez à nouveau votre règle aux textes des lots A, B et C.
+Consignez les conséquences et les décisions dans `decisions`, puis mettez à jour `champs`. Après une modification, appliquez à nouveau votre règle aux textes des lots [A](session_02_documents.html#lot-a), [B](session_02_documents.html#lot-b) et [C](session_02_documents.html#lot-c).
 
 ## 6. Écrire les règles de validation
 
-Avant d’ouvrir le lot D, ajoutez **« Règles de validation »**.
+Avant d’ouvrir le [lot D](session_02_documents.html#lot-d), ajoutez **« Règles de validation »**.
 
 Formulez au moins une règle pour chacun de ces champs : quantité, prix unitaire et date de livraison souhaitée. Donnez un exemple accepté et un exemple refusé avec une explication. Vous pouvez construire des exemples pour éprouver les règles ; identifiez-les comme des exemples inventés dans `decisions`.
 
@@ -92,7 +92,7 @@ Vous contrôlez les règles manuellement dans cet exercice. Leur rédaction ne c
 
 ## 7. Lot D — Examiner les saisies et décider de la suite
 
-Ouvrez **D1 à D3**. Pour chaque valeur qui vous fait hésiter, consignez dans `decisions` :
+Ouvrez **[D1](session_02_documents.html#titre-d1), [D2](session_02_documents.html#titre-d2) et [D3](session_02_documents.html#titre-d3)**. Pour chaque valeur qui vous fait hésiter, consignez dans `decisions` :
 
 - le document et la valeur exacte ;
 - votre constat : acceptable selon la règle, incompatible avec elle ou interprétation incertaine ;
@@ -101,7 +101,7 @@ Ouvrez **D1 à D3**. Pour chaque valeur qui vous fait hésiter, consignez dans `
 
 **Une valeur incompatible peut aussi nécessiter une confirmation pour être corrigée.** Conservez la transcription reçue. Ne choisissez pas une valeur de remplacement sans élément qui la justifie.
 
-Pour D3, explicitez votre lecture de la date et la convention sur laquelle elle repose. Distinguez les renseignements fournis par ce message de ceux qu’il faudrait demander pour préparer la commande.
+Pour [D3](session_02_documents.html#titre-d3), explicitez votre lecture de la date et la convention sur laquelle elle repose. Distinguez les renseignements fournis par ce message de ceux qu’il faudrait demander pour préparer la commande.
 
 Après toute modification d’une règle, reprenez des valeurs des lots précédents : la règle accepte-t-elle toujours les valeurs légitimes ? Repère-t-elle le problème qui a motivé sa révision ?
 
