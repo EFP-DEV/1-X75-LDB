@@ -10,7 +10,7 @@ En séance 1, nous avons utilisé des propriétés pour classer et retrouver des
 
 À la fin de la séance, vous devez pouvoir définir un champ sans ambiguïté, choisir une représentation adaptée à son usage, formuler une règle vérifiable et expliquer les conséquences de vos choix à partir d’un document.
 
-L’[exercice « Des documents aux champs »](exo/session_02.md) se réalise à deux dans Excel, à partir des [lots A à D de la Papeterie du Canal](exo/session_02_documents.html). Vous construisez progressivement un **dictionnaire des données**. Dans ce tableau de description, **une ligne décrit un champ**. Les lots et les nouvelles colonnes sont introduits au signal du professeur. Les explications du cours reprennent les questions rencontrées pendant le travail.
+L’[exercice](exo/session_02.md) comprend deux parties : le lot A de la Papeterie du Canal jusqu’à la proposition des types, puis les huit scénarios de conception de tables repris de 2025-2026. Le premier travail produit `papeterie_champs.xlsx` ; le second produit des dessins de tables accompagnés de la description de leurs champs.
 
 ## Des chiffres ou des lettres
 
@@ -68,7 +68,7 @@ Pour une adresse, il peut être utile de distinguer le code postal, la localité
 
 ## 2. Choisir un type à partir de l’usage
 
-### Proposer avant d’ouvrir le lot B
+### Proposer les types du dictionnaire
 
 Ajoutez **« Type proposé »**. Pour chaque champ, choisissez une première représentation : texte, nombre entier, nombre décimal ou date. Justifiez-la par ce que la papeterie doit pouvoir faire avec la valeur.
 
@@ -85,145 +85,50 @@ La définition doit aussi préciser l’**unité** : exemplaires pour une quanti
 
 Le type inscrit dans votre dictionnaire décrit le futur champ. Le mot « Date » écrit dans une cellule du dictionnaire reste du texte : il ne configure pas automatiquement une colonne de dates dans une base.
 
-## 3. Confronter les choix aux nouvelles commandes
+## 3. Regrouper les champs dans des tables
 
-### Examiner les valeurs — lot B
+La seconde partie de l’[exercice](exo/session_02.md#3-dessiner-et-décrire-des-tables) reprend les scénarios de cinéma, librairie, blog, transport, langues, commerce, hôpital et école.
 
-Ouvrez B1 et B2. Appliquez vos choix sans les modifier immédiatement. Pour chaque difficulté, relevez le document, la valeur exacte et la conséquence de votre décision.
+Une **entité** est un objet ou un concept sur lequel on conserve des renseignements : un film, une personne, un produit. Un événement, comme une consultation, peut aussi nécessiter sa propre table. On commence par préciser ce que représente une ligne de chaque table.
 
-| Propriété | Valeurs rencontrées | Question à résoudre |
+Dans le dictionnaire de la papeterie, une ligne décrit un champ. Dans une table de films, une ligne décrit un film et chaque colonne correspond à une propriété : titre, année de sortie, durée. Le dessin représente la structure ; les exemples de films représentent les données.
+
+### Distinguer deux lignes
+
+Deux films peuvent avoir le même titre. Deux personnes peuvent porter le même nom. Un **identifiant** permet de distinguer leurs lignes sans dépendre de ces ressemblances.
+
+Une clé primaire identifie chaque ligne de manière unique. Sa valeur doit être présente et rester stable. On peut proposer un champ `id` entier. La manière de produire ses valeurs sera précisée lors de la création de la base ; dessiner ce champ ne crée aucun mécanisme automatique.
+
+## 4. Décrire chaque champ
+
+On complète les noms et les types par une longueur, un caractère obligatoire et un commentaire.
+
+| Décision | Question à résoudre | Exemple |
 |---|---|---|
-| Référence d’article | `1000`, `2000`, puis `AB-012` et `P-07`. | Une représentation numérique conserve-t-elle toutes les références ? |
-| Code postal | `1000`, `4000`, puis `01210` et `SW1A 1AA`. | Que deviennent le zéro initial, les lettres et l’espace ? |
-| Numéro dans la voie, si vous l’avez séparé | `14`, `25`, puis `12B`. | Ce champ décrit-il une quantité ? |
-| Téléphone | `0470 00 00 11`, puis `+33 6 00 00 00 33` et `+44 7700 900123`. | Quels caractères faut-il préserver ? Quel contexte faut-il connaître pour transformer l’écriture ? |
+| Sens | Quelle information décrit le champ ? | Une durée de film en minutes. |
+| Type | Quelle représentation convient aux opérations ? | Un entier pour compter des exemplaires ; du texte pour une référence. |
+| Longueur | Quelle limite est justifiée ? | Une limite de titre dépend du besoin ou de l’outil ; elle peut rester à déterminer. |
+| Obligatoire | L’information doit-elle être connue pour enregistrer la ligne ? | Un article peut être enregistré comme brouillon avant de posséder une date de publication. |
+| Commentaire | Quelle précision évite une autre interprétation ? | Prix unitaire en euros TTC ; échelle de notation à préciser. |
 
-Une référence, un code postal ou un téléphone servent ici à désigner ou à joindre. Avec du **texte**, on peut garder le zéro au début de `01210` et les lettres de `AB-012`. Une quantité et un prix doivent, eux, permettre les opérations arithmétiques prévues.
+Un type ne suffit pas à fixer les valeurs admises : un entier peut être négatif. Une règle telle que « stock supérieur ou égal à zéro » doit être formulée séparément et justifiée par le besoin. On l’applique manuellement aux exemples.
 
-Une représentation qui accepte les deux premiers documents peut échouer sur les suivants. Quand une valeur légitime ne tient pas dans la représentation proposée, il faut réexaminer cette représentation.
+Un format décrit l’affichage : `12,50 €` présente un montant et sa monnaie ; `2026-11-18` présente un jour du calendrier. Le format ne garantit pas la validité de la valeur. Un champ facultatif peut être absent ; cette absence ne signifie pas automatiquement zéro.
 
-### Distinguer valeur et format
+Les textes doivent conserver les accents, les espaces et la ponctuation nécessaires. Une limite n’est pas justifiée par la seule longueur des exemples présents. En cas de dépassement, on signale le problème au lieu de couper silencieusement la valeur.
 
-Un **format** définit une manière d’écrire ou d’afficher une valeur. Une date connue peut s’afficher `18/11/2026` ou `2026-11-18`. Un prix peut s’afficher `12,50 €` alors que l’opération de calcul utilise le montant numérique, avec sa monnaie connue.
+## 5. Représenter les besoins qui dépassent une table
 
-Le format ne change pas le sens du champ. Il ne démontre pas non plus que la valeur est correcte. Afficher deux décimales ne prouve pas que la saisie respectait une règle limitant la précision au centime.
+Un client peut passer plusieurs commandes ; un patient peut avoir plusieurs consultations ; un pays peut avoir plusieurs langues officielles. Ces besoins ne disparaissent pas parce que les relations n’ont pas encore été étudiées.
 
-Dans **« Exemple relevé »**, recopiez l’exemple exactement comme il est écrit dans le document. Une autre colonne, **« Format retenu »**, décrit la présentation envisagée. Cette séparation permet de comparer la source avec une éventuelle transformation.
+À cette étape, on relève les objets et événements qui nécessiteront des tables supplémentaires et on décrit leurs propres champs. Les liens, clés étrangères et cardinalités seront formalisés ensuite. Un compteur de commandes ne conserve ni leurs dates individuelles ni leur contenu. Une seule allergie ne représente pas un dossier qui doit en conserver plusieurs.
 
-Toute transformation doit être justifiée. Retirer des séparateurs d’un téléphone peut en faciliter la comparaison, à condition de préserver le numéro. Ajouter un indicatif international exige de connaître le pays du numéro ; le pays de livraison ne suffit pas à l’établir.
+## 6. Vérifier les propositions sur des exemples
 
-### Garder la trace de la décision
-
-Dans la feuille `decisions`, consignez une proposition maintenue et une proposition modifiée ou laissée en attente. Pour chacune :
-
-1. indiquez le champ et votre proposition ;
-2. citez le document et la valeur qui l’ont mise à l’épreuve ;
-3. décrivez la conséquence constatée ;
-4. justifiez le choix retenu et vérifiez-le à nouveau sur les documents déjà ouverts.
-
-Une proposition qui fonctionne dès le départ doit aussi pouvoir être expliquée. Si vous hésitez, précisez les options et l’information nécessaire pour décider.
-
-## 4. Déterminer le contenu et la longueur
-
-### Formuler les premières règles avant le lot C
-
-Le type texte permet une grande diversité de valeurs. Il reste à déterminer ce que chaque champ peut contenir : caractères, espaces, ponctuation, longueur et éventuelle absence.
-
-Ajoutez **« Contenu et longueur »**. À partir des lots A et B, proposez des règles pour le nom de contact, la référence d’article et la consigne de livraison. Indiquez ce qui justifie chaque restriction. Si aucune limite de longueur n’est encore fondée, écrivez « à déterminer » et précisez quelle information vous cherchez.
-
-### Examiner les textes — lot C
-
-Ouvrez C1 à C3 et appliquez vos propositions aux textes tels qu’ils sont écrits.
-
-`Élodie D’Hondt-Martin` fait intervenir un accent, une apostrophe et un trait d’union. `Alexandrine de la Roche-Saint-André` comporte plusieurs mots. `Bo Li` est court. La consigne de C2 occupe plusieurs phrases.
-
-Une règle limitée aux lettres non accentuées peut refuser un nom présent dans le dossier. Une longueur minimale peut refuser un nom court ; une longueur maximale peut empêcher de conserver une consigne utile. Supprimer des caractères pour faire entrer la valeur dans le champ peut modifier l’information.
-
-Pour chaque limite proposée, demandez-vous :
-
-- Quelle nécessité impose cette limite ?
-- Dans quelle unité est-elle exprimée : caractères, par exemple ? Comptez-vous les espaces et la ponctuation ?
-- Quelle valeur du dossier est refusée ou altérée ?
-- Que ferait-on concrètement si une prochaine valeur dépassait cette limite ?
-
-Une limite peut venir d’un besoin de l’application ou d’un outil avec lequel elle échange. Il faut alors la documenter et prévoir le traitement des valeurs qui la dépassent. Le nom et les consignes ne sont pas raccourcis silencieusement.
-
-**La plus longue valeur observée ne définit pas, à elle seule, la longueur maximale des prochaines valeurs.** Un dictionnaire peut comporter une décision provisoire clairement signalée.
-
-## 5. Contrôler sans inventer une correction
-
-### Écrire des règles avant le lot D
-
-Ajoutez **« Règles de validation »**. Proposez au moins une règle pour la quantité, le prix unitaire et la date de livraison souhaitée. Donnez pour chacune un exemple accepté et un exemple refusé. Les exemples inventés pour éprouver une règle doivent être signalés comme tels et rester distincts des transcriptions du dossier.
-
-Une **règle de validation** exprime une condition qu’une valeur doit respecter dans son contexte d’utilisation. Elle complète le type.
-
-| Décision | Question | Exemple pour la quantité |
-|---|---|---|
-| Sens | Que compte-t-on ? | Le nombre d’exemplaires de l’article commandé. |
-| Type | Quelle famille de valeurs représente-t-on ? | Un entier. |
-| Format | Comment l’écrit-on ou l’affiche-t-on ? | Avec des chiffres, sans décimales à l’affichage. |
-| Validation | Quelles valeurs accepte-t-on pour ce besoin ? | Au moins un exemplaire pour une commande de l’exercice. |
-
-Un entier peut être négatif ; le type seul ne suffit donc pas à exprimer la règle sur la quantité. Une règle sur le prix doit préciser le traitement des valeurs négatives et du zéro. Si cette décision dépend d’une pratique de la papeterie qui n’est pas connue, notez l’hypothèse et la confirmation nécessaire.
-
-Écrire une règle dans Excel ne la fait pas appliquer automatiquement. Ici, vous l’appliquez aux exemples et vous expliquez votre décision.
-
-### Examiner les transcriptions — lot D
-
-Pour chaque valeur qui vous fait hésiter, distinguez **le constat** et **l’action à entreprendre**.
-
-Une valeur peut être incompatible avec une règle et nécessiter une confirmation pour être corrigée. Le `31 novembre 2026` ne désigne aucun jour du calendrier. Cela ne permet pas de choisir entre le 30 novembre, le 1er décembre ou une autre date.
-
-De même, constater l’absence de `@` dans `luc.moreau.example.com` permet de signaler un problème de forme. Cela ne révèle pas l’adresse souhaitée. Une forme acceptée ne suffirait d’ailleurs pas à prouver que la boîte existe ou appartient à la personne.
-
-Une ponctuation inhabituelle dans un téléphone doit être examinée selon la règle retenue. Avant de refuser ou de transformer la valeur, il faut distinguer les séparateurs des caractères nécessaires à son interprétation.
-
-### Reconnaître une convention manquante
-
-Dans D3, `03/04/2027` peut se lire le 3 avril selon la convention jour/mois/année, ou le 4 mars selon la convention mois/jour/année. Le contexte francophone favorise la première lecture. Une convention partagée permet de décider ; lorsqu’elle n’est pas établie, il faut expliciter son interprétation ou demander une confirmation.
-
-Une fois la date comprise, on peut choisir une écriture commune. Changer son affichage ne résout pas une incertitude sur le jour souhaité.
-
-D3 ne précise pas l’article ni la quantité. On ne peut pas compléter ce message en reprenant automatiquement les renseignements d’une autre commande portant le même nom. Les informations manquantes restent à demander ; elles ne deviennent ni une quantité nulle ni une réponse négative.
-
-### Vérifier la portée d’une règle
-
-Vous écrivez « code postal valide ». Comment votre partenaire saura-t-il quels codes accepter ou refuser ? Il faut préciser le pays et la règle applicable, puis distinguer la forme du code de sa correspondance avec une localité. Une règle établie pour un pays ne s’applique pas automatiquement à tous les autres.
-
-Une règle peut donc échouer de deux façons : **refuser une valeur légitime** ou **accepter une valeur incohérente**. Reprenez les lots précédents après chaque modification pour examiner ces deux conséquences.
-
-## 6. Vérifier le dictionnaire des données
-
-Le **dictionnaire des données** rassemble les définitions et les décisions nécessaires pour comprendre les champs et les utiliser de manière cohérente. Votre feuille `champs` s’est construite progressivement :
-
-| Rubrique | Ce qu’elle doit permettre de comprendre |
-|---|---|
-| Champ | Le nom choisi pour désigner la propriété. |
-| Exemple relevé | Une transcription exacte, dont le document source est repérable. |
-| Ce que ce champ décrit | Le sens de la propriété, avec son unité lorsqu’elle est nécessaire. |
-| Type proposé | La famille de valeurs envisagée pour le futur champ. |
-| Format retenu | L’écriture ou l’affichage prévu. |
-| Contenu et longueur | Les caractères admis et les limites envisagées, avec leur justification ou leur caractère provisoire. |
-| Règles de validation | Les conditions à appliquer pour accepter une valeur dans son contexte. |
-| Décisions à confirmer | Les points qui restent ouverts et les informations nécessaires pour les résoudre. |
-
-Le document source peut être indiqué dans un commentaire de la cellule contenant l’exemple. La feuille `decisions` conserve les propositions successives et les conséquences observées.
-
-Reprenez votre propre classeur et les commandes des lots A à D. Choisissez trois champs et vérifiez que leur définition, leur type et leurs règles correspondent aux renseignements à conserver et aux besoins de la papeterie. Appliquez une de vos règles à une valeur acceptable et à une valeur problématique du dossier, en citant les documents concernés.
-
-Précisez les définitions ou les règles si nécessaire, puis reprenez les mêmes valeurs. Notez le résultat dans `decisions`, même si vous maintenez votre choix. Complétez **« Décisions à confirmer »** avec les informations qui vous manquent et les sources auprès desquelles les obtenir ; indiquez « aucune à ce stade » lorsqu’aucune question ne reste ouverte pour le champ.
+Pour chaque scénario, on dessine les tables, on décrit les champs et on construit deux enregistrements fictifs. On vérifie manuellement la conservation de chaque valeur, la distinction des lignes et les effets des règles proposées. Les exemples permettent de justifier une décision ou de mettre en évidence une information manquante.
 
 ## 7. Bilan
 
-Choisissez un champ de votre tableau. Répondez individuellement aux questions suivantes, à l’oral ou par écrit, en quelques phrases. Gardez votre classeur et les commandes sous les yeux.
+On explique le sens d’une ligne de table, le rôle de son identifiant et les choix de types, de longueurs et de champs obligatoires. Chaque contrainte du scénario est reliée à une proposition ou à un besoin à traiter avec les relations.
 
-1. **Quel champ avez-vous choisi ?** Que décrit-il exactement ?
-2. **À quoi sert ce renseignement pour la papeterie ?** Aide-t-il à préparer les articles, à joindre la personne ou à livrer la commande ?
-3. **Quel type avez-vous retenu ?** Pourquoi convient-il à ce que vous devez conserver ou faire avec la valeur ?
-4. **Quelle règle avez-vous écrite pour ce champ ?** Appliquez-la à une valeur du dossier : que permet-elle de décider ?
-5. **Avez-vous gardé ou modifié votre premier choix ?** Quelle valeur précise vous a aidé à décider, et dans quel document se trouve-t-elle ?
-6. **Quelles valeurs avez-vous reprises pour vérifier votre décision ?** Qu’avez-vous constaté ?
-7. **Quelle décision reste à confirmer dans votre tableau ?** Quelle information vous manque, et à qui ou à quelle source pourriez-vous la demander ? Vous pouvez prendre un autre champ pour cette dernière question.
-
-Conservez `papeterie_champs.xlsx`, avec les feuilles `champs` et `decisions`. La séance suivante reprendra le passage du dictionnaire aux données : distinguer les fiches, représenter les relations, transférer les valeurs dans un fichier puis dans une base et vérifier leur conservation.
+On conserve `papeterie_champs.xlsx`, limité aux étapes 1 et 2 de la papeterie, et `session_02_tables`, qui rassemble la seconde partie. La séance suivante approfondira les identifiants, les relations et le passage des descriptions aux données.
