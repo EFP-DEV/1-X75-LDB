@@ -10,7 +10,7 @@ La séance apprend à **transformer une propriété du réel en un champ exploit
 
 Le livrable est `papeterie_champs.xlsx`, avec une feuille `champs` et une feuille `decisions`. **Chaque ligne de `champs` décrit un champ.** Les commandes servent de sources et de cas d’examen. La saisie d’une table de commandes et son transfert dans un SGBD viendront ensuite.
 
-Le travail contribue aux compétences du référentiel sur l’analyse du besoin, la définition des champs, des types et des règles, ainsi que la justification des choix et la consultation d’une source technique. Les opérations réalisées sont le relevé, la définition, la confrontation des propositions aux documents, leur révision et leur vérification par un autre binôme. Une courte reprise d’une propriété du corpus culturel assure le transfert vers le projet commun.
+Le travail contribue aux compétences du référentiel sur l’analyse du besoin, la définition des champs, des types et des règles, ainsi que la justification des choix et la consultation d’une source technique. Les opérations réalisées sont le relevé, la définition, la confrontation des propositions aux documents, leur révision et leur vérification. La séance se termine par une reprise du dictionnaire de chaque binôme à partir des commandes de la papeterie, puis par un bilan individuel des choix effectués.
 
 ## Préparer la distribution
 
@@ -38,7 +38,7 @@ Repère pour les **4 heures annoncées au programme** : 210 minutes de travail, 
 | 02:10–02:35 | 25 min | **Lot C.** Examiner les noms et les consignes, discuter les refus et les limites, puis reprendre les textes déjà ouverts. |
 | 02:35–02:50 | 15 min | **Avant D.** Ajouter « Règles de validation ». Faire écrire des règles pour quantité, prix et date, avec exemples accepté et refusé. |
 | 02:50–03:20 | 30 min | **Lot D.** Appliquer les règles. Distinguer constat, action et information manquante. Vérifier les règles révisées sur les lots précédents. |
-| 03:20–03:40 | 20 min | **Relecture et transfert.** Ajouter « Décisions à confirmer », échanger les classeurs et reprendre une propriété du corpus culturel. |
+| 03:20–03:40 | 20 min | **Vérification du dictionnaire.** Ajouter « Décisions à confirmer ». Chaque binôme reprend trois champs de son classeur, applique une règle à deux valeurs du dossier et précise une question ouverte. |
 | 03:40–03:50 | 10 min | **Bilan individuel oral ou écrit.** Expliquer un champ, un choix vérifié et une décision à confirmer. Enregistrer le classeur. |
 | 03:50–04:00 | 10 min | **Marge.** À répartir selon les difficultés rencontrées. |
 
@@ -123,9 +123,9 @@ Une convention de date explicitement partagée est une justification recevable. 
 
 La feuille `champs` comporte finalement huit rubriques : **Champ**, **Exemple relevé**, **Ce que ce champ décrit**, **Type proposé**, **Format retenu**, **Contenu et longueur**, **Règles de validation**, **Décisions à confirmer**. Le repère source reste dans le commentaire de l’exemple. La feuille `decisions` garde les propositions, les valeurs examinées, les conséquences, les justifications et les vérifications.
 
-Faire échanger les classeurs : trois définitions à reformuler, une règle à appliquer à deux valeurs du dossier et une question ouverte à expliquer. Après correction, faire reprendre les mêmes valeurs. La relecture doit produire un résultat consigné, y compris lorsqu’aucune modification n’est nécessaire.
+Chaque binôme reprend son propre classeur et les commandes des lots A à D. Faire vérifier trois champs : leur définition, leur type et leurs règles correspondent-ils aux renseignements à conserver et aux besoins de la papeterie ? Faire appliquer une règle à une valeur acceptable et à une valeur problématique du dossier, avec les repères des documents, puis préciser une question ouverte. Après correction, faire reprendre les mêmes valeurs. La vérification doit produire un résultat consigné dans `decisions`, y compris lorsqu’aucune modification n’est nécessaire.
 
-Pour le transfert, faire choisir une propriété dans le corpus culturel de la séance 1 et confronter le champ proposé à un autre document. Les étudiants doivent pouvoir réutiliser la démarche pour le sujet de leur application.
+Pour le bilan individuel de dix minutes, utiliser les [sept questions du cours](../session_02.md#7-bilan), également reprises dans l’exercice. Chaque étudiant garde le classeur et les commandes sous les yeux et prépare des réponses courtes sur un champ : sens, utilité, type, règle, choix maintenu ou modifié, vérification et décision à confirmer. La dernière question peut porter sur un autre champ du tableau.
 
 Évaluer les justifications et les conséquences observées : sens explicite, données préservées, choix reliés aux usages, règles applicables et incertitudes formulées. La présence d’une question ouverte justifiée est un résultat recevable. Un tableau rempli sans preuve tirée des documents ne suffit pas.
 

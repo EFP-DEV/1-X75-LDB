@@ -109,14 +109,24 @@ Après toute modification d’une règle, reprenez des valeurs des lots précéd
 
 Ajoutez **« Décisions à confirmer »** dans `champs`. Précisez pour chaque point ouvert l’information manquante et la source auprès de laquelle vous chercheriez la réponse. Indiquez « aucune à ce stade » lorsque vous n’avez pas de question ouverte pour le champ.
 
-Échangez votre classeur avec un autre binôme. Sans explication orale, demandez-lui de :
+Reprenez à deux votre propre classeur et les commandes des lots A à D :
 
-1. reformuler le sens de trois champs ;
-2. appliquer une règle à une valeur acceptable et à une valeur problématique du dossier ;
-3. expliquer une décision laissée en attente.
+1. choisissez trois champs et vérifiez que leur définition, leur type et leurs règles correspondent aux renseignements à conserver et aux besoins de la papeterie ;
+2. appliquez une de vos règles à une valeur acceptable et à une valeur problématique du dossier, en citant les documents concernés ;
+3. reprenez une décision laissée en attente et précisez ce qu’il faudrait savoir pour la confirmer.
 
-Comparez les résultats aux vôtres. Corrigez les définitions ou les règles peu claires, puis reprenez les mêmes valeurs. Notez le résultat de cette vérification dans `decisions`.
+Précisez les définitions ou les règles si nécessaire, puis reprenez les mêmes valeurs. Notez le résultat de cette vérification dans `decisions`, même si vous maintenez votre choix.
 
-**Question de clôture.** Choisissez un champ de votre tableau. Expliquez son sens, son type, les valeurs qu’il accepte et une règle utile pour contrôler la saisie. Appuyez votre justification sur une valeur du dossier et sur la vérification réalisée. Présentez aussi une décision qui reste à confirmer.
+### Bilan individuel
+
+Choisissez un champ de votre tableau. Répondez à l’oral ou par écrit, en quelques phrases, en gardant votre classeur et les commandes sous les yeux.
+
+1. **Quel champ avez-vous choisi ?** Que décrit-il exactement ?
+2. **À quoi sert ce renseignement pour la papeterie ?** Aide-t-il à préparer les articles, à joindre la personne ou à livrer la commande ?
+3. **Quel type avez-vous retenu ?** Pourquoi convient-il à ce que vous devez conserver ou faire avec la valeur ?
+4. **Quelle règle avez-vous écrite pour ce champ ?** Appliquez-la à une valeur du dossier : que permet-elle de décider ?
+5. **Avez-vous gardé ou modifié votre premier choix ?** Quelle valeur précise vous a aidé à décider, et dans quel document se trouve-t-elle ?
+6. **Quelles valeurs avez-vous reprises pour vérifier votre décision ?** Qu’avez-vous constaté ?
+7. **Quelle décision reste à confirmer dans votre tableau ?** Quelle information vous manque, et à qui ou à quelle source pourriez-vous la demander ? Vous pouvez prendre un autre champ pour cette dernière question.
 
 Enregistrez **`papeterie_champs.xlsx`**, avec les feuilles `champs` et `decisions`. Le [cours](../session_02.md) récapitule le rôle de chaque rubrique du dictionnaire.

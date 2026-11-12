@@ -14,11 +14,12 @@ L’[exercice « Des documents aux champs »](exo/session_02.md) se réalise à 
 
 ## Des chiffres ou des lettres
 
-La séance commence par un jeu oral. Le professeur pose une question courte sur une donnée de tous les jours : un code postal, un numéro de maison, un téléphone, un prénom, une quantité ou un prix.
-
-Répondez spontanément. Le professeur révèle ensuite un exemple qui complique la réponse. **Gardez-vous votre choix ou changez-vous d’avis ?** Expliquez pourquoi en une phrase, puis passez à la question suivante.
-
-À la fin du jeu, reprenez un exemple : qu’aurait-on perdu ou rendu difficile avec le premier choix ? Cette question guidera le travail sur les commandes de la papeterie.
+1. Un code postal, c’est un nombre ?
+2. Un numéro de maison, on met un nombre ?
+3. Un numéro de téléphone, c’est forcément un nombre ?
+4. Un prénom, on autorise seulement les lettres ?
+5. Une quantité, c’est un nombre entier ?
+6. Un prix, c’est un nombre ?
 
 ## 1. Préciser ce que le champ décrit
 
@@ -192,7 +193,7 @@ Vous écrivez « code postal valide ». Comment votre partenaire saura-t-il quel
 
 Une règle peut donc échouer de deux façons : **refuser une valeur légitime** ou **accepter une valeur incohérente**. Reprenez les lots précédents après chaque modification pour examiner ces deux conséquences.
 
-## 6. Transmettre le dictionnaire des données
+## 6. Vérifier le dictionnaire des données
 
 Le **dictionnaire des données** rassemble les définitions et les décisions nécessaires pour comprendre les champs et les utiliser de manière cohérente. Votre feuille `champs` s’est construite progressivement :
 
@@ -209,20 +210,20 @@ Le **dictionnaire des données** rassemble les définitions et les décisions n�
 
 Le document source peut être indiqué dans un commentaire de la cellule contenant l’exemple. La feuille `decisions` conserve les propositions successives et les conséquences observées.
 
-Échangez votre classeur avec un autre binôme. Faites-lui reformuler le sens de trois champs et appliquer vos règles à des valeurs des documents. Comparez vos conclusions. Si les décisions diffèrent, recherchez ce qui manque dans la définition ou dans la règle, puis reprenez les mêmes valeurs après correction.
+Reprenez votre propre classeur et les commandes des lots A à D. Choisissez trois champs et vérifiez que leur définition, leur type et leurs règles correspondent aux renseignements à conserver et aux besoins de la papeterie. Appliquez une de vos règles à une valeur acceptable et à une valeur problématique du dossier, en citant les documents concernés.
 
-Pour transférer cette démarche au projet du module, choisissez une propriété d’un document culturel de la séance 1 : titre, date, référence ou prix. Définissez un champ, proposez son type et une règle, puis cherchez dans le corpus une autre valeur qui pourrait mettre ce choix à l’épreuve.
+Précisez les définitions ou les règles si nécessaire, puis reprenez les mêmes valeurs. Notez le résultat dans `decisions`, même si vous maintenez votre choix. Complétez **« Décisions à confirmer »** avec les informations qui vous manquent et les sources auprès desquelles les obtenir ; indiquez « aucune à ce stade » lorsqu’aucune question ne reste ouverte pour le champ.
 
 ## 7. Bilan
 
-Choisissez un champ de votre tableau et expliquez :
+Choisissez un champ de votre tableau. Répondez individuellement aux questions suivantes, à l’oral ou par écrit, en quelques phrases. Gardez votre classeur et les commandes sous les yeux.
 
-1. son sens et l’usage qui justifie sa présence ;
-2. son type et les valeurs qu’il doit pouvoir conserver ;
-3. une règle utile pour contrôler la saisie ;
-4. une valeur précise qui a confirmé ou remis en cause votre choix ;
-5. la vérification effectuée après votre décision.
-
-Présentez également une décision qui reste à confirmer : quelles options envisagez-vous, quelle information manque et auprès de quelle source pourrait-on l’obtenir ?
+1. **Quel champ avez-vous choisi ?** Que décrit-il exactement ?
+2. **À quoi sert ce renseignement pour la papeterie ?** Aide-t-il à préparer les articles, à joindre la personne ou à livrer la commande ?
+3. **Quel type avez-vous retenu ?** Pourquoi convient-il à ce que vous devez conserver ou faire avec la valeur ?
+4. **Quelle règle avez-vous écrite pour ce champ ?** Appliquez-la à une valeur du dossier : que permet-elle de décider ?
+5. **Avez-vous gardé ou modifié votre premier choix ?** Quelle valeur précise vous a aidé à décider, et dans quel document se trouve-t-elle ?
+6. **Quelles valeurs avez-vous reprises pour vérifier votre décision ?** Qu’avez-vous constaté ?
+7. **Quelle décision reste à confirmer dans votre tableau ?** Quelle information vous manque, et à qui ou à quelle source pourriez-vous la demander ? Vous pouvez prendre un autre champ pour cette dernière question.
 
 Conservez `papeterie_champs.xlsx`, avec les feuilles `champs` et `decisions`. La séance suivante reprendra le passage du dictionnaire aux données : distinguer les fiches, représenter les relations, transférer les valeurs dans un fichier puis dans une base et vérifier leur conservation.

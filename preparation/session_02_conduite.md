@@ -22,7 +22,7 @@ Les horaires sont des temps écoulés depuis le début du cours. Ils reprennent 
 | 02:10–02:35 | [Lot C](#7-lot-c-préserver-les-textes) | — | Les noms et la consigne longue sont conservés intégralement. |
 | 02:35–02:50 | [Avant D](#8-avant-d-écrire-des-règles-applicables) | **Règles de validation** | Quantité, prix et date ont une règle et deux exemples opposés. |
 | 02:50–03:20 | [Lot D](#9-lot-d-distinguer-le-constat-et-la-suite-à-donner) | — | Les constats, actions et informations manquantes sont distingués. |
-| 03:20–03:40 | [Relecture et transfert](#10-faire-relire-et-transférer-la-démarche) | **Décisions à confirmer** | Un autre binôme applique les règles ; le corpus culturel est repris. |
+| 03:20–03:40 | [Vérification du dictionnaire](#10-vérifier-son-dictionnaire-sur-les-commandes) | **Décisions à confirmer** | Chaque binôme vérifie trois champs et une règle sur les commandes, puis précise une question ouverte. |
 | 03:40–03:50 | [Bilan](#11-clore-et-conserver) | Enregistrement | Chaque étudiant explique un choix vérifié et une question ouverte. |
 | 03:50–04:00 | Marge | — | À répartir selon les difficultés. |
 
@@ -223,21 +223,20 @@ Consigne exacte de C2 :
 
 **Avant de poursuivre :** chaque difficulté examinée possède une trace dans `decisions`, avec la valeur source conservée, le constat, la justification et la suite à donner.
 
-## 10 Faire relire et transférer la démarche
+## 10 Vérifier son dictionnaire sur les commandes
 
 **Faire :** ajouter **Décisions à confirmer**. Pour chaque point ouvert, préciser les options, l’information manquante et la source à consulter ; sinon écrire **« aucune à ce stade »**.
 
 - [ ] Compter les huit rubriques de `champs` : **Champ**, **Exemple relevé**, **Ce que ce champ décrit**, **Type proposé**, **Format retenu**, **Contenu et longueur**, **Règles de validation**, **Décisions à confirmer**. Les repères des documents restent dans les commentaires des exemples.
-- [ ] Échanger les classeurs. Sans explication des auteurs, faire reformuler **trois champs**, appliquer **une règle à une valeur acceptable et une valeur problématique du dossier**, puis expliquer **une décision en attente**.
-- [ ] Comparer les résultats, préciser les formulations, puis reprendre **les mêmes valeurs**. Consigner le résultat, y compris si aucune modification n’est nécessaire.
-- [ ] Reprendre une propriété du [corpus culturel de la séance 1](../exo/session_01.html) : définir un champ, proposer un type et une règle, puis chercher une autre valeur du corpus qui les mette à l’épreuve.
-
-**Exemple de transfert si nécessaire :** le document 04 porte `£1.99`, le billet fictif 15 porte `38,00 €`. Un champ « prix inscrit sur le document » doit garder le montant et sa monnaie pour interpréter la valeur. La règle « tous les prix sont en euros TTC » appartient au dossier de la papeterie ; elle ne se transfère pas automatiquement à ce corpus. Le prix inscrit ne prouve pas le prix de vente actuel. Faire expliquer comment conserver les deux inscriptions.
+- [ ] Chaque binôme reprend **son propre classeur** et les commandes des lots A à D. Faire vérifier **trois champs** : leur définition, leur type et leurs règles correspondent-ils aux renseignements à conserver et aux besoins de la papeterie ?
+- [ ] Faire appliquer **une règle à une valeur acceptable et une valeur problématique du dossier**, en citant les documents, puis expliquer **une décision en attente** et l’information nécessaire pour la confirmer.
+- [ ] Préciser les formulations si nécessaire, puis reprendre **les mêmes valeurs**. Consigner le résultat dans `decisions`, y compris si aucune modification n’est nécessaire.
 
 ## 11 Clore et conserver
 
-**Bilan individuel, oral ou écrit :** « Choisissez un champ. Expliquez son sens et son usage, son type, une règle, la valeur précise qui a confirmé ou remis en cause votre choix, puis la vérification réalisée. Présentez aussi une décision à confirmer : quelles options, quelle information et quelle source ? »
+**Bilan individuel, oral ou écrit, dix minutes :** faire suivre les [sept questions du cours](../session_02.md#7-bilan), également reprises dans l’exercice. Chaque étudiant choisit un champ de son tableau et garde le classeur et les commandes sous les yeux. Demander des réponses courtes ; la question sur la décision à confirmer peut porter sur un autre champ.
 
+- [ ] Guider les réponses dans l’ordre : **sens du champ → utilité pour la papeterie → type → règle appliquée → choix maintenu ou modifié → résultat de la vérification → information manquante**.
 - [ ] Entendre une justification appuyée sur un document et une vérification, au-delà d’une liste de termes.
 - [ ] Accepter une question ouverte précise comme résultat. Un tableau rempli sans preuves ne suffit pas.
 - [ ] Faire enregistrer `papeterie_champs.xlsx` avec `champs` et `decisions`.
@@ -253,7 +252,7 @@ Consigne exacte de C2 :
 | 3 Confronter les choix aux nouvelles commandes | Étape 5 : tous les cas de B, formats, transformations et traces des décisions. |
 | 4 Déterminer le contenu et la longueur | Étapes 6 et 7 : propositions, tous les cas de C, limites justifiées et dépassements. |
 | 5 Contrôler sans inventer une correction | Étapes 8 et 9 : règles, tous les cas de D, conventions, absences et portée des contrôles. |
-| 6 Transmettre le dictionnaire des données | Étape 10 : huit rubriques, relecture, vérification et transfert au projet. |
+| 6 Vérifier le dictionnaire des données | Étape 10 : huit rubriques, vérification de son propre dictionnaire sur les commandes et décisions à confirmer. |
 | 7 Bilan | Étape 11 : explication individuelle, question ouverte et conservation. |
 
 Cette séance contribue au référentiel par l’analyse du besoin, la définition des champs et des types, les règles, l’usage d’un outil et la consultation d’une documentation. Chaque étape associe une opération, une vérification et une explication du choix.
