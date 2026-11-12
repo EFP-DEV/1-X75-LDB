@@ -56,7 +56,7 @@ Après le classement, préciser les conventions communes avant de poser les ques
 
 Chaque groupe reçoit le même corpus et la même disposition initiale, puis réorganise directement les documents selon ses propres critères. Les treize questions sont posées une fois le classement terminé, dans le même ordre pour tous. Pendant les recherches, conserver les positions choisies et ne pas recharger la page.
 
-Un autre groupe utilise le classement sur le même ordinateur pour les **questions 1 et 3** : retrouver le document affichant un prix de 1,99 livre sterling et compter les livres, bandes dessinées comprises. Comparer les critères, les chemins suivis et les documents retrouvés. Dès la fin du classement, chaque groupe décrit ses règles dans `observations-classement.md`. Ces traces servent à la séance 2 ; la page ne conserve pas les positions.
+Un autre groupe utilise le classement sur le même ordinateur pour les **questions 1 et 3** : retrouver le document affichant un prix de 1,99 livre sterling et compter les livres, bandes dessinées comprises. Comparer les critères, les chemins suivis et les documents retrouvés. Dès la fin du classement, chaque groupe décrit ses règles dans `observations-classement.md`. Ces traces permettent d’expliquer et de comparer les classements ; la page ne conserve pas les positions.
 
 ## Démonstration : rechercher dans le code source
 
@@ -82,7 +82,7 @@ Terminer la démonstration par `Couverture de livre`, pour reprendre la question
 
 Pour expliquer un comptage trompeur, les groupes peuvent reprendre `Megadeth` ou essayer `livre` seul : ce texte apparaît aussi dans `livret d’accompagnement du DVD`, au document 13. Le mot `affiche` apparaît dans certains noms de fichiers. Faire préciser la recherche, par exemple avec `Affiche de cinéma` ou `Couverture de livre`. Le navigateur compte les occurrences du texte recherché ; la formulation de la recherche permet ici de compter les documents.
 
-Faire retrouver les identifiants des documents et rapprocher une réponse de son image. Demander ce qui a rendu la recherche plus rapide : les informations sont déjà transcrites dans les textes alternatifs. Le navigateur cherche dans ce texte ; il ne lit pas les inscriptions des images. Le fichier HTML joue ici le rôle d’une petite base de données en fichier plat, et la recherche du navigateur fournit l’outil nécessaire à ces questions. Conclure que ces besoins sont déjà couverts. La construction d’un autre outil devra se justifier par les opérations à réaliser et les limites rencontrées, avant les tableaux de la séance 2 et le SGBD de la séance 3.
+Faire retrouver les identifiants des documents et rapprocher une réponse de son image. Demander ce qui a rendu la recherche plus rapide : les informations sont déjà transcrites dans les textes alternatifs. Le navigateur cherche dans ce texte ; il ne lit pas les inscriptions des images. Le fichier HTML joue ici le rôle d’une petite base de données en fichier plat, et la recherche du navigateur fournit l’outil nécessaire à ces questions. Conclure que ces besoins sont déjà couverts. La construction d’un autre outil doit se justifier par les opérations à réaliser et les limites rencontrées.
 
 Faire conserver dans `observations-classement.md` la formulation d’une recherche, la réponse vérifiée sur le document et un exemple de comptage trompeur corrigé. Comparer le travail nécessaire pour retrouver et vérifier la réponse avec celui des recherches visuelles. Le raccourci montre une autre représentation des mêmes informations ; il ne dépend pas des positions choisies sur le plateau.
 
@@ -92,9 +92,7 @@ Les totaux portent sur les **42 documents du corpus**. Le manga nº 27 est compt
 
 Cette activité ouvre le projet commun de collections, déclinable en application de collections, réseau social ou boutique pour l’atelier ADB. Elle suit la progression du [programme](../index.md) et travaille les compétences de recherche, d’organisation, de vérification et de justification du [référentiel](../referentiel.md).
 
-Pour la séance 2, faire conserver les notes et l’accès au corpus complet avec ses descriptions, y compris les mentions nécessaires aux treize questions. Les 42 documents seront repris avec les mêmes numéros pour organiser leurs informations en tableaux ; les regroupements serviront à décrire les collections proposées. Utiliser les treize réponses et les inventaires du [corrigé](session_01_questions_ctrl_f.md) pour vérifier la conservation des informations. Les données de départ du projet précisent les informations à reprendre et les fichiers attendus.
-
-Les données fictives d’utilisateurs, de statuts et de dates de publication seront fournies à partir de la séance 3. Distinguer alors les informations figurant sur le document de celles qui décrivent sa publication dans l’application.
+Faire conserver les notes et l’accès au corpus complet avec ses descriptions, y compris les mentions nécessaires aux treize questions. Utiliser les treize réponses et les inventaires du [corrigé](session_01_questions_ctrl_f.md) pour vérifier les recherches et les comptages. Les notes doivent permettre d’expliquer les règles de classement, les difficultés rencontrées et les choix faits pour retrouver les documents.
 
 ## Conduite de la séance
 
@@ -123,7 +121,7 @@ La séance suit deux mouvements opposés. **Avant la pause**, partir des connais
 | 02:40–02:55 | 15 min | **Recherche dans le code source (§ 7).** Consacrer 5 minutes à la démonstration : `1.99`, occurrences de `Megadeth`, puis `Couverture de livre`. Prévoir ensuite 10 minutes de pratique : une recherche d’information de la série, les trois comptages et l’explication d’un comptage trompeur. | Réponse rapprochée de l’image, totaux comparés aux inventaires et exemple expliqué d’écart entre occurrences et documents. |
 | 02:55–03:00 | 5 min | **Reprise des notions (§ 8).** Revenir aux mots du début ; faire expliciter une règle de classement et distinguer base de données en fichier plat, SGBD et application. | Définitions corrigées et illustrées par le travail réalisé ; règle vérifiée sur un document inclus et un document exclu. |
 | 03:00–03:10 | 10 min | **Recherche et vérification (§ 9).** Consacrer 5 minutes aux faux positifs et négatifs de la recherche `prix`, au choix des termes de recherche, puis à la transition vers les requêtes et SQL. Prévoir ensuite 5 minutes pour consigner une recherche et sa vérification dans les notes. | Texte recherché, numéro du document retrouvé et inscription répondant à la question ; résultats écartés avec la raison de leur exclusion. |
-| 03:10–03:20 | 10 min | **Conservation et bilan (§ 10).** Faire compléter et enregistrer les notes, dont les deux conversions expliquées et la recherche vérifiée et formuler une question encore difficile. Annoncer la reprise en tableaux à la séance 2. | `observations-classement.md` disponible ; chaque groupe explique un choix et la manière dont il en a vérifié le résultat. |
+| 03:10–03:20 | 10 min | **Conservation et bilan (§ 10).** Faire compléter et enregistrer les notes, dont les deux conversions expliquées et la recherche vérifiée, puis formuler une question encore difficile. | `observations-classement.md` disponible ; chaque groupe explique un choix et la manière dont il en a vérifié le résultat. |
 
 Le complément du support sur les questions nouvelles, Codd, l’histoire de SQL, les interfaces et les facettes est une **lecture facultative hors séance**. Il ne fait pas partie des activités du déroulé et ne demande aucun travail à remettre.
 
@@ -151,7 +149,7 @@ Signaler toute recherche restée inachevée dans les notes et la reprendre lors 
 
 Le recueil des mots au tableau dure **10 minutes** et précède les définitions. Le formateur dispose ensuite de **10 minutes** pour inventer une histoire utilisant tous les mots et conduire à la question de la représentation des données. Au fil du récit, faire distinguer la donnée de l’information obtenue grâce au contexte : `12` peut désigner un nombre d’éléments ou un prix. Faire reprendre un exemple du tableau et justifier ce qu’il permet de comprendre ; faire préciser ce qui reste inconnu. Vérifier au tableau que chaque mot a été repris. Comparer ensuite les systèmes de numération et introduire le bit avec le binaire ; intégrer les questions, les reprises guidées et les deux conversions aux **20 minutes** consacrées à cette section. Conserver l’ordre des découvertes, notamment la révélation de l’horloge et le retour à l’illustration maya. Les propositions initiales restent visibles pour permettre leur révision en fin de séance.
 
-On ne propose pas de catégories à l’avance. On recueille les cas difficiles à classer sans introduire les tables d’association, les formes normales ou la syntaxe SQL. Les tableaux seront introduits en séance 2 à partir des descriptions des classements.
+On ne propose pas de catégories à l’avance. On recueille les cas difficiles à classer sans introduire les tables d’association, les formes normales ou la syntaxe SQL.
 
 Lors de la comparaison, faire préciser les regroupements visités et les documents qui les composent. La familiarité avec les documents peut aider à retrouver une réponse. L’utilisation par un autre groupe apporte une observation complémentaire sur la lisibilité des regroupements.
 

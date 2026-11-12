@@ -393,7 +393,7 @@ Pour notre corpus, on pourrait distinguer le titre du document, sa nature, le mo
 
 En **1970, Edgar F. Codd** propose ce modèle pour permettre notamment d’exploiter les données sans connaître leur organisation interne dans la machine. Le principe d’**indépendance des données** vise à séparer les programmes des détails de leur stockage : une réorganisation physique doit pouvoir laisser les programmes qui utilisent les données inchangés. [Publication de Codd, 1970](https://research.ibm.com/publications/a-relational-model-of-data-for-large-shared-data-banks).
 
-Les mêmes tables peuvent ainsi servir à plusieurs recherches, sans imposer un classement unique. En séance 2, vous reprendrez les 42 documents pour organiser leurs propriétés en tableaux, en conservant les informations nécessaires aux questions déjà résolues.
+Les mêmes tables peuvent ainsi servir à plusieurs recherches, sans imposer un classement unique.
 
 ### Formuler une requête avec SQL ou une interface
 
