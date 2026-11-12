@@ -55,83 +55,358 @@ Le texte convient aux références, téléphones et codes postaux parce qu’ils
 
 Une trace possible dans `decisions` est : « `prix_unitaire_ttc_eur` proposé décimal ; A1 fournit `12,50 €` par carnet ; le montant des articles se calcule avec la quantité 4 ; type maintenu ; le résultat calculé est 50 € et ne renseigne pas les frais de livraison. »
 
-## Seconde partie Repères pour les huit scénarios
+## Seconde partie Corrigé original des exercices de modélisation
 
-Le résultat attendu est un dessin des tables accompagné de la description de leurs champs. Les propositions ci-dessous indiquent les données à couvrir et les points à justifier. Les relations seront formalisées ensuite. Un besoin reporté reste visible dans le travail.
+Les exercices 1 à 7 reprennent le [corrigé original de 2025-2026](../2025-2026/solution/session_02.md). Celui-ci ne contient pas de correction pour l’exercice 8 ; les repères actuels pour l’école sont conservés à la suite.
 
-Pour chaque table, on peut proposer un `id` entier, obligatoire, unique et stable. Les codes métier restent des champs distincts lorsqu’ils remplissent un autre rôle. Les longueurs de texte restent à déterminer si aucun catalogue, outil ou besoin ne les justifie. Les unités et les hypothèses figurent dans les commentaires.
+**Limites du corrigé original :** les longueurs et les champs obligatoires sont des propositions à justifier. Le type « Numérique » doit être précisé en entier ou décimal selon le champ. Les réductions à une langue, une allergie, deux régions ou un compteur ne couvrent pas tous les besoins des énoncés et ne sont pas imposées par la première forme normale. Les historiques et les valeurs multiples nécessitent des tables supplémentaires dont les relations seront étudiées ensuite. Ces besoins restent à signaler dans le travail demandé.
 
-### Exercice 1 Cinéma
+### Exercice 1 : Cinéma - Films et Acteurs
 
-| Table | Champs à décrire et types proposés |
-|---|---|
-| `film` | Titre, genre, langue originale et pays de production : texte ; année de sortie et durée en minutes : entiers ; budget et note moyenne : décimaux ; classification par âge : texte. |
-| `acteur` | Nom complet, lieu de naissance, nationalité et biographie : texte ; date de naissance : date. |
+**Table : film**
 
-Le titre est nécessaire pour le catalogue. Le budget peut être inconnu : son absence ne signifie pas un budget nul. L’échelle de la note et la monnaie du budget sont à préciser. Plusieurs genres, pays ou acteurs pour un film nécessiteront des relations ; le titre ne distingue pas à lui seul deux films.
+**Commentaire :** Contient les informations descriptives des films (sans relations ni multi-valeurs).
+**Identifiant :** id
 
-### Exercice 2 Librairie
+Voici le **tableau refait** : noms de champs en **anglais**, reste en **français**.
 
-| Table | Champs à décrire et types proposés |
-|---|---|
-| `livre` | ISBN, titre, format : texte ; année de publication et stock : entiers ; prix : décimal. |
-| `auteur` | Nom complet, biographie et éléments bibliographiques descriptifs : texte ; date de naissance : date. |
+| Champs             | Type      | Longueur | Obligatoire | Commentaires                                    |
+| ------------------ | --------- | -------- | ----------- | ----------------------------------------------- |
+| id                 | Numérique | -        | Oui         | PK auto-inc.                                    |
+| title              | Textuel   | 255      | Oui         | Titre original                                  |
+| genre              | Textuel   | 50       | Oui         | Un seul genre, 1NF strict                       |
+| original_language  | Textuel   | 3        | Oui         | 639-2 (3 lettres) |
+| release_year       | Numérique | -        | Oui         | Année (ex : 2020)                               |
+| production_country | Textuel   | 2        | Oui         | Code ISO 3166-1 alpha-2 (ex : FR, BE, US)       |
+| budget             | Numérique | -        | Non         | En euros                                        |
+| duration_minutes   | Numérique | -        | Oui         | Durée en minutes                                |
+| age_rating         | Textuel   | 10       | Oui         | Exemple : “PG-13”, “16+”                        |
+| average_rating     | Numérique | -        | Non         | Exemple : 8.4                                   |
 
-Une ligne de `livre` peut représenter une édition dans un format commercialisé ; cette hypothèse doit être écrite. L’ISBN est textuel et unique dans le cadre de l’énoncé. Le titre, le format et le prix sont nécessaires à la vente. Le traitement du stock d’un format numérique reste à préciser : une absence de stock physique ne signifie pas automatiquement une rupture.
 
-Une bibliographie structurée et l’association de plusieurs auteurs à un livre demandent des relations. Un résumé biographique ne remplace pas la liste exploitable des œuvres.
+#### Notes pédagogiques
 
-### Exercice 3 Blog
+* Les **langues et pays** utilisent un **standard ISO**, ce qui renforce la rigueur sans introduire de relations.
+* 1 seul pays, 1 seule langue, 1 seul genre → **niveau débutant**.
 
-| Table | Champs à décrire et types proposés |
-|---|---|
-| `article` | Titre, contenu, statut et catégorie : texte ; publication : date et heure si l’heure est utile. |
-| `editeur` | Nom complet, email et rôle : texte ; niveau d’autorisation : code textuel ou entier selon une convention explicitée. |
+---
 
-Le statut peut prendre les valeurs brouillon, révision, publié ou archivé. Une date de publication peut être absente pour un brouillon ; un article publié doit avoir une date cohérente avec son statut. Un nombre comme 3 n’explique pas à lui seul les permissions accordées. Les rôles, droits et catégories multiples demandent une définition puis des relations adaptées.
+**Table : acteur**
 
-### Exercice 4 Transport
+**Commentaire :** Table des acteurs avec données biographiques essentielles (sans relations).
+**Identifiant :** id
 
-| Table | Champs à décrire et types proposés |
-|---|---|
-| `pays` | Nom et code du pays : texte ; population : entier ; date de référence de la population : date. |
-| `ville` | Nom et fuseau horaire : texte ; latitude et longitude en degrés décimaux : décimaux ; population : entier. |
-| `aeroport`, `gare` | Nom et code : texte ; autres propriétés selon le besoin du scénario. |
+| Champs      | Type      | Longueur | Obligatoire | Commentaires                   |
+| ----------- | --------- | -------- | ----------- | ------------------------------ |
+| id          | Numérique | -        | Oui         | PK auto-inc.                   |
+| full_name   | Textuel   | 150      | Oui         | Nom complet                    |
+| birth_date  | Date      | -        | Non         | Format ISO 8601                |
+| birth_place | Textuel   | 150      | Non         | Ville + code ISO pays possible |
+| nationality | Textuel   | 2        | Non         | Code ISO 3166-1 alpha-2        |
+| biography   | Textuel   | 2000     | Non         | Résumé biographique            |
 
-La convention des codes ISO doit être choisie avant de fixer leur longueur. Les langues officielles et les devises peuvent être multiples ; les tables correspondantes et leurs liens avec le pays restent à préparer. Les aéroports et gares sont à conserver individuellement lorsqu’une ville en possède plusieurs. La population peut être inconnue et doit être située dans le temps.
 
-### Exercice 5 Langues du monde
+#### Notes pédagogiques
 
-| Table | Champs à décrire et types proposés |
-|---|---|
-| `langue` | Nom, code, famille linguistique et statut : texte ; estimation du nombre de locuteurs : entier ; date de référence : date. |
-| `systeme_ecriture`, `region` | Nom et description : texte. |
+* **Nationalité = 1 code ISO** → évite les listes.
+* **Lieu de naissance** laissé textuel pour simplifier (pas encore géodonnées).
 
-La convention du code et les valeurs admises du statut sont à préciser. Le nombre de locuteurs est une estimation : sa source et sa date sont utiles pour l’interpréter. Une estimation inconnue reste absente. Plusieurs systèmes d’écriture ou régions nécessitent des relations ; deux champs « région principale » et « région secondaire » ne couvrent pas un nombre variable de régions.
 
-### Exercice 6 Commerce
+---
 
-| Table | Champs à décrire et types proposés |
-|---|---|
-| `produit` | Référence, nom, description et disponibilité : texte ; prix : décimal avec monnaie précisée ; stock : entier pour des unités indivisibles. |
-| `client` | Nom, email, téléphone, adresse de facturation, code postal, localité et pays : texte. |
-| `commande` | Date de commande : date et heure ; statut : texte. |
-| `ligne_commande` | Quantité : entier selon l’unité vendue ; prix unitaire appliqué : décimal. |
+### Exercice 2 : Librairie - Livres et Auteurs
 
-La référence produit est obligatoire et unique selon l’énoncé. Les coordonnées nécessaires au contact et à la facturation doivent être précisées sans rendre chaque moyen de contact obligatoire par défaut. Les commandes et leurs lignes conservent l’historique ; un compteur et la dernière date ne permettent pas de retrouver le contenu de chaque achat. Les liens avec le client et le produit seront définis ensuite.
+**Table : livre**
 
-### Exercice 7 Hôpital
+**Commentaire :** Informations sur les livres vendus par la librairie.
+**Identifiant :** id
 
-| Table | Champs à décrire et types proposés |
-|---|---|
-| `medecin` | Nom, numéro professionnel, coordonnées et description des horaires : texte. |
-| `patient` | Nom, informations d’assurance : texte ; naissance : date. |
-| `consultation` | Date et heure : temporel ; compte rendu : texte. |
-| `antecedent`, `allergie` | Description : texte ; date pertinente : date si connue. |
+| Champs             | Type      | Longueur | Obligatoire | Commentaires                                          |
+| ------------------ | --------- | -------- | ----------- | ----------------------------------------------------- |
+| id                 | Numérique | -        | Oui         | PK auto-inc.                                          |
+| isbn               | Textuel   | 17       | Oui         | Format ISBN-13, unique                                |
+| title              | Textuel   | 255      | Oui         | Titre complet                                         |
+| book_format        | Textuel   | 20       | Oui         | Une seule valeur : `pocket` / `hardcover` / `digital` |
+| publication_year   | Numérique | -        | Oui         | Année (ex : 2018)                                     |
+| language           | Textuel   | 2 ou 3   | Oui         | ISO 639-1 ou 639-2                                    |
+| publishing_country | Textuel   | 2        | Non         | Pays d’édition (ISO 3166-1 alpha-2)                   |
+| price              | Numérique | -        | Oui         | Prix TTC                                              |
+| stock              | Numérique | -        | Non         | Quantité disponible en magasin (null pour digital)    |
 
-Chaque consultation doit rester datée et documentée. Une note de dernière consultation ne constitue pas l’historique. Le dossier doit pouvoir conserver plusieurs antécédents et allergies : il faut prévoir les enregistrements et leurs liens, sans réduire ces données à une seule valeur. Les spécialités et les horaires structurés pourront aussi nécessiter des tables. Le sens d’une information absente doit être précisé ; l’absence de renseignement sur une allergie ne prouve pas son absence.
 
-### Exercice 8 École
+#### Notes pédagogiques
+
+* **Un seul format** par livre.
+* ISBN est unique mais reste une simple **valeur**, pas un lien.
+* Langue + pays via ISO.
+* Pas de liste d’auteurs
+
+---
+
+**Table : auteur**
+
+**Commentaire :** Informations biographiques et bibliographiques des auteurs.
+**Identifiant :** id
+
+| Champs               | Type      | Longueur | Obligatoire | Commentaires                                            |
+| -------------------- | --------- | -------- | ----------- | ------------------------------------------------------- |
+| id                   | Numérique | -        | Oui         | PK auto-inc.                                            |
+| full_name            | Textuel   | 150      | Oui         | Nom complet                                             |
+| birth_date           | Date      | -        | Non         | Format ISO 8601                                         |
+| nationality          | Textuel   | 3        | Non         | ISO 3166-1 alpha-3                                      |
+| biography            | Textuel   | 2000     | Non         | Résumé biographique                                     |
+| bibliography_summary | Textuel   | 2000     | Non         | Quelques titres dans texte simple (pas de liste structurée) |
+
+#### Notes pédagogiques
+
+* Pas de liste d’œuvres (sinon ça violerait la 1NF).
+* Une seule nationalité (même si peu réaliste, c’est la règle 1NF pour débutants).
+
+---
+
+### Exercice 3 : Blog - Articles et Éditeurs
+
+#### **Table : article**
+
+**Commentaire :** Contient les informations des articles publiés ou en préparation.
+**Identifiant :** id
+
+| Champs           | Type      | Longueur | Obligatoire | Commentaires                                                  |
+| ---------------- | --------- | -------- | ----------- | ------------------------------------------------------------- |
+| id               | Numérique | -        | Oui         | PK auto-inc.                                                  |
+| title            | Textuel   | 255      | Oui         | Titre de l’article                                            |
+| content          | Textuel   | -        | Oui         | Texte complet                                                 |
+| publication_date | Date      | -        | Non         | Peut être vide si brouillon                                   |
+| status           | Textuel   | 20       | Oui         | Une seule valeur : `draft`, `review`, `published`, `archived` |
+| category         | Textuel   | 100      | Oui         | Une seule catégorie (1NF strict)                              |
+
+#### Notes pédagogiques
+
+* **Pas de listes de catégories** → on les verra plus tard (1-N ou N-N).
+* **Statut unique** → facile et cohérent avec le cycle de vie d'un article.
+* **date_publication** facultative → un brouillon n’a pas de date.
+
+---
+
+#### **Table : editeur**
+
+**Commentaire :** Contient les informations sur les éditeurs / journalistes.
+**Identifiant :** id
+
+| Champs           | Type      | Longueur | Obligatoire | Commentaires                                                |
+| ---------------- | --------- | -------- | ----------- | ----------------------------------------------------------- |
+| id               | Numérique | -        | Oui         | PK auto-inc.                                                |
+| full_name        | Textuel   | 150      | Oui         | Nom complet                                                 |
+| email            | Textuel   | 255      | Oui         | Unique                                                      |
+| role             | Textuel   | 100      | Oui         | Rôle principal (ex : rédacteur, correcteur, chef d’édition) |
+| permission_level | Numérique | -        | Oui         | 1 = bas, 2 = moyen, 3 = élevé                               |
+
+#### Notes pédagogiques
+
+* **Pas de rôles multiples** (1NF strict).
+* **Autorisation simplifiée** → un seul chiffre, facile à comparer, facile à justifier.
+* On ne stocke pas l’historique des actions → trop avancé pour le moment.
+
+---
+
+### Exercice 4 : Transport - Pays et Villes
+
+#### **Table : pays**
+
+**Commentaire :** Informations de base sur les pays (sans relations et sans listes).
+**Identifiant :** id
+
+| Champs            | Type      | Longueur | Obligatoire | Commentaires                        |
+| ----------------- | --------- | -------- | ----------- | ----------------------------------- |
+| id                | Numérique | -        | Oui         | PK auto-inc.                        |
+| official_name     | Textuel   | 150      | Oui         | Nom officiel                        |
+| iso_code          | Textuel   | 2        | Oui         | ISO 3166-1 alpha-2                  |
+| official_language | Textuel   | 2        | Non         | ISO 639-1 (1 seule langue pour 1NF) |
+| currency          | Textuel   | 3        | Non         | Code ISO 4217 (ex : EUR, USD)       |
+| population        | Numérique | -        | Non         | Donnée démographique simple         |
+
+
+#### Notes pédagogiques
+
+* Normalement un pays a **plusieurs** langues → mais ils ne savent pas faire du 1-N → **donc 1 seule langue officielle**.
+* Même chose pour plusieurs devises → **simplifié à 1 devise**.
+* C’est volontairement réduit pour respecter la 1NF **sans utiliser de relations**.
+
+---
+
+#### **Table : ville**
+
+**Commentaire :** Informations sur les villes de l’application d’itinéraires internationaux.
+**Identifiant :** id
+
+| Champs       | Type      | Longueur | Obligatoire | Commentaires                   |
+| ------------ | --------- | -------- | ----------- | ------------------------------ |
+| id           | Numérique | -        | Oui         | PK auto-inc.                   |
+| name         | Textuel   | 150      | Oui         | Nom de la ville                |
+| latitude     | Numérique | -        | Oui         | Coordonnée décimale            |
+| longitude    | Numérique | -        | Oui         | Coordonnée décimale            |
+| timezone     | Textuel   | 50       | Oui         | Exemple : `Europe/Paris`       |
+| population   | Numérique | -        | Non         | Démographie                    |
+| airport_code | Textuel   | 3        | Non         | Code IATA (1 seul, 1NF strict) |
+| railway_code | Textuel   | 10       | Non         | Code ferroviaire (1 seul)      |
+
+
+#### Notes pédagogiques
+
+* Les villes ont souvent **plusieurs** aéroports et gares → mais ils ne peuvent pas faire de relation → **donc 1 seul code de chaque type**.
+* Latitude / longitude stockés séparément → conforme 1NF
+* Fuseau horaire en chaîne, simple à comprendre.
+
+
+
+### Exercice 5 : Langues du monde
+
+#### **Table : langue**
+
+**Commentaire :** Informations principales sur les langues du monde (1NF, sans multi-valeurs ni relations).
+**Identifiant :** id
+
+| Champs            | Type      | Longueur | Obligatoire | Commentaires                              |
+| ----------------- | --------- | -------- | ----------- | ----------------------------------------- |
+| id                | Numérique | -        | Oui         | PK auto-inc.                              |
+| name              | Textuel   | 150      | Oui         | Nom de la langue                          |
+| iso_code          | Textuel   | 3        | Oui         | ISO 639-2                                 |
+| linguistic_family | Textuel   | 100      | Oui         | Une seule famille (1NF strict)            |
+| status            | Textuel   | 50       | Oui         | Exemple : `vivante`, `en danger`, `morte` |
+| writing_system    | Textuel   | 100      | Oui         | Un seul système d’écriture                |
+| speakers          | Numérique | -        | Oui         | Nombre approximatif de locuteurs          |
+| primary_region    | Textuel   | 100      | Oui         | Une seule région principale               |
+| secondary_region  | Textuel   | 100      | Non         | Optionnelle (1 seule valeur)              |
+
+
+---
+
+#### Notes pédagogiques (à expliquer aux étudiants)
+
+* **Pas de listes** → pas “Afrique, Asie, Europe”.
+  → On préfère **region_principale** et **region_secondaire** (facultative).
+* **Un seul système d’écriture** même si en vrai ça peut être multiple (ex : serbe).
+* **Une seule famille** même si certaines langues sont discutables (créoles, langues mixtes).
+* **code_iso** fixe et standard → pas besoin de relation.
+* **statut** textuel simple → pas de table des statuts.
+
+
+---
+
+### Exercice 6 : E-commerce - Clients et Produits
+
+#### **Table : produit**
+
+**Commentaire :** Contient les informations des produits vendus en ligne.
+**Identifiant :** id
+
+| Champs       | Type      | Longueur | Obligatoire | Commentaires                         |
+| ------------ | --------- | -------- | ----------- | ------------------------------------ |
+| id           | Numérique | -        | Oui         | PK auto-inc.                         |
+| reference    | Textuel   | 50       | Oui         | Référence produit, unique            |
+| name         | Textuel   | 255      | Oui         | Nom ou label produit                 |
+| description  | Textuel   | -        | Non         | Description marketing                |
+| price        | Numérique | -        | Oui         | Prix en euros                        |
+| stock        | Numérique | -        | Oui         | Quantité disponible                  |
+| availability | Textuel   | 20       | Oui         | `en_stock`, `rupture`, `precommande` |
+| weight_grams | Numérique | -        | Non         | Facultatif, utile pour livraison     |
+
+
+#### Notes pédagogiques
+
+* 1 référence = 1 valeur
+* Pas de variantes produit, pas de tailles/couleurs → pas encore vu
+* Disponibilité simplifiée avec 3 statuts textuels
+
+---
+
+#### **Table : client**
+
+**Commentaire :** Informations des clients, avec un historique “simplifié” compatible 1NF.
+**Identifiant :** id
+
+| Champs          | Type      | Longueur | Obligatoire | Commentaires                       |
+| --------------- | --------- | -------- | ----------- | ---------------------------------- |
+| id              | Numérique | -        | Oui         | PK auto-inc.                       |
+| full_name       | Textuel   | 150      | Oui         | Nom complet                        |
+| email           | Textuel   | 255      | Oui         | Unique                             |
+| phone           | Textuel   | 20       | Non         | Format libre                       |
+| address_line1   | Textuel   | 150      | Oui         | Adresse de facturation             |
+| address_line2   | Textuel   | 150      | Non         | Complément                         |
+| city            | Textuel   | 100      | Oui         | -                                  |
+| postal_code     | Textuel   | 20       | Oui         | -                                  |
+| country         | Textuel   | 2        | Oui         | ISO 3166-1 alpha-2                 |
+| order_count     | Numérique | -        | Oui         | Historique simplifié               |
+| last_order_date | Date      | -        | Non         | Permet un minimum d’historique 1NF |
+
+
+#### Notes pédagogiques
+
+* Pas de liste de commandes → interdit en 1NF
+* Le compromis pédagogique est :
+  * **nombre_commandes**
+  * **date_derniere_commande**
+  
+* C’est la *seule façon* de refléter un historique **sans relations**
+* Quand on connaitra les relations, cette table évoluera naturellement vers une **table commande** et une **table ligne_commande**
+
+---
+
+### Exercice 7 : Hôpital - Médecins et Patients
+
+#### **Table : medecin**
+
+**Commentaire :** Informations professionnelles des médecins.
+**Identifiant :** id
+
+| Champs                | Type      | Longueur | Obligatoire | Commentaires                      |
+| --------------------- | --------- | -------- | ----------- | --------------------------------- |
+| id                    | Numérique | -        | Oui         | PK auto-inc.                      |
+| full_name             | Textuel   | 150      | Oui         | Nom complet                       |
+| specialty             | Textuel   | 100      | Oui         | Une seule spécialité (1NF strict) |
+| license_number        | Textuel   | 50       | Oui         | Identifiant professionnel unique  |
+| availability_schedule | Textuel   | 100      | Non         | Exemple : “Lun-Ven 9h–17h”        |
+| phone                 | Textuel   | 20       | Non         | -                                 |
+| email                 | Textuel   | 255      | Non         | -                                 |
+
+
+#### Notes pédagogiques
+
+* Un médecin peut en vrai avoir plusieurs spécialités, mais on simplifie
+* L’horaire est stocké en texte simple
+
+---
+
+#### **Table : patient**
+
+**Commentaire :** Informations médicales et administratives des patients.
+**Identifiant :** id
+
+| Champs                 | Type      | Longueur | Obligatoire | Commentaires                       |
+| ---------------------- | --------- | -------- | ----------- | ---------------------------------- |
+| id                     | Numérique | -        | Oui         | PK auto-inc.                       |
+| full_name              | Textuel   | 150      | Oui         | Nom complet                        |
+| birth_date             | Date      | -        | Oui         | Format ISO                         |
+| main_medical_history   | Textuel   | 255      | Non         | Un seul antécédent (1NF strict)    |
+| main_allergy           | Textuel   | 255      | Non         | Une seule allergie                 |
+| insurance_name         | Textuel   | 150      | Non         | Nom de la compagnie                |
+| insurance_number       | Textuel   | 50       | Non         | Numéro d’assurance                 |
+| consultation_count     | Numérique | -        | Oui         | Historique simplifié               |
+| last_consultation_date | Date      | -        | Non         | -                                  |
+| last_medical_note      | Textuel   | 1000     | Non         | Résumé de la dernière consultation |
+
+#### Notes pédagogiques
+
+* Pas de liste d’antécédents ni d’allergies → trop avancé → **on n’en garde qu’un seul**.
+* L’historique complet des consultations n’est pas possible sans relation → donc :
+  → **nombre_consultations**
+  → **date_derniere_consultation**
+  → **derniere_note_medicale**
+
+---
+
+### Exercice 8 École — Repères complémentaires
+
 
 | Table | Champs à décrire et types proposés |
 |---|---|
@@ -147,5 +422,3 @@ Le numéro étudiant est obligatoire et unique. Le code du cours sert à le retr
 On reprend chaque contrainte du scénario et on indique le champ ou la table qui la couvre. Les deux enregistrements fictifs permettent de comparer les valeurs, les types et les identifiants. Un texte long, une valeur absente ou deux noms identiques permettent d’expliquer les limites des choix.
 
 Une réponse complète précise ce que représente une ligne, justifie les caractéristiques de ses champs et conserve les besoins qui demanderont des relations. Les compteurs, résumés et valeurs principales ne remplacent pas un historique ou une collection complète.
-
-Le [corrigé de 2025-2026](../2025-2026/solution/session_02.md) contient des exemples détaillés pour les sept premiers scénarios. Ses limites de longueur sont des propositions ; ses réductions à une langue, une allergie ou un compteur ne couvrent pas tous les besoins des énoncés. Ces simplifications ne sont pas imposées par la première forme normale. Les repères ci-dessus conservent les besoins complets et incluent le scénario de l’école.
