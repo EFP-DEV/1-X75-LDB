@@ -16,7 +16,7 @@ Prévoir Excel et les quatre lots de la Papeterie du Canal. Le document HTML sé
 
 Les documents fournis sont les sources de l’exercice. Conserver leurs transcriptions, y compris les erreurs. Lorsqu’une confirmation manque, demander de formuler la question et de nommer la source à consulter. Ne pas fournir oralement une nouvelle quantité, une adresse corrigée ou une politique commerciale inventée pour fermer la discussion.
 
-La première feuille comporte seulement **« Champ »** et **« Exemple relevé »**. Faire préparer la colonne des exemples au format Texte avant les transcriptions et mettre le repère A1 ou A2 dans un commentaire de cellule. Cette précaution préserve les sources ; le type envisagé pour chaque futur champ sera une décision distincte.
+La première feuille comporte seulement **« Champ »** et **« Exemple relevé »**. Le repère A1 ou A2 figure dans un commentaire de cellule. Laisser les étudiants saisir puis comparer leurs exemples aux documents. Si Excel transforme une valeur, leur faire chercher une solution et vérifier le résultat. Introduire le format Texte à partir de ce constat ; reprendre alors la valeur dans le document source. Si aucune transformation n’est observée, proposer de saisir `0012` dans une cellule vide et de comparer le résultat à la saisie.
 
 Un binôme peut retenir une bonne représentation dès le départ. Lui demander de la confronter aux nouvelles valeurs et de la justifier. Aucune erreur volontaire n’est nécessaire.
 

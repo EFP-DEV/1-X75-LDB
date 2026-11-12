@@ -1,8 +1,8 @@
 # Séance 2 : Décrire et représenter les propriétés
 
-Cette séance apprend à **transformer une propriété du réel en un champ exploitable** : préciser son sens, choisir son type et déterminer ce qu’il peut contenir.
+Quels renseignements faut-il garder pour préparer et livrer une commande ? Comment les ranger dans un tableau ?
 
-Elle confronte **la diversité des données réelles** aux **possibilités et aux limites de leur représentation technique**. Un choix apparemment évident peut supprimer un caractère significatif, refuser une valeur légitime ou laisser entrer une valeur incohérente.
+Cette séance confronte **la diversité des données réelles** aux **possibilités et aux limites de leur représentation technique**. Un choix apparemment évident peut supprimer un caractère significatif, refuser une valeur légitime ou laisser entrer une valeur incohérente.
 
 Les problèmes se résolvent par une boucle : **proposer, tester sur des cas réels, constater les conséquences, ajuster**. Vous apprendrez ainsi à justifier vos décisions et à reconnaître quand il vous manque une information pour décider.
 
@@ -63,12 +63,12 @@ Pour une adresse, il peut être utile de distinguer le code postal, la localité
 
 Ajoutez **« Type proposé »**. Pour chaque champ, choisissez une première représentation : texte, nombre entier, nombre décimal ou date. Justifiez-la par ce que la papeterie doit pouvoir faire avec la valeur.
 
-Un **type de données** détermine la famille de valeurs représentables et les opérations disponibles. Une suite de chiffres peut servir à compter, mais aussi à désigner un article ou une adresse. Son apparence ne suffit donc pas à choisir un type.
+Pour chaque renseignement, choisissez : texte, nombre ou date. Demandez-vous ce que vous devrez en faire : calculer un prix, comparer des dates, retrouver un numéro de téléphone… Une suite de chiffres peut servir à compter, mais aussi à désigner un article ou une adresse. Son apparence ne suffit donc pas à choisir un type.
 
 | Type envisagé | Ce qu’il permet de représenter | Utilisation possible |
 |---|---|---|
 | Texte | Une suite de caractères, comprenant éventuellement lettres, chiffres, espaces et ponctuation. | Afficher une désignation, rechercher une référence ou conserver une consigne. |
-| Nombre entier | Une quantité sans partie fractionnaire. | Compter des exemplaires et comparer les quantités. |
+| Nombre entier | Par exemple, 4 carnets ou 12 enveloppes : on compte des exemplaires entiers. | Compter des exemplaires et comparer les quantités. |
 | Nombre décimal | Une valeur pouvant comporter une partie décimale. | Calculer avec un prix unitaire. |
 | Date | Un jour du calendrier. | Ordonner les livraisons souhaitées ou comparer deux dates. |
 
@@ -89,7 +89,7 @@ Ouvrez B1 et B2. Appliquez vos choix sans les modifier immédiatement. Pour chaq
 | Numéro dans la voie, si vous l’avez séparé | `14`, `25`, puis `12B`. | Ce champ décrit-il une quantité ? |
 | Téléphone | `0470 00 00 11`, puis `+33 6 00 00 00 33` et `+44 7700 900123`. | Quels caractères faut-il préserver ? Quel contexte faut-il connaître pour transformer l’écriture ? |
 
-Une référence, un code postal ou un téléphone servent ici à désigner ou à joindre. Le **texte** permet de conserver leurs caractères significatifs. Une quantité et un prix doivent, eux, permettre les opérations arithmétiques prévues.
+Une référence, un code postal ou un téléphone servent ici à désigner ou à joindre. Avec du **texte**, on peut garder le zéro au début de `01210` et les lettres de `AB-012`. Une quantité et un prix doivent, eux, permettre les opérations arithmétiques prévues.
 
 Une représentation qui accepte les deux premiers documents peut échouer sur les suivants. Quand une valeur légitime ne tient pas dans la représentation proposée, il faut réexaminer cette représentation.
 
@@ -99,7 +99,7 @@ Un **format** définit une manière d’écrire ou d’afficher une valeur. Une 
 
 Le format ne change pas le sens du champ. Il ne démontre pas non plus que la valeur est correcte. Afficher deux décimales ne prouve pas que la saisie respectait une règle limitant la précision au centime.
 
-Dans le dictionnaire, la colonne **« Exemple relevé »** conserve la transcription exacte. Une autre colonne, **« Format retenu »**, décrit la présentation envisagée. Cette séparation permet de comparer la source avec une éventuelle transformation.
+Dans **« Exemple relevé »**, recopiez l’exemple exactement comme il est écrit dans le document. Une autre colonne, **« Format retenu »**, décrit la présentation envisagée. Cette séparation permet de comparer la source avec une éventuelle transformation.
 
 Toute transformation doit être justifiée. Retirer des séparateurs d’un téléphone peut en faciliter la comparaison, à condition de préserver le numéro. Ajouter un indicatif international exige de connaître le pays du numéro ; le pays de livraison ne suffit pas à l’établir.
 
@@ -158,7 +158,7 @@ Une **règle de validation** exprime une condition qu’une valeur doit respecte
 
 Un entier peut être négatif ; le type seul ne suffit donc pas à exprimer la règle sur la quantité. Une règle sur le prix doit préciser le traitement des valeurs négatives et du zéro. Si cette décision dépend d’une pratique de la papeterie qui n’est pas connue, notez l’hypothèse et la confirmation nécessaire.
 
-Écrire une règle dans Excel ne la fait pas appliquer automatiquement. Ici, vous l’appliquez aux exemples et vous expliquez votre décision. Les contraintes exécutées par un SGBD seront étudiées plus tard.
+Écrire une règle dans Excel ne la fait pas appliquer automatiquement. Ici, vous l’appliquez aux exemples et vous expliquez votre décision.
 
 ### Examiner les transcriptions — lot D
 
@@ -180,7 +180,7 @@ D3 ne précise pas l’article ni la quantité. On ne peut pas compléter ce mes
 
 ### Vérifier la portée d’une règle
 
-« Code postal valide » ne décrit pas un contrôle reproductible. Il faut préciser le pays et la règle applicable, puis distinguer la forme du code de sa correspondance avec une localité. Une règle établie pour un pays ne s’applique pas automatiquement à tous les autres.
+Vous écrivez « code postal valide ». Comment votre partenaire saura-t-il quels codes accepter ou refuser ? Il faut préciser le pays et la règle applicable, puis distinguer la forme du code de sa correspondance avec une localité. Une règle établie pour un pays ne s’applique pas automatiquement à tous les autres.
 
 Une règle peut donc échouer de deux façons : **refuser une valeur légitime** ou **accepter une valeur incohérente**. Reprenez les lots précédents après chaque modification pour examiner ces deux conséquences.
 

@@ -20,9 +20,7 @@ Commencez avec deux colonnes :
 
 **Une ligne décrit un champ, pas une personne ni une commande.** Choisissez les champs nécessaires pour préparer les articles, joindre la personne et livrer. Pour chacun, recopiez un exemple exact de A1 ou A2. Indiquez le repère du document dans un commentaire de la cellule contenant l’exemple.
 
-Avant la saisie, préparez la colonne « Exemple relevé » au format **Texte** pour préserver les transcriptions. Ce réglage concerne les exemples du dictionnaire. Le type à choisir pour chaque futur champ sera discuté ensuite. Si une valeur a déjà été transformée, reprenez-la dans le document source. [Aide Microsoft sur la conservation des zéros initiaux](https://support.microsoft.com/en-us/excel/keeping-leading-zeros-and-large-numbers).
-
-Comparez chaque exemple au document. Avez-vous conservé ses signes, ses espaces et sa précision ? Chaque champ répond-il à un besoin de la papeterie ?
+Comparez chaque exemple au document. Avez-vous conservé ses signes, ses espaces et sa précision ? Si Excel a modifié une valeur, cherchez comment la conserver telle qu’elle apparaît dans le document, puis vérifiez le résultat. Chaque champ répond-il à un besoin de la papeterie ?
 
 **Arrêtez-vous pour l’échange en classe.**
 
