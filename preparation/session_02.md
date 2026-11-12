@@ -14,7 +14,7 @@ Le travail contribue aux compétences du référentiel sur l’analyse du besoin
 
 ## Préparer la distribution
 
-Prévoir Excel et les quatre lots de la Papeterie du Canal. Le document HTML sépare les lots à l’impression. Distribuer A d’abord, puis B, C et D aux moments prévus. Ne pas distribuer les repères de correction. Utiliser les sections du cours après les premières propositions et les échanges correspondants.
+Prévoir Excel et les quatre lots de la Papeterie du Canal. Commencer par le jeu oral « Des chiffres ou des lettres », écrans fermés. Garder ses pièges dans le support formateur et révéler chaque exemple après les réponses. Le document HTML sépare les lots à l’impression. Distribuer A après le jeu, puis B, C et D aux moments prévus. Ne pas distribuer les repères de correction. Utiliser les sections du cours après les premières propositions et les échanges correspondants.
 
 Les documents fournis sont les sources de l’exercice. Conserver leurs transcriptions, y compris les erreurs. Lorsqu’une confirmation manque, demander de formuler la question et de nommer la source à consulter. Ne pas fournir oralement une nouvelle quantité, une adresse corrigée ou une politique commerciale inventée pour fermer la discussion.
 
@@ -28,7 +28,7 @@ Repère pour les **4 heures annoncées au programme** : 210 minutes de travail, 
 
 | Temps écoulé | Durée | Activité et signal du professeur |
 |---|---:|---|
-| 00:00–00:10 | 10 min | Présenter le besoin et la boucle de travail. Rappeler le passage de la donnée à l’information en séance 1. |
+| 00:00–00:10 | 10 min | **Des chiffres ou des lettres.** Six minutes de questions rapides avec un piège à chaque fois, une minute de conclusion, puis trois minutes pour présenter la papeterie et organiser les binômes. |
 | 00:10–00:35 | 25 min | **Lot A.** Relever les champs utiles et les exemples exacts dans les deux premières colonnes. |
 | 00:35–00:55 | 20 min | **Préciser le sens.** Poser les trois questions sur les dates, le prix et l’adresse. Ajouter « Ce que ce champ décrit », faire reformuler trois définitions par un autre binôme, puis ouvrir `decisions`. |
 | 00:55–01:15 | 20 min | **Avant B.** Présenter les quatre familles de types. Ajouter « Type proposé » et faire justifier les propositions par les usages. |
@@ -43,6 +43,14 @@ Repère pour les **4 heures annoncées au programme** : 210 minutes de travail, 
 | 03:50–04:00 | 10 min | **Marge.** À répartir selon les difficultés rencontrées. |
 
 Limiter les restitutions à quelques décisions documentées. Lors d’une hésitation, demander : « Quelle valeur précise pose problème ? », « Quelle conséquence aurait votre choix ? » et « Quelle information permettrait de décider ? »
+
+## Ouverture Des chiffres ou des lettres
+
+Suivre les [six questions et leurs pièges dans l’aide à la conduite](session_02_conduite.md#1-des-chiffres-ou-des-lettres). Poser une question sur une donnée familière, laisser la classe répondre, puis révéler un cas qui complique la réponse : code postal `0612`, numéro de maison `8 bis`, téléphone avec indicatif, prénom composé, quantité de pommes en kilogrammes et prix affiché avec `€`.
+
+Le rythme et la révélation font le jeu : ne pas projeter tout le tableau, ne pas expliquer les types avant de commencer. Après chaque exemple, demander qui maintient sa réponse, qui la change et pourquoi. Une justification brève suffit. Accueillir aussi une réponse qui avait prévu le piège.
+
+Ce sont des exemples construits, distincts des lots. Pour `0612`, examiner la conservation du zéro sans lui attribuer de pays. Terminer en faisant expliquer la différence entre `0612` et `612`, puis retenir : **le choix dépend de l’usage et de l’information à préserver**. Présenter ensuite le besoin de la papeterie et la boucle de travail. L’ensemble tient dans les dix premières minutes.
 
 ## Après le lot A : faire préciser le sens
 
@@ -62,7 +70,7 @@ Accepter plusieurs découpages cohérents. Le besoin n’impose pas une séparat
 
 ## Avant et après le lot B : choisir la représentation
 
-Faire choisir un type **avant** l’ouverture du lot : texte, entier, nombre décimal ou date. Demander une opération utile pour chaque choix. Ne pas donner les réponses sur les références et les codes postaux avant la confrontation.
+Faire choisir un type **avant** l’ouverture du lot : texte, entier, nombre décimal ou date. Reprendre les idées du jeu d’ouverture et demander une opération utile pour chaque choix. Garder les valeurs précises de B pour la confrontation. Un choix déjà adapté grâce au jeu doit être expliqué et vérifié sur les nouveaux documents.
 
 | Valeur du dossier | Point à faire expliquer |
 |---|---|

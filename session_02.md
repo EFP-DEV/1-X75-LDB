@@ -12,6 +12,14 @@ En séance 1, nous avons utilisé des propriétés pour classer et retrouver des
 
 L’[exercice « Des documents aux champs »](exo/session_02.md) se réalise à deux dans Excel, à partir des [lots A à D de la Papeterie du Canal](exo/session_02_documents.html). Vous construisez progressivement un **dictionnaire des données**. Dans ce tableau de description, **une ligne décrit un champ**. Les lots et les nouvelles colonnes sont introduits au signal du professeur. Les explications du cours reprennent les questions rencontrées pendant le travail.
 
+## Des chiffres ou des lettres
+
+La séance commence par un jeu oral. Le professeur pose une question courte sur une donnée de tous les jours : un code postal, un numéro de maison, un téléphone, un prénom, une quantité ou un prix.
+
+Répondez spontanément. Le professeur révèle ensuite un exemple qui complique la réponse. **Gardez-vous votre choix ou changez-vous d’avis ?** Expliquez pourquoi en une phrase, puis passez à la question suivante.
+
+À la fin du jeu, reprenez un exemple : qu’aurait-on perdu ou rendu difficile avec le premier choix ? Cette question guidera le travail sur les commandes de la papeterie.
+
 ## 1. Préciser ce que le champ décrit
 
 ### Partir du besoin — lot A
