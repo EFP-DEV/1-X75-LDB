@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Séance 2 — Des documents aux champs</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #eee; color: #171717; font: 17px/1.5 Georgia, serif; }
+    .navigation { max-width: 820px; margin: 24px auto; padding: 0 24px; font-family: Arial, sans-serif; }
+    a { color: #164670; }
+    .lot { max-width: 820px; margin: 24px auto; padding: 40px; background: white; border: 1px solid #bbb; }
+    .lot > header { border-bottom: 2px solid #222; margin-bottom: 24px; padding-bottom: 12px; }
+    .repere, .date { color: #555; font: 14px/1.5 Arial, sans-serif; }
+    h1 { font-size: 27px; margin: 8px 0; }
+    h2 { font-size: 20px; margin: 26px 0 6px; }
+    p { margin: 10px 0; }
+    .document { margin-top: 24px; }
+    .document .date { margin: 4px 0 12px; }
+    .echange { margin-top: 28px; padding-top: 12px; border-top: 1px solid #bbb; }
+    @media (max-width: 600px) {
+      .lot { padding: 24px; margin: 16px; }
+    }
+    @page { size: A4; margin: 18mm; }
+    @media print {
+      body { background: white; font-size: 11pt; line-height: 1.4; }
+      .navigation { display: none; }
+      .lot { max-width: none; margin: 0; padding: 0; border: 0; break-after: page; }
+      .lot:last-child { break-after: auto; }
+      .lot > header { margin-bottom: 16px; padding-bottom: 8px; }
+      .document, .echange { break-inside: avoid; }
+      .document { margin-top: 16px; }
+      h1 { font-size: 20pt; }
+      h2 { font-size: 13pt; margin-top: 18px; }
+      .repere, .date { font-size: 10pt; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navigation" aria-label="Supports de la séance">
+    <p><a href="session_02.md">Consignes de l’exercice</a> · <a href="../session_02.md">Cours</a></p>
+    <p>Ouvrir les lots B, C et D uniquement au signal du professeur. Pour distribuer les lots sur papier, utiliser la commande Imprimer du navigateur ; chaque lot commence sur une nouvelle page.</p>
+  </nav>
+
+  <main>
+    <article class="lot" id="lot-a" aria-labelledby="titre-a">
+      <header>
+        <h1 id="titre-a">Des documents aux champs</h1>
+        <p class="repere">Papeterie du Canal • Lot A • Documents de départ</p>
+      </header>
+      <p>La papeterie reçoit ses commandes par mail, courrier et téléphone. Elle souhaite conserver les renseignements nécessaires pour préparer les articles, joindre la personne et livrer à la bonne adresse. Chaque demande de cet exercice concerne un seul article, commandé en plusieurs exemplaires si nécessaire. Tous les prix sont unitaires, en euros TTC.</p>
+      <p>À deux, lisez les documents et créez dans Excel la liste des champs utiles. Commencez avec deux colonnes : « Champ » et « Exemple relevé ». <strong>Une ligne décrit un champ, pas une personne ni une commande.</strong> Relevez un exemple exact. Ajoutez les autres colonnes uniquement au signal du professeur.</p>
+      <p>Les commandes, personnes et coordonnées de ce dossier sont fictives. Les variations et erreurs de transcription font partie de l’exercice.</p>
+
+      <section class="document" aria-labelledby="titre-a1">
+        <h2 id="titre-a1">A1 — Un mail reçu</h2>
+        <p class="date">12 novembre 2026 • Objet : commande de carnets</p>
+        <p>Bonjour, je souhaite commander 4 carnets à couverture bleue, référence 1000, au prix de 12,50 € le carnet. Pourriez-vous les livrer le 18 novembre 2026 au 14 rue des Tilleuls, 1000 Bruxelles, Belgique ? Merci de sonner à la porte principale.</p>
+        <p>Je m’appelle Marie Martin. Vous pouvez me joindre au 0470 00 00 11 ou à marie.martin@example.com. Merci, Marie.</p>
+      </section>
+
+      <section class="document" aria-labelledby="titre-a2">
+        <h2 id="titre-a2">A2 — Une note prise au comptoir</h2>
+        <p class="date">13 novembre 2026 • Demande de Karim Dupont</p>
+        <p>Karim Dupont commande 2 classeurs rouges, référence 2000. Le prix annoncé est de 7 € par classeur. Livraison souhaitée le 20 novembre 2026 : 25 rue des Jardins, 4000 Liège, Belgique. Déposer à l’accueil.</p>
+        <p>Pour prévenir de la livraison : 0480 00 00 22. L’adresse email notée est karim.dupont@example.com.</p>
+      </section>
+    </article>
+
+    <article class="lot" id="lot-b" aria-labelledby="titre-b">
+      <header>
+        <h1 id="titre-b">De nouvelles commandes</h1>
+        <p class="repere">Lot B • À ouvrir au signal du professeur</p>
+      </header>
+      <p>Ces documents s’ajoutent aux précédents. Gardez votre tableau et confrontez vos choix aux nouvelles valeurs. Si une décision change, préparez l’explication à donner à la classe.</p>
+
+      <section class="document" aria-labelledby="titre-b1">
+        <h2 id="titre-b1">B1 — Un courrier reçu</h2>
+        <p class="date">14 novembre 2026 • Commande à livrer en France</p>
+        <p>Bonjour, je suis Sophie Bernard. Je souhaite recevoir 3 carnets à couverture verte, référence AB-012. Je confirme le prix de 9,75 € par carnet.</p>
+        <p>La livraison est demandée pour le 23 novembre 2026, au 12B rue des Cerisiers, 01210 Ferney-Voltaire, France. Merci de passer par l’entrée latérale.</p>
+        <p>Pour me contacter : +33 6 00 00 00 33 ou sophie.bernard@example.com. Bien à vous, Sophie Bernard.</p>
+      </section>
+
+      <section class="document" aria-labelledby="titre-b2">
+        <h2 id="titre-b2">B2 — Un mail reçu</h2>
+        <p class="date">14 novembre 2026 • Commande à livrer au Royaume-Uni</p>
+        <p>Bonjour, je m’appelle Alex Brown. Je commande 6 pochettes cartonnées, référence P-07, à 2,40 € la pièce. La livraison est souhaitée pour le 24 novembre 2026.</p>
+        <p>Voici mon adresse de livraison : 8 Sample Lane, SW1A 1AA London, Royaume-Uni. Merci de remettre le colis à la réception.</p>
+        <p>Vous pouvez utiliser alex.brown@example.com ou le +44 7700 900123 pour me joindre. Merci.</p>
+      </section>
+
+      <section class="echange" aria-labelledby="echange-b">
+        <h2 id="echange-b">Préparez votre échange</h2>
+        <p>Choisissez une décision que vous maintenez et une décision que vous avez modifiée ou laissée en attente. Appuyez chaque explication sur une valeur précise du dossier. Si vous hésitez, indiquez entre quelles options et quelle information vous manque.</p>
+      </section>
+    </article>
+
+    <article class="lot" id="lot-c" aria-labelledby="titre-c">
+      <header>
+        <h1 id="titre-c">Des textes à conserver</h1>
+        <p class="repere">Lot C • À ouvrir au signal du professeur</p>
+      </header>
+      <p>La papeterie reçoit trois nouvelles demandes. Testez vos règles de contenu et de longueur sur les textes tels qu’ils sont écrits.</p>
+
+      <section class="document" aria-labelledby="titre-c1">
+        <h2 id="titre-c1">C1 — Un mail reçu</h2>
+        <p class="date">15 novembre 2026</p>
+        <p>Bonjour, je m’appelle Élodie D’Hondt-Martin. Je commande 5 carnets bleus, référence 1000, à 12,50 € pièce. Livraison le 25 novembre 2026 au 9 rue du Verger, 5000 Namur, Belgique. Sonnez au portail. Contact : elodie.dhondt-martin@example.com ; 0490 00 00 44.</p>
+      </section>
+
+      <section class="document" aria-labelledby="titre-c2">
+        <h2 id="titre-c2">C2 — Un bon accompagné d’un message</h2>
+        <p class="date">15 novembre 2026</p>
+        <p>Alexandrine de la Roche-Saint-André commande 8 classeurs rouges, référence 2000, à 7 € pièce. Livraison demandée le 26 novembre 2026, au 16 rue des Peupliers, 7000 Mons, Belgique. Téléphone : 0460 00 00 55. Email : alexandrine.roche-saint-andre@example.com.</p>
+        <p>Consigne de livraison : Merci de sonner à l’entrée latérale, puis de remettre le colis à la réception du premier étage. Si la porte est fermée, appelez-moi avant de repartir.</p>
+      </section>
+
+      <section class="document" aria-labelledby="titre-c3">
+        <h2 id="titre-c3">C3 — Un message reçu</h2>
+        <p class="date">16 novembre 2026</p>
+        <p>Bonjour, je m’appelle Bo Li. Je commande 1 pochette cartonnée, référence P-07, à 2,40 €. Merci de livrer le 27 novembre 2026 au 3 rue des Érables, 6000 Charleroi, Belgique. Sonnez une fois. Téléphone : 0450 00 00 66. Email : bo.li@example.com.</p>
+      </section>
+
+      <section class="echange" aria-labelledby="echange-c">
+        <h2 id="echange-c">Au moment de discuter</h2>
+        <p>Si une valeur dépasse votre limite, expliquez ce que vous feriez concrètement. Si toutes les valeurs tiennent, votre limite est-elle pour autant justifiée pour les prochaines commandes ?</p>
+      </section>
+    </article>
+
+    <article class="lot" id="lot-d" aria-labelledby="titre-d">
+      <header>
+        <h1 id="titre-d">Des saisies à examiner</h1>
+        <p class="repere">Lot D • À ouvrir au signal du professeur</p>
+      </header>
+      <p>Ces notes ont été retranscrites rapidement. Pour chaque valeur qui vous fait hésiter, décidez si elle est acceptable, à confirmer ou incompatible avec une règle. Expliquez cette règle. Une correction ne doit pas inventer ce que la personne voulait dire.</p>
+
+      <section class="document" aria-labelledby="titre-d1">
+        <h2 id="titre-d1">D1 — Transcription d’un appel</h2>
+        <p class="date">16 novembre 2026</p>
+        <p>Luc Moreau souhaite commander 2,5 carnets bleus, référence 1000, à 12,50 € pièce. Il demande une livraison le 31 novembre 2026 au 8 rue des Sources, 5000 Namur, Belgique.</p>
+        <p>L’email a été noté luc.moreau.example.com. Le téléphone est 0470 00 00 77. Consigne : appeler à l’arrivée.</p>
+      </section>
+
+      <section class="document" aria-labelledby="titre-d2">
+        <h2 id="titre-d2">D2 — Une fiche à confirmer</h2>
+        <p class="date">17 novembre 2026</p>
+        <p>Nora Petit commande 3 classeurs rouges, référence 2000. La fiche indique un prix unitaire de −7 €. Livraison souhaitée le 28 novembre 2026 au 10 rue des Pruniers, 40000 Liège, Belgique.</p>
+        <p>Le téléphone est écrit 0480/00.00.88 et l’email nora.petit@example.com. Consigne : déposer à l’accueil.</p>
+      </section>
+
+      <section class="document" aria-labelledby="titre-d3">
+        <h2 id="titre-d3">D3 — Un message de préparation</h2>
+        <p class="date">17 novembre 2026</p>
+        <p>Je prépare un cadeau pour le 03/04/2027. Pouvez-vous organiser une livraison pour cette date ? Merci, Alex Brown.</p>
+      </section>
+
+      <section class="echange" aria-labelledby="echange-d">
+        <h2 id="echange-d">Question de clôture</h2>
+        <p>Choisissez un champ de votre tableau. Expliquez son sens, son type, les valeurs qu’il accepte et une règle utile pour contrôler la saisie. Présentez aussi une décision qui reste à confirmer.</p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>

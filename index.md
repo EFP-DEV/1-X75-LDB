@@ -10,13 +10,13 @@ Le [résumé du référentiel EFP et les objectifs du cours](referentiel.md) pr�
 
 Le projet commun repose sur une **application centrée sur les collections**, déclinable en application de collections, réseau social ou boutique pour l’atelier ADB. Son socle comprend des utilisateurs, des éléments publiés, des médias, des collections, des interactions et des crédits internes. Les thèmes, catégories et tags peuvent compléter le projet selon les besoins.
 
-Les exercices commencent avec un même corpus de **42 documents culturels**, utilisé en séance 1 puis repris en tableaux à la séance 2. On classe d’abord les documents librement, puis on y recherche des informations. On apprend progressivement à interroger les données avec SQL, à les modifier, à les relier et à construire une base cohérente. Les mêmes tâches permettent de comparer les solutions et de vérifier les effets des changements. Les étudiants adaptent ensuite ce socle au sujet de leur application.
+Les exercices commencent avec un même corpus de **42 documents culturels**, utilisé en séance 1 puis repris progressivement dans le module. On classe d’abord les documents librement, puis on y recherche des informations. En séance 2, les commandes fictives de la **Papeterie du Canal**, distribuées en quatre lots, servent à construire un dictionnaire des données dans Excel : préciser le sens des champs, choisir leurs types et déterminer leurs valeurs admises. On apprend ensuite à transférer les données, à les interroger avec SQL, à les modifier, à les relier et à construire une base cohérente. Les mêmes tâches permettent de comparer les solutions et de vérifier les effets des changements. Les étudiants adaptent ensuite ce socle au sujet de leur application.
 
 À la fin de la séance 10, le schéma, les scripts de création et d’import, les données de test, les requêtes et la documentation constituent une **base utilisable en atelier ADB**.
 
 ## Supports de cours
 
-Le premier support disponible est la [séance 1 - Définir, classer et retrouver](session_01.md). Les liens vers les autres supports seront ajoutés au fil du module.
+Les supports disponibles sont la [séance 1 - Définir, classer et retrouver](session_01.md) et la [séance 2 - Décrire et représenter les propriétés](session_02.md), accompagnée de l’[exercice « Des documents aux champs »](exo/session_02.md) et des [lots A à D de la papeterie](exo/session_02_documents.html). Les liens vers les autres supports seront ajoutés au fil du module.
 
 Les consignes, les exemples et les vérifications à effectuer figurent dans les supports de chaque séance. On conserve les fichiers de travail et les observations pour reprendre le projet à la séance suivante. La syntaxe et les outils sont introduits au moment où ils deviennent utiles.
 
@@ -25,8 +25,8 @@ Les consignes, les exemples et les vérifications à effectuer figurent dans les
 | Séance | X75 A | X75 B |
 |---|---|---|
 | **1 - [Définir, classer et retrouver](session_01.md)** | 04/11 | 10/11 |
-| **2 - Structurer, distinguer et définir** | 12/11 | 17/11 |
-| **3 - Répéter et automatiser les recherches** | 19/11 | 24/11 |
+| **2 - [Décrire et représenter les propriétés](session_02.md)** | 12/11 | 17/11 |
+| **3 - Identifier, relier et interroger** | 19/11 | 24/11 |
 | **4 - Modifier et produire des bilans** | 25/11 | 01/12 |
 | **5 - Rapprocher et relier** | 26/11 | 08/12 |
 | **6 - Rencontrer les limites d’une mauvaise structure** | 02/12 | 15/12 - matin |
@@ -53,25 +53,31 @@ La synthèse porte sur les résultats de la recherche textuelle : documents trou
 
 **Notions abordées :** Donnée et information, rôle du contexte ; base de données, fichier plat et SGBD ; quantité et représentation ; systèmes de numération, notation positionnelle, rôle du zéro, bit, octet et conversions entre décimal et binaire ; caractère, code numérique ou point de code, encodage ASCII, décodage, police, glyphe et pixels ; premiers principes d’organisation et de classification ; recherche textuelle et vérification des comptages ; faux positifs et négatifs ; notion de requête et introduction à SQL sans syntaxe.
 
-### 2 : Structurer, distinguer et définir
+### 2 : Décrire et représenter les propriétés
 
-On reprend les 42 documents de la séance 1, leurs numéros et les notes sur les classements. Chaque document devient une fiche d’élément à publier ; plusieurs documents concernant la même œuvre restent distincts. On relève les informations utiles aux recherches : titre ou désignation, nature du document, personnes mentionnées et leurs rôles, lieu, date et horaire lorsqu’ils sont indiqués. On conserve aussi les descriptions complètes et les mentions utilisées dans les treize questions : prix et monnaie, référence, inscription, logo, puissance du moteur, durée, placement et année. Les regroupements proposés servent à décrire des collections et les documents qu’elles réunissent.
+La séance apprend à transformer une propriété du réel en un champ exploitable : préciser son sens, choisir son type et déterminer ce qu’il peut contenir. Les décisions suivent une boucle : proposer, confronter aux données, constater les conséquences et ajuster.
 
-On organise ces données en tableaux pour reprendre les treize questions et en poser de nouvelles qui traversent plusieurs regroupements. On précise les champs pour distinguer les homonymes, interpréter les dates et représenter les valeurs manquantes. On vérifie les réponses et les comptages à partir du corpus, puis on conserve les tableaux, leur dictionnaire des données et les exports CSV pour la séance 3. Les données de départ précisent cette continuité.
+Les binômes travaillent sur les commandes fictives de la Papeterie du Canal. Le lot A fait relever les champs et un exemple exact dans Excel, avec une ligne par champ. Un premier échange précise le sens des dates, du prix unitaire et de l’adresse de livraison, avant le choix des types. Le lot B confronte ces types à des références et à des coordonnées variées. Les règles de contenu et de longueur sont proposées avant le lot C ; les règles de validation avant le lot D. Les étudiants doivent repérer aussi bien les valeurs légitimes refusées que les valeurs incohérentes acceptées et reconnaître les informations qui leur manquent.
 
-**Notions abordées :** Tableur ; tableaux, lignes, colonnes et cellules ; identifiants ; dictionnaire des données ; nommage, types, formats et longueurs ; valeur absente, chaîne vide et zéro ; export CSV.
+Le classeur conserve le dictionnaire des données et la trace des décisions. Un autre binôme reformule les définitions et applique les règles aux documents ; les corrections sont vérifiées sur les mêmes valeurs. Une courte reprise d’une propriété du corpus culturel prépare le transfert vers le projet commun. Les identifiants, les relations et le transfert des données commencent à la séance suivante.
 
-### 3 : Répéter et automatiser les recherches
+**Notions abordées :** Propriété, champ et valeur ; sens et usages ; dictionnaire et nommage ; types, unités et précision ; formats, contenu, longueurs et validation ; valeur fournie et valeur calculée ; conventions, informations manquantes et décisions à confirmer.
 
-On complète les fiches issues de la séance 2 avec des données fictives fournies pour l’exercice : utilisateurs responsables, statuts et dates de publication dans l’application. On distingue ces données des artistes et des dates figurant sur les documents. On recherche les éléments publiés, les brouillons et les publications d’une période. On installe le système de gestion de base de données (SGBD), on importe les données et on écrit des requêtes réutilisables.
+### 3 : Identifier, relier et interroger
 
-**Notions abordées :** Installation et configuration locale du SGBD ; distinction serveur/client ; connexion et import ; `SELECT`, `WHERE`, comparaisons, opérateurs logiques, `LIKE`, `IS NULL`, `ORDER BY`, `DISTINCT`.
+Deux personnes portent le même nom : la consigne de modification devient ambiguë. Une personne possède plusieurs téléphones : recopier sa fiche provoque des incohérences lorsqu’une seule copie est modifiée. Ces difficultés font apparaître le besoin d’identifiants et de relations. On construit ces premières représentations avant d’introduire leur utilisation dans un SGBD.
+
+On passe du dictionnaire des champs à un tableau de données. Un export CSV fait travailler les fichiers plats et les conventions d’échange : encodage, séparateurs, dates et valeurs absentes. On réimporte le fichier en précisant les types, puis on compare les valeurs aux sources, notamment les accents, les zéros initiaux et les dates.
+
+On complète progressivement les fiches de documents avec des données fictives de fonctionnement : utilisateurs responsables, statuts et dates de publication dans l’application. On les distingue des artistes et des dates figurant sur les documents. L’installation du SGBD, l’import et les premières requêtes permettent ensuite de répéter les recherches et de vérifier les représentations. La pratique des filtres et des tris se poursuit en séance 4.
+
+**Notions abordées :** Identifiants et premières relations ; distinction entre personne et coordonnées ; tableau de données ; fichiers plats, export CSV, conventions d’import et réimportation vérifiée ; installation et configuration locale du SGBD ; distinction serveur/client ; connexion et import ; premières recherches avec `SELECT`, `WHERE` et `ORDER BY`.
 
 ### 4 : Modifier et produire des bilans
 
-On ajoute un élément, on corrige une fiche, on change un statut et on supprime un enregistrement. On vérifie les données avant et après chaque modification, puis on produit des bilans sur les éléments et leurs publications dans l’application.
+On reprend les recherches et les tris de la séance 3 en précisant les filtres, les valeurs absentes et les résultats distincts. Les comptages font distinguer une absence, un texte vide, zéro et une réponse négative ; une réponse oui/non connue introduit le booléen. On ajoute un élément, on corrige une fiche, on change un statut et on supprime un enregistrement. On vérifie les données avant et après chaque modification, puis on produit des bilans sur les éléments et leurs publications dans l’application.
 
-**Notions abordées :** `INSERT`, `UPDATE`, `DELETE` ; portée du `WHERE` ; vérification avant et après modification ; `COUNT`, autres agrégats, `GROUP BY`, `HAVING`.
+**Notions abordées :** Valeur absente, `NULL`, chaîne vide, zéro et booléen ; comparaisons, opérateurs logiques, `LIKE`, `IS NULL`, `DISTINCT` ; `INSERT`, `UPDATE`, `DELETE` ; portée du `WHERE` ; vérification avant et après modification ; `COUNT`, autres agrégats, `GROUP BY`, `HAVING`.
 
 ### 5 : Rapprocher et relier
 

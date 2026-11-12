@@ -43,16 +43,20 @@ Les collections et les interactions offrent des situations concrètes pour étud
 
 Les exercices du cours utilisent d’abord le [corpus commun de 42 documents culturels](asset/session_01/README.md). Chaque document sert de point de départ à une fiche d’élément à publier dans l’application. Son numéro permet de le retrouver d’une séance à l’autre. Deux documents consacrés à la même œuvre restent deux éléments distincts : le programme, le livret DVD et le billet de *La Cantatrice chauve* conservent ainsi les numéros 12, 13 et 17.
 
-Pour la séance 2, chaque groupe reprend :
+Pour la séance 2, chaque groupe dispose des éléments suivants :
 
 - les 42 documents et leurs descriptions dans le [support HTML](exo/session_01.html) ;
 - son fichier `observations-classement.md`, avec les réponses justifiées aux [treize questions de la séance 1](session_01.md#5-rechercher-dans-le-classement) et les trois inventaires de comptage ;
 - les noms et les règles des regroupements, ainsi que les documents difficiles à placer.
 
-Les premières données à organiser sont les numéros des documents, leurs titres ou désignations, leur nature, les personnes mentionnées et leurs rôles, les lieux, les dates et les horaires lorsqu’ils sont indiqués. On conserve aussi la référence de l’image et sa description complète, y compris les mentions nécessaires aux treize questions : prix et monnaie, référence imprimée, inscription, logo, puissance du moteur, durée, placement et année. Ces informations doivent rester retrouvables dans les tableaux ; leur transcription conserve les signes, les unités et la notation présents dans les documents. Une donnée absente reste signalée comme telle ; on ne la déduit pas d’une connaissance de l’œuvre. Les regroupements servent à proposer des collections décrites par un nom, une règle et la liste des numéros des documents retenus.
+La [séance 2](session_02.md) utilise les [commandes fictives de la Papeterie du Canal](exo/session_02_documents.html), distribuées en quatre lots. Les binômes construisent dans Excel un dictionnaire des données : une ligne décrit un champ, d’abord avec son nom et un exemple exact. Les personnes et les articles de cet exercice sont distincts de ceux du corpus culturel.
 
-La séance 2 produit des tableaux, un dictionnaire des données et des exports CSV. Les réponses aux treize questions et les inventaires de la séance 1 permettent de vérifier que les informations ont été conservées. Ces fichiers sont repris à la séance 3.
+L’[exercice](exo/session_02.md) fait préciser le sens des champs avant de choisir leurs types. Les nouvelles références, coordonnées, longueurs et saisies mettent ensuite les propositions à l’épreuve. Les étudiants expliquent les conséquences, ajustent leurs règles et vérifient leurs choix sur les documents. Une information manquante n’est pas inventée. Un autre binôme relit les définitions et applique les règles ; une propriété du corpus culturel permet ensuite de reprendre la même démarche.
+
+La séance 2 produit `papeterie_champs.xlsx`, avec le dictionnaire dans `champs` et les propositions, observations et justifications dans `decisions`. La séance 3 poursuit le passage aux fiches de données, aux identifiants et aux relations. Elle introduit aussi l’export CSV et la réimportation vérifiée, avec les conventions nécessaires pour conserver les valeurs.
+
+La reprise des 42 documents en tableaux se fait progressivement. Le corpus complet et ses descriptions restent conservés, y compris les mentions nécessaires aux treize questions : prix et monnaie, référence imprimée, inscription, logo, puissance du moteur, durée, placement et année. Les transcriptions conservent les signes, les unités et la précision des sources. Les réponses et les inventaires de la séance 1 servent de référence lorsque les tableaux couvrent les documents concernés ; on ne compare pas le comptage d’un extrait au total du corpus. Les regroupements permettront de décrire des collections et les documents qu’elles réunissent.
 
 À partir de la séance 3, le formateur fournit des données fictives de fonctionnement de l’application : utilisateurs responsables, statuts et dates de publication. L’artiste mentionné sur un document et l’utilisateur qui publie sa fiche ont des rôles distincts ; la date d’un concert et la date de publication de sa fiche également. Les interactions et les crédits sont introduits au fil des opérations qui les nécessitent. Le même socle peut ensuite être adapté au sujet choisi pour l’atelier ADB.
 
-Le [programme](readme.md) organise cette progression selon les compétences du [référentiel](referentiel.md).
+Le [programme](index.md) organise cette progression selon les compétences du [référentiel](referentiel.md).
