@@ -2,6 +2,8 @@
 
 [Documents par lots](../exo/session_02_documents.html) · [Exercice](../exo/session_02.md) · [Cours](../session_02.md) · [Référentiel](../referentiel.md)
 
+[Aide à la conduite du cours](session_02_conduite.md) : déroulement à cocher, questions à poser, réponses attendues et points à vérifier pour couvrir toute la séance.
+
 ## Intention et résultat attendu
 
 La séance apprend à **transformer une propriété du réel en un champ exploitable** : préciser son sens, choisir son type et déterminer ce qu’il peut contenir. La diversité des commandes met les décisions à l’épreuve. Les étudiants proposent, appliquent leurs choix à des valeurs précises, constatent les conséquences et ajustent.
