@@ -17,5 +17,5 @@ Do not view images. Image inspection takes too much time; rely on available text
 - Read it before creating or updating lessons, exercises, demonstrations, revision material or assessments.
 - Align learning objectives and activities with its requirements. Ensure that the course as a whole covers all listed competencies; each lesson contributes according to its place in the progression.
 - Include opportunities to perform the operations, verify their results and explain the choices made.
-- Use [readme.md](readme.md) for the planned sequence of lessons and the module organisation.
+- Use [index.md](index.md) for the planned sequence of lessons and the module organisation.
 - If a lesson or the planned sequence conflicts with the référentiel, use the référentiel to determine the required coverage and flag the discrepancy.
