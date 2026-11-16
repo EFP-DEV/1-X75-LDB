@@ -10,7 +10,7 @@ En séance 1, nous avons utilisé des propriétés pour classer et retrouver des
 
 À la fin de la séance, vous devez pouvoir définir un champ sans ambiguïté, choisir une représentation adaptée à son usage, formuler une règle vérifiable et expliquer les conséquences de vos choix à partir d’un document.
 
-L’[exercice](exo/session_02.md) comprend deux parties : le lot A de la Papeterie du Canal jusqu’à la proposition des types, puis les huit scénarios de conception de tables repris de 2025-2026. Le premier travail produit `papeterie_champs.xlsx` ; le second produit des dessins de tables accompagnés de la description de leurs champs.
+L’[exercice](exo/session_02.md) comprend deux parties : A1 et A2 du lot A de la Papeterie du Canal pour définir les champs puis saisir les deux commandes, et un scénario de conception de tables à choisir parmi les huit repris de 2025-2026. Le premier travail produit `papeterie_champs.xlsx` ; le second produit des dessins de tables accompagnés de la description de leurs champs.
 
 ## Des chiffres ou des lettres
 
@@ -83,11 +83,19 @@ Pour chaque renseignement, choisissez : texte, nombre ou date. Demandez-vous ce 
 
 La définition doit aussi préciser l’**unité** : exemplaires pour une quantité, euros TTC pour le prix unitaire de cet exercice. Pour un montant, il faut prévoir la précision nécessaire ; les prix du dossier sont exprimés au centime. Le choix du type numérique exact dans un SGBD sera repris lors de la création des tables.
 
-Le type inscrit dans votre dictionnaire décrit le futur champ. Le mot « Date » écrit dans une cellule du dictionnaire reste du texte : il ne configure pas automatiquement une colonne de dates dans une base.
+Le type inscrit dans votre dictionnaire décrit le futur champ. Le mot « Date » écrit dans une cellule du dictionnaire reste du texte : les types proposés ne configurent automatiquement ni les cellules d’Excel ni une colonne dans une base.
+
+### Passer aux deux commandes
+
+Conservez `champs` et `decisions`, puis créez `commandes` dans le même classeur. Utilisez vos noms de champs comme en-têtes et saisissez A1 et A2 sur deux lignes. Dans `champs`, une ligne décrit un champ. Dans `commandes`, une ligne décrit une commande ; chaque colonne correspond à un champ et chaque cellule contient sa valeur pour cette commande.
+
+Comparez les valeurs aux deux documents : leur sens et leur précision sont-ils conservés ? Cette saisie peut révéler une définition à revoir. Consignez le problème et votre justification dans `decisions`, puis ajustez le dictionnaire et les en-têtes concernés.
 
 ## 3. Regrouper les champs dans des tables
 
 La seconde partie de l’[exercice](exo/session_02.md#3-dessiner-et-décrire-des-tables) reprend les scénarios de cinéma, librairie, blog, transport, langues, commerce, hôpital et école.
+
+**Minimum en binôme :** choisir un scénario et décrire deux tables principales, avec deux enregistrements fictifs par table (quatre au total), vérification et justification. Les tables supplémentaires et les relations nécessaires sont simplement notées. Après ce minimum, approfondir le même scénario ou en choisir un autre est facultatif. Les [consignes détaillées](exo/session_02.md#3-dessiner-et-décrire-des-tables) précisent les livrables.
 
 Une **entité** est un objet ou un concept sur lequel on conserve des renseignements : un film, une personne, un produit. Un événement, comme une consultation, peut aussi nécessiter sa propre table. On commence par préciser ce que représente une ligne de chaque table.
 
@@ -121,14 +129,18 @@ Les textes doivent conserver les accents, les espaces et la ponctuation nécessa
 
 Un client peut passer plusieurs commandes ; un patient peut avoir plusieurs consultations ; un pays peut avoir plusieurs langues officielles. Ces besoins ne disparaissent pas parce que les relations n’ont pas encore été étudiées.
 
-À cette étape, on relève les objets et événements qui nécessiteront des tables supplémentaires et on décrit leurs propres champs. Les liens, clés étrangères et cardinalités seront formalisés ensuite. Un compteur de commandes ne conserve ni leurs dates individuelles ni leur contenu. Une seule allergie ne représente pas un dossier qui doit en conserver plusieurs.
+À cette étape, on relève les objets et événements qui nécessiteront des tables supplémentaires et on les nomme. Décrire leurs champs au-delà des deux tables principales relève de l’approfondissement facultatif. Les liens, clés étrangères et cardinalités seront formalisés en séance 5. Un compteur de commandes ne conserve ni leurs dates individuelles ni leur contenu. Une seule allergie ne représente pas un dossier qui doit en conserver plusieurs.
 
 ## 6. Vérifier les propositions sur des exemples
 
-Pour chaque scénario, on dessine les tables, on décrit les champs et on construit deux enregistrements fictifs. On vérifie manuellement la conservation de chaque valeur, la distinction des lignes et les effets des règles proposées. Les exemples permettent de justifier une décision ou de mettre en évidence une information manquante.
+Pour le scénario choisi, on dessine les deux tables principales, on décrit leurs champs et on construit deux enregistrements fictifs par table, soit quatre au total. On vérifie manuellement la conservation de chaque valeur, la distinction des lignes et les effets des règles proposées. Les exemples permettent de justifier une décision ou de mettre en évidence une information manquante.
+
+Pendant les exercices, les retours brefs permettent de préciser un champ, de vérifier un exemple ou de débloquer une difficulté. La correction collective des huit scénarios aura lieu à l’ouverture de la séance 3, pendant 40 minutes.
 
 ## 7. Bilan
 
-On explique le sens d’une ligne de table, le rôle de son identifiant et les choix de types, de longueurs et de champs obligatoires. Chaque contrainte du scénario est reliée à une proposition ou à un besoin à traiter avec les relations.
+Chaque étudiant explique le sens d’une ligne de table, le rôle de son identifiant et les choix de types, de longueurs et de champs obligatoires. Chaque contrainte du scénario est reliée à une proposition ou à un besoin à traiter avec les relations.
 
-On conserve `papeterie_champs.xlsx`, limité aux étapes 1 et 2 de la papeterie, et `session_02_tables`, qui rassemble la seconde partie. La séance suivante approfondira les identifiants, les relations et le passage des descriptions aux données.
+On conserve `papeterie_champs.xlsx`, avec les feuilles `champs`, `decisions` et `commandes` limitées à A1 et A2, et `session_02_tables`, qui rassemble la seconde partie. Aucun devoir ni achèvement à domicile n’est demandé. Apportez aussi vos propositions inachevées et vos questions. La correction collective des huit scénarios ouvre la séance 3 pendant 40 minutes, y compris pour les scénarios non traités par votre binôme.
+
+Après cette correction, la séance 3 portera sur le choix des champs et la pratique du CRUD sur une seule table : ajouter, lire, modifier et supprimer des données. L’étude formelle des clés et des relations est prévue en séance 5.

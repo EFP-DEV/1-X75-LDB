@@ -6,7 +6,7 @@ La papeterie reçoit ses commandes par mail, courrier et téléphone. Elle souha
 
 Les commandes, personnes et coordonnées du dossier sont fictives. Les variations et erreurs de transcription font partie de l’exercice. Une information manquante ou incertaine doit être signalée ; aucune correction ne doit inventer ce que la personne voulait dire.
 
-La première partie utilise uniquement le lot A. Travaillez à deux : une personne manipule le classeur, l’autre relit les documents et examine les propositions. Échangez les rôles entre les deux étapes.
+La première partie utilise uniquement A1 et A2 du lot A. Travaillez à deux : une personne manipule le classeur, l’autre relit les documents et examine les propositions. Échangez les rôles entre les étapes.
 
 ## 1. Lot A — Relever les champs utiles
 
@@ -42,26 +42,51 @@ Créez maintenant une feuille `decisions` pour garder la trace des choix discut�
 |---|---|---|---|---|
 | | | | | |
 
-Au signal suivant, ajoutez **« Type proposé »** dans `champs`. Choisissez pour chaque champ une représentation : texte, nombre entier, nombre décimal ou date. Préparez une justification fondée sur l’usage de la valeur. Conservez vos propositions et enregistrez `papeterie_champs.xlsx`, avec les feuilles `champs` et `decisions`. La première partie se termine ici.
+Au signal suivant, ajoutez **« Type proposé »** dans `champs`. Choisissez pour chaque champ une représentation : texte, nombre entier, nombre décimal ou date. Préparez une justification fondée sur l’usage de la valeur.
+
+### Passer du dictionnaire aux deux commandes — 10 minutes
+
+Conservez les feuilles `champs` et `decisions` et ajoutez une feuille `commandes` dans `papeterie_champs.xlsx`. Reprenez vos noms de champs comme en-têtes de colonnes. Saisissez les deux commandes : une ligne pour A1 et une ligne pour A2, sous les en-têtes.
+
+- Dans `champs`, **une ligne décrit un champ**.
+- Dans `commandes`, **une ligne décrit une commande** ; chaque colonne correspond à un champ et chaque cellule contient sa valeur pour cette commande.
+
+Les types proposés dans le dictionnaire ne configurent pas automatiquement les cellules d’Excel. Si nécessaire, adaptez leur format pour conserver les valeurs, puis vérifiez le résultat.
+
+Comparez les deux enregistrements à A1 et A2 : chaque valeur a-t-elle conservé son sens et sa précision, notamment les dates, les signes utiles et les centimes ? Repérez toute définition de champ à revoir. Notez le problème et la décision justifiée dans `decisions`, puis ajustez `champs` et les en-têtes concernés. Enregistrez le classeur avec ses trois feuilles.
 
 ## 3. Dessiner et décrire des tables
 
 La seconde partie reprend les huit scénarios de l’[exercice de modélisation de 2025-2026](../2025-2026/exo/session_02.md). On passe des champs relevés dans les commandes à des tables regroupant les renseignements sur un même sujet.
 
-Pour chaque scénario, on dessine un cadre par table sur papier ou dans un document nommé `session_02_tables`. Chaque cadre porte le nom de la table et contient ses champs. On complète ensuite la description de chaque champ avec le tableau guide ci-dessous.
+### Minimum à terminer pendant la séance
 
-### Travail demandé
+Après avoir terminé la papeterie, continuez avec le même binôme. Choisissez **un seul scénario parmi les huit** et décrivez **deux tables principales**. Dessinez un cadre par table sur papier ou dans un document commun nommé `session_02_tables`. Chaque cadre porte le nom de la table et contient ses champs. Complétez la description de tous les champs de ces deux tables avec le tableau guide ci-dessous.
+
+Le minimum comprend **deux enregistrements fictifs par table, soit quatre au total**, leur vérification manuelle et la justification des choix. Notez les tables supplémentaires, les relations nécessaires et les questions ouvertes sans devoir les développer. Chaque membre du binôme doit pouvoir expliquer individuellement une table.
+
+Pendant les exercices de séance 2, les retours brefs servent à préciser un champ, vérifier un exemple ou résoudre une difficulté. Ils sont distincts de la correction collective des huit scénarios, réservée à l’ouverture de la séance 3.
+
+### Pour aller plus loin — facultatif
+
+Lorsque le minimum est terminé et vérifié, choisissez soit de développer des tables supplémentaires du même scénario, soit de traiter un autre scénario avec la même démarche sur deux tables. Les autres scénarios constituent une réserve d’entraînement : **il n’est pas demandé de terminer les huit**.
+
+### Pour la séance 3 — aucun devoir
+
+Apportez `papeterie_champs.xlsx` et `session_02_tables`, y compris les propositions inachevées et les questions ouvertes. Aucun travail supplémentaire ni achèvement à domicile n’est demandé. La correction collective ouvrira la séance 3 pendant 40 minutes et portera sur les huit scénarios, même ceux que vous n’avez pas traités.
+
+### Travail demandé sur les deux tables choisies
 
 1. Identifier les objets ou événements à décrire et nommer les tables de manière cohérente.
 2. Expliquer ce que représente une ligne de données dans chaque table.
 3. Proposer un identifiant permettant de distinguer deux lignes, même si elles portent le même nom.
 4. Décrire chaque champ : nom, type, longueur maximale si applicable, caractère obligatoire et commentaire précisant le sens ou l’unité.
-5. Proposer deux enregistrements fictifs pour vérifier manuellement la description. Les exemples inventés sont identifiés comme tels.
+5. Proposer deux enregistrements fictifs par table, soit quatre au total, pour vérifier manuellement la description. Les exemples inventés sont identifiés comme tels.
 6. Justifier les choix et noter les questions qui restent ouvertes.
 
 Les types restent exprimés en mots : texte, nombre entier, nombre décimal, date ou date et heure selon le besoin. Aucun script SQL n’est demandé. Une longueur de texte s’exprime en caractères ; lorsqu’aucune limite n’est justifiée, on écrit « à déterminer » avec la question à résoudre.
 
-Les relations seront approfondies dans la suite du module. Lorsqu’un besoin implique plusieurs valeurs ou plusieurs événements, on le note et on propose les tables supplémentaires nécessaires, sans exiger ici les clés étrangères ni les cardinalités. Un historique complet ne se réduit pas à un compteur et à une dernière date.
+Les clés et les relations seront formalisées en séance 5. Lorsqu’un besoin implique plusieurs valeurs ou plusieurs événements, on le note et on nomme les tables supplémentaires nécessaires, sans devoir décrire leurs champs dans le minimum demandé. Les clés étrangères et les cardinalités ne sont pas exigées ici. Un historique complet ne se réduit pas à un compteur et à une dernière date.
 
 ### Tableau guide
 
@@ -124,6 +149,8 @@ Dans ce tableau de description, une ligne représente un champ. Dans la future t
 
 ### Exercice 5 : Langues du monde
 
+Pour vos deux tables principales, vous pouvez par exemple choisir les langues et les systèmes d’écriture.
+
 **Contexte :** Une application pour linguistes et traducteurs.
 
 **Contraintes :**
@@ -168,13 +195,13 @@ Dans ce tableau de description, une ligne représente un champ. Dans la future t
 
 ## 4. Relire et expliquer les propositions
 
-Pour chaque scénario, on reprend les contraintes de l’énoncé une à une. Chaque besoin doit correspondre à un champ, à une table proposée ou à un point explicitement reporté au travail sur les relations.
+Pour le scénario choisi, on reprend les contraintes de l’énoncé une à une. Chaque besoin doit correspondre à un champ des deux tables décrites, à une table supplémentaire simplement nommée ou à un point explicitement reporté au travail sur les relations.
 
-On compare les deux enregistrements fictifs : les champs permettent-ils de conserver leurs valeurs, leurs unités et leurs différences ? On examine aussi une valeur absente, un nom identique sur deux lignes et un texte dépassant une limite proposée. Les conséquences et les corrections sont expliquées.
+Dans chacune des deux tables, on compare les deux enregistrements fictifs : les champs permettent-ils de conserver leurs valeurs, leurs unités et leurs différences ? On examine aussi une valeur absente, un nom identique sur deux lignes et un texte dépassant une limite proposée. Les conséquences et les corrections sont expliquées.
 
 ### Bilan individuel
 
-On choisit une table et on explique ce que représente une ligne, le rôle de son identifiant et le choix du type de deux champs. On justifie un champ obligatoire ou facultatif, puis une longueur retenue ou laissée à déterminer. On termine par un besoin qui demandera de relier plusieurs tables.
+Chaque étudiant choisit une des deux tables et explique ce que représente une ligne, le rôle de son identifiant et le choix du type de deux champs. On justifie un champ obligatoire ou facultatif, puis une longueur retenue ou laissée à déterminer. On termine par un besoin qui demandera de relier plusieurs tables.
 
 On conserve `papeterie_champs.xlsx` et `session_02_tables` pour la suite du module.
 

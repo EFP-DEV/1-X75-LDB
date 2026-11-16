@@ -1,325 +1,202 @@
-# Séance 3 — Correction de l’exercice de modélisation de la séance 2
+# Séance 2 — Construire les questions qui conduisent aux tables
 
-[Énoncé actuel](../exo/session_02.md#3-dessiner-et-décrire-des-tables) · [Cours](../session_03.md)
+[Énoncé](../exo/session_02.md#3-dessiner-et-décrire-des-tables) · [Correction collective à l’ouverture de la séance 3](../session_03.md)
 
-Ce corrigé adapte les exercices 1 à 7 du support de 2025-2026. L’exercice 8 reste à compléter.
+Ce guide accompagne la correction collective des huit scénarios à l’ouverture de la séance 3. Les retours brefs pendant les exercices de séance 2 servent à accompagner les binômes ; ils ne remplacent pas cette correction. En séance 2, chaque binôme doit traiter un seul scénario librement choisi : deux tables principales et deux enregistrements fictifs par table. Les autres tables sont simplement notées ; approfondir ou traiter un autre scénario est facultatif. Aucun devoir ni achèvement à domicile n’est demandé. Accueillir les propositions inachevées et faire participer chacun aux scénarios qu’il n’a pas préparés. Les pistes ci-dessous dépassent donc le minimum individuel demandé.
 
-Les propositions doivent couvrir les besoins de l’énoncé. Une information multiple ne doit pas être supprimée parce que les relations seront étudiées plus tard. On propose dès maintenant les tables nécessaires et on décrit en français les liens à établir ; les clés étrangères et les cardinalités ne sont pas exigées ici.
+Ce guide accompagne une conversation. On part de ce que l’on veut faire, on cherche les renseignements nécessaires, puis on distingue les sujets et les événements à décrire. Les réponses proposées sont des possibilités : les relances suivent les réponses de la classe.
 
-Les choix de champs obligatoires sont des propositions à discuter selon les informations disponibles. Pour les textes sans limite justifiée, la longueur reste à déterminer : quelle limite le besoin ou le système impose-t-il ? Les codes normalisés conservent leur longueur propre.
+La correction ouvre la séance 3 et dure **40 minutes**. Le cinéma reçoit 15 minutes pour installer la démarche ; la librairie 5, le blog 4, le transport 3, les langues 7, le commerce 2, l’hôpital 2 et l’école 2. Cette répartition décroissante selon les priorités pédagogiques reprend une allocation de Zipf arrondie. Les langues constituent un approfondissement volontaire au milieu du parcours.
 
-Les exemples de vérification ci-dessous sont fictifs. Ils servent à relire les propositions sur papier, sans SQL.
+Les noms en gras sont des propositions. Pour chaque champ : **quel type ? quelle longueur ou précision utile ? obligatoire ou facultatif, pourquoi ?** Les listes reprennent leur première apparition. Les liens entre sujets restent à représenter séparément.
 
-# Exercice 1 : Cinéma - Films et Acteurs
+## 1. Cinéma — Choisir un film et le retrouver · 15 minutes
 
-**Table : film**
+### Partir des usages
 
-**Commentaire :** Contient les informations descriptives des films.
+Sur une plateforme de films et de séries, comment cherchez-vous un film ?
 
-| Champs             | Type      | Longueur | Obligatoire | Commentaires                                    |
-| ------------------ | --------- | -------- | ----------- | ----------------------------------------------- |
-| title | Texte | À déterminer | Oui | Titre original |
-| genre | Texte | À déterminer | Oui | Genre du cas simple ; plusieurs genres à représenter si nécessaire. |
-| original_language | Texte | 3 | Oui | 639-2 (3 lettres) |
-| release_year | Nombre entier | Sans objet | Oui | Année (ex : 2020) |
-| production_country | Texte | 2 | Oui | Code ISO 3166-1 alpha-2 (ex : FR, BE, US) |
-| budget | Nombre décimal | Sans objet | Non | En euros |
-| duration_minutes | Nombre entier | Sans objet | Oui | Durée en minutes |
-| age_rating | Texte | À déterminer | Oui | Exemple : “PG-13”, “16+” |
-| average_rating | Nombre décimal | Sans objet | Non | Exemple : 8.4 |
+[OPEN MIC] 
 
+une nouveauté, une comédie, un film d’action, une romance, un film japonais, un film d’horreur, un film avec Winona Ryder, un film réalisé par Gaspar Noé, un film recommandé à partir d’un film qu’on aime.
 
-### Discussion et compléments
 
-Une ligne décrit un film. Les champs `genre`, `original_language` et `production_country` décrivent ici un cas simple. Si plusieurs genres, langues originales ou pays de production doivent être conservés, proposer les tables `genre`, `langue` et `pays`, puis noter les liens avec le film. La 1NF ne justifie pas de supprimer ces informations.
+[OPEN EARS]
 
-Préciser la monnaie du budget, l’échelle de la note moyenne et le système de classification par âge. Une note inconnue n’est pas une note égale à zéro.
+- une nouveauté : récent depuis sa sortie originale ou son arrivée sur la plateforme ? → **`date_sortie`**, **`date_ajout`**.
+- une comédie : quel genre ? Peut-elle aussi être romantique, d’horreur ou d’action ? → **`nom_genre`** ; plusieurs genres possibles.
+- Un film japonais : tourné ou produit au Japon, en japonais, ou d’un réalisateur japonais ? → **`pays_tournage`**, **`pays_production`**, **`langue`**, **`nationalite_realisateur`**, selon le sens retenu.
+- Avec Winona Ryder ou par Gaspar Noé : interprète ou réalisateur ? → **`nom_acteur`**, **`nom_realisateur`** ; liens joue dans et réalise.
+- Les recommandations d’un film que j’aime : quel point commun ? Genre, interprètes, réalisateur ? Hypothèses à préciser.
 
----
+Inscrire progressivement les informations trouvées au tableau, avec la demande qui les justifie.
 
-**Table : acteur**
+### Retrouver un film connu
 
-**Commentaire :** Table des acteurs avec données biographiques essentielles.
+Pour retrouver un film connu, que tapez-vous ? → **`titre`**.
 
-| Champs      | Type      | Longueur | Obligatoire | Commentaires                   |
-| ----------- | --------- | -------- | ----------- | ------------------------------ |
-| full_name | Texte | À déterminer | Oui | Nom complet |
-| birth_date | Date | Sans objet | Non | Format ISO 8601 |
-| birth_place | Texte | À déterminer | Non | Ville + code ISO pays possible |
-| nationality | Texte | 2 | Non | Code ISO 3166-1 alpha-2 |
-| biography | Texte | À déterminer | Non | Résumé biographique |
+Titre oublié, mais Johnny Depp joue dedans : comment le retrouver ? Parmi les résultats, comment reconnaître le bon ? → **`affiche`**, année de `date_sortie`, **`synopsis`**, acteurs déjà relevés.
 
+Une affiche vous attire : que consultez-vous ensuite ? → `synopsis`, **`bande_annonce`**.
 
-### Discussion et compléments
+### Faire préciser les choix
 
-Une ligne décrit un acteur. Si plusieurs nationalités doivent être conservées, les représenter au moyen des pays et noter le lien avec l’acteur. Le lieu de naissance peut rester un texte si seul son affichage est demandé.
+Ce film tient-il dans l’heure qu’il vous reste ? → **`duree_minutes`**. Quelle unité ?
 
-**Vérification fictive :** deux acteurs nommés Alex Martin peuvent avoir des dates de naissance et des biographies différentes. Un film coproduit par deux pays doit conserver les deux pays dans la proposition.
+Ce film convient-il à un enfant ? Selon quelle classification ? → **`classification_age`**, **`systeme_classification`**.
 
----
+Une note de 4 : sur combien ? Par qui ? Sans note, est-ce zéro ? → **`note`**, **`note_maximale`**, **`source_note`**.
 
-# Exercice 2 : Librairie - Livres et Auteurs
+Relire l’énoncé : budget et biographie sont demandés. Le budget : pour quel usage, dans quelle monnaie ? → **`budget`**, **`devise_budget`**. Quels renseignements sur l’acteur ? → **`biographie`**, à préciser. Sans usage identifié, garder la question pour le demandeur.
 
-**Table : livre**
+### Aller vers les tables
 
-**Commentaire :** Informations sur les livres vendus par la librairie.
+Dessiner les cadres `film` et `acteur`. Qu’est-ce qui décrit le film ou l’acteur ? Qu’est-ce qui reste identique d’un film à l’autre ? La biographie reste dans `acteur`.
 
-| Champs             | Type      | Longueur | Obligatoire | Commentaires                                          |
-| ------------------ | --------- | -------- | ----------- | ----------------------------------------------------- |
-| isbn | Texte | 17 | Oui | Format ISBN-13, unique |
-| title | Texte | À déterminer | Oui | Titre complet |
-| book_format | Texte | À déterminer | Oui | Une seule valeur : `pocket` / `hardcover` / `digital` |
-| publication_year | Nombre entier | Sans objet | Oui | Année (ex : 2018) |
-| language | Texte | 2 ou 3 | Oui | ISO 639-1 ou 639-2 |
-| publishing_country | Texte | 2 | Non | Pays d’édition (ISO 3166-1 alpha-2) |
-| price | Nombre décimal | Sans objet | Oui | Prix TTC |
-| stock | Nombre entier | Sans objet | Non | Quantité disponible en magasin (null pour digital) |
+Où décrire Gaspar Noé ? Un film peut-il avoir plusieurs réalisateurs ? Ajouter `realisateur` : une ligne par réalisateur. Faire formuler réalise et tracer les liens, y compris pour un film coréalisé.
 
+Plusieurs acteurs par film ? Plusieurs films par acteur ? Avec les films fictifs A et B et les acteurs X et Y, tracer A–X, A–Y et B–X. Faire lire : X et Y jouent dans A ; X joue aussi dans B.
 
-### Discussion et compléments
+Conserver ces liens sur le dessin avec les verbes joue dans et réalise. Leur traduction en tables de liaison et en clés étrangères sera abordée en séance 5.
 
-Une ligne de `livre` décrit ici une édition dans un format donné. Deux formats d’une même œuvre donnent deux éditions distinctes, avec leurs propres ISBN, prix et stocks. Une table `oeuvre` peut regrouper les éditions : `title` (texte obligatoire, longueur à déterminer). Le lien entre œuvre et éditions reste à formaliser.
+Deux films ont le même titre : comment les distinguer ? Que représente exactement une ligne ? → **`id_film`**. Choisir ensuite un champ pour demander son type, son unité, son caractère obligatoire et la justification d’une éventuelle limite de longueur.
 
-Le stock compte des exemplaires physiques ; le traitement des éditions numériques doit être précisé. Le prix est proposé en euros TTC.
+**Trace à conserver :** les demandes des spectateurs, les informations qu’elles nécessitent, les sujets distingués et les questions encore ouvertes. Relire la proposition avec deux films fictifs, dont l’un possède plusieurs genres : peut-on toujours répondre aux demandes de départ ?
 
----
+**Champs proposés, dans l’ordre :** `date_sortie` → `date_ajout` → `nom_genre` → `pays_tournage` → `pays_production` → `langue` → `nationalite_realisateur` → `nom_acteur` → `nom_realisateur` → `titre` → `affiche` → `synopsis` → `bande_annonce` → `duree_minutes` → `classification_age` → `systeme_classification` → `note` → `note_maximale` → `source_note` → `budget` → `devise_budget` → `biographie` → `id_film`.
 
-**Table : auteur**
+Pour chacun : **type ? longueur ou précision ? obligatoire ?** Justifier.
 
-**Commentaire :** Informations biographiques et bibliographiques des auteurs.
+## 2. Librairie — Obtenir le livre que l’on cherche · 5 minutes
 
-| Champs               | Type      | Longueur | Obligatoire | Commentaires                                            |
-| -------------------- | --------- | -------- | ----------- | ------------------------------------------------------- |
-| full_name | Texte | À déterminer | Oui | Nom complet |
-| birth_date | Date | Sans objet | Non | Format ISO 8601 |
-| nationality | Texte | 3 | Non | ISO 3166-1 alpha-3 |
-| biography | Texte | À déterminer | Non | Résumé biographique |
+Pour acheter un livre, que demandez-vous au libraire ? → **`titre`**, **`nom_auteur`**, **`theme`**. Un souvenir de lecture peut orienter la recherche.
 
-### Discussion et compléments
+Titre trouvé : poche, grand format ou numérique ? → **`format`**. Même prix ? → **`prix`**. Que compte le stock ? → **`quantite_stock`**. Disponible en numérique ? → **`disponibilite_numerique`**, sens à préciser.
 
-Une ligne décrit un auteur. Sa bibliographie doit pouvoir retrouver ses œuvres et éditions : noter les liens entre `auteur`, `oeuvre` et `livre`. Une notice biographique libre peut compléter ces données. Plusieurs nationalités se traitent comme pour les acteurs.
+Même titre, deux versions : laquelle commander ? Que désigne l’ISBN ? → **`isbn`**. Si nécessaire, rechercher sa définition avant de choisir l’identifiant.
 
-**Vérification fictive :** une œuvre intitulée Les rives existe en poche et en numérique ; les deux éditions ont des références distinctes. Deux auteurs peuvent contribuer à la même œuvre.
+Comment retrouver les autres livres d’un auteur ? Et un livre coécrit ? L’année de publication concerne quelle édition ? → **`annee_publication`**. Distinguer œuvre, édition et auteur.
 
----
+**Trace :** une même œuvre en deux formats constitue le cas fictif de discussion. Les étudiants expliquent à quoi appartiennent prix, stock et référence, puis proposent leurs regroupements. Quels renseignements biographiques conserver ? → **`biographie`**, contenu et longueur à justifier.
 
-# Exercice 3 : Blog - Articles et Éditeurs
+**Champs proposés, dans l’ordre :** `titre` → `nom_auteur` → `theme` → `format` → `prix` → `quantite_stock` → `disponibilite_numerique` → `isbn` → `annee_publication` → `biographie`.
 
-### **Table : article**
+Pour chacun : **type ? longueur ou précision ? obligatoire ?** Justifier.
 
-**Commentaire :** Contient les informations des articles publiés ou en préparation.
+## 3. Blog — Faire publier un article · 4 minutes
 
-| Champs           | Type      | Longueur | Obligatoire | Commentaires                                                  |
-| ---------------- | --------- | -------- | ----------- | ------------------------------------------------------------- |
-| title | Texte | À déterminer | Oui | Titre de l’article |
-| content | Texte | À déterminer | Oui | Texte complet |
-| publication_date | Date | Sans objet | Non | Peut être vide si brouillon |
-| status | Texte | À déterminer | Oui | Une seule valeur : `draft`, `review`, `published`, `archived` |
+Votre article est inachevé : comment le conserver sur le site ? → **`contenu`**, **`etat`**.
 
-### Discussion et compléments
+Qui peut relire, corriger ou publier ? → **`nom_editeur`**, **`role`** ; droits à définir.
 
-Une ligne décrit un article. Le statut correspond à son état actuel ; la date de publication peut être absente pour un brouillon.
+Brouillon, prévu pour demain ou déjà publié : quel état, quelle date ? → `etat`, **`date_publication_prevue`**, **`date_publication`**.
 
-Proposer une table `categorie` avec `name` (texte obligatoire, longueur à déterminer). Noter qu’un article peut être classé dans plusieurs catégories si le besoin le demande ; ne pas supprimer la seconde catégorie.
+Comment retrouver l’article ? Dans plusieurs rubriques ? → **`titre`**, `contenu`, **`nom_categorie`** ; lien avec les catégories.
 
----
+**Trace :** les étudiants regroupent ce qui décrit l’article, l’éditeur et les catégories. Comparer un brouillon et un article publié : quelles informations peuvent manquer dans le premier ? Quelles autorisations faut-il encore faire préciser ?
 
-### **Table : editeur**
+**Champs proposés, dans l’ordre :** `contenu` → `etat` → `nom_editeur` → `role` → `date_publication_prevue` → `date_publication` → `titre` → `nom_categorie`.
 
-**Commentaire :** Contient les informations sur les éditeurs / journalistes.
+Pour chacun : **type ? longueur ou précision ? obligatoire ?** Justifier.
 
-| Champs           | Type      | Longueur | Obligatoire | Commentaires                                                |
-| ---------------- | --------- | -------- | ----------- | ----------------------------------------------------------- |
-| full_name | Texte | À déterminer | Oui | Nom complet |
-| email | Texte | À déterminer | Oui | Unique |
+## 4. Transport — Faire transporter sa voiture · 3 minutes
 
-### Discussion et compléments
+Vous déménagez : que demander au transporteur pour acheminer votre voiture ?
 
-Une ligne décrit un éditeur. Proposer une table `role` (`name`) et une table `permission` (`name`, `description`). Les noms sont des textes obligatoires ; la description est facultative ; leurs longueurs restent à déterminer. Noter les liens entre éditeurs, rôles et permissions.
+Ce contexte donne un objectif à la recherche. Il ne transforme pas l’exercice en conception complète d’une entreprise de logistique : on revient aux informations sur les pays, les villes et les itinéraires.
 
-Un niveau numérique n’a de sens que si les actions autorisées sont définies. Un nombre plus élevé ne suffit pas à décrire les droits.
+Proposer ces questions pour consulter un site de logistique :
 
-**Vérification fictive :** un éditeur est à la fois rédacteur et correcteur ; un article appartient à Culture et Actualités. Les deux rôles et les deux catégories doivent être conservés.
+- Départ et arrivée : un nom de ville suffit-il ? → **`nom_ville`**, **`nom_pays`** ; liens de départ et d’arrivée.
+- Quelles étapes, quelles gares, quels aéroports ? Comment les distinguer ? → **`ordre_etape`**, **`nom_equipement`**, **`type_equipement`**.
+- L’heure locale de quel lieu ? → **`heure_passage`**, **`fuseau_horaire`**.
+- Quelle langue, quelle monnaie ? → **`langue`**, **`devise`**.
+- Quels codes de pays ou d’équipements ? Quelle définition officielle ? → **`code_pays`**, **`code_equipement`** ; conventions à préciser.
 
----
+ISO : qu’est-ce que c’est ? Qu’est-ce qu’une norme ? Pourquoi partager les mêmes codes entre plateformes et transporteurs ? Que risque-t-on si chacun invente les siens ? → désigner sans ambiguïté, échanger les données, éviter les erreurs.
 
-# Exercice 4 : Transport - Pays et Villes
+Un code ISO : quelle norme, quel format ? Tous les codes d’équipements sont-ils ISO ? Où vérifier ? → identifier la convention avant de choisir le type et la longueur du champ.
 
-### **Table : pays**
+Que savons-nous ? Que faut-il rechercher, et où ? → entreprise, site ou documentation.
 
-**Commentaire :** Informations de base sur les pays.
+**Trace :** les questions de recherche, les sujets déjà identifiés et les informations restant à confirmer. Où se situe le lieu ? → **`latitude`**, **`longitude`**, unité à préciser. Combien d’habitants, sur quel territoire et à quelle date ? → **`population`**, **`territoire_population`**, **`date_population`** ; usage à préciser. Aucun résultat de recherche n’est inventé pour compléter une table.
 
-| Champs            | Type      | Longueur | Obligatoire | Commentaires                        |
-| ----------------- | --------- | -------- | ----------- | ----------------------------------- |
-| official_name | Texte | À déterminer | Oui | Nom officiel |
-| iso_code | Texte | 2 | Oui | ISO 3166-1 alpha-2 |
-| population | Nombre entier | Sans objet | Non | Donnée démographique simple |
+**Champs proposés, dans l’ordre :** `nom_ville` → `nom_pays` → `ordre_etape` → `nom_equipement` → `type_equipement` → `heure_passage` → `fuseau_horaire` → `langue` → `devise` → `code_pays` → `code_equipement` → `latitude` → `longitude` → `population` → `territoire_population` → `date_population`.
 
+Pour chacun : **type ? longueur ou précision ? obligatoire ?** Justifier.
 
-### Discussion et compléments
+## 5. Langues — Pourquoi approfondir ce sujet ? · 7 minutes
 
-Une ligne décrit un pays. Ajouter les tables suivantes :
+Comment reconnaître une langue ? → **`nom_langue`**. Où est-elle pratiquée ? → **`region`**. Comment s’écrit-elle ? → **`systeme_ecriture`**. Combien de locuteurs ? → **`nombre_locuteurs`**.
 
-| Table | Sens d’une ligne | Champs propres à décrire |
-|---|---|---|
-| `langue` | Une langue | `name` : texte obligatoire ; `code` : texte, convention à préciser. |
-| `devise` | Une devise | `name` : texte obligatoire ; `code` : texte de 3 caractères, obligatoire, convention ISO 4217. |
+Puis arrêter la classe : Pourquoi approfondir cet exercice ?
 
-Les longueurs des noms restent à déterminer. Noter les liens d’un pays avec chacune de ses langues officielles et de ses devises. Aucune limite à une seule langue ou devise n’est déduite du niveau du cours. Une population doit être accompagnée de sa date de référence.
+Écrire `___, ___, ___`, en reprenant le dispositif du pendu déjà utilisé. Faire trouver **LBA, LDB, LPB**, puis leur point commun dans la formation : les langages. Le sujet mérite que l’on sache chercher et lire ses définitions.
 
----
+### Parcours de recherche à conduire ensemble
 
-### **Table : ville**
+1. Relire l’énoncé. Retrouver la mention d’un code ISO, déjà rencontrée dans le transport. ISO suffit-il à dire de quel code nous parlons ? → **`code_iso`**, convention à préciser.
+2. Chercher **language ISO code** et ouvrir la [liste des codes ISO 639 sur Wikipédia](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes).
+3. Lire l’introduction lentement. Introduire **nomenclature** par son étymologie : le mot vient du latin *nomenclatura*, lié à la désignation par les noms. Ici, on examine un système de désignation organisé. Demander ce que change l’existence d’une convention commune dans un logiciel.
+4. Relever les expressions qui demandent une interprétation : standard, deux ou trois lettres, date de 2007, objectif de couverture, langues naturelles, remplacement annoncé d’un autre ensemble de codes à trois lettres. Même longueur signifie-t-elle même convention ? Un objectif garantit-il une couverture complète ? Les affirmations de l’introduction deviennent des points à comprendre et à confronter aux sources.
+5. Descendre au tableau. Ses colonnes montrent des propriétés effectivement utilisées pour décrire les langues. Les parcourir : noms, codes, portée (*scope*), type, endonymes, autres noms et notes. Champs candidats : **`portee`**, **`type_langue`**, **`endonyme`**, **`autre_nom`**, **`notes`**. Que comprenons-nous spontanément ? Quelle définition devons-nous vérifier ? Porter une attention particulière à la portée et au type.
+6. Consulter les références et suivre la [liste de la Library of Congress](https://www.loc.gov/standards/iso639-2/php/English_list.php). Constater qu’elle concerne ISO 639-2. Est-ce la source correspondant à la couverture que nous cherchons ?
+7. Chercher **iso 639-3 official**, identifier le [site ISO 639-3](https://iso639-3.sil.org/) et poursuivre la lecture à partir de la source officielle.
 
-**Commentaire :** Informations sur les villes de l’application d’itinéraires internationaux.
+Ce parcours fixe l’intention de l’enquête. Son développement détaillé, les définitions officielles et la suite de la lecture seront préparés séparément. Les sept minutes servent à engager cette lecture critique, sans promettre d’épuiser la documentation.
 
-| Champs       | Type      | Longueur | Obligatoire | Commentaires                   |
-| ------------ | --------- | -------- | ----------- | ------------------------------ |
-| name | Texte | À déterminer | Oui | Nom de la ville |
-| latitude | Nombre décimal | Sans objet | Oui | Coordonnée décimale |
-| longitude | Nombre décimal | Sans objet | Oui | Coordonnée décimale |
-| timezone | Texte | À déterminer | Oui | Exemple : `Europe/Paris` |
-| population | Nombre entier | Sans objet | Non | Démographie |
+**Trace :** conserver les questions et les sources correspondant à chaque convention. Quelle famille, quel statut ? → **`famille_linguistique`**, **`statut`**. Reprendre systèmes d’écriture, régions et estimation des locuteurs. Quelles réponses avons-nous trouvées ? Lesquelles restent à rechercher ? Qui compte, à quelle date, selon quelle définition ? → **`source_estimation`**, **`date_estimation`**, **`definition_locuteur`**. Ne pas recopier automatiquement les colonnes d’un site comme modèle définitif de l’application.
 
+**Champs proposés, dans l’ordre :** `nom_langue` → `region` → `systeme_ecriture` → `nombre_locuteurs` → `code_iso` → `portee` → `type_langue` → `endonyme` → `autre_nom` → `notes` → `famille_linguistique` → `statut` → `source_estimation` → `date_estimation` → `definition_locuteur`.
 
-### Discussion et compléments
+Pour chacun : **type ? longueur ou précision ? obligatoire ?** Justifier.
 
-Une ligne décrit une ville. Ajouter une table `aeroport` et une table `gare` : chaque ligne décrit un équipement distinct. Chacune possède `name` (texte obligatoire, longueur à déterminer) et `code` (texte facultatif). Pour un code IATA d’aéroport, la longueur est de 3 caractères ; pour une gare, le référentiel et sa longueur restent à préciser.
+## 6. Commerce — Commander et retrouver une commande · 2 minutes
 
-Noter les liens ville–pays, ville–aéroports et ville–gares. Plusieurs équipements peuvent desservir une même ville. Préciser l’unité des coordonnées (degrés décimaux) et la date de référence de la population.
+Que savoir pour commander ? Quelles données fournir pour la livraison et la facture ?
 
-**Vérification fictive :** le pays A possède deux langues officielles ; la ville B possède deux gares distinctes. Les deux langues et les deux gares restent représentées.
+Faire produire les relances : quelle référence ? → **`reference_produit`**. Quel prix, quelle monnaie, quelles taxes ? → **`prix_unitaire`**, **`devise`**, **`taux_taxe`**. Quelle disponibilité, quelle quantité ? → **`quantite_stock`**, **`quantite_commandee`**. Quelle adresse ? → **`adresse_livraison`**, **`adresse_facturation`**. Client et destinataire identiques ? → **`nom_client`**, **`nom_destinataire`**.
 
-# Exercice 5 : Langues du monde
+Prix ou adresse modifiés : que doit conserver l’ancienne commande ? → `prix_unitaire`, `adresse_livraison` et `adresse_facturation` au moment de l’achat.
 
-### **Table : langue**
+**Trace :** distinguer produit, client, commande et contenu de commande. Deux achats fictifs successifs permettent de demander ce qui doit rester conservé. Le stock actuel ou le prix actuel ne répondent pas à toutes les questions sur le passé.
 
-**Commentaire :** Informations principales sur les langues du monde.
+**Champs proposés, dans l’ordre :** `reference_produit` → `prix_unitaire` → `devise` → `taux_taxe` → `quantite_stock` → `quantite_commandee` → `adresse_livraison` → `adresse_facturation` → `nom_client` → `nom_destinataire`.
 
-| Champs            | Type      | Longueur | Obligatoire | Commentaires                              |
-| ----------------- | --------- | -------- | ----------- | ----------------------------------------- |
-| name | Texte | À déterminer | Oui | Nom de la langue |
-| iso_code | Texte | 3 | Oui | ISO 639-2 |
-| linguistic_family | Texte | À déterminer | Oui | Classification retenue et source à préciser. |
-| status | Texte | À déterminer | Oui | Exemple : `vivante`, `en danger`, `morte` |
-| speakers | Nombre entier | Sans objet | Non | Nombre approximatif de locuteurs |
+Pour chacun : **type ? longueur ou précision ? obligatoire ?** Justifier.
 
+## 7. Hôpital — Prendre rendez-vous et revenir · 2 minutes
 
----
+Quel médecin, quel créneau ? → **`nom_medecin`**, **`date_heure_consultation`**. Puis, sur un cas fictif : que retrouver de la première consultation ? → **`observations`**.
 
-### Discussion et compléments
+Quelle spécialité ? → **`specialite`**. Quelles disponibilités ? → **`debut_disponibilite`**, **`fin_disponibilite`**. Quel identifiant professionnel ? → **`identifiant_professionnel`**. Comment joindre le patient ? → **`telephone_patient`**, **`email_patient`**. Quels antécédents, allergies, assurance ? → **`antecedents`**, **`allergies`**, **`assurance`**.
 
-Une ligne décrit une langue. Ajouter `systeme_ecriture` et `region`, avec pour chacune `name` (texte obligatoire, longueur à déterminer). Noter les liens d’une langue avec tous ses systèmes d’écriture et toutes les régions où elle est parlée. Deux colonnes « région principale » et « région secondaire » imposeraient une limite injustifiée.
+Allergies non renseignées : aucune allergie ? Une consultation remplace-t-elle la précédente ?
 
-Préciser la convention du code, le sens du statut et la source de la classification linguistique. Le nombre de locuteurs est une estimation : ajouter `estimate_date` (date facultative) et `estimate_source` (texte facultatif, longueur à déterminer). Une estimation inconnue doit pouvoir rester absente.
+**Trace :** distinguer médecin, patient et consultations datées. Nommer les autres sujets selon les réponses. Chaque renseignement proposé doit permettre de répondre à une question ; les informations inconnues restent signalées comme telles.
 
-**Vérification fictive :** une langue A utilise deux systèmes d’écriture et se pratique dans trois régions. Aucun système ni aucune région ne doit être perdu.
+**Champs proposés, dans l’ordre :** `nom_medecin` → `date_heure_consultation` → `observations` → `specialite` → `debut_disponibilite` → `fin_disponibilite` → `identifiant_professionnel` → `telephone_patient` → `email_patient` → `antecedents` → `allergies` → `assurance`.
 
----
+Pour chacun : **type ? longueur ou précision ? obligatoire ?** Justifier.
 
-# Exercice 6 : E-commerce - Clients et Produits
+## 8. École — Trouver son cours et comprendre son résultat · 2 minutes
 
-### **Table : produit**
+Où et quand a lieu votre prochain cours ? → **`salle`**, **`date_heure_cours`**. Quelle note, sur combien ? → **`note`**, **`note_maximale`**.
 
-**Commentaire :** Contient les informations des produits vendus en ligne.
+Quel cours ? → **`intitule_cours`**, **`code_cours`**. Quel département, combien de crédits ? → **`departement`**, **`credits`**. Quel étudiant, quelle évaluation, quelle session ? → **`nom_etudiant`**, **`intitule_evaluation`**, **`session`**.
 
-| Champs       | Type      | Longueur | Obligatoire | Commentaires                         |
-| ------------ | --------- | -------- | ----------- | ------------------------------------ |
-| reference | Texte | À déterminer | Oui | Référence produit, unique |
-| name | Texte | À déterminer | Oui | Nom ou label produit |
-| description | Texte | À déterminer | Non | Description marketing |
-| price | Nombre décimal | Sans objet | Oui | Prix en euros |
-| stock | Nombre entier | Sans objet | Oui | Quantité disponible |
-| availability | Texte | À déterminer | Oui | `en_stock`, `rupture`, `precommande` |
-| weight_grams | Nombre entier | Sans objet | Non | Facultatif, utile pour livraison |
+Deux homonymes : comment les distinguer ? → **`id_etudiant`**. Cours répété : quelle occurrence ? → **`id_occurrence_cours`**. Deuxième essai : comment conserver le premier ? → **`numero_tentative`**.
 
+**Trace :** les étudiants distinguent le cours, sa tenue à un moment donné, l’étudiant et le résultat à définir. Ils indiquent les règles à demander plutôt que de supposer ce que signifie une note absente.
 
-### Discussion et compléments
+**Champs proposés, dans l’ordre :** `salle` → `date_heure_cours` → `note` → `note_maximale` → `intitule_cours` → `code_cours` → `departement` → `credits` → `nom_etudiant` → `intitule_evaluation` → `session` → `id_etudiant` → `id_occurrence_cours` → `numero_tentative`.
 
-Une ligne décrit un produit commercialisé. La référence distingue les produits ; le stock compte des unités. Le prix est proposé en euros, avec le traitement des taxes à préciser. Si le besoin impose des prix par marché ou des variantes, proposer des tables supplémentaires et préciser leurs liens.
+Pour chacun : **type ? longueur ou précision ? obligatoire ?** Justifier.
 
-Définir les règles de disponibilité : un stock nul ne signifie pas nécessairement que les précommandes sont interdites.
+## Ce que l’on conserve de la correction
 
----
+Pour reprendre chaque exercice, garder une courte chaîne écrite : **situation → question → information nécessaire → sujet ou événement décrit → décision justifiée**. Ajouter les hypothèses et les recherches encore nécessaires.
 
-### **Table : client**
+Le dessin des tables vient de ces distinctions. On peut ensuite préciser ce que représente une ligne, comment la distinguer d’une autre et comment décrire ses champs : sens, type, unité, longueur et caractère obligatoire. Les relations sont exprimées en français à ce stade, sans SQL ni cardinalités imposées.
 
-**Commentaire :** Une ligne décrit un client ; les commandes sont conservées séparément.
-
-| Champs          | Type      | Longueur | Obligatoire | Commentaires                       |
-| --------------- | --------- | -------- | ----------- | ---------------------------------- |
-| full_name | Texte | À déterminer | Oui | Nom complet |
-| email | Texte | À déterminer | Oui | Unique |
-| phone | Texte | À déterminer | Non | Format libre |
-| address_line1 | Texte | À déterminer | Oui | Adresse de facturation |
-| address_line2 | Texte | À déterminer | Non | Complément |
-| city | Texte | À déterminer | Oui | - |
-| postal_code | Texte | À déterminer | Oui | - |
-| country | Texte | 2 | Oui | ISO 3166-1 alpha-2 |
-
-
-### Discussion et compléments
-
-Une ligne décrit un client. L’historique repose sur les tables suivantes :
-
-| Table | Sens d’une ligne | Champs propres à décrire |
-|---|---|---|
-| `commande` | Une commande passée par un client | `ordered_at` : date et heure obligatoires ; `status` : texte obligatoire, longueur à déterminer ; `currency` : texte obligatoire de 3 caractères. |
-| `ligne_commande` | Un produit commandé dans une commande | `quantity` : nombre entier obligatoire, strictement positif ; `unit_price` : nombre décimal obligatoire, prix au moment de la commande, taxes à préciser. |
-
-Noter les liens commande–client, ligne–commande et ligne–produit. La monnaie est celle de la commande. Les adresses de facturation et de livraison au moment de la commande sont à conserver si elles doivent rester consultables après un changement d’adresse du client.
-
-Un compteur et une dernière date peuvent être calculés à partir des commandes ; ils ne remplacent pas leurs dates, produits et quantités.
-
-**Vérification fictive :** le même client passe une commande le 2 novembre puis une autre le 9 novembre, avec des produits différents. Les deux commandes et toutes leurs lignes doivent rester consultables.
-
----
-
-# Exercice 7 : Hôpital - Médecins et Patients
-
-### **Table : medecin**
-
-**Commentaire :** Informations professionnelles des médecins.
-
-| Champs                | Type      | Longueur | Obligatoire | Commentaires                      |
-| --------------------- | --------- | -------- | ----------- | --------------------------------- |
-| full_name | Texte | À déterminer | Oui | Nom complet |
-| license_number | Texte | À déterminer | Oui | Identifiant professionnel unique |
-| phone | Texte | À déterminer | Non | - |
-| email | Texte | À déterminer | Non | - |
-
-
-### Discussion et compléments
-
-Une ligne décrit un médecin. Ajouter une table `specialite` (`name` : texte obligatoire, longueur à déterminer) et noter le lien avec les médecins. Un médecin peut avoir plusieurs spécialités.
-
-Pour des horaires exploitables, proposer `creneau` : une ligne décrit une disponibilité, avec `starts_at` et `ends_at` (dates et heures obligatoires). Noter son lien avec le médecin et la règle de fin postérieure au début. Un texte libre peut compléter les horaires.
-
----
-
-### **Table : patient**
-
-**Commentaire :** Informations médicales et administratives des patients.
-
-| Champs                 | Type      | Longueur | Obligatoire | Commentaires                       |
-| ---------------------- | --------- | -------- | ----------- | ---------------------------------- |
-| full_name | Texte | À déterminer | Oui | Nom complet |
-| birth_date | Date | Sans objet | Oui | Format ISO |
-| insurance_name | Texte | À déterminer | Non | Nom de la compagnie |
-| insurance_number | Texte | À déterminer | Non | Numéro d’assurance |
-
-### Discussion et compléments
-
-Une ligne décrit un patient. Les informations répétées ou datées sont conservées séparément :
-
-| Table | Sens d’une ligne | Champs propres à décrire |
-|---|---|---|
-| `antecedent` | Un antécédent documenté d’un patient | `description` : texte obligatoire ; `event_date` : date facultative si inconnue. |
-| `allergie_patient` | Une allergie documentée d’un patient | `substance` : texte obligatoire ; `reaction` : texte facultatif ; `recorded_at` : date obligatoire. |
-| `consultation` | Une consultation d’un patient par un médecin | `consulted_at` : date et heure obligatoires ; `medical_note` : texte obligatoire pour une consultation documentée. |
-
-Les longueurs des textes restent à déterminer selon les besoins de conservation. Noter les liens de chaque antécédent et allergie avec le patient, et de chaque consultation avec le patient et le médecin. Les informations d’assurance proposées couvrent un contrat courant ; si plusieurs contrats ou leur historique sont nécessaires, proposer une table `assurance_patient` avec organisme, numéro et dates de validité.
-
-Une absence d’allergie enregistrée ne prouve pas l’absence d’allergie. Une valeur inconnue doit être distinguée d’une absence confirmée. Le nombre de consultations et la dernière date peuvent être calculés ; ils ne conservent ni les consultations précédentes ni leurs notes.
-
-**Vérification fictive :** un patient possède deux allergies et deux antécédents. Deux consultations ont lieu à des dates différentes avec des notes différentes. Ajouter la seconde consultation ne doit effacer aucune information de la première.
+Pour les tables préparées, reprendre les deux enregistrements fictifs par table demandés dans l’exercice. Permettent-ils de répondre aux questions de départ ? Une information absente, plusieurs valeurs ou un second événement obligent-ils à revoir la proposition ? Expliquer la conséquence et le choix retenu constitue le résultat attendu.

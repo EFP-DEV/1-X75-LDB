@@ -12,11 +12,17 @@ Les acquis à reprendre sont le sens précis d’un champ, l’unité d’une va
 
 ## Seconde partie consacrée aux tables
 
+Avant les scénarios, prévoir **10 minutes** pour le passage du dictionnaire aux données avec A1 et A2 uniquement. Faire conserver `champs` et `decisions`, puis créer `commandes` dans le même classeur : les noms de champs choisis deviennent les en-têtes, les deux commandes occupent deux lignes. Faire expliciter qu’une ligne de `champs` décrit un champ, tandis qu’une ligne de `commandes` décrit une commande ; chaque colonne correspond à un champ et chaque cellule contient sa valeur pour cette commande.
+
+Faire comparer les enregistrements aux sources pour vérifier le sens et la précision des valeurs. Les types proposés ne configurent pas automatiquement les cellules d’Excel. Faire noter dans `decisions` les définitions à revoir et leur justification, puis ajuster le dictionnaire et les en-têtes concernés. Ce bref retour sur la saisie ne remplace pas la correction collective des scénarios, prévue à l’ouverture de la séance 3 pendant 40 minutes.
+
 La suite reprend les **huit scénarios de l’exercice de 2025-2026**, intégrés dans l’[exercice actuel](../exo/session_02.md#3-dessiner-et-décrire-des-tables). Les archives restent inchangées. Les lots B, C et D ne constituent plus la suite de la séance ; ils restent disponibles comme documents complémentaires.
 
-Faire conserver le classeur de la première partie, puis commencer `session_02_tables` sur papier ou dans un document. Chaque scénario demande des cadres de tables, le sens d’une ligne, un identifiant proposé et la description des champs : nom, type, longueur, caractère obligatoire et commentaire. Deux enregistrements fictifs permettent une vérification manuelle et une justification.
+Faire conserver le classeur de la première partie, puis commencer `session_02_tables` sur papier ou dans un document. Chaque binôme choisit un seul scénario parmi les huit. Le minimum est de décrire deux tables principales : cadres, sens d’une ligne, identifiant et description de chaque champ (nom, type, longueur, caractère obligatoire et commentaire). Deux enregistrements fictifs par table, soit quatre au total, permettent une vérification manuelle et une justification. Les autres tables et relations nécessaires sont simplement notées.
 
-Les contextes sont : cinéma, librairie, blog, transport, langues du monde, commerce, hôpital et école. Le tableau guide sert de modèle de présentation. Les propositions sont discutées après leur construction ; le corrigé reste un support de restitution.
+Après ce minimum vérifié, les binômes peuvent approfondir le même scénario ou en choisir un autre avec la même démarche sur deux tables. Ces prolongements sont facultatifs ; les huit scénarios ne sont pas un ensemble à terminer. Aucun devoir ni achèvement à domicile n’est demandé : apporter les travaux, même inachevés, et les questions en séance 3.
+
+Les contextes sont : cinéma, librairie, blog, transport, langues du monde, commerce, hôpital et école. Le tableau guide sert de modèle de présentation. Pendant les exercices de séance 2, les retours brefs servent à préciser un champ, vérifier un exemple ou débloquer un binôme. Ils ne remplacent pas la correction collective à l’ouverture de la séance 3. Les propositions y sont reprises dans une conversation fondée sur des situations concrètes ; le corrigé guide les questions, les relances et les décisions qui conduisent aux tables.
 
 ## Points de vigilance
 
@@ -24,17 +30,27 @@ Les contextes sont : cinéma, librairie, blog, transport, langues du monde, comm
 - Faire expliquer pourquoi un titre ou un nom ne suffit pas toujours à identifier une ligne. Le champ `id` proposé doit être unique, présent et stable.
 - Accepter une longueur « à déterminer » avec une question précise. Une limite habituelle n’est pas automatiquement justifiée.
 - Faire préciser les unités et les règles ; une absence de valeur ne devient pas zéro.
-- Conserver les besoins multiples et les historiques. Les tables supplémentaires peuvent être nommées et décrites ; leurs relations seront approfondies ensuite.
+- Conserver les besoins multiples et les historiques. Les tables supplémentaires sont nommées ; leur description détaillée est facultative et leurs relations seront approfondies ensuite.
 - Faire noter les hypothèses, les exemples inventés et les décisions en attente.
 
 ## Écart de progression dans le support ancien
 
 L’ancien exercice annonce des tables simples, mais plusieurs contraintes exigent des relations : langues officielles multiples, commandes d’un client, consultations, résultats académiques. La séance actuelle demande d’identifier ces besoins et de proposer les tables ; elle n’exige pas encore les clés étrangères, les cardinalités ou le SQL.
 
-Le corrigé ancien réduit parfois ces besoins à une valeur principale ou à un compteur. Ces réductions ne couvrent pas les scénarios complets. Le corrigé actuel les signale comme des besoins à poursuivre, conformément au référentiel sur la modélisation, les relations et la normalisation.
+Le corrigé ancien réduit parfois ces besoins à une valeur principale ou à un compteur. Ces réductions ne couvrent pas les scénarios complets. Le guide actuel fait émerger ces besoins par des questions sur des situations successives, conformément au référentiel sur la modélisation, les relations et la normalisation.
 
-L’identifiant est introduit ici pour distinguer les lignes du dessin ; la séance 3 l’approfondira. Les relations et la normalisation conservent leur place dans la progression. Les règles de contenu, la conservation des valeurs et les contrôles restent travaillés à travers les exemples des huit scénarios, sans dépendre des lots B à D.
+L’identifiant est introduit ici pour distinguer les lignes du dessin. Après la correction collective, la séance 3 porte sur le choix des champs et la pratique du CRUD sur une seule table. Les clés et les relations seront formalisées en séance 5 ; la normalisation conserve sa place dans la progression. Les règles de contenu, la conservation des valeurs et les contrôles restent travaillés à travers les exemples des huit scénarios, sans dépendre des lots B à D.
 
 ## Bilan attendu
 
-Chaque étudiant explique une table, son identifiant, deux types, une décision sur la longueur ou le caractère obligatoire et un besoin de relation. La vérification doit citer les valeurs examinées et le résultat constaté. Les deux travaux sont conservés pour la suite du module.
+Chaque étudiant explique une des deux tables de son binôme, son identifiant, deux types, une décision sur la longueur ou le caractère obligatoire et un besoin de relation. La vérification doit citer les valeurs examinées et le résultat constaté. Les deux travaux sont conservés pour la suite du module.
+
+## Préparer l’ouverture de la séance 3 — correction collective, 40 minutes
+
+La correction collective ouvre la séance 3 et porte sur les huit scénarios, sans supposer que chaque binôme les a tous préparés. Elle reprend aussi les propositions inachevées et conserve 40 minutes : cinéma 15, librairie 5, blog 4, transport 3, langues 7, commerce 2, hôpital 2 et école 2. Cette allocation de Zipf arrondie privilégie le cinéma, qui installe la démarche, puis les langues, qui approfondissent la recherche documentaire.
+
+Partir des usages des étudiants, demander ce que le service doit savoir pour y répondre, puis distinguer les sujets et les événements décrits. Les réponses possibles du guide servent de relances ; elles ne constituent pas un dialogue à faire réciter. Les étudiants formulent progressivement eux-mêmes les questions.
+
+Pour le transport, proposer les questions d’une recherche sur le déplacement d’une voiture vers le lieu où l’on voudrait vivre. Pour les langues, interrompre la routine avec les trois acronymes LBA, LDB, LPB, puis engager le parcours Wikipédia, Library of Congress et source officielle ISO 639-3. Le détail de cette investigation sera développé séparément. Ne pas présenter des réponses encore inconnues comme des faits établis.
+
+Conserver pour chaque scénario la situation, les questions, les informations nécessaires, les regroupements justifiés et les points à rechercher. La description technique des champs prolonge ce raisonnement.
