@@ -99,7 +99,7 @@ Voici le **tableau refait** : noms de champs en **anglais**, reste en **françai
 | Champs      | Type      | Longueur | Obligatoire | Commentaires                   |
 | ----------- | --------- | -------- | ----------- | ------------------------------ |
 | id          | Numérique | -        | Oui         | PK auto-inc.                   |
-| full_name   | Textuel   | 150      | Oui         | Nom complet                    |
+| full_name   | Textuel   | 320      | Oui         | Nom complet                    |
 | birth_date  | Date      | -        | Non         | Format ISO 8601                |
 | birth_place | Textuel   | 150      | Non         | Ville + code ISO pays possible |
 | nationality | Textuel   | 2        | Non         | Code ISO 3166-1 alpha-2        |
