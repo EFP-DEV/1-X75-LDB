@@ -12,11 +12,11 @@ Cette séance prolonge l’[exercice de séance 2](exo/session_02.md#3-dessiner-
 | 20 minutes | Comprendre les difficultés rencontrées. |
 | 20 minutes | Une méthode pour choisir les champs. |
 | 40 minutes | Application : plusieurs contextes, une table qui s’élargit. |
-| 10 minutes | Pause. |
+| 10 minutes | Pause des étudiants ; l’enseignant reprend le travail réalisé et le met en place dans DB Fiddle. |
 | 100 minutes | Manipuler les données avec SQL. |
 | 10 minutes | Bilan et questions ouvertes. |
 
-**État du support :** le thème, les données et les résultats détaillés du nouvel exercice restent à définir. La méthode et le parcours sont présentés ici ; la mise en pratique complète de cette nouvelle table sera possible lorsque ce complément sera fourni. Les exemples SQL ci-dessous sont des illustrations indépendantes de ce futur exercice.
+**État du support :** le thème, les contextes et les consignes détaillées du nouvel exercice restent à définir. La structure et les données élaborées en classe seront reprises par l’enseignant pendant la pause pour préparer la pratique dans DB Fiddle. Les exemples SQL ci-dessous sont des illustrations indépendantes de ce futur exercice.
 
 ## 1. Ouverture : correction collective des huit scénarios de séance 2 — 40 minutes
 
@@ -100,13 +100,19 @@ Une table large peut être simple à comprendre au départ : tout se trouve au m
 
 Nous n’allons pas encore séparer cette table. Nous allons d’abord observer ce que SQL permet de résoudre et ce qui reste difficile.
 
+### Pause — 10 minutes
+
+Avant la pause, transmettez à l’enseignant le travail réalisé : les champs retenus, leurs types et les lignes d’exemple, avec les hypothèses encore ouvertes.
+
+Pendant la pause des étudiants, l’enseignant traduit cette structure en SQL, y ajoute les données et exécute le tout dans DB Fiddle. Au retour, il partage le lien et présente la table obtenue. Comparez ses colonnes et ses lignes au travail réalisé avant la pause : cette même table sert de point de départ à la pratique du CRUD.
+
 ## 5. Utiliser les données avec SQL — 100 minutes
 
 ### Une requête, une action et un résultat — 10 minutes
 
 Une requête SQL est une instruction adressée au SGBD. Une lecture retourne des lignes et des colonnes ; une modification peut retourner un message ou un nombre de lignes concernées. Un message de réussite ne prouve pas que les bonnes lignes ont été choisies.
 
-La structure et les données de départ seront fournies avec le nouvel exercice. Leur création ne sera pas à réaliser de mémoire. Utilisez le service indiqué en classe. Certains services conservent les modifications ; d’autres reconstruisent la base à chaque exécution. Le complément d’exercice précisera le fonctionnement et la réinitialisation de l’environnement retenu.
+Ouvrez le lien DB Fiddle partagé par l’enseignant. La structure et les données de départ reprennent le travail réalisé avant la pause ; leur création ne sera pas à réaliser de mémoire. L’enseignant précise le moteur utilisé, la manière d’exécuter les requêtes et de revenir à l’état initial.
 
 Conservez vos requêtes dans `session_03.sql`. Pour chaque opération : formulez la demande, prévoyez les lignes concernées, exécutez, observez et expliquez les éventuels écarts. Si le service reconstruit la base, les modifications et leurs lectures de vérification doivent rester dans un même bloc d’exécution.
 
