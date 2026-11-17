@@ -16,9 +16,9 @@ Avant les scénarios, prévoir **10 minutes** pour le passage du dictionnaire au
 
 Faire comparer les enregistrements aux sources pour vérifier le sens et la précision des valeurs. Les types proposés ne configurent pas automatiquement les cellules d’Excel. Faire noter dans `decisions` les définitions à revoir et leur justification, puis ajuster le dictionnaire et les en-têtes concernés. Ce bref retour sur la saisie ne remplace pas la correction collective des scénarios, prévue à l’ouverture de la séance 3 pendant 40 minutes.
 
-La suite reprend les **huit scénarios de l’exercice de 2025-2026**, intégrés dans l’[exercice actuel](../exo/session_02.md#3-dessiner-et-décrire-des-tables). Les archives restent inchangées. Les lots B, C et D ne constituent plus la suite de la séance ; ils restent disponibles comme documents complémentaires.
+La suite reprend les **huit scénarios de l’exercice de 2025-2026**, intégrés dans l’[exercice actuel](../exo/session_02.md#3-dessiner-et-décrire-des-tables). Les lots B, C et D ne constituent plus la suite de la séance ; ils restent disponibles comme documents complémentaires.
 
-Faire conserver le classeur de la première partie, puis commencer `session_02_tables` sur papier ou dans un document. Chaque binôme choisit un seul scénario parmi les huit. Le minimum est de décrire deux tables principales : cadres, sens d’une ligne, identifiant et description de chaque champ (nom, type, longueur, caractère obligatoire et commentaire). Deux enregistrements fictifs par table, soit quatre au total, permettent une vérification manuelle et une justification. Les autres tables et relations nécessaires sont simplement notées.
+Faire conserver le classeur de la première partie, puis commencer `session_02_tables` sur papier ou dans un document. Chaque binôme choisit un seul scénario parmi les huit. Le minimum est de décrire deux tables principales : cadres, sens d’une ligne et description de chaque champ (nom, type, longueur, caractère obligatoire et commentaire). Deux enregistrements fictifs par table, soit quatre au total, permettent une vérification manuelle et une justification. Les autres tables et relations nécessaires sont simplement notées.
 
 Après ce minimum vérifié, les binômes peuvent approfondir le même scénario ou en choisir un autre avec la même démarche sur deux tables. Ces prolongements sont facultatifs ; les huit scénarios ne sont pas un ensemble à terminer. Aucun devoir ni achèvement à domicile n’est demandé : apporter les travaux, même inachevés, et les questions en séance 3.
 
@@ -27,7 +27,7 @@ Les contextes sont : cinéma, librairie, blog, transport, langues du monde, comm
 ## Points de vigilance
 
 - Distinguer la ligne du dictionnaire, qui décrit un champ, de la ligne de données, qui décrit un objet ou un événement.
-- Faire expliquer pourquoi un titre ou un nom ne suffit pas toujours à identifier une ligne. Le champ `id` proposé doit être unique, présent et stable.
+- Faire relier chaque champ à un usage du scénario et préciser ce qu’il décrit.
 - Accepter une longueur « à déterminer » avec une question précise. Une limite habituelle n’est pas automatiquement justifiée.
 - Faire préciser les unités et les règles ; une absence de valeur ne devient pas zéro.
 - Conserver les besoins multiples et les historiques. Les tables supplémentaires sont nommées ; leur description détaillée est facultative et leurs relations seront approfondies ensuite.
@@ -39,11 +39,11 @@ L’ancien exercice annonce des tables simples, mais plusieurs contraintes exige
 
 Le corrigé ancien réduit parfois ces besoins à une valeur principale ou à un compteur. Ces réductions ne couvrent pas les scénarios complets. Le guide actuel fait émerger ces besoins par des questions sur des situations successives, conformément au référentiel sur la modélisation, les relations et la normalisation.
 
-L’identifiant est introduit ici pour distinguer les lignes du dessin. Après la correction collective, la séance 3 porte sur le choix des champs et la pratique du CRUD sur une seule table. Les clés et les relations seront formalisées en séance 5 ; la normalisation conserve sa place dans la progression. Les règles de contenu, la conservation des valeurs et les contrôles restent travaillés à travers les exemples des huit scénarios, sans dépendre des lots B à D.
+La séance 2 porte sur les propriétés, leur représentation et leur regroupement en tables. Après la correction collective, la séance 3 porte sur le choix des champs et la pratique du CRUD sur une seule table. Les clés et les relations seront introduites en séance 5 ; la normalisation conserve sa place dans la progression. Les règles de contenu, la conservation des valeurs et les contrôles restent travaillés à travers les exemples des huit scénarios, sans dépendre des lots B à D.
 
 ## Bilan attendu
 
-Chaque étudiant explique une des deux tables de son binôme, son identifiant, deux types, une décision sur la longueur ou le caractère obligatoire et un besoin de relation. La vérification doit citer les valeurs examinées et le résultat constaté. Les deux travaux sont conservés pour la suite du module.
+Chaque étudiant explique ce que représente une ligne d’une des deux tables de son binôme, le sens de ses champs, deux types, une décision sur la longueur ou le caractère obligatoire et un besoin de relation. La vérification doit citer les valeurs examinées et le résultat constaté. Les deux travaux sont conservés pour la suite du module.
 
 ## Préparer l’ouverture de la séance 3 — correction collective, 40 minutes
 

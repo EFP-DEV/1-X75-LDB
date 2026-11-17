@@ -28,7 +28,7 @@
 - [ ] Faire commencer `session_02_tables`, sur papier ou dans un document.
 - [ ] Faire nommer les objets et événements du scénario, puis choisir deux tables principales à décrire. Noter simplement les tables supplémentaires et les relations nécessaires.
 - [ ] Demander ce que représente une ligne de chaque table.
-- [ ] Faire proposer un identifiant ; comparer deux exemples portant le même nom.
+- [ ] Faire justifier les champs retenus à partir des usages du scénario.
 - [ ] Faire compléter nom, type, longueur, caractère obligatoire et commentaire pour chaque champ des deux tables principales.
 - [ ] Faire distinguer longueur en caractères, précision d’un nombre et format d’affichage.
 

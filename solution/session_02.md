@@ -59,11 +59,11 @@ Plusieurs acteurs par film ? Plusieurs films par acteur ? Avec les films fictifs
 
 Conserver ces liens sur le dessin avec les verbes joue dans et réalise. Leur traduction en tables de liaison et en clés étrangères sera abordée en séance 5.
 
-Deux films ont le même titre : comment les distinguer ? Que représente exactement une ligne ? → **`id_film`**. Choisir ensuite un champ pour demander son type, son unité, son caractère obligatoire et la justification d’une éventuelle limite de longueur.
+Que représente exactement une ligne de chaque table ? Choisir ensuite un champ pour demander son type, son unité, son caractère obligatoire et la justification d’une éventuelle limite de longueur.
 
 **Trace à conserver :** les demandes des spectateurs, les informations qu’elles nécessitent, les sujets distingués et les questions encore ouvertes. Relire la proposition avec deux films fictifs, dont l’un possède plusieurs genres : peut-on toujours répondre aux demandes de départ ?
 
-**Champs proposés, dans l’ordre :** `date_sortie` → `date_ajout` → `nom_genre` → `pays_tournage` → `pays_production` → `langue` → `nationalite_realisateur` → `nom_acteur` → `nom_realisateur` → `titre` → `affiche` → `synopsis` → `bande_annonce` → `duree_minutes` → `classification_age` → `systeme_classification` → `note` → `note_maximale` → `source_note` → `budget` → `devise_budget` → `biographie` → `id_film`.
+**Champs proposés, dans l’ordre :** `date_sortie` → `date_ajout` → `nom_genre` → `pays_tournage` → `pays_production` → `langue` → `nationalite_realisateur` → `nom_acteur` → `nom_realisateur` → `titre` → `affiche` → `synopsis` → `bande_annonce` → `duree_minutes` → `classification_age` → `systeme_classification` → `note` → `note_maximale` → `source_note` → `budget` → `devise_budget` → `biographie`.
 
 Pour chacun : **type ? longueur ou précision ? obligatoire ?** Justifier.
 
@@ -73,7 +73,7 @@ Pour acheter un livre, que demandez-vous au libraire ? → **`titre`**, **`nom_a
 
 Titre trouvé : poche, grand format ou numérique ? → **`format`**. Même prix ? → **`prix`**. Que compte le stock ? → **`quantite_stock`**. Disponible en numérique ? → **`disponibilite_numerique`**, sens à préciser.
 
-Même titre, deux versions : laquelle commander ? Que désigne l’ISBN ? → **`isbn`**. Si nécessaire, rechercher sa définition avant de choisir l’identifiant.
+Même titre, deux versions : laquelle commander ? Que désigne l’ISBN ? → **`isbn`**. Si nécessaire, rechercher sa définition avant de décrire ce champ.
 
 Comment retrouver les autres livres d’un auteur ? Et un livre coécrit ? L’année de publication concerne quelle édition ? → **`annee_publication`**. Distinguer œuvre, édition et auteur.
 

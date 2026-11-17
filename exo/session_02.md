@@ -79,10 +79,9 @@ Apportez `papeterie_champs.xlsx` et `session_02_tables`, y compris les propositi
 
 1. Identifier les objets ou événements à décrire et nommer les tables de manière cohérente.
 2. Expliquer ce que représente une ligne de données dans chaque table.
-3. Proposer un identifiant permettant de distinguer deux lignes, même si elles portent le même nom.
-4. Décrire chaque champ : nom, type, longueur maximale si applicable, caractère obligatoire et commentaire précisant le sens ou l’unité.
-5. Proposer deux enregistrements fictifs par table, soit quatre au total, pour vérifier manuellement la description. Les exemples inventés sont identifiés comme tels.
-6. Justifier les choix et noter les questions qui restent ouvertes.
+3. Décrire chaque champ : nom, type, longueur maximale si applicable, caractère obligatoire et commentaire précisant le sens ou l’unité.
+4. Proposer deux enregistrements fictifs par table, soit quatre au total, pour vérifier manuellement la description. Les exemples inventés sont identifiés comme tels.
+5. Justifier les choix et noter les questions qui restent ouvertes.
 
 Les types restent exprimés en mots : texte, nombre entier, nombre décimal, date ou date et heure selon le besoin. Aucun script SQL n’est demandé. Une longueur de texte s’exprime en caractères ; lorsqu’aucune limite n’est justifiée, on écrit « à déterminer » avec la question à résoudre.
 
@@ -90,13 +89,12 @@ Les clés et les relations seront formalisées en séance 5. Lorsqu’un besoin 
 
 ### Tableau guide
 
-| Table | Commentaire | Identifiant proposé |
-|---|---|---|
-| `film` | Une ligne décrit un film du catalogue. | `id` |
+| Table | Commentaire |
+|---|---|
+| `film` | Une ligne décrit un film du catalogue. |
 
 | Champ | Type | Longueur | Obligatoire | Commentaire |
 |---|---|---|---|---|
-| `id` | Nombre entier | Sans objet | Oui | Valeur unique et stable dans cette table. |
 | `titre` | Texte | À déterminer | Oui | Titre du film ; deux films peuvent avoir le même titre. |
 | `annee_sortie` | Nombre entier | Sans objet | À préciser | Année de sortie ; traitement d’une année inconnue à définir. |
 | `duree_minutes` | Nombre entier | Sans objet | À préciser | Durée exprimée en minutes entières pour cette proposition. |
@@ -201,7 +199,7 @@ Dans chacune des deux tables, on compare les deux enregistrements fictifs : les 
 
 ### Bilan individuel
 
-Chaque étudiant choisit une des deux tables et explique ce que représente une ligne, le rôle de son identifiant et le choix du type de deux champs. On justifie un champ obligatoire ou facultatif, puis une longueur retenue ou laissée à déterminer. On termine par un besoin qui demandera de relier plusieurs tables.
+Chaque étudiant choisit une des deux tables et explique ce que représente une ligne, le sens de ses champs et le choix du type de deux champs. On justifie un champ obligatoire ou facultatif, puis une longueur retenue ou laissée à déterminer. On termine par un besoin qui demandera de relier plusieurs tables.
 
 On conserve `papeterie_champs.xlsx` et `session_02_tables` pour la suite du module.
 

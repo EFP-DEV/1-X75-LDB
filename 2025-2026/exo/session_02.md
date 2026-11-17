@@ -34,13 +34,12 @@ Cet exercice ne sera pas noté, mais il sera discuté en groupe. Vous devez êtr
 ## **Tableau guide pour structurer l’exercice**
 Utilisez ce tableau pour organiser vos réponses avant de rédiger les scripts SQL.
 
-| Table | Commentaire | Identifiant(s) |
-|-----|------------|----------------|
-| movie | Contient les informations sur les films | id |
+| Table | Commentaire |
+|-----|------------|
+| movie | Contient les informations sur les films |
 
 | Champs | Type | Longueur | Obligatoire | Commentaires |
 |-----|------|----------|-------------|--------------|
-| id | Numerique | - | Oui | PK auto-inc. |
  | label | Textuel | 255 | Oui | Titre original  |
 | released | Numerique | - | Oui | Année de sortie |
 | director | Textuel | 150 | Oui | Nom du réalisateur |

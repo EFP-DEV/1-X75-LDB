@@ -101,12 +101,6 @@ Une **entité** est un objet ou un concept sur lequel on conserve des renseignem
 
 Dans le dictionnaire de la papeterie, une ligne décrit un champ. Dans une table de films, une ligne décrit un film et chaque colonne correspond à une propriété : titre, année de sortie, durée. Le dessin représente la structure ; les exemples de films représentent les données.
 
-### Distinguer deux lignes
-
-Deux films peuvent avoir le même titre. Deux personnes peuvent porter le même nom. Un **identifiant** permet de distinguer leurs lignes sans dépendre de ces ressemblances.
-
-Une clé primaire identifie chaque ligne de manière unique. Sa valeur doit être présente et rester stable. On peut proposer un champ `id` entier. La manière de produire ses valeurs sera précisée lors de la création de la base ; dessiner ce champ ne crée aucun mécanisme automatique.
-
 ## 4. Décrire chaque champ
 
 On complète les noms et les types par une longueur, un caractère obligatoire et un commentaire.
@@ -133,13 +127,13 @@ Un client peut passer plusieurs commandes ; un patient peut avoir plusieurs cons
 
 ## 6. Vérifier les propositions sur des exemples
 
-Pour le scénario choisi, on dessine les deux tables principales, on décrit leurs champs et on construit deux enregistrements fictifs par table, soit quatre au total. On vérifie manuellement la conservation de chaque valeur, la distinction des lignes et les effets des règles proposées. Les exemples permettent de justifier une décision ou de mettre en évidence une information manquante.
+Pour le scénario choisi, on dessine les deux tables principales, on décrit leurs champs et on construit deux enregistrements fictifs par table, soit quatre au total. On vérifie manuellement la conservation de chaque valeur, le sens des champs et les effets des règles proposées. Les exemples permettent de justifier une décision ou de mettre en évidence une information manquante.
 
 Pendant les exercices, les retours brefs permettent de préciser un champ, de vérifier un exemple ou de débloquer une difficulté. La correction collective des huit scénarios aura lieu à l’ouverture de la séance 3, pendant 40 minutes.
 
 ## 7. Bilan
 
-Chaque étudiant explique le sens d’une ligne de table, le rôle de son identifiant et les choix de types, de longueurs et de champs obligatoires. Chaque contrainte du scénario est reliée à une proposition ou à un besoin à traiter avec les relations.
+Chaque étudiant explique le sens d’une ligne de table, les renseignements conservés et les choix de types, de longueurs et de champs obligatoires. Chaque contrainte du scénario est reliée à une proposition ou à un besoin à traiter avec les relations.
 
 On conserve `papeterie_champs.xlsx`, avec les feuilles `champs`, `decisions` et `commandes` limitées à A1 et A2, et `session_02_tables`, qui rassemble la seconde partie. Aucun devoir ni achèvement à domicile n’est demandé. Apportez aussi vos propositions inachevées et vos questions. La correction collective des huit scénarios ouvre la séance 3 pendant 40 minutes, y compris pour les scénarios non traités par votre binôme.
 
