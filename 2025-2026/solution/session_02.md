@@ -1,6 +1,6 @@
 # Solution Session 2 : Exercices de modélisation des tables simples
 
-> **DEPRECATED BY [solution/session_03.md](../../solution/session_03.md)**
+> **DEPRECATED BY [solution/session_02.md](../../solution/session_02.md)**
 
 # Exercice 1 : Cinéma - Films et Acteurs
 

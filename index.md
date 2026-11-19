@@ -20,7 +20,7 @@ Les exercices commencent avec un même corpus de **42 documents culturels**, uti
 |---|---|---|
 | 1 | Définir, classer et retrouver | Classer les documents, rechercher des informations, comprendre le rôle d’une base de données et d’un SGBD. |
 | 2 | Décrire et représenter les propriétés | Identifier les champs, préciser leur sens et leurs types, saisir et vérifier les deux commandes A1 et A2 dans Excel, représenter des tables. |
-| 3 | CRUD sur une seule table | Ouvrir par la correction collective des huit scénarios de séance 2 (40 minutes), justifier le choix des champs, puis ajouter, lire, modifier et supprimer des données : INSERT, SELECT, UPDATE, DELETE. |
+| 3 | CRUD sur une seule table | Ouvrir par la correction collective des huit scénarios de séance 2 (40 minutes), construire une table personne par contextes, justifier les champs et pratiquer INSERT, SELECT, UPDATE, DELETE. Comparer ensuite les emplacements fixes de coordonnées avec des lignes liées, avant l’étude des clés et relations en séance 5. |
 | 4 | SELECT avancé | Filtres combinés, tri, valeurs distinctes, NULL, fonctions d’agrégation, GROUP BY et HAVING. |
 | 5 | Clés et relations | Clés primaires et étrangères, cardinalités, relations un-à-plusieurs et plusieurs-à-plusieurs, intégrité référentielle. |
 | 6 | Requêtes sur plusieurs tables | Jointures, qualification des colonnes, alias et agrégations portant sur plusieurs tables. |
@@ -47,7 +47,7 @@ La compréhension de l’utilité des index reste requise, même si leur approfo
 |---|---|---|
 | **1 - [Définir, classer et retrouver](session_01.md)** | 04/11 | 10/11 |
 | **2 - [Décrire et représenter les propriétés](session_02.md)** | 12/11 | 17/11 |
-| **3 - CRUD sur une seule table** | 19/11 | 24/11 |
+| **3 - [CRUD sur une seule table](session_03.md)** | 19/11 | 24/11 |
 | **4 - SELECT avancé** | 25/11 | 01/12 |
 | **5 - Clés et relations** | 26/11 | 08/12 |
 | **6 - Requêtes sur plusieurs tables** | 02/12 | 15/12 - matin |

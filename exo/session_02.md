@@ -22,11 +22,11 @@ Commencez avec deux colonnes :
 
 Comparez chaque exemple au document. Avez-vous conservé ses signes, ses espaces et sa précision ? Si Excel a modifié une valeur, cherchez comment la conserver telle qu’elle apparaît dans le document, puis vérifiez le résultat. Chaque champ répond-il à un besoin de la papeterie ?
 
-**Arrêtez-vous pour l’échange en classe.**
+Préparez un exemple de champ à discuter en classe, avec sa justification.
 
 ## 2. Préciser le sens, puis proposer un type
 
-Au signal du professeur, reprenez [A1](session_02_documents.html#titre-a1) et répondez :
+Reprenez [A1](session_02_documents.html#titre-a1) et répondez :
 
 1. Deux dates apparaissent. Que représente chacune ? Vos noms de champs permettent-ils de les distinguer ?
 2. Le montant `12,50 €` concerne-t-il un carnet ou les quatre carnets ? Votre champ permet-il de le comprendre ?
@@ -42,7 +42,7 @@ Créez maintenant une feuille `decisions` pour garder la trace des choix discut�
 |---|---|---|---|---|
 | | | | | |
 
-Au signal suivant, ajoutez **« Type proposé »** dans `champs`. Choisissez pour chaque champ une représentation : texte, nombre entier, nombre décimal ou date. Préparez une justification fondée sur l’usage de la valeur.
+Ajoutez ensuite **« Type proposé »** dans `champs`. Choisissez pour chaque champ une représentation : texte, nombre entier, nombre décimal ou date. Préparez une justification fondée sur l’usage de la valeur.
 
 ### Passer du dictionnaire aux deux commandes — 10 minutes
 
