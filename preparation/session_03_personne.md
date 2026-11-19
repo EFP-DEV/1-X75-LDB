@@ -1,8 +1,8 @@
 # Séance 3 — Exemple de table personne à construire par contextes
 
-[Cours](../session_03.md) · [Table et données SQL](session_03_personne.sql) · [Référentiel](../referentiel.md)
+[Cours](../session_03.md) · [Table de la classe et 24 fiches pour DB Fiddle](session_03_personne_classe.sql) · [Exemple à 58 champs](session_03_personne.sql) · [Référentiel](../referentiel.md)
 
-Avant la pause, la classe combine les schémas des huit exercices de séance 2 et travaille sur des tables vides. Le jeu ci-dessous sert aux manipulations SQL après la pause.
+Avant la pause, la classe combine les schémas des huit exercices de séance 2 et travaille sur des tables vides. Les exercices du cours utilisent les 23 champs du tableau construit en classe. Le jeu à 58 champs décrit ci-dessous sert de variante et prépare la comparaison des adresses en séance 4.
 
 **Une table de 58 champs et 24 fiches de précurseurs et pionniers du calcul et de l’informatique, dont dix femmes.** Le parcours va d’Al-Khwarizmi aux ordinateurs, aux langages, aux bases de données, au Web et aux cryptomonnaies. Une même personne revient dans plusieurs contextes. On ajoute les propriétés nécessaires à ces usages sans créer une nouvelle ligne pour chaque activité de la personne.
 
@@ -95,7 +95,7 @@ Une fiche indiquée « présentation commune » reste une personne à présenter
 
 Le fichier [session_03_personne.sql](session_03_personne.sql) contient la création de la table et les 24 fiches. Choisir MySQL 8 dans l’environnement utilisé et placer le script dans la partie de préparation du schéma et des données. Le lancement reste à effectuer par l’enseignant ; le script n’a pas été exécuté lors de sa rédaction.
 
-Pour le travail construit en classe, adapter les noms, types et valeurs à ce qui a été décidé. Les élèves retrouvent après la pause la table à laquelle ils ont contribué. Le fichier d’exemple peut également servir de solution de repli.
+Pour les exercices du cours, charger le [script à 23 champs](session_03_personne_classe.sql) dans un DB Fiddle vide. La requête `SELECT COUNT(*) FROM personne;` doit alors renvoyer 24. Les manipulations ci-dessous utilisent la variante à 58 champs, à charger dans un autre DB Fiddle.
 
 ## CRUD sur les mêmes personnes
 

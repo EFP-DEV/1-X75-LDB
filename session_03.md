@@ -96,68 +96,100 @@ Pendant la correction, proposez votre réponse ou votre question. Pour les autre
 6. Échangez vos schémas. Pour chacun des huit exercices, choisissez une demande de l’énoncé et montrez où trouver les informations nécessaires dans le schéma commun. Notez les demandes qui restent sans réponse.
 7. Remettez votre schéma annoté avant la pause. Justifiez un regroupement et une décision de garder deux tables séparées.
 
+### Tableau « Personne » construit en classe
+
+Les cases vides correspondent aux indications laissées en blanc en classe. La dernière colonne, intitulée ici « Contexte », reprend les mentions « acteur » et « patient ».
+
+| Champs | Type | Longueur | Obligatoire | Note | Contexte |
+|---|---|---|---|---|---|
+| `nationalite` | texte | 3 | non | code ISO | acteur |
+| `nom_prenom` | texte | 320 | oui | | acteur |
+| `date_de_naissance` | entier/date | | non | | patient |
+| `recompenses` | texte | 150 | non | | |
+| `film_phare` | texte | voir film | non | | |
+| `popularite` | | | | | |
+| `role_film_phare` | texte | | | peut différer du film phare | |
+| `biographie` | texte | TRÈS LONG | | fiche signalétique | |
+| `bibliographie` | texte | TRÈS LONG | | liste (attention0 | |
+| `fonction_editeur` | texte | 30 | oui | | |
+| `niveau_autorisation` | | | | | |
+| `fonction_medecin` | | | | | |
+| `code_postal` | | | | | |
+| `rue` | | | | | |
+| `ville` | | | | | |
+| `pays` | | | | | |
+| `code_postal_livraison` | | | | | |
+| `rue_livraison` | | | | | |
+| `ville_livraison` | | | | | |
+| `code_postal_facturation` | | | | | |
+| `dossier_medical` | | | | | |
+| `antecedent` | | | | | |
+| `allergies` | | | | | |
+
 ## Pause
 
-Pendant la pause, l’enseignant prépare la table `personne` et ses données dans DB Fiddle.
+Pendant la pause, l’enseignant ouvre un DB Fiddle vide en MySQL 8 et colle le [script de création et de remplissage de la table de la classe](preparation/session_03_personne_classe.sql) dans « Schema SQL ». Le script crée les 23 colonnes et charge 24 fiches de l’histoire du calcul et de l’informatique. Pour les exercices, `date_de_naissance` contient l’année seule. Les fonctions éditoriales, les droits, les votes et les adresses sont fictifs.
 
 ## 5. Utiliser les données avec SQL
 
-Ouvrez le lien DB Fiddle partagé par l’enseignant. Pour les quatre exemples, nous utilisons la table `personne` et deux de ses colonnes, `nom_complet` et `email_personnel`. Un texte s’écrit entre apostrophes. Chaque requête se termine par un point-virgule.
+Ouvrez le lien DB Fiddle partagé par l’enseignant. Dans « Query SQL », exécutez `SELECT COUNT(*) FROM personne;` pour vérifier que les 24 fiches sont présentes avant de commencer. Les quatre exemples utilisent les deux colonnes obligatoires du tableau, `nom_prenom` et `fonction_editeur`. Un texte s’écrit entre apostrophes. Chaque requête se termine par un point-virgule.
 
 ### Quatre exemples à suivre
 
 **1. Ajouter une fiche avec `INSERT`.** Après `INSERT INTO`, donnez le nom de la table et les colonnes à remplir. Après `VALUES`, écrivez les valeurs dans le même ordre.
 
 ```sql
-INSERT INTO personne (nom_complet, email_personnel)
-VALUES ('Lou Martin', 'lou@example.test');
+INSERT INTO personne (nom_prenom, fonction_editeur)
+VALUES ('Lou Martin', 'relecture');
 ```
 
-**2. Lire une fiche avec `SELECT`.** `SELECT` indique les colonnes à afficher, `FROM` la table à lire et `WHERE` la condition qui choisit les lignes. Ici, on demande le nom et l’email de Lou. Pour afficher ces colonnes pour tout le monde, on enlève la condition `WHERE`.
+**2. Lire une fiche avec `SELECT`.** `SELECT` indique les colonnes à afficher, `FROM` la table à lire et `WHERE` la condition qui choisit les lignes. Ici, on demande le nom et la fonction de Lou. Pour afficher ces colonnes pour tout le monde, on enlève la condition `WHERE`.
 
 ```sql
-SELECT nom_complet, email_personnel
+SELECT nom_prenom, fonction_editeur
 FROM personne
-WHERE nom_complet = 'Lou Martin';
+WHERE nom_prenom = 'Lou Martin';
 ```
 
 **3. Modifier une fiche avec `UPDATE`.** Après `UPDATE`, nommez la table. `SET` indique quelle colonne modifier et quelle valeur lui donner. Reprenez la condition du `SELECT` qui vous a permis de retrouver Lou.
 
 ```sql
 UPDATE personne
-SET email_personnel = 'lou.martin@example.test'
-WHERE nom_complet = 'Lou Martin';
+SET fonction_editeur = 'publication'
+WHERE nom_prenom = 'Lou Martin';
 ```
 
-Relancez le `SELECT`. Quel email voyez-vous maintenant ?
+Relancez le `SELECT`. Quelle fonction voyez-vous maintenant ?
 
 **4. Supprimer une fiche avec `DELETE`.** `DELETE FROM` indique la table dans laquelle supprimer des lignes. Vérifiez d’abord avec votre `SELECT` que la condition désigne uniquement la fiche voulue.
 
 ```sql
 DELETE FROM personne
-WHERE nom_complet = 'Lou Martin';
+WHERE nom_prenom = 'Lou Martin';
 ```
 
 Relancez le même `SELECT`. Combien de lignes obtenez-vous ? Dans un `UPDATE` ou un `DELETE`, enlever le `WHERE` ferait porter l’action sur toutes les lignes de la table.
 
 ### Dix exercices courts
 
-Travaillez individuellement dans votre copie de la table `personne`. Gardez les quatre modèles sous les yeux. Écrivez **une requête par consigne**, dans l’ordre, dans `session_03.sql`. Si DB Fiddle recommence avec la table de départ à chaque exécution, gardez vos requêtes précédentes dans le même bloc.
+Partez des 24 fiches de la table `personne`. Écrivez **une requête par consigne**, dans l’ordre, dans `session_03.sql`. Dans le bloc « Query SQL » de DB Fiddle, gardez les requêtes précédentes pour que chaque étape reprenne les modifications déjà faites.
 
-1. Ajoutez la fiche de Sam Diallo avec l’email `sam@example.test`.
-2. Ajoutez la fiche de Nina Roy avec l’email `nina@example.test`.
-3. Affichez les noms complets de toutes les personnes.
-4. Affichez uniquement l’email de Sam Diallo.
-5. Remplacez l’email de Sam Diallo par `sam.diallo@example.test`.
-6. Retrouvez le nom complet de la personne qui utilise `sam.diallo@example.test`.
-7. La personne qui utilise `nina@example.test` souhaite apparaître sous le nom **Nina Roy-Dubois**. Modifiez son nom complet.
-8. Affichez le nom complet et l’email de Nina Roy-Dubois.
-9. Supprimez la fiche de Nina Roy-Dubois.
-10. Recherchez le nom complet associé à `nina@example.test` pour vérifier la suppression.
+1. Un lecteur cherche le manuel écrit par Mary Allen Wilkes. Affichez la bibliographie de cette personne.
+2. Une notice porte la mention `Prix Turing 2008`. Retrouvez le nom de la personne qui a reçu cette récompense et affichez sa biographie.
+3. Qui est représenté dans le film `Hidden Figures` ? Affichez le nom de chaque personne et le contenu de `role_film_phare` pour lire qui l’interprète à l’écran.
+4. Dans le catalogue de la classe, quelles fiches ont exactement 12 votes ? Affichez leur nom et leur popularité.
+5. La fiche de Grace Hopper reçoit un vote supplémentaire. Portez sa popularité à 13 en ciblant son nom.
+6. Recherchez Grace Hopper par son nom et affichez sa popularité pour vérifier la mise à jour.
+7. Ajoutez une fiche provisoire pour Benedict Cumberbatch. Indiquez `The Imitation Game` comme film, `Alan Turing` comme rôle et `relecture` comme fonction éditoriale dans le catalogue.
+8. Retrouvez toutes les fiches associées à `The Imitation Game`. Pour chacune, affichez le nom et le rôle indiqué.
+9. Supprimez uniquement la fiche provisoire de Benedict Cumberbatch.
+10. Reprenez la requête de l’exercice 8. Vérifiez quelle fiche figure encore au catalogue pour ce film.
 
 ### Correction en classe
 
-Comparez vos requêtes pour les exercices 4 et 6. Quelle information connaissez-vous au départ ? Laquelle voulez-vous afficher ? Pour l’exercice 7, montrez où vous avez écrit la nouvelle valeur et où vous avez indiqué la fiche à modifier. Pour l’exercice 10, expliquez le résultat obtenu.
+- **Exercices 1 à 3.** La bibliographie de Mary Allen Wilkes indique `LAP6 Handbook`. Le prix Turing 2008 mène à Barbara Liskov. Pour `Hidden Figures`, vérifiez les deux interprétations dans vos résultats. Taraji P. Henson joue Katherine Johnson et Octavia Spencer joue Dorothy Vaughan.
+- **Exercices 4 à 6.** Alan Turing et Grace Hopper commencent chacun avec 12 votes. Après la mise à jour, Grace Hopper en a 13. Relancez la requête 4 pour vérifier qu’Alan Turing en a toujours 12. Pourquoi la condition `popularite = 12` aurait-elle modifié deux fiches à l’étape 5 ?
+- **Exercices 7 à 10.** La même recherche par film donne d’abord deux fiches, celle d’Alan Turing et celle de Benedict Cumberbatch. Après la suppression, elle renvoie uniquement celle d’Alan Turing. Expliquez pourquoi le titre du film convenait pour la recherche et pourquoi vous avez choisi le nom pour la suppression.
 
 ## 6. Bilan et questions
 
