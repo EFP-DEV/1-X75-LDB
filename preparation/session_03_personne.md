@@ -1,8 +1,8 @@
 # Séance 3 — Exemple de table personne à construire par contextes
 
-[Cours](../session_03.md) · [Table et données SQL](session_03_personne.sql) · [Passage aux coordonnées liées](session_03_personne_relationnel.sql) · [Référentiel](../referentiel.md)
+[Cours](../session_03.md) · [Table et données SQL](session_03_personne.sql) · [Référentiel](../referentiel.md)
 
-Cet exemple suit la démarche prévue en séance 3 : construire la table avec la classe, reprendre le schéma et les données pendant la pause, puis pratiquer le CRUD sur ce travail. Il constitue un exemple disponible pour l’enseignant ; les choix et les propositions de la classe peuvent produire une autre table.
+Avant la pause, la classe combine les schémas des huit exercices de séance 2 et travaille sur des tables vides. Le jeu ci-dessous sert aux manipulations SQL après la pause.
 
 **Une table de 58 champs et 24 fiches de précurseurs et pionniers du calcul et de l’informatique, dont dix femmes.** Le parcours va d’Al-Khwarizmi aux ordinateurs, aux langages, aux bases de données, au Web et aux cryptomonnaies. Une même personne revient dans plusieurs contextes. On ajoute les propriétés nécessaires à ces usages sans créer une nouvelle ligne pour chaque activité de la personne.
 
@@ -10,9 +10,9 @@ Les femmes sont présentes à plusieurs étapes de cette histoire : Ada Lovelace
 
 Les noms et les liens documentaires renvoient à des personnes réelles. **Toutes les coordonnées sont fictives**, dans une simulation contemporaine qui réunit volontairement des personnes de différentes époques. Les rues, téléphones et emails ne sont pas des renseignements biographiques. Les dates inconnues restent non renseignées.
 
-## Construire les besoins avant les colonnes
+## Comprendre les colonnes du jeu SQL
 
-Partir de quelques personnes et de ce que l’on cherche à savoir sur elles. Les propositions ci-dessous donnent des relances ; chaque nom est un exemple de passage entre contextes.
+Pour la prise en main du jeu SQL, chaque situation ci-dessous permet de retrouver une personne à partir d’une demande.
 
 | Contexte | Situation à proposer | Informations qui deviennent utiles |
 |---|---|---|
@@ -56,26 +56,7 @@ Les 58 colonnes sont numérotées dans le fichier SQL. Les groupes correspondent
 
 Le type `SMALLINT` conserve une année, sans inventer un jour ou un mois. Les téléphones et codes postaux sont des textes : les signes, espaces et zéros initiaux ne sont pas des quantités. `BOOLEAN` sert aux indicateurs de contexte. Les biographies et notes utilisent `TEXT`. Les longueurs des `VARCHAR` sont des hypothèses techniques pour cet exemple, à discuter selon les usages.
 
-Le nom complet et les indicateurs sont obligatoires ; les autres champs sont facultatifs dans cette première structure. Un `NULL` signifie qu’aucune valeur n’est renseignée : il ne permet pas à lui seul de distinguer une information inconnue d’une propriété sans objet. La note documentaire précise les cas discutés. Aucun identifiant unique n’est encore imposé dans la table initiale.
-
-## Faire apparaître le plafond de stockage
-
-Le parcours aboutit d’abord à **33 champs descriptifs**. Introduire ensuite les coordonnées, une demande à la fois : téléphone à domicile, au travail, mobile, numéro à prévenir en cas d’urgence, puis autre numéro.
-
-| Étape | Ajout | Total |
-|---|---|---|
-| Personne décrite dans plusieurs contextes | 33 champs | 33 |
-| Cinq téléphones | 5 colonnes | 38 |
-| Cinq adresses : rue, code postal, ville | 15 colonnes | 53 |
-| Cinq emails | 5 colonnes | **58** |
-
-À chaque étape, faire justifier l’ajout et demander ce qui justifie le nombre cinq. La multiplication des colonnes fait presque doubler la structure initiale ; elle impose toujours un plafond.
-
-La fiche de Turing porte cinq téléphones, cinq adresses et cinq emails fictifs. Le domicile et la facturation reprennent volontairement la même adresse dans deux emplacements distincts.
-
-Donner ensuite cette demande : **« Ajouter un deuxième téléphone professionnel : `+32 2 000 10 06`, sans perdre aucun des cinq numéros existants. »** Le champ `telephone_autre` est déjà occupé. Remplacer une valeur en ferait perdre une ; mettre deux numéros dans une cellule abandonnerait le principe d’une valeur par emplacement ; ajouter une colonne modifierait le schéma. La limite ne vient d’aucune règle du besoin.
-
-Reprendre avec une deuxième adresse de livraison : `31 rue des Cartes`, `1040`, `Etterbeek`, puis un deuxième email professionnel : `alan.projet@example.test`. Les mêmes limites réapparaissent. Les valeurs sont des ajouts proposés pour la démonstration ; elles ne figurent pas dans le jeu initial.
+Le nom complet et les indicateurs sont obligatoires. Les indicateurs ont la valeur zéro par défaut. Les autres champs sont facultatifs. Un `NULL` signifie qu’aucune valeur n’est renseignée.
 
 ## Jeu de données et observations prévues
 
@@ -203,72 +184,6 @@ SELECT nom_complet, annee_naissance FROM personne;
 ```
 
 La recherche de Lou ne doit plus retourner de ligne ; les 24 fiches initiales restent présentes. Le téléphone corrigé de McCarthy reste modifié : le nombre de lignes retrouve sa valeur initiale, mais tout l’état de la base n’est pas revenu à son état initial.
-
-## Comparer avec des coordonnées liées
-
-Repartir du jeu initial, puis charger [session_03_personne_relationnel.sql](session_03_personne_relationnel.sql). Le script copie les 24 fiches, leur attribue un identifiant et reprend chaque coordonnée renseignée dans la table correspondante. La grande table reste disponible pour la comparaison.
-
-| Table obtenue | Champs | Une ligne représente… |
-|---|---:|---|
-| `personne_relationnelle` | 34 | Une personne : les 33 champs descriptifs et son identifiant. |
-| `telephone` | 4 | Un numéro, son usage et son rattachement à une personne, avec son propre identifiant. |
-| `adresse` | 6 | Une adresse, son usage et son rattachement à une personne, avec son propre identifiant. |
-| `email` | 4 | Un email, son usage et son rattachement à une personne, avec son propre identifiant. |
-| **Total** | **48** | **Quatre tables, moins de champs, autant de coordonnées que nécessaire.** |
-
-Les données initiales donnent 24 personnes, dix lignes de téléphone, neuf lignes d’adresse et dix lignes d’email. Pour Turing, on retrouve cinq lignes dans chacune des trois tables de coordonnées. L’adresse de domicile et celle de facturation restent deux lignes avec des usages distincts.
-
-L’enseignant peut relever l’identifiant de Turing puis l’utiliser dans des lectures simples sur chaque table. Les sous-requêtes ci-dessous évitent de présumer la valeur attribuée à cet identifiant ; leur syntaxe ne constitue pas un attendu de la séance 3.
-
-```sql
-SELECT id, nom_complet FROM personne_relationnelle WHERE nom_complet = 'Alan Turing';
-
-SELECT usage_telephone, numero
-FROM telephone
-WHERE personne_id = (
-    SELECT id FROM personne_relationnelle WHERE nom_complet = 'Alan Turing'
-);
-
-INSERT INTO telephone (personne_id, usage_telephone, numero)
-SELECT id, 'professionnel', '+32 2 000 10 06'
-FROM personne_relationnelle WHERE nom_complet = 'Alan Turing';
-
-SELECT usage_telephone, numero
-FROM telephone
-WHERE personne_id = (
-    SELECT id FROM personne_relationnelle WHERE nom_complet = 'Alan Turing'
-);
-```
-
-Après un seul ajout, six lignes sont attendues pour Turing, dont deux numéros professionnels. Vérifier la présence des cinq numéros précédents et du nouveau. **On ajoute une ligne ; la structure reste identique.** Expliquer pourquoi le plafond de cinq a disparu.
-
-Pour prolonger la même démonstration :
-
-```sql
-INSERT INTO adresse (personne_id, usage_adresse, rue, code_postal, ville)
-SELECT id, 'livraison', '31 rue des Cartes', '1040', 'Etterbeek'
-FROM personne_relationnelle WHERE nom_complet = 'Alan Turing';
-
-INSERT INTO email (personne_id, usage_email, adresse_email)
-SELECT id, 'professionnel', 'alan.projet@example.test'
-FROM personne_relationnelle WHERE nom_complet = 'Alan Turing';
-
-SELECT usage_adresse, rue, code_postal, ville
-FROM adresse
-WHERE personne_id = (
-    SELECT id FROM personne_relationnelle WHERE nom_complet = 'Alan Turing'
-);
-
-SELECT usage_email, adresse_email
-FROM email
-WHERE personne_id = (
-    SELECT id FROM personne_relationnelle WHERE nom_complet = 'Alan Turing'
-);
-```
-
-Retrouver six adresses et six emails pour Turing, avec les anciennes valeurs conservées. Plusieurs coordonnées peuvent avoir le même usage : la structure ne remplace pas un plafond de cinq par une restriction à une seule coordonnée de chaque type.
-
-Cette comparaison porte sur les coordonnées. Les livres, films, activités, sources et autres propriétés multiples fourniront d’autres occasions de revoir le modèle. Leur normalisation complète reste à travailler selon la progression du module.
 
 ## Références des exemples
 

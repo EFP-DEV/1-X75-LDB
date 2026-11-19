@@ -129,12 +129,12 @@ Un client peut passer plusieurs commandes ; un patient peut avoir plusieurs cons
 
 Pour le scénario choisi, on dessine les deux tables principales, on décrit leurs champs et on construit deux enregistrements fictifs par table, soit quatre au total. On vérifie manuellement la conservation de chaque valeur, le sens des champs et les effets des règles proposées. Les exemples permettent de justifier une décision ou de mettre en évidence une information manquante.
 
-Pendant les exercices, les retours brefs permettent de préciser un champ, de vérifier un exemple ou de débloquer une difficulté. La correction collective des huit scénarios aura lieu à l’ouverture de la séance 3, pendant 40 minutes.
+Pendant les exercices, les retours brefs permettent de préciser un champ, de vérifier un exemple ou de débloquer une difficulté. La correction collective des huit scénarios aura lieu en séance 3, après la présentation de la méthode de choix des champs.
 
 ## 7. Bilan
 
 Chaque étudiant explique le sens d’une ligne de table, les renseignements conservés et les choix de types, de longueurs et de champs obligatoires. Chaque contrainte du scénario est reliée à une proposition ou à un besoin à traiter avec les relations.
 
-On conserve `papeterie_champs.xlsx`, avec les feuilles `champs`, `decisions` et `commandes` limitées à A1 et A2, et `session_02_tables`, qui rassemble la seconde partie. Aucun devoir ni achèvement à domicile n’est demandé. Apportez aussi vos propositions inachevées et vos questions. La correction collective des huit scénarios ouvre la séance 3 pendant 40 minutes, y compris pour les scénarios non traités par votre binôme.
+On conserve `papeterie_champs.xlsx`, avec les feuilles `champs`, `decisions` et `commandes` limitées à A1 et A2, et `session_02_tables`, qui rassemble la seconde partie. Aucun devoir ni achèvement à domicile n’est demandé. Apportez aussi vos propositions inachevées et vos questions. Vous participerez à la correction des huit scénarios, même ceux que votre binôme n’a pas préparés.
 
-Après cette correction, la séance 3 portera sur le choix des champs et la pratique du CRUD sur une seule table : ajouter, lire, modifier et supprimer des données. L’étude formelle des clés et des relations est prévue en séance 5.
+Après la correction, vous combinerez vos propositions pour construire la table `personne`, puis vous pratiquerez le CRUD sur cette table : ajouter, lire, modifier et supprimer des données. L’étude formelle des clés et des relations est prévue en séance 5.

@@ -65,7 +65,7 @@ Après avoir terminé la papeterie, continuez avec le même binôme. Choisissez 
 
 Le minimum comprend **deux enregistrements fictifs par table, soit quatre au total**, leur vérification manuelle et la justification des choix. Notez les tables supplémentaires, les relations nécessaires et les questions ouvertes sans devoir les développer. Chaque membre du binôme doit pouvoir expliquer individuellement une table.
 
-Pendant les exercices de séance 2, les retours brefs servent à préciser un champ, vérifier un exemple ou résoudre une difficulté. Ils sont distincts de la correction collective des huit scénarios, réservée à l’ouverture de la séance 3.
+Pendant les exercices de séance 2, les retours brefs servent à préciser un champ, vérifier un exemple ou résoudre une difficulté. Ils sont distincts de la correction collective des huit scénarios, prévue en séance 3 après la présentation de la méthode de choix des champs.
 
 ### Pour aller plus loin — facultatif
 
@@ -73,7 +73,7 @@ Lorsque le minimum est terminé et vérifié, choisissez soit de développer des
 
 ### Pour la séance 3 — aucun devoir
 
-Apportez `papeterie_champs.xlsx` et `session_02_tables`, y compris les propositions inachevées et les questions ouvertes. Aucun travail supplémentaire ni achèvement à domicile n’est demandé. La correction collective ouvrira la séance 3 pendant 40 minutes et portera sur les huit scénarios, même ceux que vous n’avez pas traités.
+Apportez `papeterie_champs.xlsx` et `session_02_tables`, y compris les propositions inachevées et les questions ouvertes. Aucun travail supplémentaire ni achèvement à domicile n’est demandé. En séance 3, vous découvrirez une méthode pour justifier vos choix de champs, puis vous l’utiliserez pour discuter les huit scénarios, même ceux que vous n’avez pas traités.
 
 ### Travail demandé sur les deux tables choisies
 

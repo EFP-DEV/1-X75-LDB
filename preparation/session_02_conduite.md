@@ -44,19 +44,19 @@ Pendant les exercices de séance 2, faire des retours brefs pour préciser un ch
 - [ ] Une fois le minimum vérifié, proposer au choix un approfondissement du même scénario ou un autre scénario avec deux tables. Ces travaux sont facultatifs.
 - [ ] Conserver le classeur de la papeterie et les dessins des tables, même inachevés, pour la séance 3. Aucun devoir ni achèvement à domicile n’est demandé.
 
-## Préparation de l’ouverture de la séance 3 — correction collective, 40 minutes
+## Préparation de la correction collective de la séance 3
 
-Ce bloc prépare l’ouverture de la séance 3 et ne fait pas partie du déroulement de séance 2. Les 40 minutes de correction sont réservées à la séance 3. En séance 2, chaque binôme prépare un scénario et vérifie ses deux tables. La discussion de séance 3 couvre aussi les scénarios non préparés et accueille les propositions inachevées.
+En séance 3, utiliser ces questions après avoir présenté la méthode de choix des champs. En séance 2, chaque binôme prépare un scénario et vérifie ses deux tables. La discussion de séance 3 couvre aussi les scénarios non préparés et accueille les propositions inachevées.
 
-- [ ] Cinéma — 15 min : demander qui utilise un service de films ou séries, puis comment on cherche un film. Faire émerger les informations à partir des réponses.
+- [ ] Cinéma : demander qui utilise un service de films ou séries, puis comment on cherche un film. Faire émerger les informations à partir des réponses.
 - [ ] Reprendre le film à revoir par son titre, le titre oublié mais l’acteur connu, puis l’affiche qui conduit au synopsis ou à la bande-annonce.
 - [ ] Faire préciser « récent » et « japonais » ; distinguer les informations sur le film et sur les personnes avant de dessiner les tables.
-- [ ] Librairie — 5 min : partir d’un achat, faire préciser le format et demander à quoi appartiennent prix, stock et référence.
-- [ ] Blog — 4 min : suivre la préparation d’un article jusqu’à sa publication ; faire questionner les rôles et les informations encore absentes.
-- [ ] Transport — 3 min : faire transporter une voiture vers le lieu où l’on voudrait vivre ; fournir les questions à rechercher et revenir aux pays, villes et équipements.
-- [ ] Langues — 7 min : fournir les premières questions, interrompre la routine et écrire `___, ___, ___` pour faire trouver LBA, LDB, LPB.
+- [ ] Librairie : partir d’un achat, faire préciser le format et demander à quoi appartiennent prix, stock et référence.
+- [ ] Blog : suivre la préparation d’un article jusqu’à sa publication ; faire questionner les rôles et les informations encore absentes.
+- [ ] Transport : faire transporter une voiture vers le lieu où l’on voudrait vivre ; fournir les questions à rechercher et revenir aux pays, villes et équipements.
+- [ ] Langues : fournir les premières questions, interrompre la routine et écrire `___, ___, ___` pour faire trouver LBA, LDB, LPB.
 - [ ] Relire la contrainte ISO, chercher « language ISO code », examiner l’introduction et les colonnes de Wikipédia, puis identifier la portée des sources Library of Congress et ISO 639-3. Le développement détaillé reste à préparer.
-- [ ] Commerce — 2 min : laisser la classe questionner un achat et la consultation d’une commande passée.
-- [ ] Hôpital — 2 min : laisser la classe questionner un rendez-vous et deux consultations successives à partir d’un cas fictif.
-- [ ] École — 2 min : laisser la classe questionner un horaire et un résultat académique.
+- [ ] Commerce : laisser la classe questionner un achat et la consultation d’une commande passée.
+- [ ] Hôpital : laisser la classe questionner un rendez-vous et deux consultations successives à partir d’un cas fictif.
+- [ ] École : laisser la classe questionner un horaire et un résultat académique.
 - [ ] Pour chaque situation, garder les décisions justifiées et les questions ouvertes. Une recherche non réalisée ne fournit pas une réponse.

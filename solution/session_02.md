@@ -1,16 +1,16 @@
 # Séance 2 — Construire les questions qui conduisent aux tables
 
-[Énoncé](../exo/session_02.md#3-dessiner-et-décrire-des-tables) · [Correction collective à l’ouverture de la séance 3](../session_03.md)
+[Énoncé](../exo/session_02.md#3-dessiner-et-décrire-des-tables) · [Correction collective en séance 3](../session_03.md#3-correction-collective-des-huit-scénarios-de-séance-2)
 
-Ce guide accompagne la correction collective des huit scénarios à l’ouverture de la séance 3. Les retours brefs pendant les exercices de séance 2 servent à accompagner les binômes ; ils ne remplacent pas cette correction. En séance 2, chaque binôme doit traiter un seul scénario librement choisi : deux tables principales et deux enregistrements fictifs par table. Les autres tables sont simplement notées ; approfondir ou traiter un autre scénario est facultatif. Aucun devoir ni achèvement à domicile n’est demandé. Accueillir les propositions inachevées et faire participer chacun aux scénarios qu’il n’a pas préparés. Les pistes ci-dessous dépassent donc le minimum individuel demandé.
+Ce guide accompagne la correction collective des huit scénarios en séance 3, après la présentation de la méthode de choix des champs. Les retours brefs pendant les exercices de séance 2 servent à accompagner les binômes ; ils ne remplacent pas cette correction. En séance 2, chaque binôme doit traiter un seul scénario librement choisi : deux tables principales et deux enregistrements fictifs par table. Les autres tables sont simplement notées ; approfondir ou traiter un autre scénario est facultatif. Aucun devoir ni achèvement à domicile n’est demandé. Accueillir les propositions inachevées et faire participer chacun aux scénarios qu’il n’a pas préparés. Les pistes ci-dessous dépassent donc le minimum individuel demandé.
 
 Ce guide accompagne une conversation. On part de ce que l’on veut faire, on cherche les renseignements nécessaires, puis on distingue les sujets et les événements à décrire. Les réponses proposées sont des possibilités : les relances suivent les réponses de la classe.
 
-La correction ouvre la séance 3 et dure **40 minutes**. Le cinéma reçoit 15 minutes pour installer la démarche ; la librairie 5, le blog 4, le transport 3, les langues 7, le commerce 2, l’hôpital 2 et l’école 2. Cette répartition décroissante selon les priorités pédagogiques reprend une allocation de Zipf arrondie. Les langues constituent un approfondissement volontaire au milieu du parcours.
+Le cinéma ouvre la correction et permet d’appliquer la méthode avec la classe. Le scénario des langues approfondit la recherche documentaire.
 
-Les noms en gras sont des propositions. Pour chaque champ : **quel type ? quelle longueur ou précision utile ? obligatoire ou facultatif, pourquoi ?** Les listes reprennent leur première apparition. Les liens entre sujets restent à représenter séparément.
+Les noms en gras sont des propositions. Pour chaque champ : **quel type ? quelle longueur ou précision utile ? obligatoire ou facultatif, pourquoi ?** Les listes reprennent leur première apparition.
 
-## 1. Cinéma — Choisir un film et le retrouver · 15 minutes
+## 1. Cinéma — Choisir un film et le retrouver
 
 ### Partir des usages
 
@@ -53,11 +53,7 @@ Relire l’énoncé : budget et biographie sont demandés. Le budget : pour quel
 
 Dessiner les cadres `film` et `acteur`. Qu’est-ce qui décrit le film ou l’acteur ? Qu’est-ce qui reste identique d’un film à l’autre ? La biographie reste dans `acteur`.
 
-Où décrire Gaspar Noé ? Un film peut-il avoir plusieurs réalisateurs ? Ajouter `realisateur` : une ligne par réalisateur. Faire formuler réalise et tracer les liens, y compris pour un film coréalisé.
-
-Plusieurs acteurs par film ? Plusieurs films par acteur ? Avec les films fictifs A et B et les acteurs X et Y, tracer A–X, A–Y et B–X. Faire lire : X et Y jouent dans A ; X joue aussi dans B.
-
-Conserver ces liens sur le dessin avec les verbes joue dans et réalise. Leur traduction en tables de liaison et en clés étrangères sera abordée en séance 5.
+Où décririez-vous Gaspar Noé ? Parmi les renseignements proposés, lesquels décrivent sa carrière ? Lesquels concernent un film précis ?
 
 Que représente exactement une ligne de chaque table ? Choisir ensuite un champ pour demander son type, son unité, son caractère obligatoire et la justification d’une éventuelle limite de longueur.
 
@@ -67,7 +63,7 @@ Que représente exactement une ligne de chaque table ? Choisir ensuite un champ 
 
 Pour chacun : **type ? longueur ou précision ? obligatoire ?** Justifier.
 
-## 2. Librairie — Obtenir le livre que l’on cherche · 5 minutes
+## 2. Librairie — Obtenir le livre que l’on cherche
 
 Pour acheter un livre, que demandez-vous au libraire ? → **`titre`**, **`nom_auteur`**, **`theme`**. Un souvenir de lecture peut orienter la recherche.
 
@@ -83,7 +79,7 @@ Comment retrouver les autres livres d’un auteur ? Et un livre coécrit ? L’a
 
 Pour chacun : **type ? longueur ou précision ? obligatoire ?** Justifier.
 
-## 3. Blog — Faire publier un article · 4 minutes
+## 3. Blog — Faire publier un article
 
 Votre article est inachevé : comment le conserver sur le site ? → **`contenu`**, **`etat`**.
 
@@ -99,7 +95,7 @@ Comment retrouver l’article ? Dans plusieurs rubriques ? → **`titre`**, `con
 
 Pour chacun : **type ? longueur ou précision ? obligatoire ?** Justifier.
 
-## 4. Transport — Faire transporter sa voiture · 3 minutes
+## 4. Transport — Faire transporter sa voiture
 
 Vous déménagez : que demander au transporteur pour acheminer votre voiture ?
 
@@ -125,7 +121,7 @@ Que savons-nous ? Que faut-il rechercher, et où ? → entreprise, site ou docum
 
 Pour chacun : **type ? longueur ou précision ? obligatoire ?** Justifier.
 
-## 5. Langues — Pourquoi approfondir ce sujet ? · 7 minutes
+## 5. Langues — Pourquoi approfondir ce sujet ?
 
 Comment reconnaître une langue ? → **`nom_langue`**. Où est-elle pratiquée ? → **`region`**. Comment s’écrit-elle ? → **`systeme_ecriture`**. Combien de locuteurs ? → **`nombre_locuteurs`**.
 
@@ -143,7 +139,7 @@ Puis arrêter la classe : Pourquoi approfondir cet exercice ?
 6. Consulter les références et suivre la [liste de la Library of Congress](https://www.loc.gov/standards/iso639-2/php/English_list.php). Constater qu’elle concerne ISO 639-2. Est-ce la source correspondant à la couverture que nous cherchons ?
 7. Chercher **iso 639-3 official**, identifier le [site ISO 639-3](https://iso639-3.sil.org/) et poursuivre la lecture à partir de la source officielle.
 
-Ce parcours fixe l’intention de l’enquête. Son développement détaillé, les définitions officielles et la suite de la lecture seront préparés séparément. Les sept minutes servent à engager cette lecture critique, sans promettre d’épuiser la documentation.
+Ce parcours fixe l’intention de l’enquête. Son développement détaillé, les définitions officielles et la suite de la lecture seront préparés séparément.
 
 **Trace :** conserver les questions et les sources correspondant à chaque convention. Quelle famille, quel statut ? → **`famille_linguistique`**, **`statut`**. Reprendre systèmes d’écriture, régions et estimation des locuteurs. Quelles réponses avons-nous trouvées ? Lesquelles restent à rechercher ? Qui compte, à quelle date, selon quelle définition ? → **`source_estimation`**, **`date_estimation`**, **`definition_locuteur`**. Ne pas recopier automatiquement les colonnes d’un site comme modèle définitif de l’application.
 
@@ -151,7 +147,7 @@ Ce parcours fixe l’intention de l’enquête. Son développement détaillé, l
 
 Pour chacun : **type ? longueur ou précision ? obligatoire ?** Justifier.
 
-## 6. Commerce — Commander et retrouver une commande · 2 minutes
+## 6. Commerce — Commander et retrouver une commande
 
 Que savoir pour commander ? Quelles données fournir pour la livraison et la facture ?
 
@@ -165,7 +161,7 @@ Prix ou adresse modifiés : que doit conserver l’ancienne commande ? → `prix
 
 Pour chacun : **type ? longueur ou précision ? obligatoire ?** Justifier.
 
-## 7. Hôpital — Prendre rendez-vous et revenir · 2 minutes
+## 7. Hôpital — Prendre rendez-vous et revenir
 
 Quel médecin, quel créneau ? → **`nom_medecin`**, **`date_heure_consultation`**. Puis, sur un cas fictif : que retrouver de la première consultation ? → **`observations`**.
 
@@ -179,17 +175,17 @@ Allergies non renseignées : aucune allergie ? Une consultation remplace-t-elle 
 
 Pour chacun : **type ? longueur ou précision ? obligatoire ?** Justifier.
 
-## 8. École — Trouver son cours et comprendre son résultat · 2 minutes
+## 8. École — Trouver son cours et comprendre son résultat
 
 Où et quand a lieu votre prochain cours ? → **`salle`**, **`date_heure_cours`**. Quelle note, sur combien ? → **`note`**, **`note_maximale`**.
 
 Quel cours ? → **`intitule_cours`**, **`code_cours`**. Quel département, combien de crédits ? → **`departement`**, **`credits`**. Quel étudiant, quelle évaluation, quelle session ? → **`nom_etudiant`**, **`intitule_evaluation`**, **`session`**.
 
-Deux homonymes : comment les distinguer ? → **`id_etudiant`**. Cours répété : quelle occurrence ? → **`id_occurrence_cours`**. Deuxième essai : comment conserver le premier ? → **`numero_tentative`**.
+Quel numéro figure sur la carte de l’étudiant ? → **`numero_etudiant`**. Un étudiant repasse une épreuve. Comment préciser à quel essai correspond la note ? → **`numero_tentative`**.
 
 **Trace :** les étudiants distinguent le cours, sa tenue à un moment donné, l’étudiant et le résultat à définir. Ils indiquent les règles à demander plutôt que de supposer ce que signifie une note absente.
 
-**Champs proposés, dans l’ordre :** `salle` → `date_heure_cours` → `note` → `note_maximale` → `intitule_cours` → `code_cours` → `departement` → `credits` → `nom_etudiant` → `intitule_evaluation` → `session` → `id_etudiant` → `id_occurrence_cours` → `numero_tentative`.
+**Champs proposés, dans l’ordre :** `salle` → `date_heure_cours` → `note` → `note_maximale` → `intitule_cours` → `code_cours` → `departement` → `credits` → `nom_etudiant` → `intitule_evaluation` → `session` → `numero_etudiant` → `numero_tentative`.
 
 Pour chacun : **type ? longueur ou précision ? obligatoire ?** Justifier.
 
@@ -197,6 +193,6 @@ Pour chacun : **type ? longueur ou précision ? obligatoire ?** Justifier.
 
 Pour reprendre chaque exercice, garder une courte chaîne écrite : **situation → question → information nécessaire → sujet ou événement décrit → décision justifiée**. Ajouter les hypothèses et les recherches encore nécessaires.
 
-Le dessin des tables vient de ces distinctions. On peut ensuite préciser ce que représente une ligne, comment la distinguer d’une autre et comment décrire ses champs : sens, type, unité, longueur et caractère obligatoire. Les relations sont exprimées en français à ce stade, sans SQL ni cardinalités imposées.
+Le dessin des tables vient de ces distinctions. Préciser ce que représente une ligne, puis décrire le sens, le type, l’unité, la longueur et le caractère obligatoire de ses champs.
 
 Pour les tables préparées, reprendre les deux enregistrements fictifs par table demandés dans l’exercice. Permettent-ils de répondre aux questions de départ ? Une information absente, plusieurs valeurs ou un second événement obligent-ils à revoir la proposition ? Expliquer la conséquence et le choix retenu constitue le résultat attendu.

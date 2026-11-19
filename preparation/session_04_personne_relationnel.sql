@@ -1,4 +1,4 @@
--- Séance 3 : comparaison avec des coordonnées dans des tables liées.
+-- Séance 4 : comparaison avec des coordonnées dans des tables liées.
 -- MySQL 8. Charger d'abord session_03_personne.sql, puis ce fichier.
 -- Partir du jeu initial avant les manipulations CRUD de la classe.
 -- La table personne reste disponible pour comparer les mêmes données.
@@ -126,4 +126,3 @@ ALTER TABLE personne_relationnelle
 -- 4 dans telephone, 6 dans adresse et 4 dans email : 48 au total.
 -- Aucune contrainte d'unicité sur (personne_id, usage) : deux téléphones
 -- professionnels ou deux adresses de livraison sont possibles.
--- Le guide fournit les lectures et l'ajout d'un sixième téléphone.
